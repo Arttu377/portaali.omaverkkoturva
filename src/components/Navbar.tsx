@@ -37,7 +37,7 @@ const Navbar = () => {
   };
 
   return (
-    <motion.nav className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full", isScrolled ? "bg-white shadow-sm" : "bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900")} initial={{
+    <motion.nav className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full", isScrolled ? "bg-white shadow-sm" : "bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950")} initial={{
       opacity: 1,
       y: 0
     }} animate={{
@@ -112,7 +112,7 @@ const Navbar = () => {
                 
                 <NavigationMenuItem>
                   <Link to="/kirjaudu">
-                    <button className={cn("px-4 py-2 rounded-md transition-colors font-medium", isScrolled ? "bg-gray-200 text-gray-700 hover:bg-gray-300" : "bg-gray-700 text-white hover:bg-gray-600")}>
+                    <button className={cn("px-4 py-2 rounded-md transition-colors font-medium", isScrolled ? "bg-gray-200 text-gray-700 hover:bg-gray-300" : "bg-blue-600 text-white hover:bg-blue-700")}>
                       Kirjaudu
                     </button>
                   </Link>
@@ -132,7 +132,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu - Reduced height and simplified */}
       <div className={cn("md:hidden transition-all duration-300 overflow-hidden w-full", isMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0")}>
-        <div className={cn("px-3 pt-2 pb-3 space-y-1 shadow-sm overflow-y-auto max-h-80", isScrolled ? "bg-white" : "bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900")}>
+        <div className={cn("px-3 pt-2 pb-3 space-y-1 shadow-sm overflow-y-auto max-h-80", isScrolled ? "bg-white" : "bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950")}>
           <Link to="/" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-white hover:bg-white/10")} onClick={() => {
             setIsMenuOpen(false);
             window.scrollTo(0, 0);
@@ -172,7 +172,7 @@ const Navbar = () => {
             Ota yhteyttä
           </button>
           
-          <Link to="/kirjaudu" className={cn("block px-3 py-1.5 rounded-md text-sm font-medium", isScrolled ? "bg-gray-200 text-gray-700 hover:bg-gray-300" : "bg-gray-700 text-white hover:bg-gray-600")} onClick={() => {
+          <Link to="/kirjaudu" className={cn("block px-3 py-1.5 rounded-md text-sm font-medium", isScrolled ? "bg-gray-200 text-gray-700 hover:bg-gray-300" : "bg-blue-600 text-white hover:bg-blue-700")} onClick={() => {
             setIsMenuOpen(false);
             window.scrollTo(0, 0);
           }}>
