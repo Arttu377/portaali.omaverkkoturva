@@ -250,7 +250,7 @@ const Hero = () => {
       </motion.div>
       
       <motion.div 
-        className="relative z-10 w-full bg-gradient-to-b from-blue-200 via-blue-900 to-blue-900 py-16"
+        className="relative z-10 w-full bg-gradient-to-b from-blue-900 via-blue-950 to-blue-900 py-16"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
