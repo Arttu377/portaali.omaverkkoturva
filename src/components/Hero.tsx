@@ -268,7 +268,8 @@ const Hero = () => {
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Jatkuva puheluliikenteen valvonta</h3>
                     <p className="text-gray-700 mb-2">Valvonta toimii taustalla 24/7 – et huomaa sitä ennen kuin sitä tarvitaan</p>
-                    <p className="text-gray-700">Palvelu analysoi tulevat puhelut jatkuvasti.</p>
+                    <p className="text-gray-700 mb-2">Palvelu analysoi tulevat puhelut jatkuvasti.</p>
+                    <p className="text-gray-700">Se vertaa niitä tunnettuihin huijausnumeroihin, epäilyttäviin puhelumalleihin ja käyttäjäyhteisön palautteeseen. Näin sinä voit käyttää puhelintasi rauhassa ilman huolta.</p>
                   </div>
                 </div>
               </motion.div>
