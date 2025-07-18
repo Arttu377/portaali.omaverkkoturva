@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="bg-white text-black py-8 w-full">
-      <div className="w-full px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left side - Company info */}
-          <div>
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
+          {/* Left side - Company info - Far left */}
+          <div className="max-w-md">
             <h2 className="text-xl font-bold mb-3">
               OmaVerkkoturva
             </h2>
@@ -26,8 +26,8 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Right side - Contact info in horizontal layout */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Right side - Contact info - Far right */}
+          <div className="flex flex-col md:flex-row gap-6 lg:gap-8">
             <div>
               <div className="flex items-center mb-2">
                 <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center mr-2">
