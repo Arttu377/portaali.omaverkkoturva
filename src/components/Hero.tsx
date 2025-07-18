@@ -53,11 +53,11 @@ const Hero = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-white"></div>
         </div>
         
-        <div className="banner-overlay bg-transparent pt-20 sm:pt-24 md:pt-32 w-full">
+        <div className="banner-overlay bg-transparent pt-16 sm:pt-20 md:pt-24 w-full">
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-4xl text-center" variants={itemVariants}>
               <motion.h1 className="banner-title text-white" variants={itemVariants}>Estä identiteettivarkaus ennen kuin se ehtii tapahtua.</motion.h1>
-              <motion.p className="banner-subtitle text-gray-300 mt-4 sm:mt-6" variants={itemVariants}>
+              <motion.p className="banner-subtitle text-white mt-4 sm:mt-6" variants={itemVariants}>
                 Suojaa rahasi ja henkilötietosi helposti yhdellä ratkaisulla.
               </motion.p>
               <motion.div className="flex justify-center mt-6 sm:mt-8" variants={itemVariants}>
