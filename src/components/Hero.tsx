@@ -81,7 +81,7 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="relative z-10 w-full bg-gradient-to-b from-white via-blue-100 to-blue-900 py-16">
+      <div className="relative z-10 w-full bg-gradient-to-b from-white via-blue-200 to-blue-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div className="text-center mb-12" variants={itemVariants}>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -94,7 +94,13 @@ const Hero = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <motion.div className="space-y-8" variants={containerVariants}>
-              <motion.div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-sm" variants={itemVariants}>
+              <motion.div 
+                className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-sm" 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
                     1
@@ -108,7 +114,13 @@ const Hero = () => {
                 </div>
               </motion.div>
               
-              <motion.div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-sm" variants={itemVariants}>
+              <motion.div 
+                className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-sm" 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
                     2
@@ -120,7 +132,13 @@ const Hero = () => {
                 </div>
               </motion.div>
               
-              <motion.div className="bg-white/70 backdrop-blur-sm p-6 rounded-lg shadow-sm" variants={itemVariants}>
+              <motion.div 
+                className="bg-white/70 backdrop-blur-sm p-6 rounded-lg shadow-sm" 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
                     3
@@ -133,7 +151,13 @@ const Hero = () => {
                 </div>
               </motion.div>
               
-              <motion.div className="bg-white/60 backdrop-blur-sm p-6 rounded-lg shadow-sm" variants={itemVariants}>
+              <motion.div 
+                className="bg-white/60 backdrop-blur-sm p-6 rounded-lg shadow-sm" 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
                     4
