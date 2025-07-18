@@ -81,7 +81,7 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="relative z-10 w-full bg-white py-16">
+      <div className="relative z-10 w-full bg-gradient-to-b from-white via-blue-50 to-blue-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div className="text-center mb-12" variants={itemVariants}>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -94,54 +94,54 @@ const Hero = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <motion.div className="space-y-8" variants={containerVariants}>
-              <motion.div className="bg-gray-50 p-6 rounded-lg" variants={itemVariants}>
+              <motion.div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-sm" variants={itemVariants}>
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
                     1
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Reaaliaikainen hälytys</h3>
-                    <p className="text-gray-600 mb-2">Saat ilmoituksen heti, jos tietosi vuotavat verkkoon</p>
-                    <p className="text-gray-600 mb-2">Palvelu suojaa sähköpostisi, henkilötunnuksesi tai maksukorttitietosi.</p>
-                    <p className="text-gray-600">Valvomme epäilyttävää luotonhakua tai osoitteenmuutoksia, jotka voivat olla merkki huijauksesta.</p>
+                    <p className="text-gray-700 mb-2">Saat ilmoituksen heti, jos tietosi vuotavat verkkoon</p>
+                    <p className="text-gray-700 mb-2">Palvelu suojaa sähköpostisi, henkilötunnuksesi tai maksukorttitietosi.</p>
+                    <p className="text-gray-700">Valvomme epäilyttävää luotonhakua tai osoitteenmuutoksia, jotka voivat olla merkki huijauksesta.</p>
                   </div>
                 </div>
               </motion.div>
               
-              <motion.div className="bg-gray-50 p-6 rounded-lg" variants={itemVariants}>
+              <motion.div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-sm" variants={itemVariants}>
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
                     2
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Saat ohjeet, mitä tehdä</h3>
-                    <p className="text-gray-600">Jos riski löytyy, saat heti selkeät toimintaohjeet (esim. kortin sulkeminen tai salasanan vaihto)</p>
+                    <p className="text-gray-700">Jos riski löytyy, saat heti selkeät toimintaohjeet (esim. kortin sulkeminen tai salasanan vaihto)</p>
                   </div>
                 </div>
               </motion.div>
               
-              <motion.div className="bg-gray-50 p-6 rounded-lg" variants={itemVariants}>
+              <motion.div className="bg-white/70 backdrop-blur-sm p-6 rounded-lg shadow-sm" variants={itemVariants}>
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
                     3
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Vakuutusturva</h3>
-                    <p className="text-gray-600 mb-2">Vakuutus jopa 13 500 euroon asti</p>
-                    <p className="text-gray-600">Kun identiteetti joutuu vaaraan, tilanteen hoitaminen voi viedä viikkoja ja maksaa tuhansia euroja. OmaVerkkoturvan vakuutus antaa mielenrauhaa silloinkin, kun pahin tapahtuu</p>
+                    <p className="text-gray-700 mb-2">Vakuutus jopa 13 500 euroon asti</p>
+                    <p className="text-gray-700">Kun identiteetti joutuu vaaraan, tilanteen hoitaminen voi viedä viikkoja ja maksaa tuhansia euroja. OmaVerkkoturvan vakuutus antaa mielenrauhaa silloinkin, kun pahin tapahtuu</p>
                   </div>
                 </div>
               </motion.div>
               
-              <motion.div className="bg-gray-50 p-6 rounded-lg" variants={itemVariants}>
+              <motion.div className="bg-white/60 backdrop-blur-sm p-6 rounded-lg shadow-sm" variants={itemVariants}>
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
+                  <div className="flex-shrink-0 w-8 h-8 bg-white text-blue-900 rounded-full flex items-center justify-center font-bold">
                     4
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Jatkuva valvonta</h3>
-                    <p className="text-gray-600 mb-2">Valvonta toimii ympäri vuorokauden</p>
-                    <p className="text-gray-600">Valvomme pimeää verkkoa (Dark Web), sosiaalista mediaa ja tietovuototietokantoja automaattisesti</p>
+                    <h3 className="text-xl font-semibold text-white mb-2">Jatkuva valvonta</h3>
+                    <p className="text-blue-100 mb-2">Valvonta toimii ympäri vuorokauden</p>
+                    <p className="text-blue-100">Valvomme pimeää verkkoa (Dark Web), sosiaalista mediaa ja tietovuototietokantoja automaattisesti</p>
                   </div>
                 </div>
               </motion.div>
