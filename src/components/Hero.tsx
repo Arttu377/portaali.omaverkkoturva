@@ -281,6 +281,29 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      
+      <div className="relative z-10 w-full bg-gradient-to-r from-blue-900 to-blue-800 py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Kokeile kuukausi ilmaiseksi ilman sitoutumista
+            </h2>
+            <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+              Tilauksesi peruuntuu automaattisesti kuukauden jälkeen
+            </p>
+            <button 
+              className="px-8 py-3 bg-white text-black rounded-md hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl font-medium"
+            >
+              Tuotteeseen
+            </button>
+          </motion.div>
+        </div>
+      </div>
     </motion.div>;
 };
 
