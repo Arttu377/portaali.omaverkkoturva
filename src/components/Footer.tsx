@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-b from-white via-blue-200 to-blue-900 text-black py-8 w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-8">
           {/* Left side - Company info */}
           <div className="max-w-md">
             <h2 className="text-xl font-bold mb-3 text-black">
@@ -26,47 +26,49 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Right side - Contact info */}
-          <div className="flex flex-col md:flex-row gap-6 lg:gap-8">
-            <div>
-              <div className="flex items-center mb-2">
-                <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center mr-2">
-                  <Mail className="w-4 h-4 text-blue-900" />
+          {/* Right side - Contact info - Bottom right */}
+          <div className="lg:self-end">
+            <div className="flex flex-col md:flex-row gap-6 lg:gap-8">
+              <div>
+                <div className="flex items-center mb-2">
+                  <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                    <Mail className="w-4 h-4 text-blue-900" />
+                  </div>
+                  <h3 className="text-sm font-semibold text-black">Yhteystiedot</h3>
                 </div>
-                <h3 className="text-sm font-semibold text-black">Yhteystiedot</h3>
+                <p className="text-black text-xs ml-10">
+                  info@omaverkkoturva.fi<br />
+                  020 123 4567
+                </p>
               </div>
-              <p className="text-black text-xs ml-10">
-                info@omaverkkoturva.fi<br />
-                020 123 4567
-              </p>
-            </div>
-            
-            <div>
-              <div className="flex items-center mb-2">
-                <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center mr-2">
-                  <MapPin className="w-4 h-4 text-blue-900" />
+              
+              <div>
+                <div className="flex items-center mb-2">
+                  <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                    <MapPin className="w-4 h-4 text-blue-900" />
+                  </div>
+                  <h3 className="text-sm font-semibold text-black">Toimisto</h3>
                 </div>
-                <h3 className="text-sm font-semibold text-black">Toimisto</h3>
+                <p className="text-black text-xs ml-10">
+                  Mannerheimintie 12<br />
+                  00100 Helsinki<br />
+                  Suomi
+                </p>
               </div>
-              <p className="text-black text-xs ml-10">
-                Mannerheimintie 12<br />
-                00100 Helsinki<br />
-                Suomi
-              </p>
-            </div>
-            
-            <div>
-              <div className="flex items-center mb-2">
-                <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center mr-2">
-                  <Phone className="w-4 h-4 text-blue-900" />
+              
+              <div>
+                <div className="flex items-center mb-2">
+                  <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                    <Phone className="w-4 h-4 text-blue-900" />
+                  </div>
+                  <h3 className="text-sm font-semibold text-black">Asiakaspalvelu</h3>
                 </div>
-                <h3 className="text-sm font-semibold text-black">Asiakaspalvelu</h3>
+                <p className="text-black text-xs ml-10">
+                  Ma-Pe 8:00-17:00<br />
+                  Suomenkielinen palvelu<br />
+                  Nopea vastaus
+                </p>
               </div>
-              <p className="text-black text-xs ml-10">
-                Ma-Pe 8:00-17:00<br />
-                Suomenkielinen palvelu<br />
-                Nopea vastaus
-              </p>
             </div>
           </div>
         </div>
