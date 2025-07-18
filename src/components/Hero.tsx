@@ -200,6 +200,86 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
+      
+      <div className="relative z-10 w-full bg-gradient-to-b from-blue-900 to-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div className="text-center mb-12" variants={itemVariants}>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Tuntemattomasta numerosta saapuvaan puheluun ei voi aina luottaa
+            </h2>
+            <p className="text-lg text-white/90">
+              Puheturva tekee puheluihin vastaamisesta turvallista
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="space-y-8">
+              <motion.div 
+                className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-sm" 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
+                    1
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Reaaliaikainen ilmoitus</h3>
+                    <p className="text-gray-700 mb-2">Saat ilmoituksen heti, kun epäilyttävä soitto havaitaan</p>
+                    <p className="text-gray-700 mb-2">OmaPuheturva tunnistaa puhelut, jotka voivat liittyä huijauksiin, puhelinmyyntiin tai muuhun epätoivottuun toimintaan.</p>
+                    <p className="text-gray-700">Saat hälytyksen heti, kun riski havaitaan ja ennen kuin vastaat puheluun.</p>
+                  </div>
+                </div>
+              </motion.div>
+              
+              <motion.div 
+                className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-sm" 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
+                    2
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Itseoppiva suoja</h3>
+                    <p className="text-gray-700 mb-2">Parviäly tunnistaa uhkia ja oppii jokaisesta soitosta</p>
+                    <p className="text-gray-700 mb-2">Palvelu hyödyntää tekoälyä ja yhteisön palautetta suojatakseen käyttäjää entistä paremmin.</p>
+                    <p className="text-gray-700">Mitä enemmän käyttäjät raportoivat haitallisia puheluja, sitä älykkäämmäksi ja tarkemmaksi järjestelmä kehittyy.</p>
+                  </div>
+                </div>
+              </motion.div>
+              
+              <motion.div 
+                className="bg-white/70 backdrop-blur-sm p-6 rounded-lg shadow-sm" 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
+                    3
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Jatkuva puheluliikenteen valvonta</h3>
+                    <p className="text-gray-700 mb-2">Valvonta toimii taustalla 24/7 – et huomaa sitä ennen kuin sitä tarvitaan</p>
+                    <p className="text-gray-700">Palvelu analysoi tulevat puhelut jatkuvasti.</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+            
+            <div className="lg:flex lg:items-center lg:justify-center">
+              {/* Right side left empty for future content */}
+            </div>
+          </div>
+        </div>
+      </div>
     </motion.div>;
 };
 
