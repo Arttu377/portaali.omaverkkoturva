@@ -55,7 +55,7 @@ const Hero = () => {
         
         <div className="banner-overlay bg-transparent pt-8 sm:pt-12 md:pt-16 w-full">
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full">
-            <motion.div className="w-full max-w-2xl text-left" variants={itemVariants}>
+            <motion.div className="w-full max-w-2xl text-left ml-8" variants={itemVariants}>
               <motion.h1 className="banner-title text-white" variants={itemVariants}>Estä identiteettivarkaus ennen kuin se ehtii tapahtua.</motion.h1>
               <motion.p className="banner-subtitle text-white mt-4 sm:mt-6" variants={itemVariants}>
                 Suojaa rahasi ja henkilötietosi helposti yhdellä ratkaisulla.
@@ -84,10 +84,10 @@ const Hero = () => {
       <div className="relative z-10 w-full bg-gradient-to-b from-white via-blue-100 to-blue-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div className="text-center mb-12" variants={itemVariants}>
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Suojaa identiteettisi modernilla teknologialla
             </h2>
-            <p className="text-lg text-blue-800">
+            <p className="text-lg text-gray-700">
               OmaVerkkoturva tarjoaa kattavan suojan henkilötiedoillesi
             </p>
           </motion.div>
@@ -133,15 +133,15 @@ const Hero = () => {
                 </div>
               </motion.div>
               
-              <motion.div className="bg-white/60 backdrop-blur-sm p-6 rounded-lg shadow-sm" variants={itemVariants}>
+              <motion.div className="bg-blue-900/90 backdrop-blur-sm p-6 rounded-lg shadow-sm" variants={itemVariants}>
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-white text-blue-900 rounded-full flex items-center justify-center font-bold">
                     4
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Jatkuva valvonta</h3>
-                    <p className="text-blue-100 mb-2">Valvonta toimii ympäri vuorokauden</p>
-                    <p className="text-blue-100">Valvomme pimeää verkkoa (Dark Web), sosiaalista mediaa ja tietovuototietokantoja automaattisesti</p>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Jatkuva valvonta</h3>
+                    <p className="text-gray-700 mb-2">Valvonta toimii ympäri vuorokauden</p>
+                    <p className="text-gray-700">Valvomme pimeää verkkoa (Dark Web), sosiaalista mediaa ja tietovuototietokantoja automaattisesti</p>
                   </div>
                 </div>
               </motion.div>
