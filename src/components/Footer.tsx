@@ -7,8 +7,8 @@ const Footer = () => {
     <footer className="bg-gradient-to-b from-white via-blue-200 to-blue-900 text-black py-8 w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-8">
-          {/* Left side - Company info */}
-          <div className="max-w-md">
+          {/* Left side - Company info - Wider area */}
+          <div className="lg:w-1/2 lg:pr-8">
             <h2 className="text-xl font-bold mb-3 text-black">
               OmaVerkkoturva
             </h2>
