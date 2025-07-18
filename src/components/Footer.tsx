@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-black py-8 w-full">
+    <footer className="bg-gradient-to-b from-white via-blue-200 to-blue-900 text-black py-8 w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
           {/* Left side - Company info - Far left */}
