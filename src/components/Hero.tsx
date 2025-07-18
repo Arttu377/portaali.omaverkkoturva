@@ -133,9 +133,9 @@ const Hero = () => {
                 </div>
               </motion.div>
               
-              <motion.div className="bg-blue-900/90 backdrop-blur-sm p-6 rounded-lg shadow-sm" variants={itemVariants}>
+              <motion.div className="bg-white/60 backdrop-blur-sm p-6 rounded-lg shadow-sm" variants={itemVariants}>
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-white text-blue-900 rounded-full flex items-center justify-center font-bold">
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
                     4
                   </div>
                   <div>
