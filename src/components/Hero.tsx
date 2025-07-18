@@ -250,7 +250,7 @@ const Hero = () => {
       </motion.div>
       
       <motion.div 
-        className="relative z-10 w-full bg-white py-16"
+        className="relative z-10 w-full bg-gradient-to-b from-blue-200 via-blue-900 to-blue-900 py-16"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
@@ -259,7 +259,7 @@ const Hero = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div variants={fadeInUpVariants}>
             <motion.h2 
-              className="text-3xl md:text-4xl font-bold text-black mb-6"
+              className="text-3xl md:text-4xl font-bold text-white mb-6"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -268,7 +268,7 @@ const Hero = () => {
               Kokeile veloituksetta, ovatko tietosi vaarantuneet
             </motion.h2>
             <motion.p 
-              className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto"
+              className="text-lg text-white mb-8 max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -277,7 +277,7 @@ const Hero = () => {
               Et jää yksin vahingon sattuessa. Autamme sinua sekä käytännössä että taloudellisesti.
             </motion.p>
             <motion.button 
-              className="px-8 py-3 bg-gradient-to-r from-blue-900 to-blue-800 text-white rounded-md hover:from-blue-800 hover:to-blue-700 transition-all duration-500 shadow-lg hover:shadow-xl hover:shadow-blue-500/20 font-medium"
+              className="px-8 py-3 bg-white text-black rounded-md hover:bg-gray-100 transition-all duration-500 shadow-lg hover:shadow-xl font-medium"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
