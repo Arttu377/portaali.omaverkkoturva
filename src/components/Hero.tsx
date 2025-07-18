@@ -45,24 +45,12 @@ const Hero = () => {
   return <motion.div className="relative w-full" initial="hidden" animate="visible" variants={containerVariants}>
       <div className="banner-container bg-black relative overflow-hidden h-screen w-full">
         <div className="absolute inset-0 bg-black w-full">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            preload="metadata"
-            className={`w-full h-full object-cover opacity-70 grayscale ${isMobile ? 'object-right' : 'object-center'}`}
-            poster="/lovable-uploads/4bfa0d71-3ed2-4693-90b6-35142468907f.png"
-          >
-            <source src="/lovable-uploads/video_1751292840840_1751292842546.mp4" type="video/mp4" />
-            {/* Fallback image if video fails to load */}
-            <img 
-              src="/lovable-uploads/4bfa0d71-3ed2-4693-90b6-35142468907f.png" 
-              alt="WRLDS Technologies Connected People" 
-              className={`w-full h-full object-cover opacity-70 grayscale ${isMobile ? 'object-right' : 'object-center'}`} 
-            />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-white"></div>
+          <img 
+            src="/lovable-uploads/30473baa-85f4-4931-aad9-c722ae7a4918.png" 
+            alt="Identity Protection Background" 
+            className={`w-full h-full object-cover ${isMobile ? 'object-right' : 'object-center'}`} 
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-white"></div>
         </div>
         
         <div className="banner-overlay bg-transparent pt-20 sm:pt-24 md:pt-32 w-full">
@@ -74,7 +62,7 @@ const Hero = () => {
               </motion.p>
               <motion.div className="flex justify-center mt-6 sm:mt-8" variants={itemVariants}>
                 <button 
-                  className="w-full sm:w-auto min-h-[44px] px-6 sm:px-8 py-3 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-all shadow-lg hover:shadow-xl hover:shadow-gray-300/20 flex items-center justify-center group text-sm sm:text-base font-medium"
+                  className="w-full sm:w-auto min-h-[44px] px-6 sm:px-8 py-3 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-md hover:from-slate-800 hover:to-slate-700 transition-all shadow-lg hover:shadow-xl hover:shadow-slate-500/20 flex items-center justify-center group text-sm sm:text-base font-medium"
                   onClick={e => {
                     e.preventDefault();
                     const projectsSection = document.getElementById('projects');
