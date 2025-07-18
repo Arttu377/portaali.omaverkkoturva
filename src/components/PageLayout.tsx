@@ -23,9 +23,7 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
     <div className="min-h-screen bg-white w-full max-w-[100vw] overflow-x-hidden">
       <Navbar />
       {children}
-      {showContact && <ContactInfo />}
       <Footer />
-      {showContact && <FloatingContactButton />}
     </div>
   );
 };
