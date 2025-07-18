@@ -54,13 +54,13 @@ const Hero = () => {
         </div>
         
         <div className="banner-overlay bg-transparent pt-8 sm:pt-12 md:pt-16 w-full">
-          <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
-            <motion.div className="w-full max-w-4xl text-center" variants={itemVariants}>
+          <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full">
+            <motion.div className="w-full max-w-2xl text-left" variants={itemVariants}>
               <motion.h1 className="banner-title text-white" variants={itemVariants}>Estä identiteettivarkaus ennen kuin se ehtii tapahtua.</motion.h1>
               <motion.p className="banner-subtitle text-white mt-4 sm:mt-6" variants={itemVariants}>
                 Suojaa rahasi ja henkilötietosi helposti yhdellä ratkaisulla.
               </motion.p>
-              <motion.div className="flex justify-center mt-6 sm:mt-8" variants={itemVariants}>
+              <motion.div className="flex justify-start mt-6 sm:mt-8" variants={itemVariants}>
                 <button 
                   className="w-full sm:w-auto min-h-[44px] px-6 sm:px-8 py-3 bg-gradient-to-r from-blue-900 to-blue-800 text-white rounded-md hover:from-blue-800 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-500/20 flex items-center justify-center group text-sm sm:text-base font-medium"
                   onClick={e => {
@@ -74,7 +74,6 @@ const Hero = () => {
                   }}
                 >
                   Tutustu tästä
-                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </motion.div>
             </motion.div>
@@ -82,34 +81,77 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 mx-auto">
-        <motion.div className="mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4" variants={containerVariants} initial="hidden" animate="visible" transition={{
-        delay: 0.6
-      }}>
-          <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Cpu className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Smart Textiles</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Intelligent fabric sensors that seamlessly integrate into clothing and footwear.</p>
+      <div className="relative z-10 w-full bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div className="text-center mb-12" variants={itemVariants}>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Suojaa identiteettisi modernilla teknologialla
+            </h2>
+            <p className="text-lg text-gray-600">
+              OmaVerkkoturva tarjoaa kattavan suojan henkilötiedoillesi
+            </p>
           </motion.div>
           
-          <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Code className="w-5 h-5 md:w-6 md:h-6" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <motion.div className="space-y-8" variants={containerVariants}>
+              <motion.div className="bg-gray-50 p-6 rounded-lg" variants={itemVariants}>
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
+                    1
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Reaaliaikainen hälytys</h3>
+                    <p className="text-gray-600 mb-2">Saat ilmoituksen heti, jos tietosi vuotavat verkkoon</p>
+                    <p className="text-gray-600 mb-2">Palvelu suojaa sähköpostisi, henkilötunnuksesi tai maksukorttitietosi.</p>
+                    <p className="text-gray-600">Valvomme epäilyttävää luotonhakua tai osoitteenmuutoksia, jotka voivat olla merkki huijauksesta.</p>
+                  </div>
+                </div>
+              </motion.div>
+              
+              <motion.div className="bg-gray-50 p-6 rounded-lg" variants={itemVariants}>
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
+                    2
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Saat ohjeet, mitä tehdä</h3>
+                    <p className="text-gray-600">Jos riski löytyy, saat heti selkeät toimintaohjeet (esim. kortin sulkeminen tai salasanan vaihto)</p>
+                  </div>
+                </div>
+              </motion.div>
+              
+              <motion.div className="bg-gray-50 p-6 rounded-lg" variants={itemVariants}>
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
+                    3
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Vakuutusturva</h3>
+                    <p className="text-gray-600 mb-2">Vakuutus jopa 13 500 euroon asti</p>
+                    <p className="text-gray-600">Kun identiteetti joutuu vaaraan, tilanteen hoitaminen voi viedä viikkoja ja maksaa tuhansia euroja. OmaVerkkoturvan vakuutus antaa mielenrauhaa silloinkin, kun pahin tapahtuu</p>
+                  </div>
+                </div>
+              </motion.div>
+              
+              <motion.div className="bg-gray-50 p-6 rounded-lg" variants={itemVariants}>
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold">
+                    4
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Jatkuva valvonta</h3>
+                    <p className="text-gray-600 mb-2">Valvonta toimii ympäri vuorokauden</p>
+                    <p className="text-gray-600">Valvomme pimeää verkkoa (Dark Web), sosiaalista mediaa ja tietovuototietokantoja automaattisesti</p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+            
+            <div className="lg:flex lg:items-center lg:justify-center">
+              {/* Right side left empty for future content */}
             </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Adaptive AI</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Industry-specific algorithms that transform textile sensor data into meaningful insights.</p>
-          </motion.div>
-          
-          <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Layers className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Cross-Industry</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Solutions for sports, military, healthcare, industrial, and professional environments.</p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </motion.div>;
 };
