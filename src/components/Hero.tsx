@@ -93,7 +93,7 @@ const Hero = () => {
           </motion.div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <motion.div className="space-y-8" variants={containerVariants}>
+            <div className="space-y-8">
               <motion.div 
                 className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-sm" 
                 initial={{ opacity: 0, x: -50 }}
@@ -169,7 +169,7 @@ const Hero = () => {
                   </div>
                 </div>
               </motion.div>
-            </motion.div>
+            </div>
             
             <div className="lg:flex lg:items-center lg:justify-center">
               {/* Right side left empty for future content */}
