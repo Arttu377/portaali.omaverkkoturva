@@ -4,24 +4,18 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-black py-16 w-full">
+    <footer className="bg-white text-black py-8 w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left side - Company info */}
           <div>
-            <h2 className="text-2xl font-bold mb-4">
+            <h2 className="text-xl font-bold mb-3">
               OmaVerkkoturva
             </h2>
-            <div className="space-y-4 text-base leading-relaxed">
+            <div className="space-y-3 text-sm leading-relaxed">
               <p>
-                <strong>OmaVerkkoturva</strong> on suomalainen yritys, joka on erikoistunut identiteettisuojaan ja verkkoturvallisuuteen. 
+                OmaVerkkoturva on suomalainen yritys, joka on erikoistunut identiteettisuojaan ja verkkoturvallisuuteen. 
                 Missiomme on suojata ihmisten henkilötietoja ja estää identiteettivarkauksia ennen kuin ne ehtivät tapahtua.
-              </p>
-              
-              <p>
-                Tarjoamme kattavan suojan henkilötiedoillesi modernin teknologian avulla. 
-                Palvelumme valvoo jatkuvasti verkossa liikkuvia tietojasi ja hälyttää heti, 
-                jos tietosi ovat vaarantuneet tai niitä käytetään väärin.
               </p>
               
               <p>
@@ -32,29 +26,29 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Right side - Contact info */}
-          <div className="grid grid-cols-1 gap-6">
+          {/* Right side - Contact info in horizontal layout */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <div className="flex items-center mb-3">
-                <div className="bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center mr-3">
-                  <Mail className="w-5 h-5 text-blue-900" />
+              <div className="flex items-center mb-2">
+                <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                  <Mail className="w-4 h-4 text-blue-900" />
                 </div>
-                <h3 className="text-lg font-semibold">Yhteystiedot</h3>
+                <h3 className="text-sm font-semibold">Yhteystiedot</h3>
               </div>
-              <p className="text-gray-600 text-sm ml-13">
+              <p className="text-gray-600 text-xs ml-10">
                 info@omaverkkoturva.fi<br />
                 020 123 4567
               </p>
             </div>
             
             <div>
-              <div className="flex items-center mb-3">
-                <div className="bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center mr-3">
-                  <MapPin className="w-5 h-5 text-blue-900" />
+              <div className="flex items-center mb-2">
+                <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                  <MapPin className="w-4 h-4 text-blue-900" />
                 </div>
-                <h3 className="text-lg font-semibold">Toimisto</h3>
+                <h3 className="text-sm font-semibold">Toimisto</h3>
               </div>
-              <p className="text-gray-600 text-sm ml-13">
+              <p className="text-gray-600 text-xs ml-10">
                 Mannerheimintie 12<br />
                 00100 Helsinki<br />
                 Suomi
@@ -62,13 +56,13 @@ const Footer = () => {
             </div>
             
             <div>
-              <div className="flex items-center mb-3">
-                <div className="bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center mr-3">
-                  <Phone className="w-5 h-5 text-blue-900" />
+              <div className="flex items-center mb-2">
+                <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                  <Phone className="w-4 h-4 text-blue-900" />
                 </div>
-                <h3 className="text-lg font-semibold">Asiakaspalvelu</h3>
+                <h3 className="text-sm font-semibold">Asiakaspalvelu</h3>
               </div>
-              <p className="text-gray-600 text-sm ml-13">
+              <p className="text-gray-600 text-xs ml-10">
                 Ma-Pe 8:00-17:00<br />
                 Suomenkielinen palvelu<br />
                 Nopea vastaus
