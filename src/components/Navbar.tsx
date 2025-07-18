@@ -37,7 +37,7 @@ const Navbar = () => {
   };
 
   return (
-    <motion.nav className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full", isScrolled ? "bg-white shadow-sm" : "bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950")} initial={{
+    <motion.nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 w-full" initial={{
       opacity: 1,
       y: 0
     }} animate={{
@@ -48,7 +48,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <span className={cn("text-xl font-bold", isScrolled ? "text-gray-900" : "text-white")}>
+              <span className="text-xl font-bold text-white">
                 OmaVerkkoturva
               </span>
             </Link>
@@ -56,18 +56,18 @@ const Navbar = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <NavigationMenu className={cn(isScrolled ? "" : "text-white")}>
+            <NavigationMenu className="text-white">
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <Link to="/">
-                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-white hover:text-gray-200 bg-transparent hover:bg-white/10")}>
+                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-white hover:text-gray-200 bg-transparent hover:bg-white/10")}>
                       Etusivu
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={cn(isScrolled ? "text-gray-700 hover:text-gray-900" : "text-white hover:text-gray-200 bg-transparent hover:bg-white/10")}>
+                  <NavigationMenuTrigger className="text-white hover:text-gray-200 bg-transparent hover:bg-white/10">
                     Tuotteet
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -90,7 +90,7 @@ const Navbar = () => {
                 
                 <NavigationMenuItem>
                   <Link to="/meista">
-                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-white hover:text-gray-200 bg-transparent hover:bg-white/10")}>
+                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-white hover:text-gray-200 bg-transparent hover:bg-white/10")}>
                       Meistä
                     </NavigationMenuLink>
                   </Link>
@@ -98,21 +98,21 @@ const Navbar = () => {
                 
                 <NavigationMenuItem>
                   <Link to="/artikkelit">
-                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-white hover:text-gray-200 bg-transparent hover:bg-white/10")}>
+                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-white hover:text-gray-200 bg-transparent hover:bg-white/10")}>
                       Artikkelit
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <button onClick={() => scrollToSection('contact')} className={cn("px-4 py-2 rounded-md transition-colors", isScrolled ? "text-gray-700 hover:text-gray-900 bg-transparent hover:bg-gray-100" : "text-white hover:text-gray-200 bg-transparent hover:bg-white/10")}>
+                  <button onClick={() => scrollToSection('contact')} className="px-4 py-2 rounded-md transition-colors text-white hover:text-gray-200 bg-transparent hover:bg-white/10">
                     Ota yhteyttä
                   </button>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
                   <Link to="/kirjaudu">
-                    <button className={cn("px-4 py-2 rounded-md transition-colors font-medium", isScrolled ? "bg-gray-200 text-gray-700 hover:bg-gray-300" : "bg-blue-600 text-white hover:bg-blue-700")}>
+                    <button className="px-4 py-2 rounded-md transition-colors font-medium bg-blue-600 text-white hover:bg-blue-700">
                       Kirjaudu
                     </button>
                   </Link>
@@ -123,56 +123,56 @@ const Navbar = () => {
           
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button onClick={toggleMenu} className={cn("focus:outline-none", isScrolled ? "text-gray-700" : "text-white")}>
+            <button onClick={toggleMenu} className="focus:outline-none text-white">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation Menu - Reduced height and simplified */}
+      {/* Mobile Navigation Menu */}
       <div className={cn("md:hidden transition-all duration-300 overflow-hidden w-full", isMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0")}>
-        <div className={cn("px-3 pt-2 pb-3 space-y-1 shadow-sm overflow-y-auto max-h-80", isScrolled ? "bg-white" : "bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950")}>
-          <Link to="/" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-white hover:bg-white/10")} onClick={() => {
+        <div className="px-3 pt-2 pb-3 space-y-1 shadow-sm overflow-y-auto max-h-80 bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950">
+          <Link to="/" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
             setIsMenuOpen(false);
             window.scrollTo(0, 0);
           }}>
             Etusivu
           </Link>
           
-          <Link to="/identiteettiturva" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-white hover:bg-white/10")} onClick={() => {
+          <Link to="/identiteettiturva" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
             setIsMenuOpen(false);
             window.scrollTo(0, 0);
           }}>
             Identiteettiturva
           </Link>
           
-          <Link to="/puheturva" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-white hover:bg-white/10")} onClick={() => {
+          <Link to="/puheturva" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
             setIsMenuOpen(false);
             window.scrollTo(0, 0);
           }}>
             Puheturva
           </Link>
           
-          <Link to="/meista" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-white hover:bg-white/10")} onClick={() => {
+          <Link to="/meista" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
             setIsMenuOpen(false);
             window.scrollTo(0, 0);
           }}>
             Meistä
           </Link>
           
-          <Link to="/artikkelit" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-white hover:bg-white/10")} onClick={() => {
+          <Link to="/artikkelit" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
             setIsMenuOpen(false);
             window.scrollTo(0, 0);
           }}>
             Artikkelit
           </Link>
           
-          <button onClick={() => scrollToSection('contact')} className={cn("block w-full text-left px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-100" : "text-white hover:bg-white/10")}>
+          <button onClick={() => scrollToSection('contact')} className="block w-full text-left px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10">
             Ota yhteyttä
           </button>
           
-          <Link to="/kirjaudu" className={cn("block px-3 py-1.5 rounded-md text-sm font-medium", isScrolled ? "bg-gray-200 text-gray-700 hover:bg-gray-300" : "bg-blue-600 text-white hover:bg-blue-700")} onClick={() => {
+          <Link to="/kirjaudu" className="block px-3 py-1.5 rounded-md text-sm font-medium bg-blue-600 text-white hover:bg-blue-700" onClick={() => {
             setIsMenuOpen(false);
             window.scrollTo(0, 0);
           }}>
