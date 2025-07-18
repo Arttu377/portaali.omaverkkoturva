@@ -46,8 +46,8 @@ const Hero = () => {
       <div className="banner-container bg-black relative overflow-hidden h-screen w-full">
         <div className="absolute inset-0 bg-black w-full">
           <img 
-            src="/lovable-uploads/30473baa-85f4-4931-aad9-c722ae7a4918.png" 
-            alt="Identity Protection Background" 
+            src="/lovable-uploads/8e39c5ba-0ce6-4338-9dbb-3c3c9b33cbb7.png" 
+            alt="Identity Protection - Secure Digital Life" 
             className={`w-full h-full object-cover ${isMobile ? 'object-right' : 'object-center'}`} 
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-white"></div>
@@ -62,7 +62,7 @@ const Hero = () => {
               </motion.p>
               <motion.div className="flex justify-center mt-6 sm:mt-8" variants={itemVariants}>
                 <button 
-                  className="w-full sm:w-auto min-h-[44px] px-6 sm:px-8 py-3 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-md hover:from-slate-800 hover:to-slate-700 transition-all shadow-lg hover:shadow-xl hover:shadow-slate-500/20 flex items-center justify-center group text-sm sm:text-base font-medium"
+                  className="w-full sm:w-auto min-h-[44px] px-6 sm:px-8 py-3 bg-gradient-to-r from-blue-900 to-blue-800 text-white rounded-md hover:from-blue-800 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-500/20 flex items-center justify-center group text-sm sm:text-base font-medium"
                   onClick={e => {
                     e.preventDefault();
                     const projectsSection = document.getElementById('projects');
