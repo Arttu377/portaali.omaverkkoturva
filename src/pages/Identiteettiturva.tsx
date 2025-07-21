@@ -10,11 +10,11 @@ const Identiteettiturva = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       
-      // Calculate how many steps should be visible based on scroll
-      const step1Trigger = windowHeight * 1.1; // After header is at top
-      const step2Trigger = windowHeight * 1.4;
-      const step3Trigger = windowHeight * 1.7;
-      const step4Trigger = windowHeight * 2.0;
+      // Start showing steps when "Helppo käyttöönotto" is in center of screen
+      const step1Trigger = windowHeight * 0.8; // When header reaches center
+      const step2Trigger = windowHeight * 0.9;
+      const step3Trigger = windowHeight * 1.0;
+      const step4Trigger = windowHeight * 1.1;
       
       if (scrollY >= step4Trigger) {
         setCurrentStep(4);
