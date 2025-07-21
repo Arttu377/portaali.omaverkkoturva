@@ -19,6 +19,7 @@ import Careers from "./pages/Careers";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Blog from "./pages/Blog";
 import BlogPostDetail from "./pages/BlogPostDetail";
+import Identiteettiturva from "./pages/Identiteettiturva";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -43,6 +44,7 @@ const App = () => {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPostDetail />} />
+            <Route path="/identiteettiturva" element={<Identiteettiturva />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
