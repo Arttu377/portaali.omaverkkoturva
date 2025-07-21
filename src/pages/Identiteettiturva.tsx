@@ -9,13 +9,13 @@ const Identiteettiturva = () => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
-      const firstSectionHeight = windowHeight; // First section height
-      const stickyStart = firstSectionHeight * 0.8; // When sticky section starts
-      const stepHeight = windowHeight * 0.8; // Height per step
       
-      // Only update steps when in the sticky section
-      if (scrollY >= stickyStart) {
-        const relativeScroll = scrollY - stickyStart;
+      // Start the sticky section after first section
+      const stickyStartY = windowHeight * 0.9;
+      const stepHeight = windowHeight * 0.6; // Shorter steps
+      
+      if (scrollY >= stickyStartY) {
+        const relativeScroll = scrollY - stickyStartY;
         
         if (relativeScroll < stepHeight) {
           setCurrentStep(1);
@@ -23,11 +23,11 @@ const Identiteettiturva = () => {
           setCurrentStep(2);
         } else if (relativeScroll < stepHeight * 3) {
           setCurrentStep(3);
+        } else if (relativeScroll < stepHeight * 4) {
+          setCurrentStep(4);
         } else {
           setCurrentStep(4);
         }
-      } else {
-        setCurrentStep(1);
       }
     };
 
@@ -122,60 +122,56 @@ const Identiteettiturva = () => {
           </div>
         </div>
         
-        {/* Second section - Helppo käyttöönotto with sticky effect */}
-        <div className="relative">
-          {/* Spacer to create scroll area for the 4 steps */}
-          <div style={{ height: '320vh' }}>
-            {/* Sticky container that stays in place */}
-            <div className="sticky top-0 h-screen bg-background flex items-center justify-center">
+        {/* Sticky section - Helppo käyttöönotto */}
+        <div className="relative bg-background">
+          {/* Create scroll area */}
+          <div className="h-[240vh]">
+            {/* Sticky content */}
+            <div className="sticky top-0 h-screen flex flex-col justify-center">
+              {/* Header */}
+              <div className="text-center mb-12">
+                <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+                  Helppo käyttöönotto
+                </h2>
+              </div>
+              
+              {/* Content area */}
               <div className="container mx-auto px-4">
-                {/* Fixed header */}
-                <div className="text-center mb-16">
-                  <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-                    Helppo käyttöönotto
-                  </h2>
-                </div>
-                
-                {/* Main content grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                  {/* Left side - big number that stays put */}
-                  <div className="hidden lg:flex justify-center items-center">
-                    <div className="text-9xl font-bold text-primary/30 transition-all duration-700">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+                  {/* Left - Large number */}
+                  <div className="hidden lg:flex justify-center">
+                    <div className="text-8xl font-bold text-primary/30">
                       {currentStep}
                     </div>
                   </div>
                   
-                  {/* Right side - content that changes */}
-                  <div className="relative">
-                    <div className="relative h-48 overflow-hidden">
-                      {steps.map((step) => (
-                        <div 
-                          key={step.number}
-                          className={`absolute w-full transition-all duration-700 ease-in-out ${
-                            currentStep === step.number 
-                              ? 'opacity-100 transform translate-y-0' 
-                              : currentStep > step.number
-                                ? 'opacity-0 transform -translate-y-16'
-                                : 'opacity-0 transform translate-y-16'
-                          }`}
-                        >
-                          <div className="flex items-start space-x-6">
-                            <div className="flex-shrink-0 w-14 h-14 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-xl">
-                              {step.number}
-                            </div>
-                            <div>
-                              <h3 className="text-2xl lg:text-3xl font-semibold text-foreground leading-tight">
-                                {step.title}
-                              </h3>
-                            </div>
+                  {/* Right - Step content */}
+                  <div className="space-y-8">
+                    {steps.map((step) => (
+                      <div 
+                        key={step.number}
+                        className={`transition-all duration-500 ${
+                          currentStep === step.number 
+                            ? 'opacity-100 block' 
+                            : 'opacity-0 hidden'
+                        }`}
+                      >
+                        <div className="flex items-start space-x-4">
+                          <div className="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg">
+                            {step.number}
+                          </div>
+                          <div>
+                            <h3 className="text-2xl font-semibold text-foreground leading-tight">
+                              {step.title}
+                            </h3>
                           </div>
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
                     
-                    {/* Mobile number display */}
-                    <div className="lg:hidden text-center mt-8">
-                      <div className="text-6xl font-bold text-primary/30 transition-all duration-700">
+                    {/* Mobile number */}
+                    <div className="lg:hidden text-center pt-8">
+                      <div className="text-5xl font-bold text-primary/30">
                         {currentStep}
                       </div>
                     </div>
