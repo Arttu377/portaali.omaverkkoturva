@@ -10,24 +10,22 @@ const Identiteettiturva = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       
-      // Start the sticky section after first section
-      const stickyStartY = windowHeight * 0.9;
-      const stepHeight = windowHeight * 0.6; // Shorter steps
+      // Calculate how many steps should be visible based on scroll
+      const step1Trigger = windowHeight * 1.1; // After header is at top
+      const step2Trigger = windowHeight * 1.4;
+      const step3Trigger = windowHeight * 1.7;
+      const step4Trigger = windowHeight * 2.0;
       
-      if (scrollY >= stickyStartY) {
-        const relativeScroll = scrollY - stickyStartY;
-        
-        if (relativeScroll < stepHeight) {
-          setCurrentStep(1);
-        } else if (relativeScroll < stepHeight * 2) {
-          setCurrentStep(2);
-        } else if (relativeScroll < stepHeight * 3) {
-          setCurrentStep(3);
-        } else if (relativeScroll < stepHeight * 4) {
-          setCurrentStep(4);
-        } else {
-          setCurrentStep(4);
-        }
+      if (scrollY >= step4Trigger) {
+        setCurrentStep(4);
+      } else if (scrollY >= step3Trigger) {
+        setCurrentStep(3);
+      } else if (scrollY >= step2Trigger) {
+        setCurrentStep(2);
+      } else if (scrollY >= step1Trigger) {
+        setCurrentStep(1);
+      } else {
+        setCurrentStep(0);
       }
     };
 
@@ -122,62 +120,46 @@ const Identiteettiturva = () => {
           </div>
         </div>
         
-        {/* Sticky section - Helppo käyttöönotto */}
-        <div className="relative bg-background">
-          {/* Create scroll area */}
-          <div className="h-[240vh]">
-            {/* Sticky content */}
-            <div className="sticky top-0 h-screen flex flex-col justify-center">
-              {/* Header */}
-              <div className="text-center mb-12">
-                <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-                  Helppo käyttöönotto
-                </h2>
-              </div>
-              
-              {/* Content area */}
-              <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-                  {/* Left - Large number */}
-                  <div className="hidden lg:flex justify-center">
-                    <div className="text-8xl font-bold text-primary/30">
-                      {currentStep}
+        {/* Second section - Helppo käyttöönotto */}
+        <div className="container mx-auto px-4 py-24">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+              Helppo käyttöönotto
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+            {/* Left side - empty for future image */}
+            <div className="hidden lg:block">
+              {/* Image will be added here later */}
+            </div>
+            
+            {/* Right side content */}
+            <div className="space-y-8">
+              {steps.map((step, index) => (
+                <div 
+                  key={step.number}
+                  className={`transition-all duration-700 ease-out transform ${
+                    currentStep >= step.number
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-8'
+                  }`}
+                  style={{
+                    transitionDelay: currentStep >= step.number ? `${index * 200}ms` : '0ms'
+                  }}
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg">
+                      {step.number}
                     </div>
-                  </div>
-                  
-                  {/* Right - Step content */}
-                  <div className="space-y-8">
-                    {steps.map((step) => (
-                      <div 
-                        key={step.number}
-                        className={`transition-all duration-500 ${
-                          currentStep === step.number 
-                            ? 'opacity-100 block' 
-                            : 'opacity-0 hidden'
-                        }`}
-                      >
-                        <div className="flex items-start space-x-4">
-                          <div className="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg">
-                            {step.number}
-                          </div>
-                          <div>
-                            <h3 className="text-2xl font-semibold text-foreground leading-tight">
-                              {step.title}
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                    
-                    {/* Mobile number */}
-                    <div className="lg:hidden text-center pt-8">
-                      <div className="text-5xl font-bold text-primary/30">
-                        {currentStep}
-                      </div>
+                    <div>
+                      <h3 className="text-2xl font-semibold text-foreground leading-tight">
+                        {step.title}
+                      </h3>
                     </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
