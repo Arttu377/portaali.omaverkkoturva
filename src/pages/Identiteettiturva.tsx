@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Identiteettiturva = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -164,11 +171,57 @@ const Identiteettiturva = () => {
           </div>
         </div>
         
-        {/* Next section placeholder */}
+        {/* Cases section */}
         <div className="container mx-auto px-4 py-24">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-foreground mb-4">Seuraava osio</h3>
-            <p className="text-muted-foreground">Sisältöä tulee tähän myöhemmin...</p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+              Tapauksia, joissa rahaa menetettiin huijauksessa
+            </h2>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <Carousel className="w-full">
+              <CarouselContent>
+                <CarouselItem>
+                  <div className="p-8 bg-card rounded-lg border">
+                    <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Tietojenkalastelu</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Nina sai aidolta näyttävän sähköpostin pankiltaan. Hän klikkasi viestissä ollutta linkkiä ja kirjautui sisään sivulle, joka olikin huijaussivusto. Tietojen avulla rikollinen otti hänen nimissään kolme pikavippiä (yhteensä 11 200€), vaihdatutti hänen postiosoitteensa sekä puhelinnumeronsa ja yritti avata verkkopankkitilejä ja maksukortteja. Palveluun sisältyvä vakuutus korvaa jopa 13 500 € taloudelliset menetykset ja asiantuntijat auttavat asian läpiviennissä.
+                    </p>
+                  </div>
+                </CarouselItem>
+                
+                <CarouselItem>
+                  <div className="p-8 bg-card rounded-lg border">
+                    <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Verkkokauppahuijaus</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Timo löysi verkosta edullisen tarjouksen uusista kuulokkeista tunnetulta brändiltä. Hinta oli lähes puolet halvempi kuin muualla, ja verkkosivusto näytti aidolta. Logo, arvostelut ja maksutavat kaikki kunnossa. Hän maksoi 129 € pankkikortilla. Tilauksen jälkeen tuotetta ei koskaan saapunut ja verkkokauppa katosi muutamassa päivässä. Koska ostoksen hinta oli 50-700 € välillä, Timo saa rahansa takaisin verkkokauppahuijaukset kattavan vakuutuksen ansiosta.
+                    </p>
+                  </div>
+                </CarouselItem>
+                
+                <CarouselItem>
+                  <div className="p-8 bg-card rounded-lg border">
+                    <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Sovellushankinnat</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Sannan 9-vuotias poika sai pelata hetken äidin puhelimella. Hän latasi vahingossa pelisovelluksen, joka näytti ilmaiselta mutta sisälsi kalliin 112 euron tilauksen. Maksu veloittui heti, koska maksukortti oli tallennettuna puhelimeen. Vakuutus korvaa kulut, jotka liittyvät alle 10-vuotiaan vahingossa tekemiin sovellusostoihin (alle 135 €) suurimmilla alustoilla, kuten mm. App Storessa, Google Playssa tai Steamissa.
+                    </p>
+                  </div>
+                </CarouselItem>
+                
+                <CarouselItem>
+                  <div className="p-8 bg-card rounded-lg border">
+                    <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Nettikiusaaminen</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Emilia joutui nettikiusaamisen kohteeksi sen jälkeen, kun hänen TikTok-videonsa levisi yllättäen laajalle. Tuntemattomat ihmiset alkoivat kommentoida videoita loukkaavasti ja joku perusti tekaistun tilin hänen nimellään ja profiilikuvallaan.
+                    </p>
+                  </div>
+                </CarouselItem>
+              </CarouselContent>
+              
+              <CarouselPrevious className="left-4" />
+              <CarouselNext className="right-4" />
+            </Carousel>
           </div>
         </div>
       </div>
