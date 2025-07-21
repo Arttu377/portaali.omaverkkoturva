@@ -10,11 +10,11 @@ const Identiteettiturva = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       
-      // Start showing steps much earlier
-      const step1Trigger = windowHeight * 0.5; // Very early
-      const step2Trigger = windowHeight * 0.6;
-      const step3Trigger = windowHeight * 0.7;
-      const step4Trigger = windowHeight * 0.8;
+      // Start showing steps very early
+      const step1Trigger = windowHeight * 0.2; // Almost immediately
+      const step2Trigger = windowHeight * 0.3;
+      const step3Trigger = windowHeight * 0.4;
+      const step4Trigger = windowHeight * 0.5;
       
       if (scrollY >= step4Trigger) {
         setCurrentStep(4);
