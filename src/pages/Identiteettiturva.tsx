@@ -9,17 +9,21 @@ const Identiteettiturva = () => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
-      const sectionStart = windowHeight * 0.6; // Start earlier
+      const sectionStart = windowHeight * 0.9; // Section starts here
+      const stepHeight = windowHeight * 0.8; // Each step takes this much scroll
       
-      // Calculate which step should be visible based on scroll position
       if (scrollY < sectionStart) {
         setCurrentStep(1);
-      } else if (scrollY < sectionStart + windowHeight * 0.4) {
+      } else if (scrollY < sectionStart + stepHeight) {
+        setCurrentStep(1);
+      } else if (scrollY < sectionStart + stepHeight * 2) {
         setCurrentStep(2);
-      } else if (scrollY < sectionStart + windowHeight * 0.8) {
+      } else if (scrollY < sectionStart + stepHeight * 3) {
         setCurrentStep(3);
-      } else if (scrollY < sectionStart + windowHeight * 1.2) {
+      } else if (scrollY < sectionStart + stepHeight * 4) {
         setCurrentStep(4);
+      } else {
+        setCurrentStep(4); // Keep step 4 visible
       }
     };
 
@@ -116,52 +120,63 @@ const Identiteettiturva = () => {
         
         {/* Second section - Helppo käyttöönotto */}
         <div className="relative">
-          {/* Sticky header area */}
-          <div className="sticky top-0 z-10 bg-background/80 backdrop-blur-sm border-b border-border/20">
-            <div className="container mx-auto px-4 py-8">
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight text-center">
-                Helppo käyttöönotto
-              </h2>
-            </div>
-          </div>
-          
-          {/* Content area with scroll snapping */}
-          <div className="relative min-h-[400vh]">
-            <div className="sticky top-20 container mx-auto px-4 py-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
-                {/* Left side - sticky numbers */}
-                <div className="hidden lg:flex justify-center items-center">
-                  <div className="text-8xl font-bold text-primary/20 transition-all duration-700">
-                    {currentStep}
-                  </div>
+          {/* Content area with proper scroll sections */}
+          <div className="relative" style={{ height: 'calc(100vh + 320vh)' }}>
+            {/* Sticky container */}
+            <div className="sticky top-0 h-screen bg-background overflow-hidden">
+              <div className="container mx-auto px-4 h-full flex flex-col">
+                {/* Sticky header */}
+                <div className="py-8 border-b border-border/20">
+                  <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight text-center">
+                    Helppo käyttöönotto
+                  </h2>
                 </div>
                 
-                {/* Right side content */}
-                <div className="space-y-8">
-                  <div className="relative h-32 overflow-hidden">
-                    {steps.map((step) => (
-                      <div 
-                        key={step.number}
-                        className={`absolute w-full transition-all duration-700 ease-in-out ${
-                          currentStep === step.number 
-                            ? 'opacity-100 transform translate-y-0' 
-                            : currentStep > step.number
-                              ? 'opacity-0 transform -translate-y-8'
-                              : 'opacity-0 transform translate-y-8'
-                        }`}
-                      >
-                        <div className="flex items-start space-x-4">
-                          <div className="flex-shrink-0 w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold">
-                            {step.number}
+                {/* Main content area */}
+                <div className="flex-1 flex items-center">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+                    {/* Left side - sticky large numbers */}
+                    <div className="hidden lg:flex justify-center items-center">
+                      <div className="text-9xl font-bold text-primary/30 transition-all duration-700">
+                        {currentStep}
+                      </div>
+                    </div>
+                    
+                    {/* Right side content */}
+                    <div className="space-y-8">
+                      <div className="relative h-40 overflow-hidden">
+                        {steps.map((step) => (
+                          <div 
+                            key={step.number}
+                            className={`absolute w-full transition-all duration-700 ease-in-out ${
+                              currentStep === step.number 
+                                ? 'opacity-100 transform translate-y-0' 
+                                : currentStep > step.number
+                                  ? 'opacity-0 transform -translate-y-12'
+                                  : 'opacity-0 transform translate-y-12'
+                            }`}
+                          >
+                            <div className="flex items-start space-x-4">
+                              <div className="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg">
+                                {step.number}
+                              </div>
+                              <div>
+                                <h3 className="text-2xl font-semibold text-foreground leading-tight">
+                                  {step.title}
+                                </h3>
+                              </div>
+                            </div>
                           </div>
-                          <div>
-                            <h3 className="text-2xl font-semibold text-foreground leading-tight">
-                              {step.title}
-                            </h3>
-                          </div>
+                        ))}
+                      </div>
+                      
+                      {/* Mobile number display */}
+                      <div className="lg:hidden text-center">
+                        <div className="text-6xl font-bold text-primary/30">
+                          {currentStep}
                         </div>
                       </div>
-                    ))}
+                    </div>
                   </div>
                 </div>
               </div>
