@@ -263,11 +263,22 @@ const Identiteettiturva = () => {
                <h3 className="text-2xl lg:text-3xl font-semibold text-white/90 mt-6 mb-8">
                  Yksi tietovuoto voi maksaa tuhansia euroja
                </h3>
-               <div className="max-w-4xl mx-auto">
-                 <p className="text-lg text-white leading-relaxed">
-                   Verkkorikollisuus, tietovuodot ja identiteettivarkaudet ovat yleistyneet merkittävästi viime vuosina. Jo pelkän sähköpostiosoitteen ja salasanan avulla rikolliset voivat saada pääsyn henkilökohtaisiin tileihisi, tehdä ostoksia nimissäsi tai hakea lainaa luvattomasti. Digitaalinen identiteetti on nyky-yhteiskunnassa arvokas resurssi ja sen väärinkäyttö voi aiheuttaa vakavia taloudellisia sekä juridisia seurauksia. Siksi yksilön tunnistetietojen suojaaminen tulisi nähdä yhtä tärkeänä kuin pankkitunnusten turvaaminen.
-                 </p>
-               </div>
+                <div className="max-w-4xl mx-auto">
+                  <p className="text-lg text-white leading-relaxed mb-12">
+                    Verkkorikollisuus, tietovuodot ja identiteettivarkaudet ovat yleistyneet merkittävästi viime vuosina. Jo pelkän sähköpostiosoitteen ja salasanan avulla rikolliset voivat saada pääsyn henkilökohtaisiin tileihisi, tehdä ostoksia nimissäsi tai hakea lainaa luvattomasti. Digitaalinen identiteetti on nyky-yhteiskunnassa arvokas resurssi ja sen väärinkäyttö voi aiheuttaa vakavia taloudellisia sekä juridisia seurauksia. Siksi yksilön tunnistetietojen suojaaminen tulisi nähdä yhtä tärkeänä kuin pankkitunnusten turvaaminen.
+                  </p>
+                  
+                  <div className="flex justify-center">
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center">
+                      <div className="text-5xl lg:text-6xl font-bold text-white mb-2">
+                        62,9M €
+                      </div>
+                      <p className="text-white/80 text-sm">
+                        Tämä verran vuonna 2024 suomalaisten rahoja menetettiin nettihuijareille.
+                      </p>
+                    </div>
+                  </div>
+                </div>
              </div>
            </div>
          </div>
