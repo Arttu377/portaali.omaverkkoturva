@@ -171,6 +171,23 @@ const Identiteettiturva = () => {
           </div>
         </div>
         
+        {/* New identity protection section */}
+        <div className="container mx-auto px-4 py-24">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+              Identiteetti on nykyajan valuutta
+            </h2>
+            <h3 className="text-2xl lg:text-3xl font-semibold text-muted-foreground mt-6 mb-8">
+              Yksi tietovuoto voi maksaa tuhansia euroja
+            </h3>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-lg text-foreground leading-relaxed">
+                Verkkorikollisuus, tietovuodot ja identiteettivarkaudet ovat yleistyneet merkittävästi viime vuosina. Jo pelkän sähköpostiosoitteen ja salasanan avulla rikolliset voivat saada pääsyn henkilökohtaisiin tileihisi, tehdä ostoksia nimissäsi tai hakea lainaa luvattomasti. Digitaalinen identiteetti on nyky-yhteiskunnassa arvokas resurssi ja sen väärinkäyttö voi aiheuttaa vakavia taloudellisia sekä juridisia seurauksia. Siksi yksilön tunnistetietojen suojaaminen tulisi nähdä yhtä tärkeänä kuin pankkitunnusten turvaaminen.
+              </p>
+            </div>
+          </div>
+        </div>
+        
         {/* Cases section */}
         <div className="container mx-auto px-4 py-24">
           <div className="text-center mb-16">
