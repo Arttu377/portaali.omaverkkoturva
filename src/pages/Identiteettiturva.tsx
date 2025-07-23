@@ -74,13 +74,14 @@ const Identiteettiturva = () => {
             background: `linear-gradient(
               to bottom,
               transparent 0%,
-              transparent 30%,
-              rgba(30, 42, 94, 0.1) 35%,
-              rgba(30, 42, 94, 0.3) 50%,
-              rgba(30, 42, 94, 0.5) 65%,
-              rgba(30, 42, 94, 0.3) 80%,
-              rgba(30, 42, 94, 0.1) 90%,
-              transparent 95%,
+              transparent 25%,
+              rgba(30, 42, 94, 0.1) 30%,
+              rgba(30, 58, 138, 0.3) 40%,
+              rgba(30, 42, 94, 0.6) 50%,
+              rgba(30, 58, 138, 0.4) 60%,
+              rgba(30, 42, 94, 0.2) 70%,
+              rgba(30, 42, 94, 0.05) 80%,
+              transparent 85%,
               transparent 100%
             )`
           }}
