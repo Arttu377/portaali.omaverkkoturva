@@ -218,10 +218,12 @@ const Identiteettiturva = () => {
                   </div>
                 </CarouselItem>
               </CarouselContent>
-              
-              <CarouselPrevious className="absolute left-4 bottom-4 top-auto translate-y-0 z-10" />
-              <CarouselNext className="absolute right-4 bottom-4 top-auto translate-y-0 z-10" />
             </Carousel>
+            
+            <div className="flex justify-between mt-6">
+              <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
+              <CarouselNext className="relative right-0 top-0 translate-y-0" />
+            </div>
           </div>
         </div>
       </div>
