@@ -308,7 +308,7 @@ const Identiteettiturva = () => {
                   19,99 €/kk
                 </div>
                 
-                <button className="w-full bg-primary text-primary-foreground py-3 px-6 rounded-full font-semibold hover:bg-primary/90 transition-colors">
+                <button className="w-full text-white py-3 px-6 rounded-full font-semibold hover:opacity-90 transition-all" style={{ background: 'var(--gradient-navy)' }}>
                   Suojaa laite
                 </button>
                 
@@ -319,7 +319,7 @@ const Identiteettiturva = () => {
                   </li>
                   <li className="flex items-center space-x-3">
                     <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Vakuutus, joka korvaa vahingot</span>
+                    <span className="text-foreground">Vakuutus, joka turvaa sinut vahinkojen varalta</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <span className="w-2 h-2 bg-foreground rounded-full"></span>
@@ -338,7 +338,7 @@ const Identiteettiturva = () => {
                   26,99 €/kk
                 </div>
                 
-                <button className="w-full bg-primary text-primary-foreground py-3 px-6 rounded-full font-semibold hover:bg-primary/90 transition-colors">
+                <button className="w-full text-white py-3 px-6 rounded-full font-semibold hover:opacity-90 transition-all" style={{ background: 'var(--gradient-navy)' }}>
                   Suojaa laite
                 </button>
                 
@@ -349,7 +349,7 @@ const Identiteettiturva = () => {
                   </li>
                   <li className="flex items-center space-x-3">
                     <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Vakuutus, joka korvaa vahingot</span>
+                    <span className="text-foreground">Vakuutus, joka turvaa sinut vahinkojen varalta</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <span className="w-2 h-2 bg-foreground rounded-full"></span>
@@ -368,7 +368,7 @@ const Identiteettiturva = () => {
                   30,99 €/kk
                 </div>
                 
-                <button className="w-full bg-primary text-primary-foreground py-3 px-6 rounded-full font-semibold hover:bg-primary/90 transition-colors">
+                <button className="w-full text-white py-3 px-6 rounded-full font-semibold hover:opacity-90 transition-all" style={{ background: 'var(--gradient-navy)' }}>
                   Suojaa laite
                 </button>
                 
@@ -379,7 +379,7 @@ const Identiteettiturva = () => {
                   </li>
                   <li className="flex items-center space-x-3">
                     <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Vakuutus, joka korvaa vahingot</span>
+                    <span className="text-foreground">Vakuutus, joka turvaa sinut vahinkojen varalta</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <span className="w-2 h-2 bg-foreground rounded-full"></span>
