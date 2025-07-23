@@ -66,7 +66,25 @@ const Identiteettiturva = () => {
         description="Kattava identiteettiturva joka havaitsee tietovuodot, tarjoaa vakuutusturvan 13 500 € asti ja suojaa huijauksilta."
       />
       
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background relative">
+        {/* Gradient overlay that starts from third feature and fades to white before the background image */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `linear-gradient(
+              to bottom,
+              transparent 0%,
+              transparent 30%,
+              rgba(30, 42, 94, 0.1) 35%,
+              rgba(30, 42, 94, 0.3) 50%,
+              rgba(30, 42, 94, 0.5) 65%,
+              rgba(30, 42, 94, 0.3) 80%,
+              rgba(30, 42, 94, 0.1) 90%,
+              transparent 95%,
+              transparent 100%
+            )`
+          }}
+        ></div>
         <div className="container mx-auto px-4 py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left side content */}
