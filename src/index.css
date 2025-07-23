@@ -36,6 +36,9 @@
     --ring: 0 0% 50%;
 
     --radius: 0.5rem;
+    
+    /* Navy blue gradient */
+    --gradient-navy: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
   }
 }
 
