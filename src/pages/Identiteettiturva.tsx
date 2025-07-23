@@ -179,7 +179,7 @@ const Identiteettiturva = () => {
             </h2>
           </div>
           
-          <div className="max-w-4xl mx-auto relative">
+          <div className="max-w-4xl mx-auto">
             <Carousel className="w-full">
               <CarouselContent>
                 <CarouselItem>
@@ -218,12 +218,13 @@ const Identiteettiturva = () => {
                   </div>
                 </CarouselItem>
               </CarouselContent>
+              
+              {/* Navigation buttons positioned below content */}
+              <div className="flex justify-between items-center mt-6 px-4">
+                <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
+                <CarouselNext className="relative right-0 top-0 translate-y-0" />
+              </div>
             </Carousel>
-            
-            <div className="flex justify-between mt-6">
-              <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
-              <CarouselNext className="relative right-0 top-0 translate-y-0" />
-            </div>
           </div>
         </div>
       </div>
