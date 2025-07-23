@@ -308,22 +308,18 @@ const Identiteettiturva = () => {
                   19,99 €/kk
                 </div>
                 
-                <button className="w-full bg-blue-400 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-500 transition-colors">
-                  Hanki Turva
+                <button className="w-full bg-primary text-primary-foreground py-3 px-6 rounded-full font-semibold hover:bg-primary/90 transition-colors">
+                  Suojaa laite
                 </button>
                 
                 <ul className="space-y-3 text-left">
                   <li className="flex items-center space-x-3">
                     <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Monitoroi tietoja</span>
+                    <span className="text-foreground">Tietojen monitorointi ja ilmoitus tietovuodoista</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Ilmoittaa vuodoista</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Korvaa vahingot</span>
+                    <span className="text-foreground">Vakuutus, joka korvaa vahingot</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <span className="w-2 h-2 bg-foreground rounded-full"></span>
@@ -339,25 +335,21 @@ const Identiteettiturva = () => {
                 </h3>
                 
                 <div className="text-3xl font-bold text-foreground">
-                  29,99 €/kk
+                  26,99 €/kk
                 </div>
                 
-                <button className="w-full bg-blue-400 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-500 transition-colors">
-                  Hanki Turva
+                <button className="w-full bg-primary text-primary-foreground py-3 px-6 rounded-full font-semibold hover:bg-primary/90 transition-colors">
+                  Suojaa laite
                 </button>
                 
                 <ul className="space-y-3 text-left">
                   <li className="flex items-center space-x-3">
                     <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Monitoroi tietoja</span>
+                    <span className="text-foreground">Tietojen monitorointi ja ilmoitus tietovuodoista</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Ilmoittaa vuodoista</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Korvaa vahingot</span>
+                    <span className="text-foreground">Vakuutus, joka korvaa vahingot</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <span className="w-2 h-2 bg-foreground rounded-full"></span>
@@ -373,25 +365,21 @@ const Identiteettiturva = () => {
                 </h3>
                 
                 <div className="text-3xl font-bold text-foreground">
-                  32,99 €/kk
+                  30,99 €/kk
                 </div>
                 
-                <button className="w-full bg-blue-400 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-500 transition-colors">
-                  Hanki Turva
+                <button className="w-full bg-primary text-primary-foreground py-3 px-6 rounded-full font-semibold hover:bg-primary/90 transition-colors">
+                  Suojaa laite
                 </button>
                 
                 <ul className="space-y-3 text-left">
                   <li className="flex items-center space-x-3">
                     <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Monitoroi tietoja</span>
+                    <span className="text-foreground">Tietojen monitorointi ja ilmoitus tietovuodoista</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Ilmoittaa vuodoista</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Korvaa vahingot</span>
+                    <span className="text-foreground">Vakuutus, joka korvaa vahingot</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <span className="w-2 h-2 bg-foreground rounded-full"></span>
