@@ -269,7 +269,7 @@ const Identiteettiturva = () => {
                   </p>
                   
                   <div className="flex justify-center">
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center">
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl py-12 px-6 text-center max-w-md">
                       <div className="text-5xl lg:text-6xl font-bold text-white mb-2">
                         62,9M €
                       </div>
