@@ -280,8 +280,127 @@ const Identiteettiturva = () => {
                   </div>
                 </div>
              </div>
-           </div>
-         </div>
+            </div>
+          </div>
+          
+          {/* Pricing section */}
+          <div className="container mx-auto px-4 py-24">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
+                Valitse sinulle sopivin turva
+              </h2>
+              <p className="text-xl text-muted-foreground mb-2">
+                Valitse parhaiten sopiva suojaus.
+              </p>
+              <p className="text-lg text-muted-foreground">
+                Jokaisessa tilauksessa on 14vrk maksuton peruutusoikeus.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {/* Package 1 - Yhdelle */}
+              <div className="bg-card border border-border rounded-2xl p-8 text-center space-y-6">
+                <h3 className="text-2xl font-bold text-foreground">
+                  Identiteettiturva<br />yhdelle
+                </h3>
+                
+                <div className="text-3xl font-bold text-foreground">
+                  19,99 €/kk
+                </div>
+                
+                <button className="w-full bg-blue-400 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-500 transition-colors">
+                  Hanki Turva
+                </button>
+                
+                <ul className="space-y-3 text-left">
+                  <li className="flex items-center space-x-3">
+                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
+                    <span className="text-foreground">Monitoroi tietoja</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
+                    <span className="text-foreground">Ilmoittaa vuodoista</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
+                    <span className="text-foreground">Korvaa vahingot</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
+                    <span className="text-foreground">Apu ja tuki</span>
+                  </li>
+                </ul>
+              </div>
+              
+              {/* Package 2 - Kahdelle */}
+              <div className="bg-card border border-border rounded-2xl p-8 text-center space-y-6">
+                <h3 className="text-2xl font-bold text-foreground">
+                  Identiteettiturva<br />kahdelle
+                </h3>
+                
+                <div className="text-3xl font-bold text-foreground">
+                  29,99 €/kk
+                </div>
+                
+                <button className="w-full bg-blue-400 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-500 transition-colors">
+                  Hanki Turva
+                </button>
+                
+                <ul className="space-y-3 text-left">
+                  <li className="flex items-center space-x-3">
+                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
+                    <span className="text-foreground">Monitoroi tietoja</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
+                    <span className="text-foreground">Ilmoittaa vuodoista</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
+                    <span className="text-foreground">Korvaa vahingot</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
+                    <span className="text-foreground">Apu ja tuki</span>
+                  </li>
+                </ul>
+              </div>
+              
+              {/* Package 3 - Viidelle */}
+              <div className="bg-card border border-border rounded-2xl p-8 text-center space-y-6">
+                <h3 className="text-2xl font-bold text-foreground">
+                  Identiteettiturva<br />viidelle
+                </h3>
+                
+                <div className="text-3xl font-bold text-foreground">
+                  32,99 €/kk
+                </div>
+                
+                <button className="w-full bg-blue-400 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-500 transition-colors">
+                  Hanki Turva
+                </button>
+                
+                <ul className="space-y-3 text-left">
+                  <li className="flex items-center space-x-3">
+                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
+                    <span className="text-foreground">Monitoroi tietoja</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
+                    <span className="text-foreground">Ilmoittaa vuodoista</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
+                    <span className="text-foreground">Korvaa vahingot</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
+                    <span className="text-foreground">Apu ja tuki</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
       </div>
     </PageLayout>
   );
