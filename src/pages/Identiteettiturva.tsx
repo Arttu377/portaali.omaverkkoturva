@@ -213,20 +213,45 @@ const Identiteettiturva = () => {
                   <div className="p-8 rounded-lg border" style={{ background: 'var(--gradient-navy)' }}>
                     <h3 className="text-2xl font-bold text-white mb-6 text-center">Nettikiusaaminen</h3>
                     <p className="text-white leading-relaxed">
-                      Emilia joutui nettikiusaamisen kohteeksi sen jälkeen, kun hänen TikTok-videonsa levisi yllättäen laajalle. Tuntemattomat ihmiset alkoivat kommentoida videoita loukkaavasti ja joku perusti tekaistun tilin hänen nimellään ja profiilikuvallaan. Väärennetyllä tilillä julkaistiin sisältöä, joka sai Emilian näyttämään nololta. Hän saa asiantuntijoilta neuvoja ja apuja (25 h) sisällön poistoon ja tilien palautukseen. Tarvittaessa hänen käytössä on myös oikeudellinen tuki ja psykologinen kriisiapu.
-                    </p>
-                  </div>
-                </CarouselItem>
-              </CarouselContent>
-              
-              {/* Navigation buttons positioned below content */}
-              <div className="flex justify-between items-center mt-6 px-4">
-                <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
-                <CarouselNext className="relative right-0 top-0 translate-y-0" />
-              </div>
-            </Carousel>
-          </div>
-        </div>
+                       Emilia joutui nettikiusaamisen kohteeksi sen jälkeen, kun hänen TikTok-videonsa levisi yllättäen laajalle. Tuntemattomat ihmiset alkoivat kommentoida videoita loukkaavasti ja joku perusti tekaistun tilin hänen nimellään ja profiilikuvallaan. Väärennetyllä tilillä julkaistiin sisältöä, joka sai Emilian näyttämään nololta. Hän saa asiantuntijoilta neuvoja ja apuja (25 h) sisällön poistoon ja tilien palautukseen. Tarvittaessa hänen käytössä on myös oikeudellinen tuki ja psykologinen kriisiapu.
+                     </p>
+                   </div>
+                 </CarouselItem>
+               </CarouselContent>
+               
+               {/* Navigation buttons positioned below content */}
+               <div className="flex justify-between items-center mt-6 px-4">
+                 <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
+                 <CarouselNext className="relative right-0 top-0 translate-y-0" />
+               </div>
+             </Carousel>
+           </div>
+         </div>
+         
+         {/* Identity protection section with background image */}
+         <div 
+           className="relative py-24 bg-cover bg-center bg-no-repeat"
+           style={{ backgroundImage: 'url(/lovable-uploads/f96aa839-76e5-4b74-92a6-ef3e2166b1f1.png)' }}
+         >
+           {/* Dark overlay for better text readability */}
+           <div className="absolute inset-0 bg-black/50"></div>
+           
+           <div className="relative container mx-auto px-4">
+             <div className="text-center mb-16">
+               <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+                 Identiteetti on nykyajan valuutta
+               </h2>
+               <h3 className="text-2xl lg:text-3xl font-semibold text-white/90 mt-6 mb-8">
+                 Yksi tietovuoto voi maksaa tuhansia euroja
+               </h3>
+               <div className="max-w-4xl mx-auto">
+                 <p className="text-lg text-white leading-relaxed">
+                   Verkkorikollisuus, tietovuodot ja identiteettivarkaudet ovat yleistyneet merkittävästi viime vuosina. Jo pelkän sähköpostiosoitteen ja salasanan avulla rikolliset voivat saada pääsyn henkilökohtaisiin tileihisi, tehdä ostoksia nimissäsi tai hakea lainaa luvattomasti. Digitaalinen identiteetti on nyky-yhteiskunnassa arvokas resurssi ja sen väärinkäyttö voi aiheuttaa vakavia taloudellisia sekä juridisia seurauksia. Siksi yksilön tunnistetietojen suojaaminen tulisi nähdä yhtä tärkeänä kuin pankkitunnusten turvaaminen.
+                 </p>
+               </div>
+             </div>
+           </div>
+         </div>
       </div>
     </PageLayout>
   );
