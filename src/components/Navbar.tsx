@@ -55,42 +55,13 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center space-x-3">
               {/* WiFi Logo */}
-              <svg width="40" height="40" viewBox="0 0 100 100" className="text-white flex-shrink-0">
-                {/* WiFi symbol matching the reference image */}
-                <g transform="translate(50, 50)">
-                  {/* Outer arc */}
-                  <path 
-                    d="M -25 5 A 35 35 0 0 1 25 5" 
-                    fill="none"
-                    stroke="currentColor" 
-                    strokeWidth="6" 
-                    strokeLinecap="round"
-                  />
-                  {/* Middle arc */}
-                  <path 
-                    d="M -17 5 A 24 24 0 0 1 17 5" 
-                    fill="none"
-                    stroke="currentColor" 
-                    strokeWidth="6" 
-                    strokeLinecap="round"
-                  />
-                  {/* Inner arc */}
-                  <path 
-                    d="M -9 5 A 13 13 0 0 1 9 5" 
-                    fill="none"
-                    stroke="currentColor" 
-                    strokeWidth="6" 
-                    strokeLinecap="round"
-                  />
-                  {/* Center dot */}
-                  <circle 
-                    cx="0" 
-                    cy="18" 
-                    r="4" 
-                    fill="currentColor"
-                  />
-                </g>
-              </svg>
+              <img 
+                src="/lovable-uploads/7872dc65-a90e-4ffd-a256-212ed86e8e3d.png" 
+                alt="WiFi Logo" 
+                width="40" 
+                height="40" 
+                className="flex-shrink-0"
+              />
               <span className="text-xl font-bold text-white">
                 OmaVerkkoturva
               </span>
