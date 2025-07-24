@@ -1,27 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const Identiteettiturva = () => {
   const [currentStep, setCurrentStep] = useState(1);
-
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
-      
+
       // Start showing steps very early
       const step1Trigger = windowHeight * 0.2; // Almost immediately
       const step2Trigger = windowHeight * 0.3;
       const step3Trigger = windowHeight * 0.4;
       const step4Trigger = windowHeight * 0.5;
-      
       if (scrollY >= step4Trigger) {
         setCurrentStep(4);
       } else if (scrollY >= step3Trigger) {
@@ -34,43 +26,29 @@ const Identiteettiturva = () => {
         setCurrentStep(0);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const steps = [
-    {
-      number: 1,
-      title: "Tilaa tuote verkkokaupastamme"
-    },
-    {
-      number: 2,
-      title: "Lähetämme sinulle linkin tuotteeseen"
-    },
-    {
-      number: 3,
-      title: "Järjestelmä tarkastaa ovatko tietosi joutunut vääriin käsiin viimeisen 10 vuoden aikana"
-    },
-    {
-      number: 4,
-      title: "Rentoudu - sovellus toimii taustalla koko ajan ja hälyttää, jos henkilötietosi vuotavat jonnekin"
-    }
-  ];
-
-  return (
-    <PageLayout>
-      <SEO
-        title="Identiteettiturva - Turvaa rahasi ja henkilötietosi"
-        description="Kattava identiteettiturva joka havaitsee tietovuodot, tarjoaa vakuutusturvan 13 500 € asti ja suojaa huijauksilta."
-      />
+  const steps = [{
+    number: 1,
+    title: "Tilaa tuote verkkokaupastamme"
+  }, {
+    number: 2,
+    title: "Lähetämme sinulle linkin tuotteeseen"
+  }, {
+    number: 3,
+    title: "Järjestelmä tarkastaa ovatko tietosi joutunut vääriin käsiin viimeisen 10 vuoden aikana"
+  }, {
+    number: 4,
+    title: "Rentoudu - sovellus toimii taustalla koko ajan ja hälyttää, jos henkilötietosi vuotavat jonnekin"
+  }];
+  return <PageLayout>
+      <SEO title="Identiteettiturva - Turvaa rahasi ja henkilötietosi" description="Kattava identiteettiturva joka havaitsee tietovuodot, tarjoaa vakuutusturvan 13 500 € asti ja suojaa huijauksilta." />
       
       <div className="min-h-screen bg-background relative">
         {/* Gradient overlay that starts from third feature and fades to white before the background image */}
-        <div 
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: `linear-gradient(
+        <div className="absolute inset-0 pointer-events-none" style={{
+        background: `linear-gradient(
               to bottom,
               transparent 0%,
               transparent 25%,
@@ -83,8 +61,7 @@ const Identiteettiturva = () => {
               transparent 85%,
               transparent 100%
             )`
-          }}
-        ></div>
+      }}></div>
         <div className="container mx-auto px-4 py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left side content */}
@@ -167,18 +144,9 @@ const Identiteettiturva = () => {
             
             {/* Right side content */}
             <div className="space-y-8">
-              {steps.map((step, index) => (
-                <div 
-                  key={step.number}
-                  className={`transition-all duration-700 ease-out transform ${
-                    currentStep >= step.number
-                      ? 'opacity-100 translate-y-0' 
-                      : 'opacity-0 translate-y-8'
-                  }`}
-                  style={{
-                    transitionDelay: currentStep >= step.number ? `${index * 200}ms` : '0ms'
-                  }}
-                >
+              {steps.map((step, index) => <div key={step.number} className={`transition-all duration-700 ease-out transform ${currentStep >= step.number ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{
+              transitionDelay: currentStep >= step.number ? `${index * 200}ms` : '0ms'
+            }}>
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg">
                       {step.number}
@@ -189,18 +157,16 @@ const Identiteettiturva = () => {
                       </h3>
                     </div>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
         
         {/* Identity protection section with background image */}
         <div className="relative py-24 px-6 lg:px-12">
-          <div 
-            className="relative py-24 bg-cover bg-center bg-no-repeat rounded-3xl mx-4 lg:mx-8"
-            style={{ backgroundImage: 'url(/lovable-uploads/f96aa839-76e5-4b74-92a6-ef3e2166b1f1.png)' }}
-          >
+          <div className="relative py-24 bg-cover bg-center bg-no-repeat rounded-3xl mx-4 lg:mx-8" style={{
+          backgroundImage: 'url(/lovable-uploads/f96aa839-76e5-4b74-92a6-ef3e2166b1f1.png)'
+        }}>
             {/* Dark overlay for better text readability */}
             <div className="absolute inset-0 bg-black/50 rounded-3xl"></div>
           
@@ -307,7 +273,9 @@ const Identiteettiturva = () => {
             </div>
             <div className="max-w-5xl mx-auto relative">
               {/* SVG for connecting lines */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{
+            zIndex: 1
+          }}>
                 {/* Lines connecting center circle to each box */}
                 {/* Line to top left box (Taloudelliset tappiot) */}
                 <line x1="50%" y1="75%" x2="25%" y2="35%" stroke="black" strokeWidth="2" />
@@ -320,9 +288,13 @@ const Identiteettiturva = () => {
               </svg>
               
               {/* Pyramid layout using CSS Grid */}
-              <div className="grid grid-cols-6 gap-6 place-items-center relative" style={{ zIndex: 2 }}>
+              <div className="grid grid-cols-6 gap-6 place-items-center relative" style={{
+            zIndex: 2
+          }}>
                 {/* Top row - centered items, wider spans */}
-                <div className="col-start-2 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{ background: 'var(--gradient-navy)' }}>
+                <div className="col-start-2 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{
+              background: 'var(--gradient-navy)'
+            }}>
                   <h3 className="text-xl font-bold text-white whitespace-nowrap">
                     Taloudelliset tappiot
                   </h3>
@@ -331,7 +303,9 @@ const Identiteettiturva = () => {
                   </p>
                 </div>
 
-                <div className="col-start-4 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{ background: 'var(--gradient-navy)' }}>
+                <div className="col-start-4 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{
+              background: 'var(--gradient-navy)'
+            }}>
                   <h3 className="text-xl font-bold text-white whitespace-nowrap">
                     Verkko-ostoturva
                   </h3>
@@ -341,16 +315,18 @@ const Identiteettiturva = () => {
                 </div>
 
                 {/* Bottom row - positioned left and right, wider spans */}
-                <div className="col-start-1 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{ background: 'var(--gradient-navy)' }}>
-                  <h3 className="text-xl font-bold text-white whitespace-nowrap">
-                    SIM-kortin väärinkäyttö
-                  </h3>
+                <div className="col-start-1 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{
+              background: 'var(--gradient-navy)'
+            }}>
+                  <h3 className="text-xl font-bold text-white whitespace-nowrap">SIM-kortin väärinkäyttö</h3>
                   <p className="text-white/90 text-sm leading-relaxed">
                     Varkauden jälkeinen SIM-kortin luvaton käyttö korvataan 135 € saakka, kun käyttö tapahtuu 48 tunnin sisällä varkaudesta.
                   </p>
                 </div>
 
-                <div className="col-start-5 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{ background: 'var(--gradient-navy)' }}>
+                <div className="col-start-5 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{
+              background: 'var(--gradient-navy)'
+            }}>
                   <h3 className="text-xl font-bold text-white whitespace-nowrap">
                     Suoja sovellushankinnoille
                   </h3>
@@ -360,51 +336,10 @@ const Identiteettiturva = () => {
                 </div>
                 
                 {/* Central circle with logo */}
-                <div className="col-start-3 col-span-2 mt-12 flex justify-center" style={{ zIndex: 3 }}>
-                  <div className="w-40 h-40 rounded-full border-4 border-black bg-white flex items-center justify-center">
-                    <svg width="80" height="80" viewBox="0 0 80 80" className="text-primary">
-                      {/* Shield outline */}
-                      <path 
-                        d="M40 8 L15 20 L15 35 C15 55 40 72 40 72 C40 72 65 55 65 35 L65 20 Z" 
-                        fill="currentColor" 
-                        stroke="none"
-                      />
-                      {/* WiFi signals inside shield */}
-                      <g transform="translate(40, 35)">
-                        {/* Outer arc */}
-                        <path 
-                          d="M -18 8 A 25 25 0 0 1 18 8" 
-                          fill="none" 
-                          stroke="white" 
-                          strokeWidth="2.5" 
-                          strokeLinecap="round"
-                        />
-                        {/* Middle arc */}
-                        <path 
-                          d="M -12 8 A 17 17 0 0 1 12 8" 
-                          fill="none" 
-                          stroke="white" 
-                          strokeWidth="2.5" 
-                          strokeLinecap="round"
-                        />
-                        {/* Inner arc */}
-                        <path 
-                          d="M -6 8 A 8.5 8.5 0 0 1 6 8" 
-                          fill="none" 
-                          stroke="white" 
-                          strokeWidth="2.5" 
-                          strokeLinecap="round"
-                        />
-                        {/* Center dot */}
-                        <circle 
-                          cx="0" 
-                          cy="12" 
-                          r="2.5" 
-                          fill="white"
-                        />
-                      </g>
-                    </svg>
-                  </div>
+                <div className="col-start-3 col-span-2 mt-12 flex justify-center" style={{
+              zIndex: 3
+            }}>
+                  
                 </div>
               </div>
             </div>
@@ -435,7 +370,9 @@ const Identiteettiturva = () => {
                   19,99 €/kk
                 </div>
                 
-                <button className="w-full text-white py-3 px-6 rounded-full font-semibold hover:opacity-90 transition-all" style={{ background: 'var(--gradient-navy)' }}>
+                <button className="w-full text-white py-3 px-6 rounded-full font-semibold hover:opacity-90 transition-all" style={{
+              background: 'var(--gradient-navy)'
+            }}>
                   Suojaa laite
                 </button>
                 
@@ -465,7 +402,9 @@ const Identiteettiturva = () => {
                   26,99 €/kk
                 </div>
                 
-                <button className="w-full text-white py-3 px-6 rounded-full font-semibold hover:opacity-90 transition-all" style={{ background: 'var(--gradient-navy)' }}>
+                <button className="w-full text-white py-3 px-6 rounded-full font-semibold hover:opacity-90 transition-all" style={{
+              background: 'var(--gradient-navy)'
+            }}>
                   Suojaa laite
                 </button>
                 
@@ -495,7 +434,9 @@ const Identiteettiturva = () => {
                   30,99 €/kk
                 </div>
                 
-                <button className="w-full text-white py-3 px-6 rounded-full font-semibold hover:opacity-90 transition-all" style={{ background: 'var(--gradient-navy)' }}>
+                <button className="w-full text-white py-3 px-6 rounded-full font-semibold hover:opacity-90 transition-all" style={{
+              background: 'var(--gradient-navy)'
+            }}>
                   Suojaa laite
                 </button>
                 
@@ -517,8 +458,6 @@ const Identiteettiturva = () => {
             </div>
           </div>
       </div>
-    </PageLayout>
-  );
+    </PageLayout>;
 };
-
 export default Identiteettiturva;
