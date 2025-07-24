@@ -272,20 +272,20 @@ const Identiteettiturva = () => {
               </h2>
             </div>
             <div className="max-w-5xl mx-auto relative">
-              {/* SVG for connecting lines */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{
-            zIndex: 1
-          }}>
-                {/* Lines connecting center circle to each box */}
-                {/* Line to top left box (Taloudelliset tappiot) */}
-                <line x1="50%" y1="75%" x2="25%" y2="35%" stroke="black" strokeWidth="2" />
-                {/* Line to top right box (Verkko-ostoturva) */}
-                <line x1="50%" y1="75%" x2="75%" y2="35%" stroke="black" strokeWidth="2" />
-                {/* Line to bottom left box (SIM-kortin väärinkäyttö) */}
-                <line x1="50%" y1="75%" x2="16.7%" y2="55%" stroke="black" strokeWidth="2" />
-                {/* Line to bottom right box (Suoja sovellushankinnoille) */}
-                <line x1="50%" y1="75%" x2="83.3%" y2="55%" stroke="black" strokeWidth="2" />
-              </svg>
+               {/* SVG for connecting lines */}
+               <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{
+             zIndex: 1
+           }}>
+                 {/* Lines connecting center image to each box */}
+                 {/* Line to top left box (Taloudelliset tappiot) */}
+                 <line x1="50%" y1="85%" x2="25%" y2="25%" stroke="black" strokeWidth="2" />
+                 {/* Line to top right box (Verkko-ostoturva) */}
+                 <line x1="50%" y1="85%" x2="75%" y2="25%" stroke="black" strokeWidth="2" />
+                 {/* Line to bottom left box (SIM-kortin väärinkäyttö) */}
+                 <line x1="50%" y1="85%" x2="16.7%" y2="45%" stroke="black" strokeWidth="2" />
+                 {/* Line to bottom right box (Suoja sovellushankinnoille) */}
+                 <line x1="50%" y1="85%" x2="83.3%" y2="45%" stroke="black" strokeWidth="2" />
+               </svg>
               
               {/* Pyramid layout using CSS Grid */}
               <div className="grid grid-cols-6 gap-6 place-items-center relative" style={{
@@ -335,11 +335,17 @@ const Identiteettiturva = () => {
                   </p>
                 </div>
                 
-                {/* Central circle with logo */}
+                {/* Central image with rounded corners */}
                 <div className="col-start-3 col-span-2 mt-12 flex justify-center" style={{
               zIndex: 3
             }}>
-                  
+                  <div className="w-32 h-32 rounded-xl overflow-hidden border-2 border-black">
+                    <img 
+                      src="/lovable-uploads/42a6a641-02d1-40e0-9d55-8527dc921bfe.png" 
+                      alt="OmaVerkkoturva logo" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
