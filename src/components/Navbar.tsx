@@ -58,10 +58,10 @@ const Navbar = () => {
               <svg width="40" height="40" viewBox="0 0 100 100" className="text-white flex-shrink-0">
                 {/* Shield outline matching the reference image */}
                 <path 
-                  d="M50 5 L15 20 L15 45 C15 70 50 90 50 90 C50 90 85 70 85 45 L85 20 Z" 
+                  d="M50 8 L20 18 L20 40 C20 60 35 75 50 85 C65 75 80 60 80 40 L80 18 Z" 
                   fill="transparent" 
                   stroke="currentColor" 
-                  strokeWidth="4"
+                  strokeWidth="3"
                   strokeLinejoin="round"
                 />
                 {/* WiFi symbol inside shield */}
