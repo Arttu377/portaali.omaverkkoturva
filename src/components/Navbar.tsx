@@ -111,9 +111,11 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <button onClick={() => scrollToSection('contact')} className="px-4 py-2 rounded-md transition-colors text-white hover:text-gray-200 bg-transparent hover:bg-white/10">
-                    Ota yhteyttä
-                  </button>
+                  <Link to="/ota-yhteytta">
+                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-white hover:text-gray-200 bg-transparent hover:bg-white/10")}>
+                      Ota yhteyttä
+                    </NavigationMenuLink>
+                  </Link>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
@@ -174,9 +176,12 @@ const Navbar = () => {
             Artikkelit
           </Link>
           
-          <button onClick={() => scrollToSection('contact')} className="block w-full text-left px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10">
+          <Link to="/ota-yhteytta" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
+            setIsMenuOpen(false);
+            window.scrollTo(0, 0);
+          }}>
             Ota yhteyttä
-          </button>
+          </Link>
           
           <Link to="/kirjaudu" className="block px-3 py-1.5 rounded-md text-sm font-medium bg-blue-600 text-white hover:bg-blue-700" onClick={() => {
             setIsMenuOpen(false);
