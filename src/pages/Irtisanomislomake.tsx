@@ -96,9 +96,12 @@ const Irtisanomislomake = () => {
     <PageLayout showContact={false}>
       <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-50 min-h-screen">
         <div className="max-w-2xl mx-auto">
-          {/* Kiitosteksti */}
+          {/* Otsikko ja kiitosteksti */}
           <div className="mb-16 text-center">
-            <p className="text-gray-900 text-lg leading-relaxed mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-8">
+              Täältä pystyt irtisanomaan palvelun
+            </h2>
+            <p className="text-gray-900 text-xl font-semibold leading-relaxed mb-6">
               Kiitos, että olet ollut mukana turvaamassa verkkoarjessa kanssamme.
             </p>
             <p className="text-gray-900 text-lg leading-relaxed mb-6">
