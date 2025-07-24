@@ -215,9 +215,9 @@ const Identiteettiturva = () => {
                      <div className="text-5xl lg:text-6xl font-bold text-white mb-2">
                        62,9M €
                      </div>
-                     <p className="text-white/80 text-sm">
-                       Tämä verran vuonna 2024 suomalaisten rahoja menetettiin nettihuijareille. Vielä vuonna 2023 summa oli 44,2M € eli nousua oli 40%.
-                     </p>
+                      <p className="text-white/80 text-sm">
+                        Vuonna 2024 suomalaiset menettivät nettihuijauksiin 62,9 miljoonaa euroa, joka on 40 % enemmän kuin vuonna 2023, jolloin summa oli 44,2 miljoonaa euroa.
+                      </p>
                    </div>
                  </div>
                </div>
