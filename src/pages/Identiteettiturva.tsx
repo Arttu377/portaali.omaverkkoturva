@@ -290,6 +290,54 @@ const Identiteettiturva = () => {
             </div>
           </div>
           
+          {/* Insurance Coverage Details */}
+          <div className="container mx-auto px-4 py-24">
+            <div className="max-w-4xl mx-auto space-y-12">
+              {/* Taloudellinen menetys */}
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-foreground">
+                  Taloudellinen menetys
+                </h3>
+                <p className="text-foreground leading-relaxed">
+                  Kyberturvavakuutus Premium kattaa kybervahingon tapauksessa taloudellisia menetyksiä 13 500 € saakka.
+                </p>
+                <p className="text-foreground leading-relaxed">
+                  Esimerkiksi taloudelliset menetykset, jotka johtuvat petoksesta, kuten phishingistä, vishingistä, smishingistä tai vastaavista, mukaan lukien viittaukset väärennetyille verkkosivuille, joissa rikoksentekijä on vilpillisesti saanut sinulta tietoja, kuten pääsyn verkkopankkiisi tai pankkitunnuksiisi tai mobiilivarmenteella, ja aiheuttanut sinulle taloudellisia menetyksiä.
+                </p>
+              </div>
+
+              {/* Verkko-ostojen turva */}
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-foreground">
+                  Verkko-ostojen turva
+                </h3>
+                <p className="text-foreground leading-relaxed">
+                  Ostoille, joiden arvo on 50-700 €, joko verkkokaupan kautta tai yksityishenkilöiden välisessä kaupassa, maksetaan korvaus, jos saat toisen tuotteen kuin tilatun, jos yksi tai useampi tuote puuttuu vastaanotetusta toimituksesta tai jos tuotetta ei toimiteta lainkaan.
+                </p>
+              </div>
+
+              {/* SIM-kortin vilpillinen käyttö */}
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-foreground">
+                  SIM-kortin vilpillinen käyttö
+                </h3>
+                <p className="text-foreground leading-relaxed">
+                  Vakuutus korvaa matkapuhelimesi tai tablettisi varkauden aiheuttamat kulut (135 € saakka) SIM-korttisi vilpillisestä käytöstä, enintään 48 tuntia varkauden jälkeen.
+                </p>
+              </div>
+
+              {/* Sovellusostojen turva */}
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-foreground">
+                  Sovellusostojen turva
+                </h3>
+                <p className="text-foreground leading-relaxed">
+                  Vakuutus kattaa kulut (135 € saakka), jotka liittyvät sovellusten ostamiseen (tai sovellusten sisäisiin ostoihin), jos kotitaloudessasi oleva lapsi (alle 10-vuotias) tekee ostoksen vahingossa tai ilman lupaasi App Storen, Google Playn, Playstation Storen, Microsoft Storen tai Steamin kautta.
+                </p>
+              </div>
+            </div>
+          </div>
+          
           {/* Pricing section */}
           <div className="container mx-auto px-4 py-24">
             <div className="text-center mb-16">
