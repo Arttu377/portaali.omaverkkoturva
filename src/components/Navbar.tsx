@@ -55,45 +55,46 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center space-x-3">
               {/* WiFi Shield Logo */}
-              <svg width="36" height="36" viewBox="0 0 100 100" className="text-white flex-shrink-0">
-                {/* Simple shield outline */}
+              <svg width="40" height="40" viewBox="0 0 100 100" className="text-white flex-shrink-0">
+                {/* Shield outline matching the reference image */}
                 <path 
-                  d="M50 10 L20 25 L20 45 C20 70 50 85 50 85 C50 85 80 70 80 45 L80 25 Z" 
-                  fill="none" 
+                  d="M50 5 L15 20 L15 45 C15 70 50 90 50 90 C50 90 85 70 85 45 L85 20 Z" 
+                  fill="transparent" 
                   stroke="currentColor" 
-                  strokeWidth="3"
+                  strokeWidth="4"
+                  strokeLinejoin="round"
                 />
-                {/* WiFi signals inside shield - traditional style */}
-                <g transform="translate(50, 45)">
+                {/* WiFi symbol inside shield */}
+                <g transform="translate(50, 52)">
                   {/* Outer arc */}
                   <path 
-                    d="M -15 5 Q 0 -10 15 5" 
+                    d="M -18 5 A 25 25 0 0 1 18 5" 
                     fill="none" 
                     stroke="currentColor" 
-                    strokeWidth="3" 
+                    strokeWidth="4" 
                     strokeLinecap="round"
                   />
                   {/* Middle arc */}
                   <path 
-                    d="M -10 5 Q 0 -5 10 5" 
+                    d="M -12 5 A 17 17 0 0 1 12 5" 
                     fill="none" 
                     stroke="currentColor" 
-                    strokeWidth="3" 
+                    strokeWidth="4" 
                     strokeLinecap="round"
                   />
                   {/* Inner arc */}
                   <path 
-                    d="M -5 5 Q 0 0 5 5" 
+                    d="M -6 5 A 8.5 8.5 0 0 1 6 5" 
                     fill="none" 
                     stroke="currentColor" 
-                    strokeWidth="3" 
+                    strokeWidth="4" 
                     strokeLinecap="round"
                   />
                   {/* Center dot */}
                   <circle 
                     cx="0" 
-                    cy="8" 
-                    r="2" 
+                    cy="12" 
+                    r="3" 
                     fill="currentColor"
                   />
                 </g>
