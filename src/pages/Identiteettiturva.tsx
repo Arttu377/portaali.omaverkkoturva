@@ -342,54 +342,54 @@ const Identiteettiturva = () => {
 
                 {/* Connecting lines */}
                 <div className="absolute inset-0 pointer-events-none">
-                  {/* Line from center to top-left box */}
+                  {/* Line from top-left box to center bottom */}
                   <div className="absolute" style={{
-                    top: '50%',
-                    left: '50%',
+                    top: '70%',
+                    left: '16.66%',
                     width: '2px',
-                    height: '120px',
+                    height: '100px',
                     backgroundColor: '#4ade80',
-                    transform: 'translate(-50%, -50%) rotate(-35deg) translateY(-60px)',
+                    transform: 'rotate(35deg)',
+                    transformOrigin: 'center top'
+                  }}></div>
+                  
+                  {/* Line from top-right box to center bottom */}
+                  <div className="absolute" style={{
+                    top: '70%',
+                    right: '16.66%',
+                    width: '2px',
+                    height: '100px',
+                    backgroundColor: '#4ade80',
+                    transform: 'rotate(-35deg)',
+                    transformOrigin: 'center top'
+                  }}></div>
+                  
+                  {/* Line from bottom-left box to center bottom */}
+                  <div className="absolute" style={{
+                    bottom: '30%',
+                    left: '16.66%',
+                    width: '2px',
+                    height: '100px',
+                    backgroundColor: '#4ade80',
+                    transform: 'rotate(-35deg)',
                     transformOrigin: 'center bottom'
                   }}></div>
                   
-                  {/* Line from center to top-right box */}
+                  {/* Line from bottom-right box to center bottom */}
                   <div className="absolute" style={{
-                    top: '50%',
-                    left: '50%',
+                    bottom: '30%',
+                    right: '16.66%',
                     width: '2px',
-                    height: '120px',
+                    height: '100px',
                     backgroundColor: '#4ade80',
-                    transform: 'translate(-50%, -50%) rotate(35deg) translateY(-60px)',
-                    transformOrigin: 'center bottom'
-                  }}></div>
-                  
-                  {/* Line from center to bottom-left box */}
-                  <div className="absolute" style={{
-                    top: '50%',
-                    left: '50%',
-                    width: '2px',
-                    height: '120px',
-                    backgroundColor: '#4ade80',
-                    transform: 'translate(-50%, -50%) rotate(-145deg) translateY(-60px)',
-                    transformOrigin: 'center bottom'
-                  }}></div>
-                  
-                  {/* Line from center to bottom-right box */}
-                  <div className="absolute" style={{
-                    top: '50%',
-                    left: '50%',
-                    width: '2px',
-                    height: '120px',
-                    backgroundColor: '#4ade80',
-                    transform: 'translate(-50%, -50%) rotate(145deg) translateY(-60px)',
+                    transform: 'rotate(35deg)',
                     transformOrigin: 'center bottom'
                   }}></div>
                 </div>
               </div>
               
-              {/* Central text with lime green circle */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+              {/* Central text with lime green circle - positioned below the boxes */}
+              <div className="flex justify-center mt-16">
                 <div className="relative">
                   {/* Lime green circle */}
                   <div className="absolute inset-0 transform -translate-x-4 -translate-y-2">
