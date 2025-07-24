@@ -23,7 +23,7 @@ const About = () => {
               initial={{ opacity: 0, y: -10 }} 
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.5 }} 
-              className="text-4xl font-bold mb-6 text-center"
+              className="text-4xl font-bold mb-36 text-center"
             >
               Keitä me olemme ja miksi OmaVerkkoturva syntyi?
             </motion.h1>
