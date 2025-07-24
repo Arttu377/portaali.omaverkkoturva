@@ -305,9 +305,18 @@ const Identiteettiturva = () => {
                 Vakuutus - 0€ omavastuulla
               </h2>
             </div>
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-5xl mx-auto relative">
+              {/* SVG for connecting lines */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
+                {/* Lines connecting center circle to each box */}
+                <line x1="50%" y1="85%" x2="25%" y2="45%" stroke="black" strokeWidth="2" />
+                <line x1="50%" y1="85%" x2="75%" y2="45%" stroke="black" strokeWidth="2" />
+                <line x1="50%" y1="85%" x2="16.7%" y2="70%" stroke="black" strokeWidth="2" />
+                <line x1="50%" y1="85%" x2="83.3%" y2="70%" stroke="black" strokeWidth="2" />
+              </svg>
+              
               {/* Pyramid layout using CSS Grid */}
-              <div className="grid grid-cols-6 gap-6 place-items-center">
+              <div className="grid grid-cols-6 gap-6 place-items-center relative" style={{ zIndex: 2 }}>
                 {/* Top row - centered items, wider spans */}
                 <div className="col-start-2 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{ background: 'var(--gradient-navy)' }}>
                   <h3 className="text-xl font-bold text-white whitespace-nowrap">
@@ -344,6 +353,15 @@ const Identiteettiturva = () => {
                   <p className="text-white/90 text-sm leading-relaxed">
                     Vakuutus kattaa jopa 135 €, jos alle 10-vuotias lapsi tekee vahingossa tai luvatta sovellusostoja esim. App Storessa tai Google Playssa.
                   </p>
+                </div>
+                
+                {/* Central circle with Omaverkkoturva */}
+                <div className="col-start-3 col-span-2 mt-12 flex justify-center" style={{ zIndex: 3 }}>
+                  <div className="w-40 h-40 rounded-full border-4 border-black bg-white flex items-center justify-center">
+                    <span className="text-black font-bold text-lg text-center leading-tight">
+                      Omaverkkoturva
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
