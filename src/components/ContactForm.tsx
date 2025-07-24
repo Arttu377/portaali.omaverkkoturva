@@ -153,9 +153,12 @@ const ContactForm = () => {
                 <strong>HUOM:</strong> Irtisanomiset käsitellään vain puhelimitse tai irtisanomislomakkeella. Linkin irtisanomislomakkeelle siirtymiseen löydätte alta.
               </p>
               
-              <button className="mt-6 px-6 py-3 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 transition-colors">
-                Irtisanomislomake
-              </button>
+               <button 
+                 onClick={() => navigate('/irtisanomislomake')}
+                 className="mt-6 px-6 py-3 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 transition-colors"
+               >
+                 Irtisanomislomake
+               </button>
               
               <div className="mt-8 flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-gray-600" />
@@ -172,17 +175,6 @@ const ContactForm = () => {
                 </div>
               </div>
             </div>
-          </div>
-          
-          {/* Irtisanomislomake nappi */}
-          <div className="mb-8">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Haluatko irtisanoa palvelun?</h3>
-            <button 
-              onClick={() => navigate('/irtisanomislomake')}
-              className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition-colors font-medium"
-            >
-              Siirry irtisanomislomakkeeseen
-            </button>
           </div>
 
           {/* Right side - Contact form */}
