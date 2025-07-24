@@ -54,7 +54,7 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+                className="mb-36 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
               >
                 <div className="flex justify-center lg:order-1">
                   <div className="w-48 h-48 bg-gray-200 rounded-full flex items-center justify-center">
@@ -73,7 +73,7 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="mb-12"
+                className="mb-36"
               >
                 <h2 className="text-2xl font-bold mb-4">Mitä OmaVerkkoturva tekee?</h2>
                 <p className="text-gray-600 text-lg mb-4">
@@ -88,7 +88,7 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+                className="mb-36 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
               >
                 <div>
                   <h2 className="text-2xl font-bold mb-4">Tuki ja turva - aina läsnä</h2>
