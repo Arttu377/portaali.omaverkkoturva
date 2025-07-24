@@ -102,7 +102,7 @@ const Irtisanomislomake = () => {
               Täältä pystyt irtisanomaan palvelun
             </h2>
             <p className="text-gray-900 text-xl font-semibold leading-relaxed mb-6">
-              Kiitos, että olet ollut mukana turvaamassa verkkoa arjessa kanssamme.
+              Kiitos, että olet ollut mukana turvaamassa verkkoa kanssamme.
             </p>
             <p className="text-gray-900 text-lg leading-relaxed mb-6">
               Arvostamme sitä, että valitsit OmaVerkkoturvan suojaamaan digitaalisia tietojasi ja identiteettiäsi. Jokainen asiakas on meille tärkeä, ja olemme kiitollisia luottamuksesta, jonka olet meille antanut.
