@@ -98,7 +98,7 @@ const Irtisanomislomake = () => {
         <div className="max-w-6xl mx-auto">
           {/* Otsikko */}
           <div className="text-center mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">
+            <h2 className="text-4xl font-bold text-gray-900 mb-8">
               Täältä pystyt irtisanomaan palvelun
             </h2>
           </div>
