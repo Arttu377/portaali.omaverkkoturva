@@ -26,9 +26,9 @@ import {
 import { useToast } from '@/hooks/use-toast';
 
 // EmailJS configuration
-const SERVICE_ID = 'service_i3h66xg';
-const TEMPLATE_ID = 'template_fgq53nh';
-const PUBLIC_KEY = 'wQmcZvoOqTAhGnRZ3';
+const SERVICE_ID = 'service_6r9m8wf';
+const TEMPLATE_ID = 'template_on07od7';
+const PUBLIC_KEY = 'wRFDBmEPD5mCrpb2a';
 
 const formSchema = z.object({
   name: z.string().min(1, 'Nimi on pakollinen'),

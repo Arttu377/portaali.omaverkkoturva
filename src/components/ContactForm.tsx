@@ -27,9 +27,9 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 // EmailJS configuration
-const EMAILJS_SERVICE_ID = "service_i3h66xg";
-const EMAILJS_TEMPLATE_ID = "template_fgq53nh";
-const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
+const EMAILJS_SERVICE_ID = "service_6r9m8wf";
+const EMAILJS_TEMPLATE_ID = "template_on07od7";
+const EMAILJS_PUBLIC_KEY = "wRFDBmEPD5mCrpb2a";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
