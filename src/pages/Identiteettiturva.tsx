@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Identiteettiturva = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -235,51 +234,59 @@ const Identiteettiturva = () => {
            </div>
            
            <div className="max-w-4xl mx-auto">
-             <Carousel className="w-full">
-               <CarouselContent>
-                 <CarouselItem>
-                   <div className="p-8 rounded-lg border" style={{ background: 'var(--gradient-navy)' }}>
-                     <h3 className="text-2xl font-bold text-white mb-6 text-center">Tietojenkalastelu</h3>
-                     <p className="text-white leading-relaxed">
-                       Nina sai aidolta näyttävän sähköpostin pankiltaan. Hän klikkasi viestissä ollutta linkkiä ja kirjautui sisään sivulle, joka olikin huijaussivusto. Tietojen avulla rikollinen otti hänen nimissään kolme pikavippiä (yhteensä 11 200€), vaihdatutti hänen postiosoitteensa sekä puhelinnumeronsa ja yritti avata verkkopankkitilejä ja maksukortteja. Palveluun sisältyvä vakuutus korvaa jopa 13 500 € taloudelliset menetykset ja asiantuntijat auttavat asian läpiviennissä.
-                     </p>
-                   </div>
-                 </CarouselItem>
-                 
-                 <CarouselItem>
-                   <div className="p-8 rounded-lg border" style={{ background: 'var(--gradient-navy)' }}>
-                     <h3 className="text-2xl font-bold text-white mb-6 text-center">Verkkokauppahuijaus</h3>
-                     <p className="text-white leading-relaxed">
-                       Timo löysi verkosta edullisen tarjouksen uusista kuulokkeista tunnetulta brändiltä. Hinta oli lähes puolet halvempi kuin muualla, ja verkkosivusto näytti aidolta. Logo, arvostelut ja maksutavat kaikki kunnossa. Hän maksoi 129 € pankkikortilla. Tilauksen jälkeen tuotetta ei koskaan saapunut ja verkkokauppa katosi muutamassa päivässä. Koska ostoksen hinta oli 50-700 € välillä, Timo saa rahansa takaisin verkkokauppahuijaukset kattavan vakuutuksen ansiosta.
-                     </p>
-                   </div>
-                 </CarouselItem>
-                 
-                 <CarouselItem>
-                   <div className="p-8 rounded-lg border" style={{ background: 'var(--gradient-navy)' }}>
-                     <h3 className="text-2xl font-bold text-white mb-6 text-center">Sovellushankinnat</h3>
-                     <p className="text-white leading-relaxed">
-                       Sannan 9-vuotias poika sai pelata hetken äidin puhelimella. Hän latasi vahingossa pelisovelluksen, joka näytti ilmaiselta mutta sisälsi kalliin 112 euron tilauksen. Maksu veloittui heti, koska maksukortti oli tallennettuna puhelimeen. Vakuutus korvaa kulut, jotka liittyvät alle 10-vuotiaan vahingossa tekemiin sovellusostoihin (alle 135 €) suurimmilla alustoilla, kuten mm. App Storessa, Google Playssa tai Steamissa.
-                     </p>
-                   </div>
-                 </CarouselItem>
-                 
-                 <CarouselItem>
-                   <div className="p-8 rounded-lg border" style={{ background: 'var(--gradient-navy)' }}>
-                     <h3 className="text-2xl font-bold text-white mb-6 text-center">Nettikiusaaminen</h3>
-                     <p className="text-white leading-relaxed">
-                        Emilia joutui nettikiusaamisen kohteeksi sen jälkeen, kun hänen TikTok-videonsa levisi yllättäen laajalle. Tuntemattomat ihmiset alkoivat kommentoida videoita loukkaavasti ja joku perusti tekaistun tilin hänen nimellään ja profiilikuvallaan. Väärennetyllä tilillä julkaistiin sisältöä, joka sai Emilian näyttämään nololta. Hän saa asiantuntijoilta neuvoja ja apuja (25 h) sisällön poistoon ja tilien palautukseen. Tarvittaessa hänen käytössä on myös oikeudellinen tuki ja psykologinen kriisiapu.
-                      </p>
-                    </div>
-                  </CarouselItem>
-                </CarouselContent>
-                
-                {/* Navigation buttons positioned below content */}
-                <div className="flex justify-between items-center mt-6 px-4">
-                  <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
-                  <CarouselNext className="relative right-0 top-0 translate-y-0" />
-                </div>
-              </Carousel>
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="tietojenkalastelu">
+                <AccordionTrigger className="text-left text-xl font-semibold">
+                  Tietojenkalastelu
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="p-6 rounded-lg mt-4" style={{ background: 'var(--gradient-navy)' }}>
+                    <p className="text-white leading-relaxed">
+                      Nina sai aidolta näyttävän sähköpostin pankiltaan. Hän klikkasi viestissä ollutta linkkiä ja kirjautui sisään sivulle, joka olikin huijaussivusto. Tietojen avulla rikollinen otti hänen nimissään kolme pikavippiä (yhteensä 11 200€), vaihdatutti hänen postiosoitteensa sekä puhelinnumeronsa ja yritti avata verkkopankkitilejä ja maksukortteja. Palveluun sisältyvä vakuutus korvaa jopa 13 500 € taloudelliset menetykset ja asiantuntijat auttavat asian läpiviennissä.
+                    </p>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="verkkokauppahuijaus">
+                <AccordionTrigger className="text-left text-xl font-semibold">
+                  Verkkokauppahuijaus
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="p-6 rounded-lg mt-4" style={{ background: 'var(--gradient-navy)' }}>
+                    <p className="text-white leading-relaxed">
+                      Timo löysi verkosta edullisen tarjouksen uusista kuulokkeista tunnetulta brändiltä. Hinta oli lähes puolet halvempi kuin muualla, ja verkkosivusto näytti aidolta. Logo, arvostelut ja maksutavat kaikki kunnossa. Hän maksoi 129 € pankkikortilla. Tilauksen jälkeen tuotetta ei koskaan saapunut ja verkkokauppa katosi muutamassa päivässä. Koska ostoksen hinta oli 50-700 € välillä, Timo saa rahansa takaisin verkkokauppahuijaukset kattavan vakuutuksen ansiosta.
+                    </p>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="sovellushankinnat">
+                <AccordionTrigger className="text-left text-xl font-semibold">
+                  Sovellushankinnat
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="p-6 rounded-lg mt-4" style={{ background: 'var(--gradient-navy)' }}>
+                    <p className="text-white leading-relaxed">
+                      Sannan 9-vuotias poika sai pelata hetken äidin puhelimella. Hän latasi vahingossa pelisovelluksen, joka näytti ilmaiselta mutta sisälsi kalliin 112 euron tilauksen. Maksu veloittui heti, koska maksukortti oli tallennettuna puhelimeen. Vakuutus korvaa kulut, jotka liittyvät alle 10-vuotiaan vahingossa tekemiin sovellusostoihin (alle 135 €) suurimmilla alustoilla, kuten mm. App Storessa, Google Playssa tai Steamissa.
+                    </p>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="nettikiusaaminen">
+                <AccordionTrigger className="text-left text-xl font-semibold">
+                  Nettikiusaaminen
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="p-6 rounded-lg mt-4" style={{ background: 'var(--gradient-navy)' }}>
+                    <p className="text-white leading-relaxed">
+                      Emilia joutui nettikiusaamisen kohteeksi sen jälkeen, kun hänen TikTok-videonsa levisi yllättäen laajalle. Tuntemattomat ihmiset alkoivat kommentoida videoita loukkaavasti ja joku perusti tekaistun tilin hänen nimellään ja profiilikuvallaan. Väärennetyllä tilillä julkaistiin sisältöä, joka sai Emilian näyttämään nololta. Hän saa asiantuntijoilta neuvoja ja apuja (25 h) sisällön poistoon ja tilien palautukseen. Tarvittaessa hänen käytössä on myös oikeudellinen tuki ja psykologinen kriisiapu.
+                    </p>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
             </div>
           </div>
           
