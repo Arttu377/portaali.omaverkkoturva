@@ -22,6 +22,7 @@ import BlogPostDetail from "./pages/BlogPostDetail";
 import Identiteettiturva from "./pages/Identiteettiturva";
 import Irtisanomislomake from "./pages/Irtisanomislomake";
 import Contact from "./pages/Contact";
+import { LogoTool } from "./pages/LogoTool";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -50,6 +51,7 @@ const App = () => {
             <Route path="/identiteettiturva" element={<Identiteettiturva />} />
             <Route path="/irtisanomislomake" element={<Irtisanomislomake />} />
             <Route path="/ota-yhteytta" element={<Contact />} />
+            <Route path="/logo-tool" element={<LogoTool />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
