@@ -66,6 +66,12 @@ const Irtisanomislomake = () => {
     setIsSubmitting(true);
     
     try {
+      console.log('EmailJS Configuration:', {
+        SERVICE_ID,
+        TEMPLATE_ID,
+        PUBLIC_KEY: PUBLIC_KEY.substring(0, 5) + '...'
+      });
+
       const templateParams = {
         subject: 'Irtisanomislomake',
         from_name: data.name,
@@ -83,7 +89,10 @@ Vahvistus: ${data.confirmation ? 'Kyllä' : 'Ei'}`,
         reply_to: data.email,
       };
 
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+      console.log('Template Parameters:', templateParams);
+      
+      const result = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+      console.log('EmailJS Success:', result);
       
       toast({
         title: "Irtisanomislomake lähetetty",
