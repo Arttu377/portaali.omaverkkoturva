@@ -39,9 +39,14 @@ const Identiteettiturva = () => {
         const entry = entries[0];
         if (entry.isIntersecting) {
           setIsAnimated(true);
+        } else {
+          setIsAnimated(false);
         }
       },
-      { threshold: 0.3 }
+      { 
+        threshold: 0.5,
+        rootMargin: '-100px 0px -100px 0px'
+      }
     );
     
     if (coverageRef.current) {
