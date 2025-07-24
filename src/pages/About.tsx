@@ -29,148 +29,71 @@ const About = () => {
               transition={{ duration: 0.5 }} 
               className="text-4xl font-bold mb-6"
             >
-              About WRLDS Technologies
+              Keitä me olemme ja miksi OmaVerkkoturva syntyi?
             </motion.h1>
             
             <div className="prose prose-lg max-w-none">
-              <motion.p 
+              <motion.div 
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 transition={{ duration: 0.5, delay: 0.2 }} 
-                className="text-xl text-gray-600 mb-12"
+                className="mb-12"
               >
-                We're a team of innovators dedicated to revolutionizing smart textile technology for industries worldwide.
-              </motion.p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }} 
-                  animate={{ opacity: 1, x: 0 }} 
-                  transition={{ duration: 0.6 }}
-                  className="space-y-6"
-                >
-                  <h2 className="text-3xl font-bold">Our Mission</h2>
-                  <p className="text-gray-600">
-                    At WRLDS Technologies, we're on a mission to transform ordinary textiles into intelligent, 
-                    data-driven solutions that improve safety, performance, and quality of life across industries.
-                  </p>
-                  <p className="text-gray-600">
-                    We believe that by embedding intelligence into everyday fabrics, we can create a more 
-                    connected, responsive, and safer world.
-                  </p>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }} 
-                  animate={{ opacity: 1, x: 0 }} 
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="bg-gray-50 rounded-2xl p-8 border border-gray-100"
-                >
-                  <h3 className="text-2xl font-bold mb-4">Our Values</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-gray-700 mt-1 mr-3 flex-shrink-0" />
-                      <span><strong>Innovation:</strong> We push boundaries to create solutions that weren't possible before.</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-gray-700 mt-1 mr-3 flex-shrink-0" />
-                      <span><strong>Quality:</strong> We're committed to excellence in every sensor, algorithm, and solution we deliver.</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-gray-700 mt-1 mr-3 flex-shrink-0" />
-                      <span><strong>Collaboration:</strong> We work closely with our clients to ensure their unique needs are met.</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-gray-700 mt-1 mr-3 flex-shrink-0" />
-                      <span><strong>Impact:</strong> We measure success by the tangible differences our technology makes in the real world.</span>
-                    </li>
-                  </ul>
-                </motion.div>
-              </div>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="mb-16"
-              >
-                <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-                <div className="bg-white rounded-xl border border-gray-200 p-8 shadow-sm">
-                  <p className="text-gray-600 mb-4">
-                    We started with the ambition to make an inherently scattered and complex development area modular, 
-                    smart and available to analog brands. After successfully raising millions of dollars for development, 
-                    we spent the first two years in full code mode.
-                  </p>
-                  <p className="text-gray-600 mb-4">
-                    The goal was to turn all the scattered hardware and building blocks into simple modules to be 
-                    assembled like Lego. During this time we took in a range of customers for whom we built prototypes - 
-                    a way for us to make sure what we built had bearing in real world use cases.
-                  </p>
-                  <p className="text-gray-600">
-                    In 2023 we felt we had reached a technology level allowing us to start working on enterprise level. 
-                    Since then, we have focused on textile integrations because of the enormous potential smart textiles 
-                    have across multiple industries from healthcare to public safety.
-                  </p>
-                </div>
+                <h2 className="text-2xl font-bold mb-4">Missiomme</h2>
+                <p className="text-gray-600 text-lg">
+                  Meidän tavoite on yksinkertainen: haluamme tehdä suomalaisista turvattuja verkossa. Jokaisella tulisi olla suoja, joka estää identiteettivarkaudet ja auttaa silloin, kun jotain ikävää ehtii jo tapahtua.
+                </p>
               </motion.div>
               
               <motion.div 
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="mb-16"
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mb-12"
               >
-                <h2 className="text-3xl font-bold mb-6">Our Team</h2>
-                <p className="text-gray-600 mb-8">
-                  Our diverse team combines expertise in textile engineering, electronics, software development, 
-                  artificial intelligence, and industry-specific knowledge to deliver holistic solutions.
+                <h2 className="text-2xl font-bold mb-4">Ketkä me olemme?</h2>
+                <p className="text-gray-600 text-lg">
+                  Olemme kaksi nuorta kaveria, Arttu Ruotsalainen ja Arttu Simanainen, ja perimmäinen syymme OmaVerkkoturvan perustamiseen oli turhautuminen kasvavaan verkkorikollisuuteen. Näemme jatkuvasti, miten ihmiset joutuvat huijauksien ja identiteettivarkauksien uhreiksi, sekä halusimme tehdä asialle jotain konkreettista.
                 </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {[
-                    {
-                      name: "Felix von Heland",
-                      role: "CEO and Founder",
-                      bio: "Leading WRLDS Technologies with a vision to transform the future of smart textiles.",
-                      image: "/lovable-uploads/aa5291bd-2417-4c1e-9a02-0bcc71a92507.png"
-                    },
-                    {
-                      name: "Niek Bijman",
-                      role: "Software Lead",
-                      bio: "Specializing in cloud infrastructure and APIs for seamless data integration.",
-                      image: "/lovable-uploads/e502f601-c519-43a8-86f5-5fa89ae50d2f.png"
-                    },
-                    {
-                      name: "Chengjie Li",
-                      role: "Hardware Lead",
-                      bio: "Expert in embedded systems engineering, leading our hardware development efforts.",
-                      image: "/lovable-uploads/3de85ddd-15e1-4216-9697-f91abb9a47ce.png"
-                    },
-                    {
-                      name: "Love",
-                      role: "COO",
-                      bio: "Overseeing daily operations and ensuring business objectives are met effectively.",
-                      image: "/lovable-uploads/a9bb9110-964a-43b0-a5ab-7162140cd133.png"
-                    }
-                  ].map((member, i) => (
-                    <Card key={i} className="bg-gray-50 border border-gray-100 overflow-hidden">
-                      <CardContent className="p-6">
-                        <div className="flex flex-col items-center text-center">
-                          <div className="w-32 h-32 relative mb-4 rounded-full overflow-hidden">
-                            <img 
-                              src={member.image} 
-                              alt={member.name} 
-                              className="w-full h-full object-cover filter grayscale" 
-                            />
-                          </div>
-                          <h3 className="font-bold text-lg">{member.name}</h3>
-                          <p className="text-gray-500 text-sm mb-2">{member.role}</p>
-                          <p className="text-gray-600 text-sm">{member.bio}</p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="mb-12"
+              >
+                <h2 className="text-2xl font-bold mb-4">Mitä OmaVerkkoturva tekee?</h2>
+                <p className="text-gray-600 text-lg mb-4">
+                  Tarjoamme palvelun, joka auttaa ennaltaehkäisemään identiteettivarkauksia ja reagoimaan nopeasti, jos jotain sattuu. Me ymmärrämme, että huijaukset kehittyvät jatkuvasti ja siksi kehitämme myös itseämme sekä teknologiaamme jatkuvasti mukana.
+                </p>
+                <p className="text-gray-600 text-lg">
+                  Palveluumme sisältyy myös vakuutus, joka kattaa kyberrikollisuudesta aiheutuneita taloudellisia menetyksiä. Näin voit liikkua verkossa varmemmin ja tiedät, että sinulla on selusta turvattu.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="mb-12"
+              >
+                <h2 className="text-2xl font-bold mb-4">Tuki ja turva - aina läsnä</h2>
+                <p className="text-gray-600 text-lg">
+                  Me emme ole pelkkä työkalu. Me olemme myös tukitiimi, joka vastaa tietoturvaan ja tietoliikenteeseen liittyviin kysymyksiin ilman turhaa teknistä jargonia. Halusitpa tietää, miten suojautua huijauksilta tai mikä on turvallinen netin käyttö lapsille, olemme täällä auttamassa.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="mb-12"
+              >
+                <h2 className="text-2xl font-bold mb-4">Turvallinen verkko kuuluu kaikille</h2>
+                <p className="text-gray-600 text-lg">
+                  Verkkorikollisuus kasvaa koko ajan, mutta niin kasvaa myös tietoisuus. Me haluamme olla mukana rakentamassa Suomea, jossa jokainen voi tuntea olonsa turvalliseksi netissä - iästä, taustasta tai teknisestä osaamisesta riippumatta.
+                </p>
               </motion.div>
             </div>
             
