@@ -181,7 +181,7 @@ ${emailData.message}`,
                   Irtisanomislomake
                 </button>
                 <p className="text-sm text-gray-600 mt-4">
-                  <strong>HUOM:</strong> Irtisanomiset käsitellään vain puhelimitse tai irtisanomislomakkeella. Linkin irtisanomislomakkeelle siirtymiseen löydätte alta.
+                  <strong>HUOM:</strong> Irtisanomiset käsitellään vain puhelimitse tai irtisanomislomakkeella.
                 </p>
               </div>
             </div>
