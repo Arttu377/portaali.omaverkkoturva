@@ -335,15 +335,17 @@ const Identiteettiturva = () => {
                   </p>
                 </div>
                 
-                {/* Central image with rounded corners */}
+                {/* Central logo with navy gradient background */}
                 <div className="col-start-3 col-span-2 mt-12 flex justify-center" style={{
               zIndex: 3
             }}>
-                  <div className="w-32 h-32 rounded-xl overflow-hidden border-2 border-black">
+                  <div className="w-32 h-32 rounded-xl overflow-hidden flex items-center justify-center p-4" style={{
+                background: 'var(--gradient-navy)'
+              }}>
                     <img 
-                      src="/lovable-uploads/42a6a641-02d1-40e0-9d55-8527dc921bfe.png" 
+                      src="/lovable-uploads/296f9efc-c5a2-4029-bb1d-02f258233174.png" 
                       alt="OmaVerkkoturva logo" 
-                      className="w-full h-full object-cover"
+                      className="w-16 h-16 object-contain"
                     />
                   </div>
                 </div>
