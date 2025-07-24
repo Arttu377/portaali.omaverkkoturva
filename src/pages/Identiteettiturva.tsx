@@ -93,7 +93,7 @@ const Identiteettiturva = () => {
               <div className="flex items-center space-x-4 mb-8">
                 {/* WiFi Shield Logo */}
                 <div className="flex-shrink-0">
-                  <svg width="80" height="80" viewBox="0 0 80 80" className="text-white">
+                  <svg width="80" height="80" viewBox="0 0 80 80" className="text-primary">
                     {/* Shield outline */}
                     <path 
                       d="M40 8 L15 20 L15 35 C15 55 40 72 40 72 C40 72 65 55 65 35 L65 20 Z" 
