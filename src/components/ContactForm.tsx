@@ -185,9 +185,12 @@ const ContactForm = () => {
                     <FormItem>
                       <FormLabel className="text-white font-medium">Yhteydenoton aihe *</FormLabel>
                        <Select onValueChange={(value) => {
+                         console.log('Select value changed:', value);
                          if (value === 'irtisanomislomake') {
+                           console.log('Navigating to irtisanomislomake');
                            navigate('/irtisanomislomake');
                          } else {
+                           console.log('Setting field value:', value);
                            field.onChange(value);
                          }
                        }} defaultValue={field.value}>
