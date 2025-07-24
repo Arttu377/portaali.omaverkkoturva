@@ -20,6 +20,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Blog from "./pages/Blog";
 import BlogPostDetail from "./pages/BlogPostDetail";
 import Identiteettiturva from "./pages/Identiteettiturva";
+import Irtisanomislomake from "./pages/Irtisanomislomake";
 import Contact from "./pages/Contact";
 
 const App = () => {
@@ -47,6 +48,7 @@ const App = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPostDetail />} />
             <Route path="/identiteettiturva" element={<Identiteettiturva />} />
+            <Route path="/irtisanomislomake" element={<Irtisanomislomake />} />
             <Route path="/ota-yhteytta" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
