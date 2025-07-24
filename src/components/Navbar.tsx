@@ -60,25 +60,33 @@ const Navbar = () => {
                 <g transform="translate(50, 50)">
                   {/* Outer arc */}
                   <path 
-                    d="M -30 10 A 42 42 0 0 1 30 10" 
-                    fill="currentColor" 
-                    strokeWidth="0"
+                    d="M -25 5 A 35 35 0 0 1 25 5" 
+                    fill="none"
+                    stroke="currentColor" 
+                    strokeWidth="6" 
+                    strokeLinecap="round"
                   />
                   {/* Middle arc */}
                   <path 
-                    d="M -20 15 A 28 28 0 0 1 20 15" 
-                    fill="currentColor" 
-                    strokeWidth="0"
+                    d="M -17 5 A 24 24 0 0 1 17 5" 
+                    fill="none"
+                    stroke="currentColor" 
+                    strokeWidth="6" 
+                    strokeLinecap="round"
                   />
                   {/* Inner arc */}
                   <path 
-                    d="M -10 20 A 14 14 0 0 1 10 20" 
-                    fill="currentColor" 
-                    strokeWidth="0"
+                    d="M -9 5 A 13 13 0 0 1 9 5" 
+                    fill="none"
+                    stroke="currentColor" 
+                    strokeWidth="6" 
+                    strokeLinecap="round"
                   />
-                  {/* Base triangle */}
-                  <path 
-                    d="M -5 25 L 5 25 L 0 35 Z" 
+                  {/* Center dot */}
+                  <circle 
+                    cx="0" 
+                    cy="18" 
+                    r="4" 
                     fill="currentColor"
                   />
                 </g>
