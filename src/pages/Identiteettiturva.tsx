@@ -299,11 +299,11 @@ const Identiteettiturva = () => {
                 Vakuutus - 0€ omavastuulla
               </h2>
             </div>
-            <div className="max-w-5xl mx-auto relative">
+            <div className="max-w-5xl mx-auto">
               {/* Pyramid layout using CSS Grid */}
-              <div className="grid grid-cols-6 gap-6 place-items-center relative">
+              <div className="grid grid-cols-6 gap-6 place-items-center">
                 {/* Top row - centered items, wider spans */}
-                <div className="col-start-2 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px] relative" style={{ background: 'var(--gradient-navy)' }}>
+                <div className="col-start-2 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{ background: 'var(--gradient-navy)' }}>
                   <h3 className="text-xl font-bold text-white whitespace-nowrap">
                     Taloudelliset tappiot
                   </h3>
@@ -312,7 +312,7 @@ const Identiteettiturva = () => {
                   </p>
                 </div>
 
-                <div className="col-start-4 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px] relative" style={{ background: 'var(--gradient-navy)' }}>
+                <div className="col-start-4 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{ background: 'var(--gradient-navy)' }}>
                   <h3 className="text-xl font-bold text-white whitespace-nowrap">
                     Verkko-ostoturva
                   </h3>
@@ -322,7 +322,7 @@ const Identiteettiturva = () => {
                 </div>
 
                 {/* Bottom row - positioned left and right, wider spans */}
-                <div className="col-start-1 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px] relative" style={{ background: 'var(--gradient-navy)' }}>
+                <div className="col-start-1 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{ background: 'var(--gradient-navy)' }}>
                   <h3 className="text-xl font-bold text-white whitespace-nowrap">
                     SIM-kortin väärinkäyttö
                   </h3>
@@ -331,78 +331,13 @@ const Identiteettiturva = () => {
                   </p>
                 </div>
 
-                <div className="col-start-5 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px] relative" style={{ background: 'var(--gradient-navy)' }}>
+                <div className="col-start-5 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{ background: 'var(--gradient-navy)' }}>
                   <h3 className="text-xl font-bold text-white whitespace-nowrap">
                     Suoja sovellushankinnoille
                   </h3>
                   <p className="text-white/90 text-sm leading-relaxed">
                     Vakuutus kattaa jopa 135 €, jos alle 10-vuotias lapsi tekee vahingossa tai luvatta sovellusostoja esim. App Storessa tai Google Playssa.
                   </p>
-                </div>
-
-                {/* Connecting lines */}
-                <div className="absolute inset-0 pointer-events-none">
-                  {/* Line from top-left box to center bottom */}
-                  <div className="absolute" style={{
-                    top: '70%',
-                    left: '16.66%',
-                    width: '2px',
-                    height: '100px',
-                    backgroundColor: '#4ade80',
-                    transform: 'rotate(35deg)',
-                    transformOrigin: 'center top'
-                  }}></div>
-                  
-                  {/* Line from top-right box to center bottom */}
-                  <div className="absolute" style={{
-                    top: '70%',
-                    right: '16.66%',
-                    width: '2px',
-                    height: '100px',
-                    backgroundColor: '#4ade80',
-                    transform: 'rotate(-35deg)',
-                    transformOrigin: 'center top'
-                  }}></div>
-                  
-                  {/* Line from bottom-left box to center bottom */}
-                  <div className="absolute" style={{
-                    bottom: '30%',
-                    left: '16.66%',
-                    width: '2px',
-                    height: '100px',
-                    backgroundColor: '#4ade80',
-                    transform: 'rotate(-35deg)',
-                    transformOrigin: 'center bottom'
-                  }}></div>
-                  
-                  {/* Line from bottom-right box to center bottom */}
-                  <div className="absolute" style={{
-                    bottom: '30%',
-                    right: '16.66%',
-                    width: '2px',
-                    height: '100px',
-                    backgroundColor: '#4ade80',
-                    transform: 'rotate(35deg)',
-                    transformOrigin: 'center bottom'
-                  }}></div>
-                </div>
-              </div>
-              
-              {/* Central text with lime green circle - positioned below the boxes */}
-              <div className="flex justify-center mt-16">
-                <div className="relative">
-                  {/* Lime green circle */}
-                  <div className="absolute inset-0 transform -translate-x-4 -translate-y-2">
-                    <svg width="280" height="80" viewBox="0 0 280 80" className="absolute">
-                      <ellipse cx="140" cy="40" rx="135" ry="35" stroke="#4ade80" strokeWidth="3" fill="none" strokeDasharray="8,4"/>
-                    </svg>
-                  </div>
-                  {/* Text */}
-                  <div className="bg-white px-6 py-3 rounded-lg shadow-lg relative z-10">
-                    <h3 className="text-xl font-bold text-foreground text-center whitespace-nowrap">
-                      OmaVerkkoturva - Identiteettiturva
-                    </h3>
-                  </div>
                 </div>
               </div>
             </div>
