@@ -18,10 +18,6 @@ const About = () => {
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
           <div className="max-w-6xl mx-auto">
-            <Link to="/" className="inline-flex items-center text-gray-500 hover:text-gray-700 mb-6 transition-colors">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Home
-            </Link>
             
             <motion.h1 
               initial={{ opacity: 0, y: -10 }} 
@@ -37,24 +33,40 @@ const About = () => {
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 transition={{ duration: 0.5, delay: 0.2 }} 
-                className="mb-12"
+                className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
               >
-                <h2 className="text-2xl font-bold mb-4">Missiomme</h2>
-                <p className="text-gray-600 text-lg">
-                  Meidän tavoite on yksinkertainen: haluamme tehdä suomalaisista turvattuja verkossa. Jokaisella tulisi olla suoja, joka estää identiteettivarkaudet ja auttaa silloin, kun jotain ikävää ehtii jo tapahtua.
-                </p>
+                <div>
+                  <h2 className="text-2xl font-bold mb-4">Missiomme</h2>
+                  <p className="text-gray-600 text-lg">
+                    Meidän tavoite on yksinkertainen: haluamme tehdä suomalaisista turvattuja verkossa. Jokaisella tulisi olla suoja, joka estää identiteettivarkaudet ja auttaa silloin, kun jotain ikävää ehtii jo tapahtua.
+                  </p>
+                </div>
+                <div className="flex justify-center">
+                  <img 
+                    src="/lovable-uploads/4f80dae8-c416-4e53-aa82-a4faa637673d.png" 
+                    alt="Mission icon" 
+                    className="w-48 h-48 object-contain"
+                  />
+                </div>
               </motion.div>
               
               <motion.div 
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="mb-12"
+                className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
               >
-                <h2 className="text-2xl font-bold mb-4">Ketkä me olemme?</h2>
-                <p className="text-gray-600 text-lg">
-                  Olemme kaksi nuorta kaveria, Arttu Ruotsalainen ja Arttu Simanainen, ja olemme tehneet uraa tietoliikennepalveluiden parissa, jossa meille realisoitui kuinka paljon nettirikollisuutta oikeasti on. Näemme jatkuvasti, miten ihmiset joutuvat huijauksien ja identiteettivarkauksien uhreiksi, sekä halusimme tehdä asialle jotain konkreettista.
-                </p>
+                <div className="flex justify-center lg:order-1">
+                  <div className="w-48 h-48 bg-gray-200 rounded-full flex items-center justify-center">
+                    <span className="text-gray-500">Kuva tulossa</span>
+                  </div>
+                </div>
+                <div className="lg:order-2">
+                  <h2 className="text-2xl font-bold mb-4">Ketkä me olemme?</h2>
+                  <p className="text-gray-600 text-lg">
+                    Olemme kaksi nuorta kaveria, Arttu Ruotsalainen ja Arttu Simanainen, ja olemme tehneet uraa tietoliikennepalveluiden parissa, jossa meille realisoitui kuinka paljon nettirikollisuutta oikeasti on. Näemme jatkuvasti, miten ihmiset joutuvat huijauksien ja identiteettivarkauksien uhreiksi, sekä halusimme tehdä asialle jotain konkreettista.
+                  </p>
+                </div>
               </motion.div>
 
               <motion.div 
@@ -76,12 +88,19 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="mb-12"
+                className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
               >
-                <h2 className="text-2xl font-bold mb-4">Tuki ja turva - aina läsnä</h2>
-                <p className="text-gray-600 text-lg">
-                  Osaamisemme ei rajoitu pelkästään tietoturvaan, vaan haluamme olla tukena myös kaikissa tietoliikenteeseen liittyvissä kysymyksissä ja haasteissa, sillä kyse on kokonaisuudessaan laajasta ja toisiinsa linkittyvästä kentästä.
-                </p>
+                <div>
+                  <h2 className="text-2xl font-bold mb-4">Tuki ja turva - aina läsnä</h2>
+                  <p className="text-gray-600 text-lg">
+                    Osaamisemme ei rajoitu pelkästään tietoturvaan, vaan haluamme olla tukena myös kaikissa tietoliikenteeseen liittyvissä kysymyksissä ja haasteissa, sillä kyse on kokonaisuudessaan laajasta ja toisiinsa linkittyvästä kentästä.
+                  </p>
+                </div>
+                <div className="flex justify-center">
+                  <div className="w-48 h-48 bg-gray-200 rounded-lg flex items-center justify-center">
+                    <span className="text-gray-500">Kuva tulossa</span>
+                  </div>
+                </div>
               </motion.div>
 
               <motion.div 
@@ -97,12 +116,6 @@ const About = () => {
               </motion.div>
             </div>
             
-            <div className="mt-16 pt-8 border-t border-gray-200">
-              <Link to="/careers" className="inline-flex items-center px-5 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all group">
-                Join Our Team
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
           </div>
         </div>
       </section>
