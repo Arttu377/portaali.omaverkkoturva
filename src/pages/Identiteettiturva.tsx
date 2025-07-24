@@ -44,8 +44,8 @@ const Identiteettiturva = () => {
         }
       },
       { 
-        threshold: 0.5,
-        rootMargin: '-100px 0px -100px 0px'
+        threshold: 0.6,
+        rootMargin: '-50px 0px -50px 0px'
       }
     );
     
