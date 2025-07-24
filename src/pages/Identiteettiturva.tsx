@@ -89,9 +89,64 @@ const Identiteettiturva = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left side content */}
             <div className="space-y-8">
-              <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-                Turvaa rahasi ja henkilötietosi helposti yhdellä ratkaisulla
-              </h1>
+              {/* Logo and title section */}
+              <div className="flex items-center space-x-4 mb-8">
+                {/* WiFi Shield Logo */}
+                <div className="flex-shrink-0">
+                  <svg width="80" height="80" viewBox="0 0 80 80" className="text-white">
+                    {/* Shield outline */}
+                    <path 
+                      d="M40 8 L15 20 L15 35 C15 55 40 72 40 72 C40 72 65 55 65 35 L65 20 Z" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2.5"
+                    />
+                    {/* WiFi signals inside shield */}
+                    <g transform="translate(40, 35)">
+                      {/* Outer arc */}
+                      <path 
+                        d="M -18 8 A 25 25 0 0 1 18 8" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="2.5" 
+                        strokeLinecap="round"
+                      />
+                      {/* Middle arc */}
+                      <path 
+                        d="M -12 8 A 17 17 0 0 1 12 8" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="2.5" 
+                        strokeLinecap="round"
+                      />
+                      {/* Inner arc */}
+                      <path 
+                        d="M -6 8 A 8.5 8.5 0 0 1 6 8" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="2.5" 
+                        strokeLinecap="round"
+                      />
+                      {/* Center dot */}
+                      <circle 
+                        cx="0" 
+                        cy="12" 
+                        r="2.5" 
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                
+                <div>
+                  <div className="text-2xl lg:text-3xl font-bold text-primary mb-2">
+                    OmaVerkkoturva
+                  </div>
+                  <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                    Turvaa rahasi ja henkilötietosi helposti yhdellä ratkaisulla
+                  </h1>
+                </div>
+              </div>
               
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
