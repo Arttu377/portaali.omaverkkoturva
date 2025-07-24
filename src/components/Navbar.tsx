@@ -53,7 +53,51 @@ const Navbar = () => {
       <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center space-x-3">
+              {/* WiFi Shield Logo */}
+              <svg width="32" height="32" viewBox="0 0 80 80" className="text-white flex-shrink-0">
+                {/* Shield outline */}
+                <path 
+                  d="M40 8 L15 20 L15 35 C15 55 40 72 40 72 C40 72 65 55 65 35 L65 20 Z" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2.5"
+                />
+                {/* WiFi signals inside shield */}
+                <g transform="translate(40, 35)">
+                  {/* Outer arc */}
+                  <path 
+                    d="M -18 8 A 25 25 0 0 1 18 8" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2.5" 
+                    strokeLinecap="round"
+                  />
+                  {/* Middle arc */}
+                  <path 
+                    d="M -12 8 A 17 17 0 0 1 12 8" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2.5" 
+                    strokeLinecap="round"
+                  />
+                  {/* Inner arc */}
+                  <path 
+                    d="M -6 8 A 8.5 8.5 0 0 1 6 8" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2.5" 
+                    strokeLinecap="round"
+                  />
+                  {/* Center dot */}
+                  <circle 
+                    cx="0" 
+                    cy="12" 
+                    r="2.5" 
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
               <span className="text-xl font-bold text-white">
                 OmaVerkkoturva
               </span>
