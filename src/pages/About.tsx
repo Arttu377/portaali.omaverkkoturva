@@ -80,7 +80,7 @@ const About = () => {
               >
                 <h2 className="text-2xl font-bold mb-4">Tuki ja turva - aina läsnä</h2>
                 <p className="text-gray-600 text-lg">
-                  Meidän osaaminen ei rajoitu pelkästään tietoturvallistuuteen vaan haluamme olla myös tukitiiminä kaikkeen tietoliikennepalveluihin kuuluvissa kysymyksissä ja haasteissa, koska kyse on kuitenkin laajasta kokonaisuudesta.
+                  Osaamisemme ei rajoitu pelkästään tietoturvaan, vaan haluamme olla tukena myös kaikissa tietoliikenteeseen liittyvissä kysymyksissä ja haasteissa, sillä kyse on kokonaisuudessaan laajasta ja toisiinsa linkittyvästä kentästä.
                 </p>
               </motion.div>
 
