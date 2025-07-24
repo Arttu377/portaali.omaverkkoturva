@@ -240,8 +240,8 @@ const Identiteettiturva = () => {
                   Tietojenkalastelu
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="p-6 rounded-lg mt-4" style={{ background: 'var(--gradient-navy)' }}>
-                    <p className="text-white leading-relaxed">
+                  <div className="p-6 mt-4">
+                    <p className="text-foreground leading-relaxed">
                       Nina sai aidolta näyttävän sähköpostin pankiltaan. Hän klikkasi viestissä ollutta linkkiä ja kirjautui sisään sivulle, joka olikin huijaussivusto. Tietojen avulla rikollinen otti hänen nimissään kolme pikavippiä (yhteensä 11 200€), vaihdatutti hänen postiosoitteensa sekä puhelinnumeronsa ja yritti avata verkkopankkitilejä ja maksukortteja. Palveluun sisältyvä vakuutus korvaa jopa 13 500 € taloudelliset menetykset ja asiantuntijat auttavat asian läpiviennissä.
                     </p>
                   </div>
@@ -253,8 +253,8 @@ const Identiteettiturva = () => {
                   Verkkokauppahuijaus
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="p-6 rounded-lg mt-4" style={{ background: 'var(--gradient-navy)' }}>
-                    <p className="text-white leading-relaxed">
+                  <div className="p-6 mt-4">
+                    <p className="text-foreground leading-relaxed">
                       Timo löysi verkosta edullisen tarjouksen uusista kuulokkeista tunnetulta brändiltä. Hinta oli lähes puolet halvempi kuin muualla, ja verkkosivusto näytti aidolta. Logo, arvostelut ja maksutavat kaikki kunnossa. Hän maksoi 129 € pankkikortilla. Tilauksen jälkeen tuotetta ei koskaan saapunut ja verkkokauppa katosi muutamassa päivässä. Koska ostoksen hinta oli 50-700 € välillä, Timo saa rahansa takaisin verkkokauppahuijaukset kattavan vakuutuksen ansiosta.
                     </p>
                   </div>
@@ -266,8 +266,8 @@ const Identiteettiturva = () => {
                   Sovellushankinnat
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="p-6 rounded-lg mt-4" style={{ background: 'var(--gradient-navy)' }}>
-                    <p className="text-white leading-relaxed">
+                  <div className="p-6 mt-4">
+                    <p className="text-foreground leading-relaxed">
                       Sannan 9-vuotias poika sai pelata hetken äidin puhelimella. Hän latasi vahingossa pelisovelluksen, joka näytti ilmaiselta mutta sisälsi kalliin 112 euron tilauksen. Maksu veloittui heti, koska maksukortti oli tallennettuna puhelimeen. Vakuutus korvaa kulut, jotka liittyvät alle 10-vuotiaan vahingossa tekemiin sovellusostoihin (alle 135 €) suurimmilla alustoilla, kuten mm. App Storessa, Google Playssa tai Steamissa.
                     </p>
                   </div>
@@ -279,8 +279,8 @@ const Identiteettiturva = () => {
                   Nettikiusaaminen
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="p-6 rounded-lg mt-4" style={{ background: 'var(--gradient-navy)' }}>
-                    <p className="text-white leading-relaxed">
+                  <div className="p-6 mt-4">
+                    <p className="text-foreground leading-relaxed">
                       Emilia joutui nettikiusaamisen kohteeksi sen jälkeen, kun hänen TikTok-videonsa levisi yllättäen laajalle. Tuntemattomat ihmiset alkoivat kommentoida videoita loukkaavasti ja joku perusti tekaistun tilin hänen nimellään ja profiilikuvallaan. Väärennetyllä tilillä julkaistiin sisältöä, joka sai Emilian näyttämään nololta. Hän saa asiantuntijoilta neuvoja ja apuja (25 h) sisällön poistoon ja tilien palautukseen. Tarvittaessa hänen käytössä on myös oikeudellinen tuki ja psykologinen kriisiapu.
                     </p>
                   </div>
