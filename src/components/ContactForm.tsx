@@ -18,7 +18,7 @@ const formSchema = z.object({
   name: z.string().min(2, 'Nimi on pakollinen'),
   phone: z.string().min(5, 'Puhelinnumero on pakollinen'),
   email: z.string().email('Syötä kelvollinen sähköpostiosoite'),
-  message: z.string().min(10, 'Viesti on liian lyhyt'),
+  message: z.string().min(1, 'Viesti on pakollinen'),
   privacy: z.boolean().refine(val => val === true, 'Hyväksy henkilötietojenkäsittely'),
   honeypot: z.string().max(0, 'Bot detected'),
   timestamp: z.number()
@@ -84,7 +84,15 @@ const ContactForm = () => {
         from_name: emailData.name,
         phone: emailData.phone,
         from_email: emailData.email,
-        message: emailData.message,
+        message: `Yhteydenotto: ${emailData.subject}
+
+Lähettäjän tiedot:
+Nimi: ${emailData.name}
+Sähköposti: ${emailData.email}
+Puhelinnumero: ${emailData.phone}
+
+Viesti:
+${emailData.message}`,
         to_name: 'OmaVerkkoturva Team',
         reply_to: emailData.email
       };
