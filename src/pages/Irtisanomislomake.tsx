@@ -95,30 +95,47 @@ const Irtisanomislomake = () => {
   return (
     <PageLayout showContact={false}>
       <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-50 min-h-screen">
-        <div className="max-w-2xl mx-auto">
-          {/* Otsikko ja kiitosteksti */}
-          <div className="mb-16 text-center">
+        <div className="max-w-6xl mx-auto">
+          {/* Otsikko */}
+          <div className="text-center mb-16">
             <h2 className="text-2xl font-bold text-gray-900 mb-8">
               Täältä pystyt irtisanomaan palvelun
             </h2>
-            <p className="text-gray-900 text-xl font-semibold leading-relaxed mb-6">
-              Kiitos, että olet ollut mukana turvaamassa verkkoa kanssamme.
-            </p>
-            <p className="text-gray-900 text-lg leading-relaxed mb-6">
-              Arvostamme sitä, että valitsit OmaVerkkoturvan suojaamaan digitaalisia tietojasi ja identiteettiäsi. Jokainen asiakas on meille tärkeä, ja olemme kiitollisia luottamuksesta, jonka olet meille antanut.
-            </p>
-            <p className="text-gray-900 text-lg leading-relaxed mb-6">
-              Ymmärrämme, että elämäntilanteet ja tarpeet voivat muuttua. Jos päätät lopettaa palvelun, toivomme, että kokemuksesi on ollut hyödyllinen ja että tarjoamamme turva on tuonut sinulle mielenrauhaa verkossa liikkuessasi.
-            </p>
-            <p className="text-gray-900 text-lg leading-relaxed">
-              Jos mielessäsi on kysyttävää irtisanomiseen tai tietoturvaan liittyen, asiakastukemme auttaa mielellään. Ja mikäli joskus tulevaisuudessa haluat palata asiakkaaksemme, toivotamme sinut lämpimästi tervetulleeksi takaisin.
-            </p>
+          </div>
+
+          {/* Teksti ja kuva rinnakkain */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24">
+            {/* Vasemmanpuoleinen teksti */}
+            <div className="flex flex-col justify-center">
+              <p className="text-gray-900 text-xl font-semibold leading-relaxed mb-6">
+                Kiitos, että olet ollut mukana turvaamassa verkkoa kanssamme.
+              </p>
+              <p className="text-gray-900 text-lg leading-relaxed mb-6">
+                Arvostamme sitä, että valitsit OmaVerkkoturvan suojaamaan digitaalisia tietojasi ja identiteettiäsi. Jokainen asiakas on meille tärkeä, ja olemme kiitollisia luottamuksesta, jonka olet meille antanut.
+              </p>
+              <p className="text-gray-900 text-lg leading-relaxed mb-6">
+                Ymmärrämme, että elämäntilanteet ja tarpeet voivat muuttua. Jos päätät lopettaa palvelun, toivomme, että kokemuksesi on ollut hyödyllinen ja että tarjoamamme turva on tuonut sinulle mielenrauhaa verkossa liikkuessasi.
+              </p>
+              <p className="text-gray-900 text-lg leading-relaxed">
+                Jos mielessäsi on kysyttävää irtisanomiseen tai tietoturvaan liittyen, asiakastukemme auttaa mielellään. Ja mikäli joskus tulevaisuudessa haluat palata asiakkaaksemme, toivotamme sinut lämpimästi tervetulleeksi takaisin.
+              </p>
+            </div>
+
+            {/* Oikeanpuoleinen kuva */}
+            <div className="flex items-center justify-center">
+              <img 
+                src="/lovable-uploads/e965541f-fa90-41e5-a251-5e576e0ac7bd.png" 
+                alt="Tiimityö ja yhteistyö" 
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
           </div>
           
-          <div className="bg-white rounded-lg shadow-sm p-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Irtisanomislomake
-            </h1>
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-lg shadow-sm p-8">
+              <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+                Irtisanomislomake
+              </h1>
             
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -233,6 +250,7 @@ const Irtisanomislomake = () => {
                 </Button>
               </form>
             </Form>
+            </div>
           </div>
         </div>
       </section>
