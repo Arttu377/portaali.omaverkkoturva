@@ -53,7 +53,7 @@ const About = () => {
               >
                 <h2 className="text-2xl font-bold mb-4">Ketkä me olemme?</h2>
                 <p className="text-gray-600 text-lg">
-                  Olemme kaksi nuorta kaveria, Arttu Ruotsalainen ja Arttu Simanainen, ja perimmäinen syymme OmaVerkkoturvan perustamiseen oli turhautuminen kasvavaan verkkorikollisuuteen. Näemme jatkuvasti, miten ihmiset joutuvat huijauksien ja identiteettivarkauksien uhreiksi, sekä halusimme tehdä asialle jotain konkreettista.
+                  Olemme kaksi nuorta kaveria, Arttu Ruotsalainen ja Arttu Simanainen, ja olemme tehneet uraa tietoliikennepalveluiden parissa, jossa meille realisoitui kuinka paljon nettirikollisuutta oikeasti on. Näemme jatkuvasti, miten ihmiset joutuvat huijauksien ja identiteettivarkauksien uhreiksi, sekä halusimme tehdä asialle jotain konkreettista.
                 </p>
               </motion.div>
 
@@ -80,7 +80,7 @@ const About = () => {
               >
                 <h2 className="text-2xl font-bold mb-4">Tuki ja turva - aina läsnä</h2>
                 <p className="text-gray-600 text-lg">
-                  Me emme ole pelkkä työkalu. Me olemme myös tukitiimi, joka vastaa tietoturvaan ja tietoliikenteeseen liittyviin kysymyksiin ilman turhaa teknistä jargonia. Halusitpa tietää, miten suojautua huijauksilta tai mikä on turvallinen netin käyttö lapsille, olemme täällä auttamassa.
+                  Meidän osaaminen ei rajoitu pelkästään tietoturvallistuuteen vaan haluamme olla myös tukitiiminä kaikkeen tietoliikennepalveluihin kuuluvissa kysymyksissä ja haasteissa, koska kyse on kuitenkin laajasta kokonaisuudesta.
                 </p>
               </motion.div>
 
