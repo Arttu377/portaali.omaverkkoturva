@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import emailjs from 'emailjs-com';
 import PageLayout from '@/components/PageLayout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -23,6 +24,11 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
+
+// EmailJS configuration
+const SERVICE_ID = 'service_04a9qro';
+const TEMPLATE_ID = 'template_u8rxd4g';
+const PUBLIC_KEY = 'HHgbyaHjAYnRPtX4t';
 
 const formSchema = z.object({
   name: z.string().min(1, 'Nimi on pakollinen'),
@@ -60,11 +66,25 @@ const Irtisanomislomake = () => {
     setIsSubmitting(true);
     
     try {
-      // Here you would normally send the data to your backend
-      console.log('Irtisanomislomake data:', data);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const templateParams = {
+        to_email: 'arttu.simanainen@telendor.fi',
+        subject: 'Uusi irtisanomislomake',
+        from_name: data.name,
+        from_email: data.email,
+        phone: data.phone,
+        address: data.address,
+        reason: data.reason,
+        message: `Irtisanomislomake:
+        
+Nimi: ${data.name}
+Sähköposti: ${data.email}
+Puhelinnumero: ${data.phone}
+Osoite: ${data.address}
+Syy peruutukselle: ${data.reason}
+Vahvistus: ${data.confirmation ? 'Kyllä' : 'Ei'}`,
+      };
+
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
       
       toast({
         title: "Irtisanomislomake lähetetty",
@@ -73,6 +93,7 @@ const Irtisanomislomake = () => {
       
       form.reset();
     } catch (error) {
+      console.error('EmailJS error:', error);
       toast({
         title: "Virhe",
         description: "Lomakkeen lähetyksessä tapahtui virhe. Yritä uudelleen.",
