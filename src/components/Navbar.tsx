@@ -27,6 +27,12 @@ const Navbar = () => {
   };
 
   const scrollToSection = (id: string) => {
+    // If we're not on the home page, navigate there first
+    if (window.location.pathname !== '/') {
+      window.location.href = `/#${id}`;
+      return;
+    }
+    
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({
