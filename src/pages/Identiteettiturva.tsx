@@ -297,12 +297,12 @@ const Identiteettiturva = () => {
                 Vakuutus - 0€ omavastuulla
               </h2>
             </div>
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               {/* Pyramid layout using CSS Grid */}
-              <div className="grid grid-cols-4 gap-4 place-items-center">
-                {/* Top row - centered items */}
-                <div className="col-start-2 text-white rounded-2xl p-6 space-y-4 w-full" style={{ background: 'var(--gradient-navy)' }}>
-                  <h3 className="text-xl font-bold text-white">
+              <div className="grid grid-cols-6 gap-6 place-items-center">
+                {/* Top row - centered items, wider spans */}
+                <div className="col-start-2 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{ background: 'var(--gradient-navy)' }}>
+                  <h3 className="text-xl font-bold text-white whitespace-nowrap">
                     Taloudelliset tappiot
                   </h3>
                   <p className="text-white/90 text-sm leading-relaxed">
@@ -310,8 +310,8 @@ const Identiteettiturva = () => {
                   </p>
                 </div>
 
-                <div className="col-start-3 text-white rounded-2xl p-6 space-y-4 w-full" style={{ background: 'var(--gradient-navy)' }}>
-                  <h3 className="text-xl font-bold text-white">
+                <div className="col-start-4 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{ background: 'var(--gradient-navy)' }}>
+                  <h3 className="text-xl font-bold text-white whitespace-nowrap">
                     Verkko-ostoturva
                   </h3>
                   <p className="text-white/90 text-sm leading-relaxed">
@@ -319,9 +319,9 @@ const Identiteettiturva = () => {
                   </p>
                 </div>
 
-                {/* Bottom row - positioned left and right */}
-                <div className="col-start-1 text-white rounded-2xl p-6 space-y-4 w-full" style={{ background: 'var(--gradient-navy)' }}>
-                  <h3 className="text-xl font-bold text-white">
+                {/* Bottom row - positioned left and right, wider spans */}
+                <div className="col-start-1 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{ background: 'var(--gradient-navy)' }}>
+                  <h3 className="text-xl font-bold text-white whitespace-nowrap">
                     SIM-kortin väärinkäyttö
                   </h3>
                   <p className="text-white/90 text-sm leading-relaxed">
@@ -329,8 +329,8 @@ const Identiteettiturva = () => {
                   </p>
                 </div>
 
-                <div className="col-start-4 text-white rounded-2xl p-6 space-y-4 w-full" style={{ background: 'var(--gradient-navy)' }}>
-                  <h3 className="text-xl font-bold text-white">
+                <div className="col-start-5 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{ background: 'var(--gradient-navy)' }}>
+                  <h3 className="text-xl font-bold text-white whitespace-nowrap">
                     Suoja sovellushankinnoille
                   </h3>
                   <p className="text-white/90 text-sm leading-relaxed">
