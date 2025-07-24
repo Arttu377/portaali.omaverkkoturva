@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const Identiteettiturva = () => {
   const [currentStep, setCurrentStep] = useState(1);
+  const [isAnimated, setIsAnimated] = useState(false);
+  const coverageRef = useRef(null);
+  
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -28,6 +31,24 @@ const Identiteettiturva = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setIsAnimated(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    
+    if (coverageRef.current) {
+      observer.observe(coverageRef.current);
+    }
+    
+    return () => observer.disconnect();
   }, []);
   const steps = [{
     number: 1,
@@ -265,7 +286,7 @@ const Identiteettiturva = () => {
           </div>
           
           {/* Insurance Coverage Details */}
-          <div className="container mx-auto px-4 py-24">
+          <div ref={coverageRef} className="container mx-auto px-4 py-24">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight">
                 Vakuutus - 0€ omavastuulla
@@ -277,39 +298,61 @@ const Identiteettiturva = () => {
             zIndex: 1
           }}>
                  <defs>
+                   <linearGradient id="energyGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                     <stop offset="0%" stopColor="transparent" />
+                     <stop offset="30%" stopColor="white" stopOpacity="0.8" />
+                     <stop offset="70%" stopColor="white" stopOpacity="1" />
+                     <stop offset="100%" stopColor="transparent" />
+                   </linearGradient>
                    <style>
                      {`
-                       .animated-line {
-                         stroke: hsl(var(--primary));
-                         stroke-width: 2;
-                         stroke-dasharray: 20;
-                         animation: flow 3s ease-in-out infinite;
+                       .energy-line {
+                         stroke: white;
+                         stroke-width: 3;
+                         opacity: 0.6;
                        }
-                       @keyframes flow {
+                       .energy-flow {
+                         stroke: url(#energyGradient);
+                         stroke-width: 3;
+                         stroke-dasharray: 40;
+                         stroke-dashoffset: 40;
+                         opacity: 0;
+                       }
+                       .energy-flow.active {
+                         opacity: 1;
+                         animation: energyFlow 4s ease-in-out infinite;
+                       }
+                       @keyframes energyFlow {
                          0% {
-                           stroke-dashoffset: 100;
-                           opacity: 0.8;
+                           stroke-dashoffset: 200;
+                           opacity: 0;
                          }
-                         50% {
+                         20% {
+                           opacity: 1;
+                         }
+                         80% {
                            opacity: 1;
                          }
                          100% {
-                           stroke-dashoffset: 0;
-                           opacity: 0.8;
+                           stroke-dashoffset: -200;
+                           opacity: 0;
                          }
                        }
                      `}
                    </style>
                  </defs>
-                 {/* Lines connecting center image to each box */}
-                 {/* Line to top left box (Taloudelliset tappiot) - moved inward */}
-                 <line x1="50%" y1="85%" x2="30%" y2="30%" className="animated-line" style={{animationDelay: '0s'}} />
-                 {/* Line to top right box (Verkko-ostoturva) - moved inward */}
-                 <line x1="50%" y1="85%" x2="70%" y2="30%" className="animated-line" style={{animationDelay: '0.5s'}} />
-                 {/* Line to bottom left box (SIM-kortin väärinkäyttö) */}
-                 <line x1="50%" y1="85%" x2="16.7%" y2="45%" className="animated-line" style={{animationDelay: '1s'}} />
-                 {/* Line to bottom right box (Suoja sovellushankinnoille) */}
-                 <line x1="50%" y1="85%" x2="83.3%" y2="45%" className="animated-line" style={{animationDelay: '1.5s'}} />
+                 
+                 {/* Static lines */}
+                 <line x1="50%" y1="85%" x2="30%" y2="30%" className="energy-line" />
+                 <line x1="50%" y1="85%" x2="70%" y2="30%" className="energy-line" />
+                 <line x1="50%" y1="85%" x2="16.7%" y2="45%" className="energy-line" />
+                 <line x1="50%" y1="85%" x2="83.3%" y2="45%" className="energy-line" />
+                 
+                 {/* Animated energy flows */}
+                 <line x1="50%" y1="85%" x2="30%" y2="30%" className={`energy-flow ${isAnimated ? 'active' : ''}`} style={{animationDelay: '0s'}} />
+                 <line x1="50%" y1="85%" x2="70%" y2="30%" className={`energy-flow ${isAnimated ? 'active' : ''}`} style={{animationDelay: '1s'}} />
+                 <line x1="50%" y1="85%" x2="16.7%" y2="45%" className={`energy-flow ${isAnimated ? 'active' : ''}`} style={{animationDelay: '2s'}} />
+                 <line x1="50%" y1="85%" x2="83.3%" y2="45%" className={`energy-flow ${isAnimated ? 'active' : ''}`} style={{animationDelay: '3s'}} />
                </svg>
               
               {/* Pyramid layout using CSS Grid */}
