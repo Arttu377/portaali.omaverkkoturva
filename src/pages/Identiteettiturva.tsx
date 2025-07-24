@@ -276,15 +276,40 @@ const Identiteettiturva = () => {
                <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{
             zIndex: 1
           }}>
+                 <defs>
+                   <style>
+                     {`
+                       .animated-line {
+                         stroke: hsl(var(--primary));
+                         stroke-width: 2;
+                         stroke-dasharray: 20;
+                         animation: flow 3s ease-in-out infinite;
+                       }
+                       @keyframes flow {
+                         0% {
+                           stroke-dashoffset: 100;
+                           opacity: 0.8;
+                         }
+                         50% {
+                           opacity: 1;
+                         }
+                         100% {
+                           stroke-dashoffset: 0;
+                           opacity: 0.8;
+                         }
+                       }
+                     `}
+                   </style>
+                 </defs>
                  {/* Lines connecting center image to each box */}
-                 {/* Line to top left box (Taloudelliset tappiot) */}
-                 <line x1="50%" y1="85%" x2="25%" y2="25%" stroke="black" strokeWidth="2" />
-                 {/* Line to top right box (Verkko-ostoturva) */}
-                 <line x1="50%" y1="85%" x2="75%" y2="25%" stroke="black" strokeWidth="2" />
+                 {/* Line to top left box (Taloudelliset tappiot) - moved inward */}
+                 <line x1="50%" y1="85%" x2="30%" y2="30%" className="animated-line" style={{animationDelay: '0s'}} />
+                 {/* Line to top right box (Verkko-ostoturva) - moved inward */}
+                 <line x1="50%" y1="85%" x2="70%" y2="30%" className="animated-line" style={{animationDelay: '0.5s'}} />
                  {/* Line to bottom left box (SIM-kortin väärinkäyttö) */}
-                 <line x1="50%" y1="85%" x2="16.7%" y2="45%" stroke="black" strokeWidth="2" />
+                 <line x1="50%" y1="85%" x2="16.7%" y2="45%" className="animated-line" style={{animationDelay: '1s'}} />
                  {/* Line to bottom right box (Suoja sovellushankinnoille) */}
-                 <line x1="50%" y1="85%" x2="83.3%" y2="45%" stroke="black" strokeWidth="2" />
+                 <line x1="50%" y1="85%" x2="83.3%" y2="45%" className="animated-line" style={{animationDelay: '1.5s'}} />
                </svg>
               
               {/* Pyramid layout using CSS Grid */}
