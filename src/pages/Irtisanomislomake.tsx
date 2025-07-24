@@ -67,21 +67,20 @@ const Irtisanomislomake = () => {
     
     try {
       const templateParams = {
-        to_email: 'arttu.simanainen@telendor.fi',
-        subject: 'Uusi irtisanomislomake',
+        subject: 'Irtisanomislomake',
         from_name: data.name,
-        from_email: data.email,
         phone: data.phone,
-        address: data.address,
-        reason: data.reason,
+        from_email: data.email,
         message: `Irtisanomislomake:
-        
+
 Nimi: ${data.name}
 Sähköposti: ${data.email}
 Puhelinnumero: ${data.phone}
 Osoite: ${data.address}
 Syy peruutukselle: ${data.reason}
 Vahvistus: ${data.confirmation ? 'Kyllä' : 'Ei'}`,
+        to_name: 'OmaVerkkoturva Team',
+        reply_to: data.email,
       };
 
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
