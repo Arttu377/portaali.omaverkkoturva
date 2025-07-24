@@ -190,9 +190,9 @@ const Identiteettiturva = () => {
         </div>
         
         {/* Identity protection section with background image */}
-        <div className="relative py-24 px-4">
+        <div className="relative py-24 px-8 lg:px-16">
           <div 
-            className="relative py-24 bg-cover bg-center bg-no-repeat rounded-3xl"
+            className="relative py-24 bg-cover bg-center bg-no-repeat rounded-3xl mx-8 lg:mx-16"
             style={{ backgroundImage: 'url(/lovable-uploads/f96aa839-76e5-4b74-92a6-ef3e2166b1f1.png)' }}
           >
             {/* Dark overlay for better text readability */}
