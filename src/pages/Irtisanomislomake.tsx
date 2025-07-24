@@ -97,17 +97,17 @@ const Irtisanomislomake = () => {
       <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-50 min-h-screen">
         <div className="max-w-2xl mx-auto">
           {/* Kiitosteksti */}
-          <div className="mb-8 text-center">
-            <p className="text-gray-700 leading-relaxed mb-4">
+          <div className="mb-16 text-center">
+            <p className="text-gray-900 text-lg leading-relaxed mb-6">
               Kiitos, että olet ollut mukana turvaamassa verkkoarjessa kanssamme.
             </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-gray-900 text-lg leading-relaxed mb-6">
               Arvostamme sitä, että valitsit OmaVerkkoturvan suojaamaan digitaalisia tietojasi ja identiteettiäsi. Jokainen asiakas on meille tärkeä, ja olemme kiitollisia luottamuksesta, jonka olet meille antanut.
             </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-gray-900 text-lg leading-relaxed mb-6">
               Ymmärrämme, että elämäntilanteet ja tarpeet voivat muuttua. Jos päätät lopettaa palvelun, toivomme, että kokemuksesi on ollut hyödyllinen ja että tarjoamamme turva on tuonut sinulle mielenrauhaa verkossa liikkuessasi.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-900 text-lg leading-relaxed">
               Jos mielessäsi on kysyttävää irtisanomiseen tai tietoturvaan liittyen, asiakastukemme auttaa mielellään. Ja mikäli joskus tulevaisuudessa haluat palata asiakkaaksemme, toivotamme sinut lämpimästi tervetulleeksi takaisin.
             </p>
           </div>
