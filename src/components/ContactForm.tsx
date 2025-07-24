@@ -172,11 +172,7 @@ ${emailData.message}`,
                 </p>
               </div>
               
-              <p className="text-sm text-gray-600 mt-6">
-                <strong>HUOM:</strong> Irtisanomiset käsitellään vain puhelimitse tai irtisanomislomakkeella. Linkin irtisanomislomakkeelle siirtymiseen löydätte alta.
-              </p>
-              
-              <div className="mt-8">
+              <div className="mt-12">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Haluatko irtisanoa tuotteen?</h3>
                 <button 
                   onClick={() => navigate('/irtisanomislomake')}
@@ -184,6 +180,9 @@ ${emailData.message}`,
                 >
                   Irtisanomislomake
                 </button>
+                <p className="text-sm text-gray-600 mt-4">
+                  <strong>HUOM:</strong> Irtisanomiset käsitellään vain puhelimitse tai irtisanomislomakkeella. Linkin irtisanomislomakkeelle siirtymiseen löydätte alta.
+                </p>
               </div>
             </div>
           </div>
