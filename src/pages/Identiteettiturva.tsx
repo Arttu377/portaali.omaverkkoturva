@@ -298,61 +298,26 @@ const Identiteettiturva = () => {
             zIndex: 1
           }}>
                  <defs>
-                   <linearGradient id="energyGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                     <stop offset="0%" stopColor="transparent" />
-                     <stop offset="30%" stopColor="white" stopOpacity="0.8" />
-                     <stop offset="70%" stopColor="white" stopOpacity="1" />
-                     <stop offset="100%" stopColor="transparent" />
-                   </linearGradient>
                    <style>
                      {`
-                       .energy-line {
-                         stroke: white;
-                         stroke-width: 3;
-                         opacity: 0.6;
-                       }
-                       .energy-flow {
-                         stroke: url(#energyGradient);
-                         stroke-width: 3;
-                         stroke-dasharray: 40;
-                         stroke-dashoffset: 40;
+                       .smooth-line {
+                         stroke: black;
+                         stroke-width: 2;
                          opacity: 0;
+                         transition: opacity 0.8s ease-in-out;
                        }
-                       .energy-flow.active {
+                       .smooth-line.visible {
                          opacity: 1;
-                         animation: energyFlow 4s ease-in-out infinite;
-                       }
-                       @keyframes energyFlow {
-                         0% {
-                           stroke-dashoffset: 200;
-                           opacity: 0;
-                         }
-                         20% {
-                           opacity: 1;
-                         }
-                         80% {
-                           opacity: 1;
-                         }
-                         100% {
-                           stroke-dashoffset: -200;
-                           opacity: 0;
-                         }
                        }
                      `}
                    </style>
                  </defs>
                  
-                 {/* Static lines */}
-                 <line x1="50%" y1="85%" x2="30%" y2="30%" className="energy-line" />
-                 <line x1="50%" y1="85%" x2="70%" y2="30%" className="energy-line" />
-                 <line x1="50%" y1="85%" x2="16.7%" y2="45%" className="energy-line" />
-                 <line x1="50%" y1="85%" x2="83.3%" y2="45%" className="energy-line" />
-                 
-                 {/* Animated energy flows */}
-                 <line x1="50%" y1="85%" x2="30%" y2="30%" className={`energy-flow ${isAnimated ? 'active' : ''}`} style={{animationDelay: '0s'}} />
-                 <line x1="50%" y1="85%" x2="70%" y2="30%" className={`energy-flow ${isAnimated ? 'active' : ''}`} style={{animationDelay: '1s'}} />
-                 <line x1="50%" y1="85%" x2="16.7%" y2="45%" className={`energy-flow ${isAnimated ? 'active' : ''}`} style={{animationDelay: '2s'}} />
-                 <line x1="50%" y1="85%" x2="83.3%" y2="45%" className={`energy-flow ${isAnimated ? 'active' : ''}`} style={{animationDelay: '3s'}} />
+                 {/* Lines connecting center image to each box */}
+                 <line x1="50%" y1="85%" x2="30%" y2="30%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.2s'}} />
+                 <line x1="50%" y1="85%" x2="70%" y2="30%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.4s'}} />
+                 <line x1="50%" y1="85%" x2="16.7%" y2="45%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.6s'}} />
+                 <line x1="50%" y1="85%" x2="83.3%" y2="45%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.8s'}} />
                </svg>
               
               {/* Pyramid layout using CSS Grid */}
