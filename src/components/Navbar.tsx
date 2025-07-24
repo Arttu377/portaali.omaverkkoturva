@@ -5,6 +5,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { ProcessedLogo } from './ProcessedLogo';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,41 +55,14 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center space-x-3">
-              {/* WiFi Logo */}
-              <svg width="40" height="40" viewBox="0 0 100 100" className="text-white flex-shrink-0">
-                {/* WiFi symbol with only white parts, no background */}
-                <g transform="translate(50, 50)">
-                  {/* Outer arc */}
-                  <path 
-                    d="M -22 8 A 32 32 0 0 1 22 8" 
-                    fill="none"
-                    stroke="currentColor" 
-                    strokeWidth="8" 
-                    strokeLinecap="round"
-                  />
-                  {/* Middle arc */}
-                  <path 
-                    d="M -15 8 A 22 22 0 0 1 15 8" 
-                    fill="none"
-                    stroke="currentColor" 
-                    strokeWidth="8" 
-                    strokeLinecap="round"
-                  />
-                  {/* Inner arc */}
-                  <path 
-                    d="M -8 8 A 12 12 0 0 1 8 8" 
-                    fill="none"
-                    stroke="currentColor" 
-                    strokeWidth="8" 
-                    strokeLinecap="round"
-                  />
-                  {/* Center triangular part */}
-                  <path 
-                    d="M -4 15 A 6 6 0 0 1 4 15 L 0 25 Z" 
-                    fill="currentColor"
-                  />
-                </g>
-              </svg>
+              {/* WiFi Logo with background removal */}
+              <ProcessedLogo 
+                originalImageUrl="/lovable-uploads/296f9efc-c5a2-4029-bb1d-02f258233174.png"
+                alt="WiFi Logo"
+                width={40}
+                height={40}
+                className="flex-shrink-0"
+              />
               <span className="text-xl font-bold text-white">
                 OmaVerkkoturva
               </span>
