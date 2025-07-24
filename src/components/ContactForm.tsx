@@ -145,10 +145,25 @@ ${emailData.message}`,
               <div className="mb-8">
                 <a 
                   href="mailto:info@omaverkkoturva.fi" 
-                  className="text-xl text-blue-600 hover:underline font-medium"
+                  className="text-xl text-black hover:underline font-medium"
                 >
                   info@omaverkkoturva.fi
                 </a>
+              </div>
+              
+              <div className="flex items-center space-x-3 mb-8">
+                <Phone className="w-5 h-5 text-gray-600" />
+                <div>
+                  <a 
+                    href="tel:01012345" 
+                    className="text-xl font-medium text-gray-900 underline hover:no-underline"
+                  >
+                    01012345
+                  </a>
+                  <p className="text-sm text-gray-600">
+                    Asiakaspalvelumme palvelee puhelimitse jokaisena arkipäivänä klo. 10:00-16:00. Puhelun hinta: mpm/pvm
+                  </p>
+                </div>
               </div>
               
               <div className="space-y-4 text-gray-700">
@@ -161,29 +176,14 @@ ${emailData.message}`,
                 <strong>HUOM:</strong> Irtisanomiset käsitellään vain puhelimitse tai irtisanomislomakkeella. Linkin irtisanomislomakkeelle siirtymiseen löydätte alta.
               </p>
               
-               <div className="mt-8">
-                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Haluatko irtisanoa tuotteen?</h3>
-                 <button 
-                   onClick={() => navigate('/irtisanomislomake')}
-                   className="px-6 py-3 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 transition-colors"
-                 >
-                   Irtisanomislomake
-                 </button>
-               </div>
-              
-              <div className="mt-8 flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-gray-600" />
-                <div>
-                  <a 
-                    href="tel:010annamunolla" 
-                    className="text-xl font-medium text-gray-900 underline hover:no-underline"
-                  >
-                    010annamunolla
-                  </a>
-                  <p className="text-sm text-gray-600">
-                    Asiakaspalvelumme palvelee puhelimitse jokaisena arkipäivänä klo. 10:00-16:00. Puhelun hinta: mpm/pvm
-                  </p>
-                </div>
+              <div className="mt-8">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Haluatko irtisanoa tuotteen?</h3>
+                <button 
+                  onClick={() => navigate('/irtisanomislomake')}
+                  className="px-6 py-3 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 transition-colors"
+                >
+                  Irtisanomislomake
+                </button>
               </div>
             </div>
           </div>
