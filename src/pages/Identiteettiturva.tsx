@@ -322,11 +322,11 @@ const Identiteettiturva = () => {
                     </style>
                   </defs>
                  
-                 {/* Lines connecting center image to each box */}
-                 <line x1="50%" y1="85%" x2="30%" y2="30%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.2s'}} />
-                 <line x1="50%" y1="85%" x2="70%" y2="30%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.4s'}} />
-                 <line x1="50%" y1="85%" x2="16.7%" y2="45%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.6s'}} />
-                 <line x1="50%" y1="85%" x2="83.3%" y2="45%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.8s'}} />
+                  {/* Curved lines connecting center image to each box */}
+                  <path d="M 50% 85% Q 35% 60% 30% 30%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.2s'}} fill="none" />
+                  <path d="M 50% 85% Q 65% 60% 70% 30%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.4s'}} fill="none" />
+                  <path d="M 50% 85% Q 25% 70% 16.7% 45%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.6s'}} fill="none" />
+                  <path d="M 50% 85% Q 75% 70% 83.3% 45%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.8s'}} fill="none" />
                </svg>
               
               {/* Pyramid layout using CSS Grid */}
