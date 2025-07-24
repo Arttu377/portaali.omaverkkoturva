@@ -190,96 +190,96 @@ const Identiteettiturva = () => {
           </div>
         </div>
         
-        {/* Cases section */}
-        <div className="container mx-auto px-4 py-24">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-              Tapauksia, joissa rahaa menetettiin huijauksessa
-            </h2>
-          </div>
+        {/* Identity protection section with background image */}
+        <div 
+          className="relative py-24 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/lovable-uploads/f96aa839-76e5-4b74-92a6-ef3e2166b1f1.png)' }}
+        >
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/50"></div>
           
-          <div className="max-w-4xl mx-auto">
-            <Carousel className="w-full">
-              <CarouselContent>
-                <CarouselItem>
-                  <div className="p-8 rounded-lg border" style={{ background: 'var(--gradient-navy)' }}>
-                    <h3 className="text-2xl font-bold text-white mb-6 text-center">Tietojenkalastelu</h3>
-                    <p className="text-white leading-relaxed">
-                      Nina sai aidolta näyttävän sähköpostin pankiltaan. Hän klikkasi viestissä ollutta linkkiä ja kirjautui sisään sivulle, joka olikin huijaussivusto. Tietojen avulla rikollinen otti hänen nimissään kolme pikavippiä (yhteensä 11 200€), vaihdatutti hänen postiosoitteensa sekä puhelinnumeronsa ja yritti avata verkkopankkitilejä ja maksukortteja. Palveluun sisältyvä vakuutus korvaa jopa 13 500 € taloudelliset menetykset ja asiantuntijat auttavat asian läpiviennissä.
-                    </p>
-                  </div>
-                </CarouselItem>
-                
-                <CarouselItem>
-                  <div className="p-8 rounded-lg border" style={{ background: 'var(--gradient-navy)' }}>
-                    <h3 className="text-2xl font-bold text-white mb-6 text-center">Verkkokauppahuijaus</h3>
-                    <p className="text-white leading-relaxed">
-                      Timo löysi verkosta edullisen tarjouksen uusista kuulokkeista tunnetulta brändiltä. Hinta oli lähes puolet halvempi kuin muualla, ja verkkosivusto näytti aidolta. Logo, arvostelut ja maksutavat kaikki kunnossa. Hän maksoi 129 € pankkikortilla. Tilauksen jälkeen tuotetta ei koskaan saapunut ja verkkokauppa katosi muutamassa päivässä. Koska ostoksen hinta oli 50-700 € välillä, Timo saa rahansa takaisin verkkokauppahuijaukset kattavan vakuutuksen ansiosta.
-                    </p>
-                  </div>
-                </CarouselItem>
-                
-                <CarouselItem>
-                  <div className="p-8 rounded-lg border" style={{ background: 'var(--gradient-navy)' }}>
-                    <h3 className="text-2xl font-bold text-white mb-6 text-center">Sovellushankinnat</h3>
-                    <p className="text-white leading-relaxed">
-                      Sannan 9-vuotias poika sai pelata hetken äidin puhelimella. Hän latasi vahingossa pelisovelluksen, joka näytti ilmaiselta mutta sisälsi kalliin 112 euron tilauksen. Maksu veloittui heti, koska maksukortti oli tallennettuna puhelimeen. Vakuutus korvaa kulut, jotka liittyvät alle 10-vuotiaan vahingossa tekemiin sovellusostoihin (alle 135 €) suurimmilla alustoilla, kuten mm. App Storessa, Google Playssa tai Steamissa.
-                    </p>
-                  </div>
-                </CarouselItem>
-                
-                <CarouselItem>
-                  <div className="p-8 rounded-lg border" style={{ background: 'var(--gradient-navy)' }}>
-                    <h3 className="text-2xl font-bold text-white mb-6 text-center">Nettikiusaaminen</h3>
-                    <p className="text-white leading-relaxed">
-                       Emilia joutui nettikiusaamisen kohteeksi sen jälkeen, kun hänen TikTok-videonsa levisi yllättäen laajalle. Tuntemattomat ihmiset alkoivat kommentoida videoita loukkaavasti ja joku perusti tekaistun tilin hänen nimellään ja profiilikuvallaan. Väärennetyllä tilillä julkaistiin sisältöä, joka sai Emilian näyttämään nololta. Hän saa asiantuntijoilta neuvoja ja apuja (25 h) sisällön poistoon ja tilien palautukseen. Tarvittaessa hänen käytössä on myös oikeudellinen tuki ja psykologinen kriisiapu.
+          <div className="relative container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+                Identiteetti on nykyajan valuutta
+              </h2>
+              <h3 className="text-2xl lg:text-3xl font-semibold text-white/90 mt-6 mb-8">
+                Yksi tietovuoto voi maksaa tuhansia euroja
+              </h3>
+               <div className="max-w-4xl mx-auto">
+                 <p className="text-lg text-white leading-relaxed mb-12">
+                   Verkkorikollisuus, tietovuodot ja identiteettivarkaudet ovat yleistyneet merkittävästi viime vuosina. Jo pelkän sähköpostiosoitteen ja salasanan avulla rikolliset voivat saada pääsyn henkilökohtaisiin tileihisi, tehdä ostoksia nimissäsi tai hakea lainaa luvattomasti. Digitaalinen identiteetti on nyky-yhteiskunnassa arvokas resurssi ja sen väärinkäyttö voi aiheuttaa vakavia taloudellisia sekä juridisia seurauksia. Siksi yksilön tunnistetietojen suojaaminen tulisi nähdä yhtä tärkeänä kuin pankkitunnusten turvaaminen.
+                 </p>
+                 
+                 <div className="flex justify-center">
+                   <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl py-12 px-6 text-center max-w-md">
+                     <div className="text-5xl lg:text-6xl font-bold text-white mb-2">
+                       62,9M €
+                     </div>
+                     <p className="text-white/80 text-sm">
+                       Tämä verran vuonna 2024 suomalaisten rahoja menetettiin nettihuijareille. Vielä vuonna 2023 summa oli 44,2M € eli nousua oli 40%.
                      </p>
                    </div>
-                 </CarouselItem>
-               </CarouselContent>
-               
-               {/* Navigation buttons positioned below content */}
-               <div className="flex justify-between items-center mt-6 px-4">
-                 <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
-                 <CarouselNext className="relative right-0 top-0 translate-y-0" />
+                 </div>
                </div>
-             </Carousel>
+            </div>
            </div>
          </div>
          
-         {/* Identity protection section with background image */}
-         <div 
-           className="relative py-24 bg-cover bg-center bg-no-repeat"
-           style={{ backgroundImage: 'url(/lovable-uploads/f96aa839-76e5-4b74-92a6-ef3e2166b1f1.png)' }}
-         >
-           {/* Dark overlay for better text readability */}
-           <div className="absolute inset-0 bg-black/50"></div>
+         {/* Cases section */}
+         <div className="container mx-auto px-4 py-24">
+           <div className="text-center mb-16">
+             <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+               Tapauksia, joissa rahaa menetettiin huijauksessa
+             </h2>
+           </div>
            
-           <div className="relative container mx-auto px-4">
-             <div className="text-center mb-16">
-               <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
-                 Identiteetti on nykyajan valuutta
-               </h2>
-               <h3 className="text-2xl lg:text-3xl font-semibold text-white/90 mt-6 mb-8">
-                 Yksi tietovuoto voi maksaa tuhansia euroja
-               </h3>
-                <div className="max-w-4xl mx-auto">
-                  <p className="text-lg text-white leading-relaxed mb-12">
-                    Verkkorikollisuus, tietovuodot ja identiteettivarkaudet ovat yleistyneet merkittävästi viime vuosina. Jo pelkän sähköpostiosoitteen ja salasanan avulla rikolliset voivat saada pääsyn henkilökohtaisiin tileihisi, tehdä ostoksia nimissäsi tai hakea lainaa luvattomasti. Digitaalinen identiteetti on nyky-yhteiskunnassa arvokas resurssi ja sen väärinkäyttö voi aiheuttaa vakavia taloudellisia sekä juridisia seurauksia. Siksi yksilön tunnistetietojen suojaaminen tulisi nähdä yhtä tärkeänä kuin pankkitunnusten turvaaminen.
-                  </p>
-                  
-                  <div className="flex justify-center">
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl py-12 px-6 text-center max-w-md">
-                      <div className="text-5xl lg:text-6xl font-bold text-white mb-2">
-                        62,9M €
-                      </div>
-                      <p className="text-white/80 text-sm">
-                        Tämä verran vuonna 2024 suomalaisten rahoja menetettiin nettihuijareille. Vielä vuonna 2023 summa oli 44,2M € eli nousua oli 40%.
+           <div className="max-w-4xl mx-auto">
+             <Carousel className="w-full">
+               <CarouselContent>
+                 <CarouselItem>
+                   <div className="p-8 rounded-lg border" style={{ background: 'var(--gradient-navy)' }}>
+                     <h3 className="text-2xl font-bold text-white mb-6 text-center">Tietojenkalastelu</h3>
+                     <p className="text-white leading-relaxed">
+                       Nina sai aidolta näyttävän sähköpostin pankiltaan. Hän klikkasi viestissä ollutta linkkiä ja kirjautui sisään sivulle, joka olikin huijaussivusto. Tietojen avulla rikollinen otti hänen nimissään kolme pikavippiä (yhteensä 11 200€), vaihdatutti hänen postiosoitteensa sekä puhelinnumeronsa ja yritti avata verkkopankkitilejä ja maksukortteja. Palveluun sisältyvä vakuutus korvaa jopa 13 500 € taloudelliset menetykset ja asiantuntijat auttavat asian läpiviennissä.
+                     </p>
+                   </div>
+                 </CarouselItem>
+                 
+                 <CarouselItem>
+                   <div className="p-8 rounded-lg border" style={{ background: 'var(--gradient-navy)' }}>
+                     <h3 className="text-2xl font-bold text-white mb-6 text-center">Verkkokauppahuijaus</h3>
+                     <p className="text-white leading-relaxed">
+                       Timo löysi verkosta edullisen tarjouksen uusista kuulokkeista tunnetulta brändiltä. Hinta oli lähes puolet halvempi kuin muualla, ja verkkosivusto näytti aidolta. Logo, arvostelut ja maksutavat kaikki kunnossa. Hän maksoi 129 € pankkikortilla. Tilauksen jälkeen tuotetta ei koskaan saapunut ja verkkokauppa katosi muutamassa päivässä. Koska ostoksen hinta oli 50-700 € välillä, Timo saa rahansa takaisin verkkokauppahuijaukset kattavan vakuutuksen ansiosta.
+                     </p>
+                   </div>
+                 </CarouselItem>
+                 
+                 <CarouselItem>
+                   <div className="p-8 rounded-lg border" style={{ background: 'var(--gradient-navy)' }}>
+                     <h3 className="text-2xl font-bold text-white mb-6 text-center">Sovellushankinnat</h3>
+                     <p className="text-white leading-relaxed">
+                       Sannan 9-vuotias poika sai pelata hetken äidin puhelimella. Hän latasi vahingossa pelisovelluksen, joka näytti ilmaiselta mutta sisälsi kalliin 112 euron tilauksen. Maksu veloittui heti, koska maksukortti oli tallennettuna puhelimeen. Vakuutus korvaa kulut, jotka liittyvät alle 10-vuotiaan vahingossa tekemiin sovellusostoihin (alle 135 €) suurimmilla alustoilla, kuten mm. App Storessa, Google Playssa tai Steamissa.
+                     </p>
+                   </div>
+                 </CarouselItem>
+                 
+                 <CarouselItem>
+                   <div className="p-8 rounded-lg border" style={{ background: 'var(--gradient-navy)' }}>
+                     <h3 className="text-2xl font-bold text-white mb-6 text-center">Nettikiusaaminen</h3>
+                     <p className="text-white leading-relaxed">
+                        Emilia joutui nettikiusaamisen kohteeksi sen jälkeen, kun hänen TikTok-videonsa levisi yllättäen laajalle. Tuntemattomat ihmiset alkoivat kommentoida videoita loukkaavasti ja joku perusti tekaistun tilin hänen nimellään ja profiilikuvallaan. Väärennetyllä tilillä julkaistiin sisältöä, joka sai Emilian näyttämään nololta. Hän saa asiantuntijoilta neuvoja ja apuja (25 h) sisällön poistoon ja tilien palautukseen. Tarvittaessa hänen käytössä on myös oikeudellinen tuki ja psykologinen kriisiapu.
                       </p>
                     </div>
-                  </div>
+                  </CarouselItem>
+                </CarouselContent>
+                
+                {/* Navigation buttons positioned below content */}
+                <div className="flex justify-between items-center mt-6 px-4">
+                  <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
+                  <CarouselNext className="relative right-0 top-0 translate-y-0" />
                 </div>
-             </div>
+              </Carousel>
             </div>
           </div>
           
