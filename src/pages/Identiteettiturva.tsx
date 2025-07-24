@@ -292,43 +292,48 @@ const Identiteettiturva = () => {
           
           {/* Insurance Coverage Details */}
           <div className="container mx-auto px-4 py-24">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
+                Vakuutus - 0€ omavastuulla
+              </h2>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
               {/* Taloudelliset tappiot */}
-              <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
-                <h3 className="text-xl font-bold text-foreground">
+              <div className="text-white rounded-2xl p-6 space-y-4" style={{ background: 'var(--gradient-navy)' }}>
+                <h3 className="text-xl font-bold text-white">
                   Taloudelliset tappiot
                 </h3>
-                <p className="text-foreground text-sm leading-relaxed">
+                <p className="text-white/90 text-sm leading-relaxed">
                   Premium-vakuutus korvaa kyberrikoksista johtuvia rahallisia menetyksiä jopa 13 500 € saakka. Mukana mm. phishingin, vishingin ja smishingin seuraukset, kuten pankkitietojen väärinkäyttö.
                 </p>
               </div>
 
               {/* Verkko-ostoturva */}
-              <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
-                <h3 className="text-xl font-bold text-foreground">
+              <div className="text-white rounded-2xl p-6 space-y-4" style={{ background: 'var(--gradient-navy)' }}>
+                <h3 className="text-xl font-bold text-white">
                   Verkko-ostoturva
                 </h3>
-                <p className="text-foreground text-sm leading-relaxed">
+                <p className="text-white/90 text-sm leading-relaxed">
                   Ostoista arvoltaan 50–700 € korvataan, jos tuote ei saavu, on väärä tai puutteellinen – koskee sekä verkkokauppoja että yksityisiä myyjiä.
                 </p>
               </div>
 
               {/* SIM-kortin väärinkäyttö */}
-              <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
-                <h3 className="text-xl font-bold text-foreground">
+              <div className="text-white rounded-2xl p-6 space-y-4" style={{ background: 'var(--gradient-navy)' }}>
+                <h3 className="text-xl font-bold text-white">
                   SIM-kortin väärinkäyttö
                 </h3>
-                <p className="text-foreground text-sm leading-relaxed">
+                <p className="text-white/90 text-sm leading-relaxed">
                   Varkauden jälkeinen SIM-kortin luvaton käyttö korvataan 135 € saakka, kun käyttö tapahtuu 48 tunnin sisällä varkaudesta.
                 </p>
               </div>
 
               {/* Suoja sovellushankinnoille */}
-              <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
-                <h3 className="text-xl font-bold text-foreground">
+              <div className="text-white rounded-2xl p-6 space-y-4" style={{ background: 'var(--gradient-navy)' }}>
+                <h3 className="text-xl font-bold text-white">
                   Suoja sovellushankinnoille
                 </h3>
-                <p className="text-foreground text-sm leading-relaxed">
+                <p className="text-white/90 text-sm leading-relaxed">
                   Vakuutus kattaa jopa 135 €, jos alle 10-vuotias lapsi tekee vahingossa tai luvatta sovellusostoja esim. App Storessa tai Google Playssa.
                 </p>
               </div>
