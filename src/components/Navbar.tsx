@@ -76,18 +76,12 @@ const Navbar = () => {
                   <NavigationMenuTrigger className="text-white hover:text-gray-200 bg-transparent hover:bg-white/10">
                     Tuotteet
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
+                   <NavigationMenuContent>
                     <ul className="grid gap-3 p-4 w-[300px] bg-white shadow-lg border rounded-md">
                       <li>
                         <Link to="/identiteettiturva" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
                           <div className="font-medium text-gray-900">Identiteettiturva</div>
                           <p className="text-sm text-gray-500">Suojaa henkilöllisyytesi verkossa</p>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/puheturva" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium text-gray-900">Puheturva</div>
-                          <p className="text-sm text-gray-500">Turvallinen puhelinliikenne</p>
                         </Link>
                       </li>
                     </ul>
@@ -155,12 +149,6 @@ const Navbar = () => {
             Identiteettiturva
           </Link>
           
-          <Link to="/puheturva" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
-            setIsMenuOpen(false);
-            window.scrollTo(0, 0);
-          }}>
-            Puheturva
-          </Link>
           
           <Link to="/meista" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
             setIsMenuOpen(false);

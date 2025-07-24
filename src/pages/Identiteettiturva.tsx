@@ -190,12 +190,13 @@ const Identiteettiturva = () => {
         </div>
         
         {/* Identity protection section with background image */}
-        <div 
-          className="relative py-24 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url(/lovable-uploads/f96aa839-76e5-4b74-92a6-ef3e2166b1f1.png)' }}
-        >
-          {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/50"></div>
+        <div className="relative py-24 px-4">
+          <div 
+            className="relative py-24 bg-cover bg-center bg-no-repeat rounded-3xl"
+            style={{ backgroundImage: 'url(/lovable-uploads/f96aa839-76e5-4b74-92a6-ef3e2166b1f1.png)' }}
+          >
+            {/* Dark overlay for better text readability */}
+            <div className="absolute inset-0 bg-black/50 rounded-3xl"></div>
           
           <div className="relative container mx-auto px-4">
             <div className="text-center mb-16">
@@ -212,9 +213,9 @@ const Identiteettiturva = () => {
                  
                  <div className="flex justify-center">
                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl py-12 px-6 text-center max-w-md">
-                     <div className="text-5xl lg:text-6xl font-bold text-white mb-2">
-                       62,9M €
-                     </div>
+                      <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
+                        62,9M €
+                      </div>
                       <p className="text-white/80 text-sm">
                         Vuonna 2024 suomalaiset menettivät nettihuijauksiin 62,9 miljoonaa euroa, joka on 40 % enemmän kuin vuonna 2023, jolloin summa oli 44,2 miljoonaa euroa.
                       </p>
@@ -223,7 +224,8 @@ const Identiteettiturva = () => {
                </div>
             </div>
            </div>
-         </div>
+          </div>
+        </div>
          
          {/* Cases section */}
          <div className="container mx-auto px-4 py-24">
