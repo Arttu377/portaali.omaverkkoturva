@@ -1,43 +1,50 @@
-
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Send, Mail, User, MessageSquare } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Checkbox } from '@/components/ui/checkbox';
 import emailjs from 'emailjs-com';
 
-// Updated schema with honeypot field validation
+// Updated schema with new fields matching the form
 const formSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
-  honeypot: z.string().max(0, 'Bot detected'), // Honeypot field must be empty
-  timestamp: z.number() // To prevent automated quick submissions
+  subject: z.string().min(1, 'Valitse yhteydenoton aihe'),
+  name: z.string().min(2, 'Nimi on pakollinen'),
+  phone: z.string().min(5, 'Puhelinnumero on pakollinen'),
+  email: z.string().email('Syötä kelvollinen sähköpostiosoite'),
+  message: z.string().min(10, 'Viesti on liian lyhyt'),
+  privacy: z.boolean().refine(val => val === true, 'Hyväksy henkilötietojenkäsittely'),
+  honeypot: z.string().max(0, 'Bot detected'),
+  timestamp: z.number()
 });
 
 type FormValues = z.infer<typeof formSchema>;
 
-// EmailJS configuration - Updated with correct template ID
+// EmailJS configuration
 const EMAILJS_SERVICE_ID = "service_i3h66xg";
-const EMAILJS_TEMPLATE_ID = "template_fgq53nh"; // Updated to the correct template ID
+const EMAILJS_TEMPLATE_ID = "template_fgq53nh";
 const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formStartTime] = useState<number>(Date.now()); // Track when form was opened
+  const [formStartTime] = useState<number>(Date.now());
   
   const { toast } = useToast();
   
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      subject: '',
       name: '',
+      phone: '',
       email: '',
       message: '',
+      privacy: false,
       honeypot: '',
       timestamp: formStartTime
     }
@@ -48,83 +55,67 @@ const ContactForm = () => {
     
     try {
       // Bot checks
-      // 1. Honeypot check - should be caught by zod, but double-check
       if (data.honeypot) {
-        console.log('Bot detected via honeypot');
         toast({
-          title: "Error",
-          description: "There was a problem with your submission. Please try again.",
+          title: "Virhe",
+          description: "Lomakkeen lähetyksessä tapahtui virhe. Yritä uudelleen.",
           variant: "destructive"
         });
         return;
       }
       
-      // 2. Time-based check - Submission should take at least 3 seconds (too fast is likely a bot)
       const timeDiff = Date.now() - data.timestamp;
       if (timeDiff < 3000) {
-        console.log(`Bot detected: Form submitted too quickly (${timeDiff}ms)`);
         toast({
-          title: "Error",
-          description: "Please take a moment to review your message before submitting.",
+          title: "Virhe",
+          description: "Tarkista viestisi ennen lähettämistä.",
           variant: "destructive"
         });
         setIsSubmitting(false);
         return;
       }
       
-      console.log('Form submitted:', data);
+      const { honeypot, timestamp, privacy, ...emailData } = data;
       
-      // Remove honeypot and timestamp fields before sending
-      const { honeypot, timestamp, ...emailData } = data;
-      
-      // Using parameters exactly as expected by EmailJS templates
       const templateParams = {
+        subject: emailData.subject,
         from_name: emailData.name,
+        phone: emailData.phone,
         from_email: emailData.email,
         message: emailData.message,
-        to_name: 'WRLDS Team', // Adding recipient name parameter
-        reply_to: emailData.email // Keeping reply_to for compatibility
+        to_name: 'OmaVerkkoturva Team',
+        reply_to: emailData.email
       };
       
-      console.log('Sending email with params:', templateParams);
-      console.log('Using service:', EMAILJS_SERVICE_ID);
-      console.log('Using template:', EMAILJS_TEMPLATE_ID);
-      console.log('Using public key:', EMAILJS_PUBLIC_KEY);
-      
-      // Send email directly without initializing, as it's not needed with the send method that includes the key
-      const response = await emailjs.send(
+      await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         templateParams,
-        EMAILJS_PUBLIC_KEY // Re-adding the public key parameter
+        EMAILJS_PUBLIC_KEY
       );
       
-      console.log('Email sent successfully:', response);
-      
       toast({
-        title: "Message sent!",
-        description: "We've received your message and will get back to you soon.",
+        title: "Viesti lähetetty!",
+        description: "Otamme sinuun yhteyttä pian.",
         variant: "default"
       });
 
       form.reset({
+        subject: '',
         name: '',
+        phone: '',
         email: '',
         message: '',
+        privacy: false,
         honeypot: '',
         timestamp: Date.now()
       });
     } catch (error) {
       console.error('Error sending email:', error);
       
-      // More detailed error logging
-      if (error && typeof error === 'object' && 'text' in error) {
-        console.error('Error details:', (error as any).text);
-      }
-      
       toast({
-        title: "Error",
-        description: "There was a problem sending your message. Please try again later.",
+        title: "Virhe",
+        description: "Viestin lähetyksessä tapahtui virhe. Yritä myöhemmin uudelleen.",
         variant: "destructive"
       });
     } finally {
@@ -132,107 +123,248 @@ const ContactForm = () => {
     }
   };
 
-  return <section id="contact" className="bg-gradient-to-b from-white to-black text-white relative py-[25px]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-block mb-3 px-3 py-1 bg-white text-black rounded-full text-sm font-medium">
-            Get In Touch
+  return (
+    <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Left side - Contact info */}
+          <div className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-bold text-gray-900 mb-6">Ota yhteyttä</h1>
+              
+              <div className="mb-8">
+                <a 
+                  href="mailto:asiakaspalvelu@netinturva.fi" 
+                  className="text-xl text-blue-600 hover:underline font-medium"
+                >
+                  asiakaspalvelu@netinturva.fi
+                </a>
+              </div>
+              
+              <div className="space-y-4 text-gray-700">
+                <p>
+                  Yleisissä yhteydenotoissa ja kysymyksissä sähköposti on suositeltu yhteydenottotakanava. Pyrimme aina vastaamaan 1-3 arkipäivän sisällä.
+                </p>
+                
+                <p>
+                  Mikäli olet asiakkaamme ja tarvitset apua tai tukea, täytäthän viereisen yhteydenottolomakkeen.
+                </p>
+                
+                <p>
+                  Asiakkaanamme olette oikeutettu nopeaan ja ilmaiseen apuun sekä tukeen. Täyttämällä yhteydenottolomakkeen ja valitsemalla sopivan aiheen yhteydenotolle varmistatte asianne pikaisen käsittelyn.
+                </p>
+              </div>
+              
+              <p className="text-sm text-gray-600 mt-6">
+                <strong>HUOM:</strong> Irtisanomiset käsitellään vain puhelimitse tai irtisanomislomakkeella. Linkin irtisanomislomakkeelle siirtymiseen löydätte alta.
+              </p>
+              
+              <button className="mt-6 px-6 py-3 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 transition-colors">
+                Irtisanomislomake
+              </button>
+              
+              <div className="mt-8 flex items-center space-x-3">
+                <Phone className="w-5 h-5 text-gray-600" />
+                <div>
+                  <a 
+                    href="tel:010582437" 
+                    className="text-xl font-medium text-gray-900 underline hover:no-underline"
+                  >
+                    010 582 4730
+                  </a>
+                  <p className="text-sm text-gray-600">
+                    Asiakaspalvelumme palvelee puhelimitse jokaisena arkipäivänä klo. 10:00-16:00. Puhelun hinta: mpm/pvm
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Tärkeää tietoa yhteydeniotoista</h2>
+              
+              <div className="space-y-4 text-gray-700">
+                <p>
+                  Tällä sivustolla ilmoitetut yhteydenottomenetelmät ovat ainoat menetelmät, joilla Netin Turvaan voi olla yhteydessä.
+                </p>
+                
+                <p>
+                  Näiden yhteystietojen ja lomakkeiden ulkopuolisia yhteysdenottoja Ei käsitellä ja Netin Turva ei vastaa vahingoista tai vaivasta, joka syntyy näiden ohjeiden laiminlyönnistä.
+                </p>
+                
+                <p>
+                  Mikäli asioit toisen henkilön puolesta, varmista että sinulla on tarvittavat valttuudet vaaditaviin toimenpiteisiin. Valmistaudu myös esittämään todisteeet valttuuksista.
+                </p>
+              </div>
+            </div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
-            Contact Us Today
-          </h2>
-          <p className="text-gray-700 text-lg max-w-2xl mx-auto">
-            Have questions about our AI-powered sensor solutions? Reach out to our team and let's discuss how we can help bring your ideas to life.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="bg-white rounded-xl shadow-xl p-8 border border-gray-700 text-black">
+
+          {/* Right side - Contact form */}
+          <div className="bg-blue-900 rounded-lg p-8 text-white">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <FormField control={form.control} name="name" render={({
-                field
-              }) => <FormItem>
-                      <FormLabel className="text-gray-700">Name</FormLabel>
-                      <div className="relative">
-                        <User className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+                <FormField 
+                  control={form.control} 
+                  name="subject" 
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-white font-medium">Yhteydenoton aihe *</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
-                          <Input placeholder="Your name" className="pl-10" {...field} />
+                          <SelectTrigger className="bg-white text-gray-900">
+                            <SelectValue placeholder="Valitse aihe" />
+                          </SelectTrigger>
                         </FormControl>
-                      </div>
+                        <SelectContent>
+                          <SelectItem value="tuki">Tuki ja apu</SelectItem>
+                          <SelectItem value="laskutus">Laskutus</SelectItem>
+                          <SelectItem value="tekninen">Tekninen ongelma</SelectItem>
+                          <SelectItem value="muu">Muu aihe</SelectItem>
+                        </SelectContent>
+                      </Select>
                       <FormMessage />
-                    </FormItem>} />
+                    </FormItem>
+                  )}
+                />
                 
-                <FormField control={form.control} name="email" render={({
-                field
-              }) => <FormItem>
-                      <FormLabel className="text-gray-700">Email</FormLabel>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                        <FormControl>
-                          <Input type="email" placeholder="your.email@example.com" className="pl-10" {...field} />
-                        </FormControl>
-                      </div>
+                <FormField 
+                  control={form.control} 
+                  name="name" 
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-white font-medium">Etu- ja sukunimi *</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="Etu- ja sukunimi" 
+                          className="bg-white text-gray-900 placeholder-gray-500"
+                          {...field} 
+                        />
+                      </FormControl>
                       <FormMessage />
-                    </FormItem>} />
+                    </FormItem>
+                  )}
+                />
                 
-                <FormField control={form.control} name="message" render={({
-                field
-              }) => <FormItem>
-                      <FormLabel className="text-gray-700">Message</FormLabel>
-                      <div className="relative">
-                        <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                        <FormControl>
-                          <Textarea placeholder="Tell us about your project or inquiry..." className="min-h-[120px] pl-10 resize-none" {...field} />
-                        </FormControl>
-                      </div>
+                <FormField 
+                  control={form.control} 
+                  name="phone" 
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-white font-medium">Puhelinnumero *</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="044 123 4567" 
+                          className="bg-white text-gray-900 placeholder-gray-500"
+                          {...field} 
+                        />
+                      </FormControl>
                       <FormMessage />
-                    </FormItem>} />
+                    </FormItem>
+                  )}
+                />
                 
-                {/* Honeypot field - hidden from real users but bots will fill it */}
-                <FormField control={form.control} name="honeypot" render={({
-                field
-              }) => <FormItem className="hidden">
-                      <FormLabel>Leave this empty</FormLabel>
+                <FormField 
+                  control={form.control} 
+                  name="email" 
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-white font-medium">Sähköpostiosoite *</FormLabel>
+                      <FormControl>
+                        <Input 
+                          type="email" 
+                          placeholder="esimerkki@esimerkki.fi" 
+                          className="bg-white text-gray-900 placeholder-gray-500"
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField 
+                  control={form.control} 
+                  name="message" 
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-white font-medium">Viesti *</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Kerro lisätietoja yhteydenottosi liittyen" 
+                          className="min-h-[120px] bg-white text-gray-900 placeholder-gray-500 resize-none"
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="privacy"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                      <FormControl>
+                        <Checkbox
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                          className="bg-white"
+                        />
+                      </FormControl>
+                      <div className="space-y-1 leading-none">
+                        <FormLabel className="text-sm text-white">
+                          Lähettämällä tämän lomakkeen vakuutan, että antamani tiedot ovat oikeita. Lisäksi hyväksyn henkilötietojeni käsittelyn Netin Turvan{' '}
+                          <a href="/tietosuojaseloste" className="underline hover:no-underline">
+                            tietosuojaselosteen
+                          </a>{' '}
+                          mukaisesti.
+                        </FormLabel>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+                
+                {/* Honeypot field */}
+                <FormField 
+                  control={form.control} 
+                  name="honeypot" 
+                  render={({ field }) => (
+                    <FormItem className="hidden">
                       <FormControl>
                         <Input {...field} tabIndex={-1} />
                       </FormControl>
-                    </FormItem>} />
+                    </FormItem>
+                  )}
+                />
                 
                 {/* Hidden timestamp field */}
-                <FormField control={form.control} name="timestamp" render={({
-                field
-              }) => <FormItem className="hidden">
+                <FormField 
+                  control={form.control} 
+                  name="timestamp" 
+                  render={({ field }) => (
+                    <FormItem className="hidden">
                       <FormControl>
                         <Input type="hidden" {...field} />
                       </FormControl>
-                    </FormItem>} />
+                    </FormItem>
+                  )}
+                />
                 
-                <button type="submit" disabled={isSubmitting} className="w-full bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-md transition-colors flex items-center justify-center disabled:opacity-70">
-                  {isSubmitting ? "Sending..." : <>
-                      Send Message
-                      <Send className="ml-2 h-4 w-4" />
-                    </>}
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting} 
+                  className="w-full bg-blue-400 hover:bg-blue-300 text-blue-900 py-3 px-6 rounded-full transition-colors font-medium disabled:opacity-70"
+                >
+                  {isSubmitting ? "Lähetetään..." : "Lähetä yhteydenotto"}
                 </button>
               </form>
             </Form>
           </div>
-          
-          <div className="space-y-8">
-            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-700 text-black">
-              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white mb-4">
-                <Mail className="h-6 w-6" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Email Us</h3>
-              <p className="text-gray-600 mb-2">For general inquiries:</p>
-              <a href="mailto:info@wrlds.com" className="text-blue-500 hover:underline">hello@wrlds.com</a>
-              <p className="text-gray-600 mt-2 mb-2">
-            </p>
-            </div>
-          </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
 
 export default ContactForm;
