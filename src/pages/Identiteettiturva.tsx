@@ -299,9 +299,9 @@ const Identiteettiturva = () => {
             </div>
             <div className="max-w-5xl mx-auto relative">
                {/* SVG for connecting lines */}
-               <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{
-            zIndex: 1
-          }}>
+               <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" style={{
+             zIndex: 1
+           }}>
                   <defs>
                     <linearGradient id="navyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" style={{stopColor: '#1e3a8a', stopOpacity: 1}} />
@@ -311,9 +311,10 @@ const Identiteettiturva = () => {
                       {`
                         .smooth-line {
                           stroke: url(#navyGradient);
-                          stroke-width: 4;
+                          stroke-width: 0.8;
                           opacity: 0;
                           transition: opacity 0.8s ease-in-out;
+                          fill: none;
                         }
                         .smooth-line.visible {
                           opacity: 1;
@@ -323,10 +324,10 @@ const Identiteettiturva = () => {
                   </defs>
                  
                   {/* Curved lines connecting center image to each box */}
-                  <path d="M 50% 85% Q 35% 60% 30% 30%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.2s'}} fill="none" />
-                  <path d="M 50% 85% Q 65% 60% 70% 30%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.4s'}} fill="none" />
-                  <path d="M 50% 85% Q 25% 70% 16.7% 45%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.6s'}} fill="none" />
-                  <path d="M 50% 85% Q 75% 70% 83.3% 45%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.8s'}} fill="none" />
+                  <path d="M 50 85 Q 35 60 30 30" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.2s'}} />
+                  <path d="M 50 85 Q 65 60 70 30" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.4s'}} />
+                  <path d="M 50 85 Q 25 70 16.7 45" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.6s'}} />
+                  <path d="M 50 85 Q 75 70 83.3 45" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.8s'}} />
                </svg>
               
               {/* Pyramid layout using CSS Grid */}
