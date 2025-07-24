@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Phone } from 'lucide-react';
@@ -33,6 +34,7 @@ const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formStartTime] = useState<number>(Date.now());
+  const navigate = useNavigate();
   
   const { toast } = useToast();
   
@@ -182,17 +184,24 @@ const ContactForm = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-white font-medium">Yhteydenoton aihe *</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                       <Select onValueChange={(value) => {
+                         if (value === 'irtisanomislomake') {
+                           navigate('/irtisanomislomake');
+                         } else {
+                           field.onChange(value);
+                         }
+                       }} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger className="bg-white text-gray-900">
                             <SelectValue placeholder="Valitse aihe" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="tuki">Tuki ja apu</SelectItem>
-                          <SelectItem value="laskutus">Laskutus</SelectItem>
-                          <SelectItem value="tekninen">Tekninen ongelma</SelectItem>
-                          <SelectItem value="muu">Muu aihe</SelectItem>
+                           <SelectItem value="tuki">Tuki ja apu</SelectItem>
+                           <SelectItem value="laskutus">Laskutus</SelectItem>
+                           <SelectItem value="tekninen">Tekninen ongelma</SelectItem>
+                           <SelectItem value="irtisanomislomake">Irtisanomislomake</SelectItem>
+                           <SelectItem value="muu">Muu aihe</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
