@@ -96,6 +96,22 @@ const Irtisanomislomake = () => {
     <PageLayout showContact={false}>
       <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-50 min-h-screen">
         <div className="max-w-2xl mx-auto">
+          {/* Kiitosteksti */}
+          <div className="mb-8 text-center">
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Kiitos, että olet ollut mukana turvaamassa verkkoarjessa kanssamme.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Arvostamme sitä, että valitsit OmaVerkkoturvan suojaamaan digitaalisia tietojasi ja identiteettiäsi. Jokainen asiakas on meille tärkeä, ja olemme kiitollisia luottamuksesta, jonka olet meille antanut.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Ymmärrämme, että elämäntilanteet ja tarpeet voivat muuttua. Jos päätät lopettaa palvelun, toivomme, että kokemuksesi on ollut hyödyllinen ja että tarjoamamme turva on tuonut sinulle mielenrauhaa verkossa liikkuessasi.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              Jos mielessäsi on kysyttävää irtisanomiseen tai tietoturvaan liittyen, asiakastukemme auttaa mielellään. Ja mikäli joskus tulevaisuudessa haluat palata asiakkaaksemme, toivotamme sinut lämpimästi tervetulleeksi takaisin.
+            </p>
+          </div>
+          
           <div className="bg-white rounded-lg shadow-sm p-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Irtisanomislomake
@@ -208,7 +224,7 @@ const Irtisanomislomake = () => {
                 <Button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full bg-white hover:bg-gray-100 text-black py-3 px-6 rounded-full transition-colors font-medium disabled:opacity-70"
+                  className="w-full bg-gradient-to-r from-blue-900 to-blue-800 hover:from-blue-800 hover:to-blue-700 text-white py-3 px-6 rounded-full transition-all font-medium disabled:opacity-70"
                 >
                   {isSubmitting ? "Lähetetään..." : "Lähetä irtisanomislomake"}
                 </Button>
