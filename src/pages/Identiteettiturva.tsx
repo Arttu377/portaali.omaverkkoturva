@@ -309,10 +309,14 @@ const Identiteettiturva = () => {
               {/* SVG for connecting lines */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
                 {/* Lines connecting center circle to each box */}
-                <line x1="50%" y1="85%" x2="25%" y2="45%" stroke="black" strokeWidth="2" />
-                <line x1="50%" y1="85%" x2="75%" y2="45%" stroke="black" strokeWidth="2" />
-                <line x1="50%" y1="85%" x2="16.7%" y2="70%" stroke="black" strokeWidth="2" />
-                <line x1="50%" y1="85%" x2="83.3%" y2="70%" stroke="black" strokeWidth="2" />
+                {/* Line to top left box (Taloudelliset tappiot) */}
+                <line x1="50%" y1="75%" x2="25%" y2="35%" stroke="black" strokeWidth="2" />
+                {/* Line to top right box (Verkko-ostoturva) */}
+                <line x1="50%" y1="75%" x2="75%" y2="35%" stroke="black" strokeWidth="2" />
+                {/* Line to bottom left box (SIM-kortin väärinkäyttö) */}
+                <line x1="50%" y1="75%" x2="16.7%" y2="55%" stroke="black" strokeWidth="2" />
+                {/* Line to bottom right box (Suoja sovellushankinnoille) */}
+                <line x1="50%" y1="75%" x2="83.3%" y2="55%" stroke="black" strokeWidth="2" />
               </svg>
               
               {/* Pyramid layout using CSS Grid */}
@@ -355,12 +359,51 @@ const Identiteettiturva = () => {
                   </p>
                 </div>
                 
-                {/* Central circle with Omaverkkoturva */}
+                {/* Central circle with logo */}
                 <div className="col-start-3 col-span-2 mt-12 flex justify-center" style={{ zIndex: 3 }}>
                   <div className="w-40 h-40 rounded-full border-4 border-black bg-white flex items-center justify-center">
-                    <span className="text-black font-bold text-lg text-center leading-tight">
-                      Omaverkkoturva
-                    </span>
+                    <svg width="80" height="80" viewBox="0 0 80 80" className="text-primary">
+                      {/* Shield outline */}
+                      <path 
+                        d="M40 8 L15 20 L15 35 C15 55 40 72 40 72 C40 72 65 55 65 35 L65 20 Z" 
+                        fill="currentColor" 
+                        stroke="none"
+                      />
+                      {/* WiFi signals inside shield */}
+                      <g transform="translate(40, 35)">
+                        {/* Outer arc */}
+                        <path 
+                          d="M -18 8 A 25 25 0 0 1 18 8" 
+                          fill="none" 
+                          stroke="white" 
+                          strokeWidth="2.5" 
+                          strokeLinecap="round"
+                        />
+                        {/* Middle arc */}
+                        <path 
+                          d="M -12 8 A 17 17 0 0 1 12 8" 
+                          fill="none" 
+                          stroke="white" 
+                          strokeWidth="2.5" 
+                          strokeLinecap="round"
+                        />
+                        {/* Inner arc */}
+                        <path 
+                          d="M -6 8 A 8.5 8.5 0 0 1 6 8" 
+                          fill="none" 
+                          stroke="white" 
+                          strokeWidth="2.5" 
+                          strokeLinecap="round"
+                        />
+                        {/* Center dot */}
+                        <circle 
+                          cx="0" 
+                          cy="12" 
+                          r="2.5" 
+                          fill="white"
+                        />
+                      </g>
+                    </svg>
                   </div>
                 </div>
               </div>
