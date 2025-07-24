@@ -173,6 +173,17 @@ const ContactForm = () => {
               </div>
             </div>
           </div>
+          
+          {/* Irtisanomislomake nappi */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Haluatko irtisanoa palvelun?</h3>
+            <button 
+              onClick={() => navigate('/irtisanomislomake')}
+              className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition-colors font-medium"
+            >
+              Siirry irtisanomislomakkeeseen
+            </button>
+          </div>
 
           {/* Right side - Contact form */}
           <div className="bg-blue-900 rounded-lg p-8 text-white">
@@ -184,27 +195,17 @@ const ContactForm = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-white font-medium">Yhteydenoton aihe *</FormLabel>
-                       <Select onValueChange={(value) => {
-                         console.log('Select value changed:', value);
-                         if (value === 'irtisanomislomake') {
-                           console.log('Navigating to irtisanomislomake');
-                           navigate('/irtisanomislomake');
-                         } else {
-                           console.log('Setting field value:', value);
-                           field.onChange(value);
-                         }
-                       }} defaultValue={field.value}>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger className="bg-white text-gray-900">
                             <SelectValue placeholder="Valitse aihe" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                           <SelectItem value="tuki">Tuki ja apu</SelectItem>
-                           <SelectItem value="laskutus">Laskutus</SelectItem>
-                           <SelectItem value="tekninen">Tekninen ongelma</SelectItem>
-                           <SelectItem value="irtisanomislomake">Irtisanomislomake</SelectItem>
-                           <SelectItem value="muu">Muu aihe</SelectItem>
+                          <SelectItem value="tuki">Tuki ja apu</SelectItem>
+                          <SelectItem value="laskutus">Laskutus</SelectItem>
+                          <SelectItem value="tekninen">Tekninen ongelma</SelectItem>
+                          <SelectItem value="muu">Muu aihe</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
