@@ -23,7 +23,7 @@ const About = () => {
               initial={{ opacity: 0, y: -10 }} 
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.5 }} 
-              className="text-4xl font-bold mb-6"
+              className="text-4xl font-bold mb-6 text-center"
             >
               Keitä me olemme ja miksi OmaVerkkoturva syntyi?
             </motion.h1>
@@ -33,7 +33,7 @@ const About = () => {
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 transition={{ duration: 0.5, delay: 0.2 }} 
-                className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+                className="mb-36 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
               >
                 <div>
                   <h2 className="text-2xl font-bold mb-4">Missiomme</h2>
