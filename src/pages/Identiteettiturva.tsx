@@ -304,8 +304,8 @@ const Identiteettiturva = () => {
            }}>
                   <defs>
                     <linearGradient id="navyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" style={{stopColor: '#9ca3af', stopOpacity: 1}} />
-                      <stop offset="100%" style={{stopColor: '#6b7280', stopOpacity: 1}} />
+                      <stop offset="0%" style={{stopColor: '#d1d5db', stopOpacity: 1}} />
+                      <stop offset="100%" style={{stopColor: '#9ca3af', stopOpacity: 1}} />
                     </linearGradient>
                     <style>
                       {`
