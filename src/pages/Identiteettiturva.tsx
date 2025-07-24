@@ -339,12 +339,12 @@ const Identiteettiturva = () => {
                 <div className="col-start-3 col-span-2 mt-12 flex justify-center" style={{
               zIndex: 3
             }}>
-                  <div className="w-32 h-32 rounded-xl overflow-hidden flex items-center justify-center p-4" style={{
+                  <div className="w-32 h-32 rounded-full flex items-center justify-center p-4" style={{
                 background: 'var(--gradient-navy)'
               }}>
                     <img 
-                      src="/lovable-uploads/296f9efc-c5a2-4029-bb1d-02f258233174.png" 
-                      alt="OmaVerkkoturva logo" 
+                      src="/lovable-uploads/061c0f3d-7b88-4fe2-b53e-e2a531d4cd50.png" 
+                      alt="WiFi logo" 
                       className="w-16 h-16 object-contain"
                     />
                   </div>
