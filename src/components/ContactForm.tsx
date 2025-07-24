@@ -124,7 +124,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section id="contact" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left side - Contact info */}
@@ -134,24 +134,16 @@ const ContactForm = () => {
               
               <div className="mb-8">
                 <a 
-                  href="mailto:asiakaspalvelu@netinturva.fi" 
+                  href="mailto:info@omaverkkoturva.fi" 
                   className="text-xl text-blue-600 hover:underline font-medium"
                 >
-                  asiakaspalvelu@netinturva.fi
+                  info@omaverkkoturva.fi
                 </a>
               </div>
               
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Yleisissä yhteydenotoissa ja kysymyksissä sähköposti on suositeltu yhteydenottotakanava. Pyrimme aina vastaamaan 1-3 arkipäivän sisällä.
-                </p>
-                
-                <p>
-                  Mikäli olet asiakkaamme ja tarvitset apua tai tukea, täytäthän viereisen yhteydenottolomakkeen.
-                </p>
-                
-                <p>
-                  Asiakkaanamme olette oikeutettu nopeaan ja ilmaiseen apuun sekä tukeen. Täyttämällä yhteydenottolomakkeen ja valitsemalla sopivan aiheen yhteydenotolle varmistatte asianne pikaisen käsittelyn.
+                  Pyrimme aina vastaamaan 1-2 arkipäivän sisällä. Asiakkaanamme olet oikeutettu nopeaan sekä veloituksettomaan apuun ja tukeen.
                 </p>
               </div>
               
@@ -167,33 +159,15 @@ const ContactForm = () => {
                 <Phone className="w-5 h-5 text-gray-600" />
                 <div>
                   <a 
-                    href="tel:010582437" 
+                    href="tel:010annamunolla" 
                     className="text-xl font-medium text-gray-900 underline hover:no-underline"
                   >
-                    010 582 4730
+                    010annamunolla
                   </a>
                   <p className="text-sm text-gray-600">
                     Asiakaspalvelumme palvelee puhelimitse jokaisena arkipäivänä klo. 10:00-16:00. Puhelun hinta: mpm/pvm
                   </p>
                 </div>
-              </div>
-            </div>
-            
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Tärkeää tietoa yhteydeniotoista</h2>
-              
-              <div className="space-y-4 text-gray-700">
-                <p>
-                  Tällä sivustolla ilmoitetut yhteydenottomenetelmät ovat ainoat menetelmät, joilla Netin Turvaan voi olla yhteydessä.
-                </p>
-                
-                <p>
-                  Näiden yhteystietojen ja lomakkeiden ulkopuolisia yhteysdenottoja Ei käsitellä ja Netin Turva ei vastaa vahingoista tai vaivasta, joka syntyy näiden ohjeiden laiminlyönnistä.
-                </p>
-                
-                <p>
-                  Mikäli asioit toisen henkilön puolesta, varmista että sinulla on tarvittavat valttuudet vaaditaviin toimenpiteisiin. Valmistaudu myös esittämään todisteeet valttuuksista.
-                </p>
               </div>
             </div>
           </div>
@@ -313,7 +287,7 @@ const ContactForm = () => {
                       </FormControl>
                       <div className="space-y-1 leading-none">
                         <FormLabel className="text-sm text-white">
-                          Lähettämällä tämän lomakkeen vakuutan, että antamani tiedot ovat oikeita. Lisäksi hyväksyn henkilötietojeni käsittelyn Netin Turvan{' '}
+                          Lähettämällä tämän lomakkeen vakuutan, että antamani tiedot ovat oikeita. Lisäksi hyväksyn henkilötietojeni käsittelyn OmaVerkkoturvan{' '}
                           <a href="/tietosuojaseloste" className="underline hover:no-underline">
                             tietosuojaselosteen
                           </a>{' '}
@@ -354,7 +328,7 @@ const ContactForm = () => {
                 <button 
                   type="submit" 
                   disabled={isSubmitting} 
-                  className="w-full bg-blue-400 hover:bg-blue-300 text-blue-900 py-3 px-6 rounded-full transition-colors font-medium disabled:opacity-70"
+                  className="w-full bg-white hover:bg-gray-100 text-black py-3 px-6 rounded-full transition-colors font-medium disabled:opacity-70"
                 >
                   {isSubmitting ? "Lähetetään..." : "Lähetä yhteydenotto"}
                 </button>
