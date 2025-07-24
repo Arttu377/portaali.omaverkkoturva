@@ -274,8 +274,8 @@ const Identiteettiturva = () => {
             <div className="max-w-5xl mx-auto relative">
                {/* SVG for connecting lines */}
                <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{
-             zIndex: 1
-           }}>
+            zIndex: 1
+          }}>
                  {/* Lines connecting center image to each box */}
                  {/* Line to top left box (Taloudelliset tappiot) */}
                  <line x1="50%" y1="85%" x2="25%" y2="25%" stroke="black" strokeWidth="2" />
@@ -339,14 +339,10 @@ const Identiteettiturva = () => {
                 <div className="col-start-3 col-span-2 mt-12 flex justify-center" style={{
               zIndex: 3
             }}>
-                  <div className="w-32 h-32 rounded-full flex items-center justify-center p-4" style={{
+                  <div style={{
                 background: 'var(--gradient-navy)'
-              }}>
-                    <img 
-                      src="/lovable-uploads/061c0f3d-7b88-4fe2-b53e-e2a531d4cd50.png" 
-                      alt="WiFi logo" 
-                      className="w-16 h-16 object-contain"
-                    />
+              }} className="w-32 h-32 rounded-full flex items-center justify-center p-4 bg-[#161679]">
+                    <img src="/lovable-uploads/061c0f3d-7b88-4fe2-b53e-e2a531d4cd50.png" alt="WiFi logo" className="w-16 h-16 object-contain" />
                   </div>
                 </div>
               </div>
