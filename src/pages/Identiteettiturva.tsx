@@ -302,21 +302,25 @@ const Identiteettiturva = () => {
                <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{
             zIndex: 1
           }}>
-                 <defs>
-                   <style>
-                     {`
-                       .smooth-line {
-                         stroke: black;
-                         stroke-width: 2;
-                         opacity: 0;
-                         transition: opacity 0.8s ease-in-out;
-                       }
-                       .smooth-line.visible {
-                         opacity: 1;
-                       }
-                     `}
-                   </style>
-                 </defs>
+                  <defs>
+                    <linearGradient id="navyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style={{stopColor: '#1e3a8a', stopOpacity: 1}} />
+                      <stop offset="100%" style={{stopColor: '#1e2a5e', stopOpacity: 1}} />
+                    </linearGradient>
+                    <style>
+                      {`
+                        .smooth-line {
+                          stroke: url(#navyGradient);
+                          stroke-width: 4;
+                          opacity: 0;
+                          transition: opacity 0.8s ease-in-out;
+                        }
+                        .smooth-line.visible {
+                          opacity: 1;
+                        }
+                      `}
+                    </style>
+                  </defs>
                  
                  {/* Lines connecting center image to each box */}
                  <line x1="50%" y1="85%" x2="30%" y2="30%" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.2s'}} />
