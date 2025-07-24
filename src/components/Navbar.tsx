@@ -54,47 +54,31 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center space-x-3">
-              {/* WiFi Shield Logo */}
+              {/* WiFi Logo */}
               <svg width="40" height="40" viewBox="0 0 100 100" className="text-white flex-shrink-0">
-                {/* Shield outline matching the reference image */}
-                <path 
-                  d="M50 8 L20 18 L20 40 C20 60 35 75 50 85 C65 75 80 60 80 40 L80 18 Z" 
-                  fill="transparent" 
-                  stroke="currentColor" 
-                  strokeWidth="3"
-                  strokeLinejoin="round"
-                />
-                {/* WiFi symbol inside shield */}
-                <g transform="translate(50, 52)">
+                {/* WiFi symbol matching the reference image */}
+                <g transform="translate(50, 50)">
                   {/* Outer arc */}
                   <path 
-                    d="M -18 5 A 25 25 0 0 1 18 5" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="4" 
-                    strokeLinecap="round"
+                    d="M -30 10 A 42 42 0 0 1 30 10" 
+                    fill="currentColor" 
+                    strokeWidth="0"
                   />
                   {/* Middle arc */}
                   <path 
-                    d="M -12 5 A 17 17 0 0 1 12 5" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="4" 
-                    strokeLinecap="round"
+                    d="M -20 15 A 28 28 0 0 1 20 15" 
+                    fill="currentColor" 
+                    strokeWidth="0"
                   />
                   {/* Inner arc */}
                   <path 
-                    d="M -6 5 A 8.5 8.5 0 0 1 6 5" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="4" 
-                    strokeLinecap="round"
+                    d="M -10 20 A 14 14 0 0 1 10 20" 
+                    fill="currentColor" 
+                    strokeWidth="0"
                   />
-                  {/* Center dot */}
-                  <circle 
-                    cx="0" 
-                    cy="12" 
-                    r="3" 
+                  {/* Base triangle */}
+                  <path 
+                    d="M -5 25 L 5 25 L 0 35 Z" 
                     fill="currentColor"
                   />
                 </g>
