@@ -93,25 +93,40 @@ const Dashboard = () => {
             <p className="text-xl text-muted-foreground">Hallitse tilauksiasi täältä.</p>
           </div>
 
-          {/* Verkkokauppa Section */}
+          {/* Verkkokauppa and Tilaukseni Navigation */}
           <div className="mb-8">
-            <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
-              <div className="flex items-center gap-3 mb-4">
-                <ShoppingCart className="h-8 w-8 text-primary" />
-                <h2 className="text-3xl font-bold">Verkkokauppa</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <ShoppingCart className="h-8 w-8 text-primary" />
+                  <h2 className="text-2xl font-bold">Verkkokauppa</h2>
+                </div>
+                <Button 
+                  size="lg" 
+                  className="bg-primary hover:bg-primary/90 w-full"
+                  onClick={() => window.location.href = '/verkkokauppa'}
+                >
+                  Tästä verkkokauppaan
+                </Button>
               </div>
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90"
-                onClick={() => window.location.href = '/verkkokauppa'}
-              >
-                Tästä verkkokauppaan
-              </Button>
+              
+              <div className="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border border-green-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <Package className="h-8 w-8 text-green-600" />
+                  <h2 className="text-2xl font-bold">Tilaukseni</h2>
+                </div>
+                <Button 
+                  size="lg" 
+                  className="bg-green-600 hover:bg-green-700 w-full"
+                  onClick={() => document.getElementById('orders-section')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Näytä tilaukset
+                </Button>
+              </div>
             </div>
           </div>
 
-          {/* Orders Section */}
-          <div className="mb-8">
+          <div id="orders-section" className="mb-8">
             <div className="flex items-center gap-3 mb-6">
               <Package className="h-8 w-8 text-primary" />
               <h2 className="text-3xl font-bold">Tilaukseni</h2>
@@ -141,10 +156,13 @@ const Dashboard = () => {
                       <div className="flex justify-between items-start">
                         <div>
                           <CardTitle className="text-lg">
-                            Tilaus #{order.id.slice(0, 8)}
+                            Tilaus #{order.order_number || order.id.slice(0, 8)}
                           </CardTitle>
                           <p className="text-sm text-muted-foreground">
                             {new Date(order.created_at).toLocaleDateString('fi-FI')}
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {order.customer_name} • {order.customer_email}
                           </p>
                         </div>
                         <div className="flex items-center gap-2">
