@@ -45,7 +45,7 @@ const handler = async (req: Request): Promise<Response> => {
     ).join('');
 
     const emailResponse = await resend.emails.send({
-      from: "tuki@omaverkkoturva",
+      from: "tuki@omaverkkoturva.fi",
       to: [customerEmail],
       subject: "Kiitos tilauksestasi - Vahvista tilaus",
       html: `
