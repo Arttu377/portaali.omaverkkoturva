@@ -1,9 +1,10 @@
 
-import { ArrowRight, Code, Cpu, Layers, MessageSquare } from "lucide-react";
+import { ArrowRight, Code, Cpu, Layers, MessageSquare, Package } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { memo } from "react";
+import { Link } from "react-router-dom";
 
 const Hero = memo(() => {
   const isMobile = useIsMobile();
@@ -393,17 +394,34 @@ const Hero = memo(() => {
             >
               Tilauksesi peruuntuu automaattisesti kuukauden jälkeen
             </motion.p>
-            <motion.button 
-              className="px-8 py-3 bg-gradient-to-r from-blue-900 to-blue-800 text-white rounded-md hover:from-blue-800 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl font-medium"
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
-              Tuotteeseen
-            </motion.button>
+              <Link to="/verkkokauppa">
+                <motion.button 
+                  className="px-8 py-3 bg-gradient-to-r from-blue-900 to-blue-800 text-white rounded-md hover:from-blue-800 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl font-medium"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Aloita suojaaminen
+                  <ArrowRight className="ml-2 h-4 w-4 inline" />
+                </motion.button>
+              </Link>
+              <Link to="/tilaukset">
+                <motion.button 
+                  className="px-8 py-3 bg-white text-blue-900 border-2 border-blue-900 rounded-md hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl font-medium"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Package className="mr-2 h-4 w-4 inline" />
+                  Näytä tilaukset
+                </motion.button>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </motion.div>

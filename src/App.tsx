@@ -29,6 +29,7 @@ import Verkkokauppa from "./pages/Verkkokauppa";
 import AdminPortal from "./pages/AdminPortal";
 import Dashboard from "./pages/Dashboard";
 import ConfirmOrder from "./pages/ConfirmOrder";
+import OrderOverview from "./pages/OrderOverview";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -63,6 +64,7 @@ const App = () => {
             <Route path="/logo-tool" element={<LogoTool />} />
             <Route path="/admin" element={<AdminPortal />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/tilaukset" element={<OrderOverview />} />
             <Route path="/confirm-order/:token" element={<ConfirmOrder />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
