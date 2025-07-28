@@ -56,7 +56,7 @@ const Navbar = () => {
       <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center space-x-3">
+            <Link to={user ? "/dashboard" : "/"} className="flex items-center space-x-3">
               {/* WiFi Logo with background removal */}
               <ProcessedLogo 
                 originalImageUrl="/lovable-uploads/296f9efc-c5a2-4029-bb1d-02f258233174.png"
@@ -79,7 +79,7 @@ const Navbar = () => {
                 <span className="text-white text-sm">{user.email}</span>
                 <button 
                   onClick={signOut}
-                  className="px-4 py-2 rounded-md transition-colors font-medium bg-red-600 text-white hover:bg-red-700"
+                  className="px-4 py-2 rounded-md transition-colors font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
                 >
                   Kirjaudu ulos
                 </button>
@@ -169,7 +169,7 @@ const Navbar = () => {
                   signOut();
                   setIsMenuOpen(false);
                 }}
-                className="block w-full text-left px-3 py-1.5 rounded-md text-sm font-medium bg-red-600 text-white hover:bg-red-700"
+                className="block w-full text-left px-3 py-1.5 rounded-md text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
               >
                 Kirjaudu ulos
               </button>
