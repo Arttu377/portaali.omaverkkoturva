@@ -26,6 +26,7 @@ import Contact from "./pages/Contact";
 import { LogoTool } from "./pages/LogoTool";
 import Verkkokauppa from "./pages/Verkkokauppa";
 import AdminPortal from "./pages/AdminPortal";
+import Dashboard from "./pages/Dashboard";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -58,6 +59,7 @@ const App = () => {
             <Route path="/ota-yhteytta" element={<Contact />} />
             <Route path="/logo-tool" element={<LogoTool />} />
             <Route path="/admin" element={<AdminPortal />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
