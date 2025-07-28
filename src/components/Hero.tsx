@@ -411,16 +411,6 @@ const Hero = memo(() => {
                   <ArrowRight className="ml-2 h-4 w-4 inline" />
                 </motion.button>
               </Link>
-              <Link to="/tilaukset">
-                <motion.button 
-                  className="px-8 py-3 bg-white text-blue-900 border-2 border-blue-900 rounded-md hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl font-medium"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Package className="mr-2 h-4 w-4 inline" />
-                  Näytä tilaukset
-                </motion.button>
-              </Link>
             </motion.div>
           </motion.div>
         </div>
