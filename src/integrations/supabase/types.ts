@@ -94,6 +94,7 @@ export type Database = {
           customer_name: string
           customer_phone: string | null
           id: string
+          order_number: string | null
           status: string
           total_amount: number
           updated_at: string
@@ -108,6 +109,7 @@ export type Database = {
           customer_name: string
           customer_phone?: string | null
           id?: string
+          order_number?: string | null
           status?: string
           total_amount: number
           updated_at?: string
@@ -122,6 +124,7 @@ export type Database = {
           customer_name?: string
           customer_phone?: string | null
           id?: string
+          order_number?: string | null
           status?: string
           total_amount?: number
           updated_at?: string
@@ -185,6 +188,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      generate_order_number: {
+        Args: Record<PropertyKey, never>
+        Returns: string
+      }
       get_current_user_role: {
         Args: Record<PropertyKey, never>
         Returns: string

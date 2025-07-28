@@ -143,7 +143,7 @@ const ConfirmOrder = () => {
             {orderDetails && (
               <div className="bg-muted/50 p-6 rounded-lg mb-8 text-left">
                 <h3 className="font-semibold mb-2">Tilauksen tiedot:</h3>
-                <p><strong>Tilausnumero:</strong> {orderDetails.id}</p>
+                <p><strong>Tilausnumero:</strong> {orderDetails.order_number || orderDetails.id}</p>
                 <p><strong>Sähköposti:</strong> {orderDetails.customer_email}</p>
                 <p><strong>Kokonaissumma:</strong> {orderDetails.total_amount} €</p>
                 <p><strong>Vahvistettu:</strong> {new Date().toLocaleString('fi-FI')}</p>
