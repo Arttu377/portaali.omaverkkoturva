@@ -145,6 +145,16 @@ const Identiteettiturva = () => {
                   </div>
                 </div>
               </div>
+              
+              {/* Verkkokauppaan button */}
+              <div className="mt-8">
+                <a 
+                  href="/verkkokauppa" 
+                  className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors"
+                >
+                  Verkkokauppaan
+                </a>
+              </div>
             </div>
             
             {/* Right side - empty for future image */}
