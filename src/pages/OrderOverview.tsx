@@ -23,6 +23,11 @@ interface Order {
     quantity: number;
     package_price: number;
   }>;
+  profiles?: {
+    first_name: string | null;
+    last_name: string | null;
+    email: string;
+  } | null;
 }
 
 const OrderOverview = () => {
@@ -82,6 +87,11 @@ const OrderOverview = () => {
             package_title,
             quantity,
             package_price
+          ),
+          profiles (
+            first_name,
+            last_name,
+            email
           )
         `);
       
@@ -182,17 +192,22 @@ const OrderOverview = () => {
                 <Card key={order.id} className="w-full">
                   <CardHeader>
                     <div className="flex justify-between items-start">
-                      <div>
-                        <CardTitle className="text-lg">
-                          Tilaus #{order.order_number || order.id.slice(0, 8)}
-                        </CardTitle>
-                        <p className="text-sm text-muted-foreground">
-                          {new Date(order.created_at).toLocaleDateString('fi-FI')}
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          {order.customer_name} • {order.customer_email}
-                        </p>
-                      </div>
+                       <div>
+                         <CardTitle className="text-lg">
+                           Tilaus #{order.order_number || order.id.slice(0, 8)}
+                         </CardTitle>
+                         <p className="text-sm text-muted-foreground">
+                           {new Date(order.created_at).toLocaleDateString('fi-FI')}
+                         </p>
+                         <div className="text-sm text-muted-foreground space-y-1">
+                           <p><strong>Asiakas:</strong> {order.customer_name} • {order.customer_email}</p>
+                           {order.profiles && (
+                             <p><strong>Tilaaja:</strong> {order.profiles.first_name && order.profiles.last_name 
+                               ? `${order.profiles.first_name} ${order.profiles.last_name}` 
+                               : order.profiles.email}</p>
+                           )}
+                         </div>
+                       </div>
                       <div className="flex items-center gap-2">
                         {getStatusIcon(order.status, order.confirmed_at)}
                         <Badge variant={getStatusVariant(order.status, order.confirmed_at)}>
