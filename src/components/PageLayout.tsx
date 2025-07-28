@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ContactInfo from '@/components/ContactInfo';
 import FloatingContactButton from '@/components/FloatingContactButton';
+import { useAuth } from '@/contexts/AuthContext';
 
 type PageLayoutProps = {
   children: React.ReactNode;
@@ -13,6 +14,7 @@ type PageLayoutProps = {
 
 const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
   const location = useLocation();
+  const { user } = useAuth();
 
   // Effect to scroll to top when route changes
   useEffect(() => {
@@ -23,7 +25,7 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
     <div className="min-h-screen bg-white w-full max-w-[100vw] overflow-x-hidden">
       <Navbar />
       {children}
-      <Footer />
+      {!user && <Footer />}
     </div>
   );
 };

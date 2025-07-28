@@ -74,11 +74,16 @@ const Dashboard = () => {
             <p className="text-xl text-muted-foreground">Hallitse tilauksiasi täältä.</p>
           </div>
 
-          {/* Verkkokauppaan Section */}
+          {/* Verkkokauppa Section */}
           <div className="mb-8">
-            <div className="flex items-center gap-3 mb-8">
-              <ShoppingCart className="h-8 w-8 text-primary" />
-              <h2 className="text-3xl font-bold">Verkkokauppaan</h2>
+            <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
+              <div className="flex items-center gap-3 mb-4">
+                <ShoppingCart className="h-8 w-8 text-primary" />
+                <h2 className="text-3xl font-bold">Verkkokauppa</h2>
+              </div>
+              <Button size="lg" className="bg-primary hover:bg-primary/90">
+                Tästä verkkokauppaan
+              </Button>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
