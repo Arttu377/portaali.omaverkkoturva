@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { Checkbox } from '@/components/ui/checkbox';
 
 interface OrderFormProps {
   onClose: () => void;
@@ -10,8 +11,17 @@ interface OrderFormProps {
 }
 
 const OrderForm: React.FC<OrderFormProps> = ({ onClose, onSubmit }) => {
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [dataAccuracyConfirmed, setDataAccuracyConfirmed] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!privacyAccepted || !dataAccuracyConfirmed) {
+      alert('Sinun täytyy hyväksyä kaikki ehdot jatkaaksesi tilausta.');
+      return;
+    }
+    
     const formData = new FormData(e.target as HTMLFormElement);
     const data = Object.fromEntries(formData.entries());
     onSubmit(data);
@@ -91,7 +101,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ onClose, onSubmit }) => {
               <Input 
                 id="postalCode" 
                 name="postalCode" 
-                placeholder="70100" 
+                placeholder="40100" 
                 required 
               />
             </div>
@@ -100,7 +110,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ onClose, onSubmit }) => {
               <Input 
                 id="city" 
                 name="city" 
-                placeholder="KUOPIO" 
+                placeholder="JYVÄSKYLÄ" 
                 required 
               />
             </div>
@@ -116,21 +126,39 @@ const OrderForm: React.FC<OrderFormProps> = ({ onClose, onSubmit }) => {
           </div>
           
           <div className="space-y-4 pt-4">
-            <div className="text-sm text-muted-foreground space-y-2">
-              <p>
-                Lähettämällä tämän lomakkeen vakuutan, että antamani tiedot ovat oikein. 
-                Lisäksi hyväksyn henkilötietojeni käsittelyn Netin Turvan tietosuojaselosteen mukaisesti.
-              </p>
-              <p>
-                Olen tarkistanut syöttämäni tiedot ja niiden oikeellisuuden. Ymmärrän, että tilauksen 
-                onnistuminen vaatii oikeat tiedot ja minulle voidaan soittaa tilauksen vahvistamiseksi.
-              </p>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <Checkbox 
+                  id="privacy" 
+                  checked={privacyAccepted}
+                  onCheckedChange={(checked) => setPrivacyAccepted(checked as boolean)}
+                  className="mt-1"
+                />
+                <Label htmlFor="privacy" className="text-sm text-muted-foreground leading-relaxed">
+                  Lähettämällä tämän lomakkeen vakuutan, että antamani tiedot ovat oikein. 
+                  Lisäksi hyväksyn henkilötietojeni käsittelyn Netin Turvan tietosuojaselosteen mukaisesti.
+                </Label>
+              </div>
+              
+              <div className="flex items-start space-x-3">
+                <Checkbox 
+                  id="dataAccuracy" 
+                  checked={dataAccuracyConfirmed}
+                  onCheckedChange={(checked) => setDataAccuracyConfirmed(checked as boolean)}
+                  className="mt-1"
+                />
+                <Label htmlFor="dataAccuracy" className="text-sm text-muted-foreground leading-relaxed">
+                  Olen tarkistanut syöttämäni tiedot ja niiden oikeellisuuden. Ymmärrän, että tilauksen 
+                  onnistuminen vaatii oikeat tiedot ja minulle voidaan soittaa tilauksen vahvistamiseksi.
+                </Label>
+              </div>
             </div>
             
             <Button 
               type="submit" 
               className="w-full"
               style={{ background: 'var(--gradient-navy)' }}
+              disabled={!privacyAccepted || !dataAccuracyConfirmed}
             >
               Lähetä tilaus
             </Button>
