@@ -150,12 +150,9 @@ const ConfirmOrder = () => {
               </div>
             )}
             
-            <div className="space-x-4">
-              <Button onClick={() => navigate('/dashboard')}>
-                Siirry hallintapaneeliin
-              </Button>
+            <div className="text-center">
               <Button onClick={() => navigate('/')} variant="outline">
-                Palaa etusivulle
+                Etusivulle
               </Button>
             </div>
           </div>
