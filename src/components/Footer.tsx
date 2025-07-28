@@ -1,8 +1,45 @@
 
+import React, { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
 
 const Footer = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    // Simulate login process
+    setTimeout(() => {
+      if (username && password) {
+        toast({
+          title: "Kirjautuminen onnistui",
+          description: "Tervetuloa takaisin!",
+        });
+        setIsDialogOpen(false);
+        setUsername('');
+        setPassword('');
+      } else {
+        toast({
+          title: "Virhe kirjautumisessa",
+          description: "Tarkista käyttäjätunnus ja salasana.",
+          variant: "destructive",
+        });
+      }
+      setIsLoading(false);
+    }, 1000);
+  };
+
   return (
     <footer className="bg-gradient-to-b from-white via-blue-200 to-blue-900 text-black pt-16 pb-8 w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8">
@@ -79,6 +116,70 @@ const Footer = () => {
               © {new Date().getFullYear()} OmaVerkkoturva. Kaikki oikeudet pidätetään.
             </p>
             <div className="flex space-x-6">
+              <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                <DialogTrigger asChild>
+                  <button className="text-sm text-black hover:text-blue-900 transition-colors">
+                    Portaali
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <DialogHeader>
+                    <DialogTitle>Kirjaudu sisään</DialogTitle>
+                    <DialogDescription>
+                      Syötä käyttäjätunnuksesi ja salasanasi portaaliin kirjautuaksesi
+                    </DialogDescription>
+                  </DialogHeader>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="username">Käyttäjätunnus</Label>
+                      <Input
+                        id="username"
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Syötä käyttäjätunnuksesi"
+                        required
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="password">Salasana</Label>
+                      <Input
+                        id="password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Syötä salasanasi"
+                        required
+                      />
+                    </div>
+                    
+                    <Button 
+                      type="submit" 
+                      className="w-full"
+                      disabled={isLoading}
+                    >
+                      {isLoading ? 'Kirjaudutaan...' : 'Kirjaudu sisään'}
+                    </Button>
+                    
+                    <div className="text-center">
+                      <a 
+                        href="#" 
+                        className="text-sm text-primary hover:underline"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          toast({
+                            title: "Salasanan palautus",
+                            description: "Ota yhteyttä asiakaspalveluun salasanan palautusta varten.",
+                          });
+                        }}
+                      >
+                        Unohditko salasanasi?
+                      </a>
+                    </div>
+                  </form>
+                </DialogContent>
+              </Dialog>
               <Link to="/privacy-policy" className="text-sm text-black hover:text-blue-900 transition-colors">
                 Tietosuojaseloste
               </Link>
