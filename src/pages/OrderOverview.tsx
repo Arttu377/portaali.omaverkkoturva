@@ -65,7 +65,16 @@ const OrderOverview = () => {
     if (!user) return;
     
     try {
-      const { data, error } = await supabase
+      // Check if user is admin
+      const { data: roleData } = await supabase
+        .from('user_roles')
+        .select('role')
+        .eq('user_id', user.id)
+        .single();
+      
+      const isAdmin = roleData?.role === 'admin';
+      
+      let query = supabase
         .from('orders')
         .select(`
           *,
@@ -73,10 +82,20 @@ const OrderOverview = () => {
             package_title,
             quantity,
             package_price
+          ),
+          profiles (
+            first_name,
+            last_name,
+            email
           )
-        `)
-        .eq('user_id', user.id)
-        .order('created_at', { ascending: false });
+        `);
+      
+      // If not admin, only show user's own orders
+      if (!isAdmin) {
+        query = query.eq('user_id', user.id);
+      }
+      
+      const { data, error } = await query.order('created_at', { ascending: false });
 
       if (error) throw error;
       setOrders(data || []);
