@@ -82,11 +82,6 @@ const OrderOverview = () => {
             package_title,
             quantity,
             package_price
-          ),
-          profiles (
-            first_name,
-            last_name,
-            email
           )
         `);
       
