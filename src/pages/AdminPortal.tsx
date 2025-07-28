@@ -141,7 +141,12 @@ const AdminPortal = () => {
         `)
         .order('created_at', { ascending: false });
 
-      if (error) throw error;
+      if (error) {
+        console.error('Supabase error:', error);
+        throw error;
+      }
+      
+      console.log('Fetched orders data:', data);
       setOrders((data || []) as unknown as Order[]);
     } catch (error) {
       console.error('Error fetching orders:', error);
