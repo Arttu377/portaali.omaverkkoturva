@@ -1,17 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
-import ShoppingCart from '@/components/ShoppingCart';
-import OrderForm from '@/components/OrderForm';
-import SecondaryNavbar from '@/components/SecondaryNavbar';
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/hooks/use-toast';
+import { useShoppingCart } from '@/contexts/ShoppingCartContext';
 
 const Verkkokauppa = () => {
-  const [cartItems, setCartItems] = useState<any[]>([]);
-  const [showCart, setShowCart] = useState(false);
-  const [showOrderForm, setShowOrderForm] = useState(false);
-  const { toast } = useToast();
+  const { addToCart } = useShoppingCart();
 
   const packages = [
     {
@@ -46,66 +39,6 @@ const Verkkokauppa = () => {
     }
   ];
 
-  const addToCart = (pkg: any) => {
-    const existingItemIndex = cartItems.findIndex(item => item.title === pkg.title);
-    
-    if (existingItemIndex > -1) {
-      // Product already exists, increase quantity
-      const updatedItems = [...cartItems];
-      updatedItems[existingItemIndex].quantity += 1;
-      setCartItems(updatedItems);
-    } else {
-      // New product, add to cart
-      const newItem = {
-        id: Date.now().toString(),
-        title: pkg.title,
-        price: pkg.price,
-        quantity: 1
-      };
-      setCartItems([...cartItems, newItem]);
-    }
-    
-    toast({
-      title: "Tuote lisätty ostoskoriin",
-      description: `${pkg.title} on lisätty ostoskoriisi.`,
-    });
-  };
-
-  const updateQuantity = (id: string, newQuantity: number) => {
-    if (newQuantity <= 0) {
-      removeFromCart(id);
-      return;
-    }
-    
-    const updatedItems = cartItems.map(item =>
-      item.id === id ? { ...item, quantity: newQuantity } : item
-    );
-    setCartItems(updatedItems);
-  };
-
-  const removeFromCart = (id: string) => {
-    const updatedItems = cartItems.filter(item => item.id !== id);
-    setCartItems(updatedItems);
-    toast({
-      title: "Tuote poistettu",
-      description: "Tuote on poistettu ostoskorista.",
-    });
-  };
-
-  const handleContinueOrder = () => {
-    setShowCart(false);
-    setShowOrderForm(true);
-  };
-
-  const handleOrderSubmit = (data: any) => {
-    console.log('Order submitted:', data);
-    setShowOrderForm(false);
-    setCartItems([]);
-    toast({
-      title: "Tilaus lähetetty!",
-      description: "Kiitos tilauksestasi. Saat pian vahvistuksen sähköpostiin.",
-    });
-  };
 
   return (
     <PageLayout>
@@ -114,12 +47,7 @@ const Verkkokauppa = () => {
         description="Valitse sinulle sopiva identiteettiturva paketti. Suojaa itsesi ja läheisesi verkkorikollisuudelta."
       />
       
-      <SecondaryNavbar 
-        cartItems={cartItems}
-        onCartClick={() => setShowCart(true)}
-      />
-      
-      <div className="min-h-screen bg-background pt-28 pb-12">
+      <div className="min-h-screen bg-background pt-44 pb-12">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-8">
@@ -172,25 +100,6 @@ const Verkkokauppa = () => {
           </div>
         </div>
       </div>
-      
-      {/* Shopping Cart Modal */}
-      {showCart && (
-        <ShoppingCart 
-          items={cartItems}
-          onContinueOrder={handleContinueOrder}
-          onClose={() => setShowCart(false)}
-          onUpdateQuantity={updateQuantity}
-          onRemoveItem={removeFromCart}
-        />
-      )}
-      
-      {/* Order Form Modal */}
-      {showOrderForm && (
-        <OrderForm 
-          onClose={() => setShowOrderForm(false)}
-          onSubmit={handleOrderSubmit}
-        />
-      )}
     </PageLayout>
   );
 };
