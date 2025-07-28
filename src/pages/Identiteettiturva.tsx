@@ -150,7 +150,8 @@ const Identiteettiturva = () => {
               <div className="mt-8">
                 <a 
                   href="/verkkokauppa" 
-                  className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center justify-center px-8 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
+                  style={{ background: 'var(--gradient-navy)' }}
                 >
                   Verkkokauppaan
                 </a>
