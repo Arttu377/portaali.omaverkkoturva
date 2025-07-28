@@ -24,6 +24,8 @@ const ConfirmOrder = () => {
       }
 
       try {
+        console.log('Confirming order with token:', token);
+        
         // Check if order exists and is not already confirmed
         const { data: order, error: orderError } = await supabase
           .from('orders')
@@ -31,7 +33,10 @@ const ConfirmOrder = () => {
           .eq('confirmation_token', token)
           .single();
 
+        console.log('Order query result:', { order, orderError });
+
         if (orderError || !order) {
+          console.error('Order not found:', orderError);
           setError('Tilausta ei löytynyt tai linkki on virheellinen');
           setLoading(false);
           return;
