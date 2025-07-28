@@ -46,16 +46,48 @@ const Verkkokauppa = () => {
   ];
 
   const addToCart = (pkg: any) => {
-    const newItem = {
-      id: Date.now().toString(),
-      title: pkg.title,
-      price: pkg.price,
-      quantity: 1
-    };
-    setCartItems([newItem]);
+    const existingItemIndex = cartItems.findIndex(item => item.title === pkg.title);
+    
+    if (existingItemIndex > -1) {
+      // Product already exists, increase quantity
+      const updatedItems = [...cartItems];
+      updatedItems[existingItemIndex].quantity += 1;
+      setCartItems(updatedItems);
+    } else {
+      // New product, add to cart
+      const newItem = {
+        id: Date.now().toString(),
+        title: pkg.title,
+        price: pkg.price,
+        quantity: 1
+      };
+      setCartItems([...cartItems, newItem]);
+    }
+    
     toast({
       title: "Tuote lisätty ostoskoriin",
       description: `${pkg.title} on lisätty ostoskoriisi.`,
+    });
+  };
+
+  const updateQuantity = (id: string, newQuantity: number) => {
+    if (newQuantity <= 0) {
+      removeFromCart(id);
+      return;
+    }
+    
+    const updatedItems = cartItems.map(item =>
+      item.id === id ? { ...item, quantity: newQuantity } : item
+    );
+    setCartItems(updatedItems);
+  };
+
+  const removeFromCart = (id: string) => {
+    const updatedItems = cartItems.filter(item => item.id !== id);
+    setCartItems(updatedItems);
+    toast({
+      title: "Tuote poistettu",
+      description: "Tuote on poistettu ostoskorista.",
     });
   };
 
@@ -89,25 +121,20 @@ const Verkkokauppa = () => {
                 Valitse sinulle sopiva paketti
               </h1>
               
-              {/* Cart icon and login */}
-              <div className="flex items-center space-x-4">
-                <Button variant="outline">
-                  Kirjaudu
-                </Button>
-                <button 
-                  onClick={() => setShowCart(true)}
-                  className="relative p-2 hover:bg-accent rounded-lg transition-colors"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9" />
-                  </svg>
-                  {cartItems.length > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                      {cartItems.length}
-                    </span>
-                  )}
-                </button>
-              </div>
+              {/* Cart icon only */}
+              <button 
+                onClick={() => setShowCart(true)}
+                className="relative p-2 hover:bg-accent rounded-lg transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9" />
+                </svg>
+                {cartItems.length > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                    {cartItems.length}
+                  </span>
+                )}
+              </button>
             </div>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Turvaa itsesi ja läheisesi identiteettivarkauksilta ja verkkorikollisuudelta
@@ -163,6 +190,8 @@ const Verkkokauppa = () => {
           items={cartItems}
           onContinueOrder={handleContinueOrder}
           onClose={() => setShowCart(false)}
+          onUpdateQuantity={updateQuantity}
+          onRemoveItem={removeFromCart}
         />
       )}
       
