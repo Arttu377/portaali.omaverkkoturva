@@ -13,20 +13,6 @@ const Dashboard = () => {
   const [orders, setOrders] = useState<any[]>([]);
   const [loadingOrders, setLoadingOrders] = useState(true);
 
-  if (loading) {
-    return (
-      <PageLayout>
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
-        </div>
-      </PageLayout>
-    );
-  }
-
-  if (!user) {
-    return <Navigate to="/" replace />;
-  }
-
   useEffect(() => {
     const fetchOrders = async () => {
       if (!user) return;
@@ -59,6 +45,20 @@ const Dashboard = () => {
 
     fetchOrders();
   }, [user]);
+
+  if (loading) {
+    return (
+      <PageLayout>
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
+        </div>
+      </PageLayout>
+    );
+  }
+
+  if (!user) {
+    return <Navigate to="/" replace />;
+  }
 
   const getStatusIcon = (status: string, confirmedAt: string | null) => {
     if (confirmedAt) {
