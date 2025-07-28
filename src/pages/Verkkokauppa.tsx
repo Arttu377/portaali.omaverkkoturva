@@ -3,6 +3,7 @@ import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import ShoppingCart from '@/components/ShoppingCart';
 import OrderForm from '@/components/OrderForm';
+import SecondaryNavbar from '@/components/SecondaryNavbar';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 
@@ -113,29 +114,17 @@ const Verkkokauppa = () => {
         description="Valitse sinulle sopiva identiteettiturva paketti. Suojaa itsesi ja läheisesi verkkorikollisuudelta."
       />
       
-      <div className="min-h-screen bg-background py-24">
+      <SecondaryNavbar 
+        cartItems={cartItems}
+        onCartClick={() => setShowCart(true)}
+      />
+      
+      <div className="min-h-screen bg-background pt-28 pb-12">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="flex justify-between items-center mb-8">
-              <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-                Valitse sinulle sopiva paketti
-              </h1>
-              
-              {/* Cart icon only */}
-              <button 
-                onClick={() => setShowCart(true)}
-                className="relative p-2 hover:bg-accent rounded-lg transition-colors"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9" />
-                </svg>
-                {cartItems.length > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                    {cartItems.length}
-                  </span>
-                )}
-              </button>
-            </div>
+            <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-8">
+              Valitse sinulle sopiva paketti
+            </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Turvaa itsesi ja läheisesi identiteettivarkauksilta ja verkkorikollisuudelta
             </p>
