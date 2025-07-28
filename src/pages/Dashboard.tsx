@@ -66,12 +66,12 @@ const Dashboard = () => {
 
   return (
     <PageLayout>
-      <div className="min-h-screen bg-background py-12">
+      <div className="min-h-screen bg-background py-12 pt-32">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Welcome Section */}
           <div className="mb-12 text-center">
-            <h1 className="text-4xl font-bold mb-4">Tervetuloa, {user.email}!</h1>
-            <p className="text-xl text-muted-foreground">Hallitse tilauksiasi ja turvaa identiteettisi</p>
+            <h1 className="text-4xl font-bold mb-4">Tervetuloa!</h1>
+            <p className="text-xl text-muted-foreground">Hallitse tilauksiasi täältä.</p>
           </div>
 
           {/* Verkkokauppaan Section */}
