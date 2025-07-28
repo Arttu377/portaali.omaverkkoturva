@@ -25,6 +25,7 @@ interface Profile {
 
 interface Order {
   id: string;
+  order_number: string;
   customer_name: string;
   customer_email: string;
   customer_phone?: string;
@@ -32,11 +33,17 @@ interface Order {
   status: string;
   confirmed_at: string | null;
   created_at: string;
+  user_id: string;
   order_items: Array<{
     package_title: string;
     quantity: number;
     package_price: number;
   }>;
+  profiles?: {
+    first_name: string | null;
+    last_name: string | null;
+    email: string;
+  } | null;
 }
 
 const AdminPortal = () => {
@@ -125,12 +132,17 @@ const AdminPortal = () => {
             package_title,
             quantity,
             package_price
+          ),
+          profiles (
+            first_name,
+            last_name,
+            email
           )
         `)
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      setOrders(data || []);
+      setOrders((data || []) as unknown as Order[]);
     } catch (error) {
       console.error('Error fetching orders:', error);
       toast({
@@ -378,6 +390,7 @@ const AdminPortal = () => {
                       <TableRow>
                         <TableHead>Tilausnumero</TableHead>
                         <TableHead>Asiakas</TableHead>
+                        <TableHead>Tilaaja</TableHead>
                         <TableHead>Tuotteet</TableHead>
                         <TableHead>Summa</TableHead>
                         <TableHead>Luotu</TableHead>
@@ -388,7 +401,7 @@ const AdminPortal = () => {
                       {orders.map((order) => (
                         <TableRow key={order.id}>
                           <TableCell className="font-medium">
-                            {order.id.slice(0, 8)}...
+                            {order.order_number || order.id.slice(0, 8) + '...'}
                           </TableCell>
                           <TableCell>
                             <div>
@@ -396,6 +409,22 @@ const AdminPortal = () => {
                               <div className="text-sm text-muted-foreground">{order.customer_email}</div>
                               {order.customer_phone && (
                                 <div className="text-sm text-muted-foreground">{order.customer_phone}</div>
+                              )}
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <div>
+                              {order.profiles ? (
+                                <>
+                                  <div className="font-medium">
+                                    {order.profiles.first_name && order.profiles.last_name 
+                                      ? `${order.profiles.first_name} ${order.profiles.last_name}`
+                                      : order.profiles.email}
+                                  </div>
+                                  <div className="text-sm text-muted-foreground">{order.profiles.email}</div>
+                                </>
+                              ) : (
+                                <div className="text-sm text-muted-foreground">Käyttäjätietoja ei löydy</div>
                               )}
                             </div>
                           </TableCell>
