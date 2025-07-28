@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import FireCatProject from "./pages/FireCatProject";
@@ -24,16 +25,18 @@ import Irtisanomislomake from "./pages/Irtisanomislomake";
 import Contact from "./pages/Contact";
 import { LogoTool } from "./pages/LogoTool";
 import Verkkokauppa from "./pages/Verkkokauppa";
+import AdminPortal from "./pages/AdminPortal";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
+      <AuthProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/projects/firecat" element={<FireCatProject />} />
@@ -54,10 +57,12 @@ const App = () => {
             <Route path="/irtisanomislomake" element={<Irtisanomislomake />} />
             <Route path="/ota-yhteytta" element={<Contact />} />
             <Route path="/logo-tool" element={<LogoTool />} />
+            <Route path="/admin" element={<AdminPortal />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 };
