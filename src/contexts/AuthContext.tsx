@@ -103,6 +103,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           description: error.message,
           variant: "destructive",
         });
+      } else {
+        toast({
+          title: "Kirjautuminen onnistui",
+          description: "Tervetuloa takaisin!",
+        });
+        // Redirect to dashboard after successful login
+        window.location.href = '/dashboard';
       }
 
       return { error };
