@@ -138,7 +138,7 @@ const Navbar = () => {
                   
                   <NavigationMenuItem>
                     <Link to="/kirjaudu">
-                      <button className="px-4 py-2 rounded-md transition-colors font-medium bg-blue-600 text-white hover:bg-blue-700">
+                      <button className="px-4 py-2 rounded-md transition-colors font-medium text-white hover:bg-blue-800 border border-white/20 hover:border-white/40" style={{backgroundColor: '#1e3a8a'}}>
                         Kirjaudu
                       </button>
                     </Link>
@@ -212,7 +212,7 @@ const Navbar = () => {
                 Ota yhteyttä
               </Link>
               
-              <Link to="/kirjaudu" className="block px-3 py-1.5 rounded-md text-sm font-medium bg-blue-600 text-white hover:bg-blue-700" onClick={() => {
+              <Link to="/kirjaudu" className="block px-3 py-1.5 rounded-md text-sm font-medium text-white hover:bg-blue-800 border border-white/20 hover:border-white/40" style={{backgroundColor: '#1e3a8a'}} onClick={() => {
                 setIsMenuOpen(false);
                 window.scrollTo(0, 0);
               }}>

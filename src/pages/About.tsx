@@ -35,27 +35,6 @@ const About = () => {
                 transition={{ duration: 0.5, delay: 0.2 }} 
                 className="mb-36 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
               >
-                <div>
-                  <h2 className="text-2xl font-bold mb-4">Missiomme</h2>
-                  <p className="text-gray-600 text-lg">
-                    Meidän tavoite on yksinkertainen: haluamme tehdä suomalaisista turvattuja verkossa. Jokaisella tulisi olla suoja, joka estää identiteettivarkaudet ja auttaa silloin, kun jotain ikävää ehtii jo tapahtua.
-                  </p>
-                </div>
-                <div className="flex justify-center">
-                  <img 
-                    src="/lovable-uploads/4f80dae8-c416-4e53-aa82-a4faa637673d.png" 
-                    alt="Mission icon" 
-                    className="w-48 h-48 object-contain"
-                  />
-                </div>
-              </motion.div>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="mb-36 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
-              >
                 <div className="flex justify-center lg:order-1">
                   <div className="w-48 h-48 bg-gray-200 rounded-full flex items-center justify-center">
                     <span className="text-gray-500">Kuva tulossa</span>
@@ -68,21 +47,59 @@ const About = () => {
                   </p>
                 </div>
               </motion.div>
-
+              
               <motion.div 
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="mb-36"
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mb-36 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
               >
-                <h2 className="text-2xl font-bold mb-4">Mitä OmaVerkkoturva tekee?</h2>
-                <p className="text-gray-600 text-lg mb-4">
-                  Tarjoamme palvelun, joka auttaa ennaltaehkäisemään identiteettivarkauksia ja reagoimaan nopeasti, jos jotain sattuu. Me ymmärrämme, että huijaukset kehittyvät jatkuvasti ja siksi kehitämme myös itseämme sekä teknologiaamme jatkuvasti mukana.
-                </p>
-                <p className="text-gray-600 text-lg">
-                  Palveluumme sisältyy myös vakuutus, joka kattaa kyberrikollisuudesta aiheutuneita taloudellisia menetyksiä. Näin voit liikkua verkossa varmemmin ja tiedät, että sinulla on selusta turvattu.
-                </p>
-              </motion.div>
+                <div>
+                  <h2 className="text-2xl font-bold mb-4">Missiomme</h2>
+                  <p className="text-gray-600 text-lg">
+                    Meidän tavoite on yksinkertainen: haluamme tehdä suomalaisista turvattuja verkossa. Jokaisella tulisi olla suoja, joka estää identiteettivarkaudet ja auttaa silloin, kun jotain ikävää ehtii jo tapahtua.
+                  </p>
+                </div>
+                                                  <div className="flex justify-center">
+                    <div className="w-48 h-48 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center text-white text-center p-4">
+                      <div className="text-lg font-semibold">Kuvat tulossa</div>
+                    </div>
+                  </div>
+                             </motion.div>
+
+               <motion.div 
+                 initial={{ opacity: 0, y: 20 }} 
+                 animate={{ opacity: 1, y: 0 }} 
+                 transition={{ duration: 0.6, delay: 0.4 }}
+                 className="mb-36 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+               >
+                                   <div className="flex justify-center lg:order-1">
+                    <div className="w-48 h-48 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl flex items-center justify-center text-white text-center p-4">
+                      <div className="text-lg font-semibold">Kuvat tulossa</div>
+                    </div>
+                  </div>
+                 <div className="lg:order-2">
+                   <h2 className="text-2xl font-bold mb-4">Visiomme</h2>
+                   <p className="text-gray-600 text-lg">
+                     Haluamme, että jokainen suomalainen voi käyttää nettiä ilman jatkuvaa huolta siitä, mihin omat tiedot päätyvät. Me uskomme, että hyvä digitaalinen turva ei ole vain palomuureja ja salasanoja, vaan mielenrauhaa ja sitä, että jos jotain sattuukin, et jää yksin. Siksi rakennamme palvelua, joka tunnistaa uhat ajoissa, auttaa sinua toimimaan heti ja seisoo rinnallasi, jos vahinko ehtii tapahtua. Meidän unelma on, että verkossa liikkuminen olisi yhtä huoleton asia kuin kävely kotipihalla.
+                   </p>
+                 </div>
+               </motion.div>
+
+               <motion.div 
+                 initial={{ opacity: 0, y: 20 }} 
+                 animate={{ opacity: 1, y: 0 }} 
+                 transition={{ duration: 0.6, delay: 0.5 }}
+                 className="mb-36"
+               >
+                 <h2 className="text-2xl font-bold mb-4">Mitä OmaVerkkoturva tekee?</h2>
+                 <p className="text-gray-600 text-lg mb-4">
+                   Tarjoamme palvelun, joka auttaa ennaltaehkäisemään identiteettivarkauksia ja reagoimaan nopeasti, jos jotain sattuu. Me ymmärrämme, että huijaukset kehittyvät jatkuvasti ja siksi kehitämme myös itseämme sekä teknologiaamme jatkuvasti mukana.
+                 </p>
+                 <p className="text-gray-600 text-lg">
+                   Palveluumme sisältyy myös vakuutus, joka kattaa kyberrikollisuudesta aiheutuneita taloudellisia menetyksiä. Näin voit liikkua verkossa varmemmin ja tiedät, että sinulla on selusta turvattu.
+                 </p>
+               </motion.div>
 
               <motion.div 
                 initial={{ opacity: 0, y: 20 }} 

@@ -8,32 +8,29 @@ const Verkkokauppa = () => {
 
   const packages = [
     {
-      title: "Identiteettiturva\nyhdelle",
+      title: "Henkilösuoja Yhdelle",
       price: "19,99 €/kk",
       features: [
-        "Suojaa laite",
         "Tietojen monitorointi ja ilmoitus tietovuodoista", 
         "Vakuutus, joka turvaa sinut vahinkojen varalta",
         "Apu ja tuki"
       ]
     },
     {
-      title: "Identiteettiturva\nkahdelle", 
+      title: "Henkilösuoja Tupla", 
       price: "26,99 €/kk",
       features: [
-        "Suojaa laite",
-        "Tietojen monitorointi ja ilmoitus tietovuodoista",
-        "Vakuutus, joka turvaa sinut vahinkojen varalta", 
+        "Tietojen monitorointi ja ilmoitus tietovuodoista sinulle sekä läheisellesi",
+        "Vakuutus, joka turvaa sinut ja läheisesi vahinkojen varalta", 
         "Apu ja tuki"
       ]
     },
     {
-      title: "Identiteettiturva\nviidelle",
+      title: "Henkilösuoja Perhe", 
       price: "30,99 €/kk", 
       features: [
-        "Suojaa laite",
-        "Tietojen monitorointi ja ilmoitus tietovuodoista",
-        "Vakuutus, joka turvaa sinut vahinkojen varalta",
+        "Tietojen monitorointi ja ilmoitus tietovuodoista sinulle sekä koko perheellesi",
+        "Vakuutus, joka turvaa sinut ja koko perheesi vahinkojen varalta", 
         "Apu ja tuki"
       ]
     }
@@ -51,11 +48,8 @@ const Verkkokauppa = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-8">
-              Valitse sinulle sopiva paketti
+              Valitse sopiva paketti
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Turvaa itsesi ja läheisesi identiteettivarkauksilta ja verkkorikollisuudelta
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">

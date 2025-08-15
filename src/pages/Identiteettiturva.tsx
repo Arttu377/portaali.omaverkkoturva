@@ -1,37 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const Identiteettiturva = () => {
-  const [currentStep, setCurrentStep] = useState(1);
   const [isAnimated, setIsAnimated] = useState(false);
+  const [openCards, setOpenCards] = useState<{ [key: string]: boolean }>({});
   const coverageRef = useRef(null);
   
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-
-      // Start showing steps very early
-      const step1Trigger = windowHeight * 0.2; // Almost immediately
-      const step2Trigger = windowHeight * 0.3;
-      const step3Trigger = windowHeight * 0.4;
-      const step4Trigger = windowHeight * 0.5;
-      if (scrollY >= step4Trigger) {
-        setCurrentStep(4);
-      } else if (scrollY >= step3Trigger) {
-        setCurrentStep(3);
-      } else if (scrollY >= step2Trigger) {
-        setCurrentStep(2);
-      } else if (scrollY >= step1Trigger) {
-        setCurrentStep(1);
-      } else {
-        setCurrentStep(0);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const toggleCard = (cardId: string) => {
+    setOpenCards(prev => ({
+      ...prev,
+      [cardId]: !prev[cardId]
+    }));
+  };
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -55,48 +37,43 @@ const Identiteettiturva = () => {
     
     return () => observer.disconnect();
   }, []);
-  const steps = [{
-    number: 1,
-    title: "Tilaa tuote verkkokaupastamme"
-  }, {
-    number: 2,
-    title: "Lähetämme sinulle linkin tuotteeseen"
-  }, {
-    number: 3,
-    title: "Järjestelmä tarkastaa ovatko tietosi joutunut vääriin käsiin viimeisen 10 vuoden aikana"
-  }, {
-    number: 4,
-    title: "Rentoudu - sovellus toimii taustalla koko ajan ja hälyttää, jos henkilötietosi vuotavat jonnekin"
-  }];
   return <PageLayout>
       <SEO title="Identiteettiturva - Turvaa rahasi ja henkilötietosi" description="Kattava identiteettiturva joka havaitsee tietovuodot, tarjoaa vakuutusturvan 13 500 € asti ja suojaa huijauksilta." />
       
-      <div className="min-h-screen bg-background relative">
-        {/* Gradient overlay that starts from third feature and fades to white before the background image */}
-        <div className="absolute inset-0 pointer-events-none" style={{
-        background: `linear-gradient(
+              <div className="min-h-screen relative">
+          {/* Navy blue gradient background for the entire page */}
+          <div className="absolute inset-0 pointer-events-none" style={{
+            background: `linear-gradient(
               to bottom,
               transparent 0%,
-              transparent 25%,
-              rgba(30, 42, 94, 0.1) 30%,
-              rgba(30, 58, 138, 0.3) 40%,
-              rgba(30, 42, 94, 0.6) 50%,
-              rgba(30, 58, 138, 0.4) 60%,
-              rgba(30, 42, 94, 0.2) 70%,
-              rgba(30, 42, 94, 0.05) 80%,
-              transparent 85%,
+              transparent 18%,
+              rgba(30, 58, 138, 0.2) 23%,
+              rgba(30, 58, 138, 0.4) 28%,
+              rgba(30, 58, 138, 0.6) 33%,
+              rgba(30, 58, 138, 0.8) 38%,
+              rgba(30, 58, 138, 0.9) 43%,
+              rgba(30, 58, 138, 0.95) 48%,
+              rgba(30, 58, 138, 1) 53%,
+              rgba(30, 58, 138, 0.7) 58%,
+              rgba(30, 58, 138, 0.4) 63%,
+              rgba(30, 58, 138, 0.2) 68%,
+              rgba(30, 58, 138, 0.1) 73%,
+              rgba(30, 58, 138, 0.05) 78%,
+              transparent 83%,
+              transparent 88%,
               transparent 100%
-            )`
-      }}></div>
+            )`,
+            zIndex: -1
+          }}></div>
+
+          
+  
         <div className="container mx-auto px-4 py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left side content */}
             <div className="space-y-8">
               {/* Title section */}
               <div className="mb-8">
-                <div className="text-2xl lg:text-3xl font-bold text-primary mb-2">
-                  OmaVerkkoturva
-                </div>
                 <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
                   Turvaa rahasi ja henkilötietosi helposti yhdellä ratkaisulla
                 </h1>
@@ -104,9 +81,6 @@ const Identiteettiturva = () => {
               
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-sm">
-                    1
-                  </div>
                   <div>
                     <h3 className="text-xl font-semibold text-foreground mb-2">
                       Havaitsee jos tietosi joutuvat vääriin käsiin
@@ -118,9 +92,6 @@ const Identiteettiturva = () => {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-sm">
-                    2
-                  </div>
                   <div>
                     <h3 className="text-xl font-semibold text-foreground mb-2">
                       Vakuutusturva 13 500 € asti
@@ -132,9 +103,6 @@ const Identiteettiturva = () => {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-sm">
-                    3
-                  </div>
                   <div>
                     <h3 className="text-xl font-semibold text-foreground mb-2">
                       Kattaa myös huijaukset
@@ -150,7 +118,7 @@ const Identiteettiturva = () => {
               <div className="mt-8">
                 <a 
                   href="/verkkokauppa" 
-                  className="inline-flex items-center justify-center px-8 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
+                   className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
                   style={{ background: 'var(--gradient-navy)' }}
                 >
                   Verkkokauppaan
@@ -165,69 +133,91 @@ const Identiteettiturva = () => {
           </div>
         </div>
         
-        {/* Second section - Helppo käyttöönotto */}
+        {/* How identity protection works section */}
         <div className="container mx-auto px-4 py-24">
-          <div className="text-center mb-16">
+          <div className="text-center mb-32">
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-              Helppo käyttöönotto
+              Kuinka henkilösuoja sitten toimii?
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
-            {/* Left side - empty for future image */}
-            <div className="hidden lg:block">
-              {/* Image will be added here later */}
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+               {/* Left side - content */}
+               <div className="space-y-12">
+                 <div>
+                   <h3 className="text-2xl font-bold text-foreground mb-4">Ympärivuorokautinen tietosuoja</h3>
+                   <p className="text-lg text-muted-foreground leading-relaxed">
+                     Henkilösuoja valvoo tärkeimpiä tietojasi, kuten puhelinnumeroa, sähköpostia, henkilötunnusta, passia ja maksukortteja ympäri vuorokauden.
+                   </p>
             </div>
-            
-            {/* Right side content */}
-            <div className="space-y-8">
-              {steps.map((step, index) => <div key={step.number} className={`transition-all duration-700 ease-out transform ${currentStep >= step.number ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{
-              transitionDelay: currentStep >= step.number ? `${index * 200}ms` : '0ms'
-            }}>
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg">
-                      {step.number}
+                 <div>
+                   <h3 className="text-2xl font-bold text-foreground mb-4">Hälytys heti, jos tietosi vuotavat</h3>
+                   <p className="text-lg text-muted-foreground leading-relaxed">
+                     Se tarkistaa ne jatkuvasti tietovuototietokannoista ja dark webistä. Jos tietojasi löytyy, saat heti hälytyksen ja selkeät ohjeet vahinkojen estämiseksi.
+                   </p>
                     </div>
                     <div>
-                      <h3 className="text-2xl font-semibold text-foreground leading-tight">
-                        {step.title}
-                      </h3>
+                   <h3 className="text-2xl font-bold text-foreground mb-4">Taloudellinen turva vahinkotilanteissa</h3>
+                   <p className="text-lg text-muted-foreground leading-relaxed">
+                     Koska nettirikolliset kehittyvät jatkuvasti eikä mikään palvelu ole täysin aukoton, tuotteeseemme sisältyy myös vakuutus, joka tarjoaa taloudellista turvaa vahinkotilanteissa.
+                   </p>
                     </div>
                   </div>
-                </div>)}
+               
+               {/* Right side - empty */}
+               <div className="hidden lg:block">
+                 {/* Empty space */}
+               </div>
             </div>
           </div>
         </div>
         
-        {/* Identity protection section with background image */}
+        {/* Identity protection section */}
         <div className="relative py-24 px-6 lg:px-12">
-          <div className="relative py-24 bg-cover bg-center bg-no-repeat rounded-3xl mx-4 lg:mx-8" style={{
-          backgroundImage: 'url(/lovable-uploads/f96aa839-76e5-4b74-92a6-ef3e2166b1f1.png)'
-        }}>
-            {/* Dark overlay for better text readability */}
-            <div className="absolute inset-0 bg-black/50 rounded-3xl"></div>
-          
+          <div className="relative py-24">
           <div className="relative container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
                 Identiteetti on nykyajan valuutta
               </h2>
-              <h3 className="text-2xl lg:text-3xl font-semibold text-white/90 mt-6 mb-8">
+              <h3 className="text-2xl lg:text-3xl font-semibold text-foreground mt-6 mb-8">
                 Yksi tietovuoto voi maksaa tuhansia euroja
               </h3>
                <div className="max-w-4xl mx-auto">
-                 <p className="text-lg text-white leading-relaxed mb-12">
+                 <p className="text-lg text-foreground leading-relaxed mb-12">
                    Verkkorikollisuus, tietovuodot ja identiteettivarkaudet ovat yleistyneet merkittävästi viime vuosina. Jo pelkän sähköpostiosoitteen ja salasanan avulla rikolliset voivat saada pääsyn henkilökohtaisiin tileihisi, tehdä ostoksia nimissäsi tai hakea lainaa luvattomasti. Digitaalinen identiteetti on nyky-yhteiskunnassa arvokas resurssi ja sen väärinkäyttö voi aiheuttaa vakavia taloudellisia sekä juridisia seurauksia. Siksi yksilön tunnistetietojen suojaaminen tulisi nähdä yhtä tärkeänä kuin pankkitunnusten turvaaminen.
                  </p>
                  
-                 <div className="flex justify-center">
-                   <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl py-12 px-6 text-center max-w-md">
+                                                                       <div className="flex justify-center space-x-6">
+                     <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md">
                       <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
                         62,9M €
                       </div>
-                      <p className="text-white/80 text-sm">
+                      <p className="text-white text-sm">
                         Vuonna 2024 suomalaiset menettivät nettihuijauksiin 62,9 miljoonaa euroa, joka on 40 % enemmän kuin vuonna 2023, jolloin summa oli 44,2 miljoonaa euroa.
                       </p>
+                        <p className="text-white/80 text-xs mt-2">* Finanssiala ry</p>
+                     </div>
+                     
+                     <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md">
+                        <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
+                          107,8M €
+                        </div>
+                        <p className="text-white text-sm">
+                          Yritettyjä huijausyrityksiä oli 107,2 milj. euroa vuonna 2024, kun taas pankit onnistuivat estämään ja palauttamaan 44,3 milj. euroa.
+                        </p>
+                        <p className="text-white/80 text-xs mt-2">* Finanssiala ry</p>
+                     </div>
+                     
+                     <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md">
+                        <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
+                          70%
+                        </div>
+                        <p className="text-white text-sm">
+                          Lähes 70 % suomalaisista on ollut digihuijausten uhreja tai kohdannut yrityksiä, joissa heitä on yritetty huijata.
+                        </p>
+                        <p className="text-white/80 text-xs mt-2">* Finanssiala ry</p>
                    </div>
                  </div>
                </div>
@@ -236,286 +226,721 @@ const Identiteettiturva = () => {
           </div>
         </div>
          
-         {/* Cases section */}
-         <div className="container mx-auto px-4 py-24">
-           <div className="text-center mb-16">
-             <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-               Tapauksia, joissa rahaa menetettiin huijauksessa
-             </h2>
-           </div>
-           
-           <div className="max-w-4xl mx-auto">
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="tietojenkalastelu">
-                <AccordionTrigger className="text-left text-xl font-semibold">
-                  Tietojenkalastelu
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="p-6 mt-4">
-                    <p className="text-foreground leading-relaxed">
-                      Nina sai aidolta näyttävän sähköpostin pankiltaan. Hän klikkasi viestissä ollutta linkkiä ja kirjautui sisään sivulle, joka olikin huijaussivusto. Tietojen avulla rikollinen otti hänen nimissään kolme pikavippiä (yhteensä 11 200€), vaihdatutti hänen postiosoitteensa sekä puhelinnumeronsa ja yritti avata verkkopankkitilejä ja maksukortteja. Palveluun sisältyvä vakuutus korvaa jopa 13 500 € taloudelliset menetykset ja asiantuntijat auttavat asian läpiviennissä.
-                    </p>
+                   {/* Cases section */}
+           <div className="w-full py-16 mb-16 relative">
+             {/* Background image for this section only */}
+             <div className="absolute inset-0 w-full h-full z-0">
+               <img 
+                 src="/lovable-uploads/pexels-mikhail-nilov-6963045.jpg" 
+                 alt="Scam Cases Background" 
+                 className="w-full h-full object-cover object-top"
+               />
+               <div className="absolute inset-0 bg-black/50"></div>
+             </div>
+             
+             {/* Content with higher z-index */}
+             <div className="relative z-20">
+                               <div className="text-center mb-16">
+                  <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+                    Tapauksia, joissa rahaa menetettiin<br />huijauksessa
+                  </h2>
+                </div>
+               
+               <div className="max-w-4xl mx-auto">
+                 <div className="grid grid-cols-1 gap-8 items-start">
+               <motion.div
+                 className="bg-transparent border border-white/20 p-6 rounded-2xl shadow-lg cursor-pointer"
+                 initial={{ opacity: 0, y: 20 }}
+                 animate={{ 
+                   opacity: 1, 
+                   y: [-4, 4, -4] 
+                 }}
+                 transition={{ 
+                   opacity: { duration: 0.8, ease: "easeOut" },
+                   y: { 
+                     duration: 4, 
+                     ease: "easeInOut", 
+                     repeat: Infinity, 
+                     repeatType: "reverse" 
+                   } 
+                 }}
+                 onClick={() => toggleCard('tietojenkalastelu')}
+               >
+                                  <div className="text-center mb-4">
+                   <div className="w-10 h-10 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg mx-auto mb-2">
+                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                     </svg>
+                   </div>
+                   <h3 className="text-xl font-bold text-white mb-2">Tietojenkalastelu</h3>
+                   <div className="flex justify-center">
+                     <svg 
+                       className={`w-4 h-4 text-white transition-transform duration-200 ${openCards['tietojenkalastelu'] ? 'rotate-180' : ''}`} 
+                       fill="none" 
+                       stroke="currentColor" 
+                       viewBox="0 0 24 24"
+                     >
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                     </svg>
+                   </div>
+                 </div>
+                                    <div className="overflow-hidden">
+                     {openCards['tietojenkalastelu'] && (
+                       <motion.p 
+                         className="text-white leading-relaxed"
+                         initial={{ opacity: 0, height: 0 }}
+                         animate={{ opacity: 1, height: 'auto' }}
+                         exit={{ opacity: 0, height: 0 }}
+                         transition={{ duration: 0.3 }}
+                       >
+                        Nina sai aidolta näyttävän sähköpostin pankiltaan. Hän klikkasi viestissä ollutta linkkiä ja kirjautui sisään sivulle, joka olikin huijaussivusto. Tietojen avulla rikollinen otti hänen nimissään kolme pikavippiä (yhteensä 11 200€), vaihdatutti hänen postiosoitteensa sekä puhelinnumeronsa ja yritti avata verkkopankkitilejä ja maksukortteja. Palveluun sisältyvä vakuutus korvaa jopa 13 500 € taloudelliset menetykset ja asiantuntijat auttavat asian läpiviennissä.
+                       </motion.p>
+                     )}
+                    </div>
+               </motion.div>
+               
+               <motion.div
+                 className="bg-transparent border border-white/20 p-6 rounded-2xl shadow-lg cursor-pointer"
+                 initial={{ opacity: 0, y: 20 }}
+                 animate={{ 
+                   opacity: 1, 
+                   y: [-4, 4, -4] 
+                 }}
+                 transition={{ 
+                   opacity: { duration: 0.8, ease: "easeOut", delay: 0.2 },
+                   y: { 
+                     duration: 4, 
+                     ease: "easeInOut", 
+                     repeat: Infinity, 
+                     repeatType: "reverse" 
+                   } 
+                 }}
+                 onClick={() => toggleCard('verkkokauppahuijaus')}
+               >
+                 <div className="text-center mb-4">
+                   <div className="w-10 h-10 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg mx-auto mb-2">
+                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                     </svg>
+                   </div>
+                   <h3 className="text-xl font-bold text-white mb-2">Verkkokauppahuijaus</h3>
+                   <div className="flex justify-center">
+                     <svg 
+                       className={`w-4 h-4 text-white transition-transform duration-200 ${openCards['verkkokauppahuijaus'] ? 'rotate-180' : ''}`} 
+                       fill="none" 
+                       stroke="currentColor" 
+                       viewBox="0 0 24 24"
+                     >
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                     </svg>
+                   </div>
+                 </div>
+                 <div className="overflow-hidden">
+                   {openCards['verkkokauppahuijaus'] && (
+                     <motion.p 
+                       className="text-white leading-relaxed"
+                       initial={{ opacity: 0, height: 0 }}
+                       animate={{ opacity: 1, height: 'auto' }}
+                       exit={{ opacity: 0, height: 0 }}
+                       transition={{ duration: 0.3 }}
+                     >
+                       Timo löysi verkosta edullisen tarjouksen uusista kuulokkeista tunnetulta brändiltä. Hinta oli lähes puolet halvempi kuin muualla, ja verkkosivusto näytti aidolla. Logo, arvostelut ja maksutavat kaikki kunnossa. Hän maksoi 129 € pankkikortilla. Tilauksen jälkeen tuotetta ei koskaan saapunut ja verkkokauppa katosi muutamassa päivässä. Koska ostoksen hinta oli 50-700 € välillä, Timo saa rahansa takaisin verkkokauppahuijaukset kattavan vakuutuksen ansiosta.
+                     </motion.p>
+                   )}
                   </div>
-                </AccordionContent>
-              </AccordionItem>
-              
-              <AccordionItem value="verkkokauppahuijaus">
-                <AccordionTrigger className="text-left text-xl font-semibold">
-                  Verkkokauppahuijaus
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="p-6 mt-4">
-                    <p className="text-foreground leading-relaxed">
-                      Timo löysi verkosta edullisen tarjouksen uusista kuulokkeista tunnetulta brändiltä. Hinta oli lähes puolet halvempi kuin muualla, ja verkkosivusto näytti aidolta. Logo, arvostelut ja maksutavat kaikki kunnossa. Hän maksoi 129 € pankkikortilla. Tilauksen jälkeen tuotetta ei koskaan saapunut ja verkkokauppa katosi muutamassa päivässä. Koska ostoksen hinta oli 50-700 € välillä, Timo saa rahansa takaisin verkkokauppahuijaukset kattavan vakuutuksen ansiosta.
-                    </p>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-              
-              <AccordionItem value="sovellushankinnat">
-                <AccordionTrigger className="text-left text-xl font-semibold">
-                  Sovellushankinnat
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="p-6 mt-4">
-                    <p className="text-foreground leading-relaxed">
+               </motion.div>
+               
+               <motion.div
+                 className="bg-transparent border border-white/20 p-6 rounded-2xl shadow-lg cursor-pointer"
+                 initial={{ opacity: 0, y: 20 }}
+                 animate={{ 
+                   opacity: 1, 
+                   y: [-4, 4, -4] 
+                 }}
+                 transition={{ 
+                   opacity: { duration: 0.8, ease: "easeOut", delay: 0.4 },
+                   y: { 
+                     duration: 4, 
+                     ease: "easeInOut", 
+                     repeat: Infinity, 
+                     repeatType: "reverse" 
+                   } 
+                 }}
+                 onClick={() => toggleCard('sovellushankinnat')}
+               >
+                                  <div className="text-center mb-4">
+                   <div className="w-10 h-10 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg mx-auto mb-2">
+                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                     </svg>
+                   </div>
+                   <h3 className="text-xl font-bold text-white mb-2">Sovellushankinnat</h3>
+                   <div className="flex justify-center">
+                     <svg 
+                       className={`w-4 h-4 text-white transition-transform duration-200 ${openCards['sovellushankinnat'] ? 'rotate-180' : ''}`} 
+                       fill="none" 
+                       stroke="currentColor" 
+                       viewBox="0 0 24 24"
+                     >
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                     </svg>
+                   </div>
+                 </div>
+                 <div className="overflow-hidden">
+                   {openCards['sovellushankinnat'] && (
+                     <motion.p 
+                       className="text-white leading-relaxed"
+                       initial={{ opacity: 0, height: 0 }}
+                       animate={{ opacity: 1, height: 'auto' }}
+                       exit={{ opacity: 0, height: 0 }}
+                       transition={{ duration: 0.3 }}
+                     >
                       Sannan 9-vuotias poika sai pelata hetken äidin puhelimella. Hän latasi vahingossa pelisovelluksen, joka näytti ilmaiselta mutta sisälsi kalliin 112 euron tilauksen. Maksu veloittui heti, koska maksukortti oli tallennettuna puhelimeen. Vakuutus korvaa kulut, jotka liittyvät alle 10-vuotiaan vahingossa tekemiin sovellusostoihin (alle 135 €) suurimmilla alustoilla, kuten mm. App Storessa, Google Playssa tai Steamissa.
-                    </p>
+                     </motion.p>
+                   )}
                   </div>
-                </AccordionContent>
-              </AccordionItem>
-              
-              <AccordionItem value="nettikiusaaminen">
-                <AccordionTrigger className="text-left text-xl font-semibold">
-                  Nettikiusaaminen
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="p-6 mt-4">
-                    <p className="text-foreground leading-relaxed">
-                      Emilia joutui nettikiusaamisen kohteeksi sen jälkeen, kun hänen TikTok-videonsa levisi yllättäen laajalle. Tuntemattomat ihmiset alkoivat kommentoida videoita loukkaavasti ja joku perusti tekaistun tilin hänen nimellään ja profiilikuvallaan. Väärennetyllä tilillä julkaistiin sisältöä, joka sai Emilian näyttämään nololta. Hän saa asiantuntijoilta neuvoja ja apuja (25 h) sisällön poistoon ja tilien palautukseen. Tarvittaessa hänen käytössä on myös oikeudellinen tuki ja psykologinen kriisiapu.
-                    </p>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-            </div>
-          </div>
+               </motion.div>
+               
+               <motion.div
+                 className="bg-transparent border border-white/20 p-8 rounded-2xl shadow-lg cursor-pointer"
+                 initial={{ opacity: 0, y: 20 }}
+                 animate={{ 
+                   opacity: 1, 
+                   y: [-4, 4, -4] 
+                 }}
+                 transition={{ 
+                   opacity: { duration: 0.8, ease: "easeOut", delay: 0.6 },
+                   y: { 
+                     duration: 4, 
+                     ease: "easeInOut", 
+                     repeat: Infinity, 
+                     repeatType: "reverse" 
+                   } 
+                 }}
+                 onClick={() => toggleCard('nettikiusaaminen')}
+               >
+                 <div className="text-center mb-4">
+                   <div className="w-10 h-10 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg mx-auto mb-2">
+                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                     </svg>
+                   </div>
+                   <h3 className="text-xl font-bold text-white mb-2">Nettikiusaaminen</h3>
+                   <div className="flex justify-center">
+                     <svg 
+                       className={`w-4 h-4 text-white transition-transform duration-200 ${openCards['nettikiusaaminen'] ? 'rotate-180' : ''}`} 
+                       fill="none" 
+                       stroke="currentColor" 
+                       viewBox="0 0 24 24"
+                     >
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                     </svg>
+                   </div>
+                 </div>
+                 <div className="overflow-hidden">
+                   {openCards['nettikiusaaminen'] && (
+                                                                 <motion.p 
+                       className="text-white leading-relaxed"
+                         initial={{ opacity: 0, height: 0 }}
+                         animate={{ opacity: 1, height: 'auto' }}
+                         exit={{ opacity: 0, height: 0 }}
+                         transition={{ duration: 0.3 }}
+                       >
+                      Emilia joutui nettikiusaaminen kohteeksi sen jälkeen, kun hänen TikTok-videonsa levisi yllättäen laajalle. Tuntemattomat ihmiset alkoivat kommentoida videoita loukkaavasti ja joku perusti tekaistun tilin hänen nimellään ja profiilikuvallaan. Väärennetyllä tilillä julkaistiin sisältöä, joka sai Emilian näyttämään nololta. Hän saa asiantuntijoilta neuvoja ja apuja (25 h) sisällön poistoon ja tilien palautukseen. Tarvittaessa hänen käytössä on myös oikeudellinen tuki ja psykologinen kriisiapu.
+                       </motion.p>
+                   )}
+                                    </div>
+                 </motion.div>
+               </div>
+             </div>
+           </div>
+           </div>
           
-          {/* Insurance Coverage Details */}
-          <div ref={coverageRef} className="container mx-auto px-4 py-24">
+                     {/* Insurance Coverage Details */}
+           <div className="container mx-auto px-4 py-24">
             <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Vakuutus - 0€ omavastuulla
               </h2>
             </div>
-            <div className="max-w-5xl mx-auto relative">
-               {/* SVG for connecting lines */}
-               <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" style={{
-             zIndex: 1
-           }}>
-                  <defs>
-                    <linearGradient id="navyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" style={{stopColor: '#d1d5db', stopOpacity: 1}} />
-                      <stop offset="100%" style={{stopColor: '#9ca3af', stopOpacity: 1}} />
-                    </linearGradient>
-                    <style>
-                      {`
-                        .smooth-line {
-                          stroke: url(#navyGradient);
-                          stroke-width: 0.8;
-                          opacity: 0;
-                          transition: opacity 0.8s ease-in-out;
-                          fill: none;
-                        }
-                        .smooth-line.visible {
-                          opacity: 1;
-                        }
-                      `}
-                    </style>
-                  </defs>
+            
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                 {/* Taloudelliset tappiot */}
+                 <motion.div 
+                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   initial={{ y: 0, scale: 1 }}
+                   animate={{ y: 0, scale: 1 }}
+                   whileHover={{ 
+                     y: -4,
+                     scale: 1.01,
+                     transition: { duration: 0.15, ease: "easeOut" }
+                   }}
+                   whileTap={{ 
+                     y: -2,
+                     scale: 1.005,
+                     transition: { duration: 0.1, ease: "easeOut" }
+                   }}
+                   transition={{ duration: 0.2, ease: "easeOut" }}
+                 >
+                   <h3 className="text-2xl font-bold text-white mb-4">Taloudelliset tappiot</h3>
+                   <p className="text-white leading-relaxed">
+                     Premium-tason vakuutuksemme korvaa kyberhyökkäyksen aiheuttamat taloudelliset vahingot aina 13 500 euroon saakka. Tämä koskee muun muassa huijauksia, kuten sähköpostin, puheluiden tai tekstiviestien kautta tapahtuvaa tietojen kalastelua, sekä tilanteita, joissa sinut on johdettu väärennetylle verkkosivulle. Jos rikollinen on saanut haltuunsa esimerkiksi verkkopankkitunnuksesi, mobiilivarmenteesi tai muita arkaluontoisia tietoja ja käyttänyt niitä rahallisen vahingon aiheuttamiseen, vakuutus auttaa kattamaan menetykset.
+                   </p>
+                 </motion.div>
                  
-                  {/* Curved lines connecting center image to each box */}
-                  <path d="M 50 85 Q 35 60 30 30" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.2s'}} />
-                  <path d="M 50 85 Q 65 60 70 30" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.4s'}} />
-                  <path d="M 50 85 Q 25 70 16.7 45" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.6s'}} />
-                  <path d="M 50 85 Q 75 70 83.3 45" className={`smooth-line ${isAnimated ? 'visible' : ''}`} style={{transitionDelay: '0.8s'}} />
-               </svg>
-              
-              {/* Pyramid layout using CSS Grid */}
-              <div className="grid grid-cols-6 gap-6 place-items-center relative" style={{
-            zIndex: 2
-          }}>
-                {/* Top row - centered items, wider spans */}
-                <div className="col-start-2 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{
-              background: 'var(--gradient-navy)'
-            }}>
-                  <h3 className="text-xl font-bold text-white whitespace-nowrap">
-                    Taloudelliset tappiot
-                  </h3>
-                  <p className="text-white/90 text-sm leading-relaxed">
-                    Premium-vakuutus korvaa kyberrikoksista johtuvia rahallisia menetyksiä jopa 13 500 € saakka. Mukana mm. phishingin, vishingin ja smishingin seuraukset, kuten pankkitietojen väärinkäyttö.
-                  </p>
+                 {/* Suoja sovellusostoksille */}
+                 <motion.div 
+                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   initial={{ y: 0, scale: 1 }}
+                   animate={{ y: 0, scale: 1 }}
+                   whileHover={{ 
+                     y: -4,
+                     scale: 1.01,
+                     transition: { duration: 0.15, ease: "easeOut" }
+                   }}
+                   whileTap={{ 
+                     y: -2,
+                     scale: 1.005,
+                     transition: { duration: 0.1, ease: "easeOut" }
+                   }}
+                   transition={{ duration: 0.2, ease: "easeOut" }}
+                 >
+                   <h3 className="text-2xl font-bold text-white mb-4">Suoja sovellusostoksille</h3>
+                   <p className="text-white leading-relaxed">
+                     Jos alle 10-vuotias lapsi kotitaloudessasi tekee vahingossa tai ilman lupaa sovellusten tai sovellusten sisäisiä ostoksia esimerkiksi App Storesta, Google Playsta, Playstation Storesta, Microsoft Storesta tai Steamista, vakuutus korvaa kulut aina 135 euroon asti.
+                   </p>
+                 </motion.div>
+                 
+                 {/* Turva verkko-ostoksille */}
+                 <motion.div 
+                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   initial={{ y: 0, scale: 1 }}
+                   animate={{ y: 0, scale: 1 }}
+                   whileHover={{ 
+                     y: -4,
+                     scale: 1.01,
+                     transition: { duration: 0.15, ease: "easeOut" }
+                   }}
+                   whileTap={{ 
+                     y: -2,
+                     scale: 1.005,
+                     transition: { duration: 0.1, ease: "easeOut" }
+                   }}
+                   transition={{ duration: 0.2, ease: "easeOut" }}
+                 >
+                   <h3 className="text-2xl font-bold text-white mb-4">Turva verkko-ostoksille</h3>
+                   <p className="text-white leading-relaxed">
+                     Jos ostat tuotteen verkosta tai yksityiseltä myyjältä 50–700 euron hintaluokassa ja saat väärän tuotteen, toimituksesta puuttuu osa tavaroista tai lähetystä ei saavu lainkaan, vakuutus maksaa sinulle korvauksen.
+                   </p>
+                 </motion.div>
+                 
+                 {/* SIM-kortin väärinkäytön suoja */}
+                 <motion.div 
+                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   initial={{ y: 0, scale: 1 }}
+                   animate={{ y: 0, scale: 1 }}
+                   whileHover={{ 
+                     y: -4,
+                     scale: 1.01,
+                     transition: { duration: 0.15, ease: "easeOut" }
+                   }}
+                   whileTap={{ 
+                     y: -2,
+                     scale: 1.005,
+                     transition: { duration: 0.1, ease: "easeOut" }
+                   }}
+                   transition={{ duration: 0.2, ease: "easeOut" }}
+                 >
+                   <h3 className="text-2xl font-bold text-white mb-4">SIM-kortin väärinkäytön suoja</h3>
+                   <p className="text-white leading-relaxed">
+                     Jos puhelimesi tai tablettisi varastetaan ja SIM-korttiasi käytetään luvatta, vakuutus kattaa aiheutuneet kustannukset jopa 135 euroon asti. Suoja on voimassa enintään 48 tuntia varkauden jälkeen.
+                   </p>
+                 </motion.div>
+              </div>
+            </div>
                 </div>
 
-                <div className="col-start-4 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{
-              background: 'var(--gradient-navy)'
-            }}>
-                  <h3 className="text-xl font-bold text-white whitespace-nowrap">
-                    Verkko-ostoturva
-                  </h3>
-                  <p className="text-white/90 text-sm leading-relaxed">
-                    Ostoista arvoltaan 50–700 € korvataan, jos tuote ei saavu, on väärä tai puutteellinen – koskee sekä verkkokauppoja että yksityisiä myyjiä.
-                  </p>
+           {/* Support Services */}
+           <div className="container mx-auto px-4 py-32">
+             <div className="text-center mb-16">
+               <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                 Saat tukea myös muutenkin kuin taloudellisesti
+               </h2>
                 </div>
 
-                {/* Bottom row - positioned left and right, wider spans */}
-                <div className="col-start-1 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{
-              background: 'var(--gradient-navy)'
-            }}>
-                  <h3 className="text-xl font-bold text-white whitespace-nowrap">SIM-kortin väärinkäyttö</h3>
-                  <p className="text-white/90 text-sm leading-relaxed">
-                    Varkauden jälkeinen SIM-kortin luvaton käyttö korvataan 135 € saakka, kun käyttö tapahtuu 48 tunnin sisällä varkaudesta.
-                  </p>
-                </div>
-
-                <div className="col-start-5 col-span-2 text-white rounded-2xl p-6 space-y-4 w-full min-h-[200px]" style={{
-              background: 'var(--gradient-navy)'
-            }}>
-                  <h3 className="text-xl font-bold text-white whitespace-nowrap">
-                    Suoja sovellushankinnoille
-                  </h3>
-                  <p className="text-white/90 text-sm leading-relaxed">
-                    Vakuutus kattaa jopa 135 €, jos alle 10-vuotias lapsi tekee vahingossa tai luvatta sovellusostoja esim. App Storessa tai Google Playssa.
-                  </p>
-                </div>
-                
-                {/* Central logo with navy gradient background */}
-                <div className="col-start-3 col-span-2 mt-12 flex justify-center" style={{
-              zIndex: 3
-            }}>
-                  <div style={{
-                background: 'var(--gradient-navy)'
-              }} className="w-32 h-32 rounded-full flex items-center justify-center p-4 bg-[#161679]">
-                    <img src="/lovable-uploads/061c0f3d-7b88-4fe2-b53e-e2a531d4cd50.png" alt="WiFi logo" className="w-16 h-16 object-contain" />
-                  </div>
-                </div>
+             <div className="max-w-6xl mx-auto">
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                 {/* Tietojen suoja */}
+                 <motion.div 
+                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   initial={{ y: 0, scale: 1 }}
+                   animate={{ y: 0, scale: 1 }}
+                   whileHover={{ 
+                     y: -8,
+                     scale: 1.02,
+                     transition: { duration: 0.15, ease: "easeOut" }
+                   }}
+                   whileTap={{ 
+                     y: -4,
+                     scale: 1.01,
+                     transition: { duration: 0.1, ease: "easeOut" }
+                   }}
+                   transition={{ duration: 0.2, ease: "easeOut" }}
+                 >
+                   <h3 className="text-2xl font-bold text-foreground mb-4">Tietojen suoja</h3>
+                   <p className="text-foreground leading-relaxed">
+                     Valvo henkilökohtaisia tietojasi ja saa ilmoituksia, jos ne päätyvät luvattomiin käsiin. Se seuraa puhelinnumeroita, sähköposteja, henkilötunnuksia sekä pankki- ja korttitietoja ja ohjeistaa tietovuotojen estämisessä.
+                   </p>
+                 </motion.div>
+                 
+                 {/* Psyykkinen tuki */}
+                 <motion.div 
+                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   initial={{ y: 0, scale: 1 }}
+                   animate={{ y: 0, scale: 1 }}
+                   whileHover={{ 
+                     y: -8,
+                     scale: 1.02,
+                     transition: { duration: 0.15, ease: "easeOut" }
+                   }}
+                   whileTap={{ 
+                     y: -4,
+                     scale: 1.01,
+                     transition: { duration: 0.1, ease: "easeOut" }
+                   }}
+                   transition={{ duration: 0.2, ease: "easeOut" }}
+                 >
+                   <h3 className="text-2xl font-bold text-foreground mb-4">Psyykkinen tuki</h3>
+                   <p className="text-foreground leading-relaxed">
+                     Kriisiapu kyberhyökkäyksen seurauksena, jopa 1 350 € saakka.
+                   </p>
+                 </motion.div>
+                 
+                 {/* Nettikiusaamistuki */}
+                 <motion.div 
+                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   initial={{ y: 0, scale: 1 }}
+                   animate={{ y: 0, scale: 1 }}
+                   whileHover={{ 
+                     y: -8,
+                     scale: 1.02,
+                     transition: { duration: 0.15, ease: "easeOut" }
+                   }}
+                   whileTap={{ 
+                     y: -4,
+                     scale: 1.01,
+                     transition: { duration: 0.1, ease: "easeOut" }
+                   }}
+                   transition={{ duration: 0.2, ease: "easeOut" }}
+                 >
+                   <h3 className="text-2xl font-bold text-foreground mb-4">Nettikiusaamistuki</h3>
+                   <p className="text-foreground leading-relaxed">
+                     25 h ohjausta ja neuvoja ei-toivotun sisällön leviämisen estämiseen sekä väärennettyjen profiilien ja hakkeroitujen tilien hallinnan palauttamiseen.
+                   </p>
+                 </motion.div>
+                 
+                 {/* Oikeusapu */}
+                 <motion.div 
+                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   initial={{ y: 0, scale: 1 }}
+                   animate={{ y: 0, scale: 1 }}
+                   whileHover={{ 
+                     y: -8,
+                     scale: 1.02,
+                     transition: { duration: 0.15, ease: "easeOut" }
+                   }}
+                   whileTap={{ 
+                     y: -4,
+                     scale: 1.01,
+                     transition: { duration: 0.1, ease: "easeOut" }
+                   }}
+                   transition={{ duration: 0.2, ease: "easeOut" }}
+                 >
+                   <h3 className="text-2xl font-bold text-foreground mb-4">Oikeusapu</h3>
+                   <p className="text-foreground leading-relaxed">
+                     Oikeudellinen apu suomalaiselta asianajajalta, vakuutettu 135 000 € saakka tietyissä tilanteissa.
+                   </p>
+                 </motion.div>
               </div>
             </div>
           </div>
           
-          {/* Pricing section */}
-          <div className="container mx-auto px-4 py-24">
-            <div className="text-center mb-16">
+                     {/* Pricing section */}
+           <div className="container mx-auto py-24 relative">
+             {/* Background image for this section only */}
+             <div className="absolute inset-0 w-full h-full z-0">
+               <img 
+                 src="/lovable-uploads/iStock-2222199654.jpg" 
+                 alt="Identity Protection Background" 
+                 className="w-full h-full object-cover"
+               />
+               <div className="absolute inset-0 bg-white/80"></div>
+             </div>
+             
+             {/* Content with higher z-index */}
+             <div className="relative z-20">
+            
+            <div className="text-center mb-16 relative z-10">
               <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
-                Valitse sinulle sopivin turva
+                Valitse suojaksesi
               </h2>
-              <p className="text-xl text-muted-foreground mb-2">
-                Valitse parhaiten sopiva suojaus.
-              </p>
               <p className="text-lg text-muted-foreground">
-                Jokaisessa tilauksessa on 14vrk maksuton peruutusoikeus.
+                Jokaisessa tilauksessa on 14vrk maksuton peruutosoikeus.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {/* Package 1 - Yhdelle */}
-              <div className="bg-card border border-border rounded-2xl p-8 text-center space-y-6">
-                <h3 className="text-2xl font-bold text-foreground">
-                  Identiteettiturva<br />yhdelle
-                </h3>
-                
-                <div className="text-3xl font-bold text-foreground">
-                  19,99 €/kk
-                </div>
-                
-                <button className="w-full text-white py-3 px-6 rounded-full font-semibold hover:opacity-90 transition-all" style={{
-              background: 'var(--gradient-navy)'
-            }}>
-                  Suojaa laite
-                </button>
-                
-                <ul className="space-y-3 text-left">
-                  <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Tietojen monitorointi ja ilmoitus tietovuodoista</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Vakuutus, joka turvaa sinut vahinkojen varalta</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Apu ja tuki</span>
-                  </li>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative z-10">
+              {/* Plan 1 */}
+              <div className="bg-card border border-border rounded-2xl p-8 text-center">
+                <h3 className="text-2xl font-bold text-foreground mb-4">Henkilösuoja Yhdelle</h3>
+                <div className="text-4xl font-bold text-primary mb-6">21,99 €/kk</div>
+                <ul className="space-y-3 text-muted-foreground mb-8">
+                  <li>• Tietojen monitorointi ja ilmoitus tietovuodoista</li>
+                  <li>• Vakuutus, joka turvaa sinut vahinkojen varalta</li>
+                  <li>• Apu ja tuki</li>
                 </ul>
+                <a 
+                  href="/verkkokauppa" 
+                  className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
+                  style={{ background: 'var(--gradient-navy)' }}
+                >
+                  Suojaa laite
+                </a>
+              </div>
+                
+              {/* Plan 2 */}
+              <div className="bg-card border border-border rounded-2xl p-8 text-center">
+                <h3 className="text-2xl font-bold text-foreground mb-4">Henkilösuoja Tupla</h3>
+                <div className="text-4xl font-bold text-primary mb-6">28,99 €/kk</div>
+                <ul className="space-y-3 text-muted-foreground mb-8">
+                  <li>• Tietojen monitorointi ja ilmoitus tietovuodoista sinulle sekä läheisellesi</li>
+                  <li>• Vakuutus, joka turvaa sinut ja läheisesi vahinkojen varalta</li>
+                  <li>• Apu ja tuki</li>
+                </ul>
+                <a 
+                  href="/verkkokauppa" 
+                  className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
+                  style={{ background: 'var(--gradient-navy)' }}
+                >
+                  Suojaa laite
+                </a>
               </div>
               
-              {/* Package 2 - Kahdelle */}
-              <div className="bg-card border border-border rounded-2xl p-8 text-center space-y-6">
-                <h3 className="text-2xl font-bold text-foreground">
-                  Identiteettiturva<br />kahdelle
-                </h3>
-                
-                <div className="text-3xl font-bold text-foreground">
-                  26,99 €/kk
-                </div>
-                
-                <button className="w-full text-white py-3 px-6 rounded-full font-semibold hover:opacity-90 transition-all" style={{
-              background: 'var(--gradient-navy)'
-            }}>
-                  Suojaa laite
-                </button>
-                
-                <ul className="space-y-3 text-left">
-                  <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Tietojen monitorointi ja ilmoitus tietovuodoista</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Vakuutus, joka turvaa sinut vahinkojen varalta</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Apu ja tuki</span>
-                  </li>
+              {/* Plan 3 */}
+              <div className="bg-card border border-border rounded-2xl p-8 text-center">
+                <h3 className="text-2xl font-bold text-foreground mb-4">Henkilösuoja Perhe</h3>
+                <div className="text-4xl font-bold text-primary mb-6">32,99 €/kk</div>
+                <ul className="space-y-3 text-muted-foreground mb-8">
+                  <li>• Tietojen monitorointi ja ilmoitus tietovuodoista sinulle sekä koko perheellesi</li>
+                  <li>• Vakuutus, joka turvaa sinut ja koko perheesi vahinkojen varalta</li>
+                  <li>• Apu ja tuki</li>
                 </ul>
+                <a 
+                  href="/verkkokauppa" 
+                  className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
+                  style={{ background: 'var(--gradient-navy)' }}
+                >
+                  Suojaa laite
+                </a>
               </div>
-              
-              {/* Package 3 - Viidelle */}
-              <div className="bg-card border border-border rounded-2xl p-8 text-center space-y-6">
-                <h3 className="text-2xl font-bold text-foreground">
-                  Identiteettiturva<br />viidelle
-                </h3>
-                
-                <div className="text-3xl font-bold text-foreground">
-                  30,99 €/kk
+            </div>
+            </div>
+          </div>
+          
+          {/* FAQ section */}
+          <div className="container mx-auto px-4 py-24">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                Usein kysyttyjä kysymyksiä
+              </h2>
                 </div>
                 
-                <button className="w-full text-white py-3 px-6 rounded-full font-semibold hover:opacity-90 transition-all" style={{
-              background: 'var(--gradient-navy)'
-            }}>
-                  Suojaa laite
-                </button>
+            <div className="max-w-4xl mx-auto">
+              <div className="space-y-6">
+                {/* FAQ Item 1 */}
+                <motion.div
+                  className="bg-card border border-border rounded-2xl shadow-lg cursor-pointer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  onClick={() => toggleCard('faq1')}
+                >
+                  <div className="p-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold text-foreground">Onko tietosuoja pakollinen?</h3>
+                      <svg 
+                        className={`w-6 h-6 text-foreground transition-transform duration-200 ${openCards['faq1'] ? 'rotate-180' : ''}`} 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                    <div className="overflow-hidden">
+                      {openCards['faq1'] && (
+                        <motion.p 
+                          className="text-muted-foreground leading-relaxed mt-4"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          Ei, henkilötietojen suojaaminen ei ole lain mukaan pakollista yksityishenkilöille, mutta se on erittäin suositeltavaa, koska tietomurrot ja huijaukset ovat yleistyneet merkittävästi.
+                        </motion.p>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
                 
-                <ul className="space-y-3 text-left">
-                  <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Tietojen monitorointi ja ilmoitus tietovuodoista</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Vakuutus, joka turvaa sinut vahinkojen varalta</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-foreground rounded-full"></span>
-                    <span className="text-foreground">Apu ja tuki</span>
-                  </li>
-                </ul>
+                {/* FAQ Item 2 */}
+                <motion.div
+                  className="bg-card border border-border rounded-2xl shadow-lg cursor-pointer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+                  onClick={() => toggleCard('faq2')}
+                >
+                  <div className="p-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold text-foreground">On myös ilmaisia tietoturvapalveluita – miksi maksaisin tästä?</h3>
+                      <svg 
+                        className={`w-6 h-6 text-foreground transition-transform duration-200 ${openCards['faq2'] ? 'rotate-180' : ''}`} 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                    <div className="overflow-hidden">
+                      {openCards['faq2'] && (
+                        <motion.p 
+                          className="text-muted-foreground leading-relaxed mt-4"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          Ilmaiset palvelut tarjoavat yleensä vain rajallista seurantaa, eivätkä sisällä esimerkiksi vakuutusturvaa, reaaliaikaista hälytystä tai asiantuntijan toimintaohjeita. Maksullinen palvelu tarjoaa laajemman suojan ja konkreettista apua vahinkotilanteissa.
+                        </motion.p>
+                      )}
+                    </div>
+              </div>
+                </motion.div>
+                
+                {/* FAQ Item 3 */}
+                <motion.div
+                  className="bg-card border border-border rounded-2xl shadow-lg cursor-pointer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                  onClick={() => toggleCard('faq3')}
+                >
+                  <div className="p-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold text-foreground">Jos tietoni löytyvät verkosta, voitteko poistaa ne?</h3>
+                      <svg 
+                        className={`w-6 h-6 text-foreground transition-transform duration-200 ${openCards['faq3'] ? 'rotate-180' : ''}`} 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                    <div className="overflow-hidden">
+                      {openCards['faq3'] && (
+                        <motion.p 
+                          className="text-muted-foreground leading-relaxed mt-4"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          Kaikkia tietoja ei valitettavasti voida poistaa, jos ne ovat jo päätyneet rikollisille. Palvelumme kuitenkin opastaa, miten minimoit riskit ja estät tietojen väärinkäytön.
+                        </motion.p>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+                
+                {/* FAQ Item 4 */}
+                <motion.div
+                  className="bg-card border border-border rounded-2xl shadow-lg cursor-pointer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                  onClick={() => toggleCard('faq4')}
+                >
+                  <div className="p-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold text-foreground">Miten usein tietojani tarkastetaan?</h3>
+                      <svg 
+                        className={`w-6 h-6 text-foreground transition-transform duration-200 ${openCards['faq4'] ? 'rotate-180' : ''}`} 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                    <div className="overflow-hidden">
+                      {openCards['faq4'] && (
+                        <motion.p 
+                          className="text-muted-foreground leading-relaxed mt-4"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          Tietoja seurataan jatkuvasti eri lähteistä, ja mahdollisista havainnoista ilmoitetaan heti.
+                        </motion.p>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+                
+                {/* FAQ Item 5 */}
+                <motion.div
+                  className="bg-card border border-border rounded-2xl shadow-lg cursor-pointer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+                  onClick={() => toggleCard('faq5')}
+                >
+                  <div className="p-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold text-foreground">Voiko palvelu estää huijauksen tapahtumasta?</h3>
+                      <svg 
+                        className={`w-6 h-6 text-foreground transition-transform duration-200 ${openCards['faq5'] ? 'rotate-180' : ''}`} 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                    <div className="overflow-hidden">
+                      {openCards['faq5'] && (
+                        <motion.p 
+                          className="text-muted-foreground leading-relaxed mt-4"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          Palvelu ei voi estää kaikkia hyökkäyksiä, mutta se voi havaita riskit ajoissa ja antaa selkeät ohjeet, joilla voit estää tai minimoida vahingot.
+                        </motion.p>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </div>
-      </div>
-    </PageLayout>;
+        </div>
+      </PageLayout>
 };
 export default Identiteettiturva;

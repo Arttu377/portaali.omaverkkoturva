@@ -33,7 +33,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-white via-blue-200 to-blue-900 text-black pt-16 pb-8 w-full">
+    <footer className="bg-gradient-to-b from-white via-blue-200 to-blue-900 text-black pt-16 pb-8 w-full" style={{ position: 'relative', zIndex: 10 }}>
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-8">
           {/* Left side - Company info - Wider area */}
@@ -66,8 +66,8 @@ const Footer = () => {
                   <h3 className="text-sm font-semibold text-black">Yhteystiedot</h3>
                 </div>
                 <p className="text-black text-xs ml-10">
-                  info@omaverkkoturva.fi<br />
-                  020 123 4567
+                  tuki@omaverkkoturva.fi<br />
+                  0451211663
                 </p>
               </div>
               
@@ -79,8 +79,8 @@ const Footer = () => {
                   <h3 className="text-sm font-semibold text-black">Toimisto</h3>
                 </div>
                 <p className="text-black text-xs ml-10">
-                  Mannerheimintie 12<br />
-                  00100 Helsinki<br />
+                  Yliopistonkatu 4<br />
+                  0100 Jyväskylä<br />
                   Suomi
                 </p>
               </div>
@@ -93,7 +93,7 @@ const Footer = () => {
                   <h3 className="text-sm font-semibold text-black">Asiakaspalvelu</h3>
                 </div>
                 <p className="text-black text-xs ml-10">
-                  Ma-Pe 8:00-17:00<br />
+                  Ma-Pe 10:00-16:00<br />
                   Suomenkielinen palvelu<br />
                   Nopea vastaus
                 </p>

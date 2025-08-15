@@ -18,7 +18,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
   onSubmit
 }) => {
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
-  const [dataAccuracyConfirmed, setDataAccuracyConfirmed] = useState(false);
+
   const [loading, setLoading] = useState(false);
   const { user } = useAuth();
   const { cartItems, clearCart } = useShoppingCart();
@@ -26,7 +26,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!privacyAccepted || !dataAccuracyConfirmed) {
+    if (!privacyAccepted) {
       toast({
         title: "Hyväksy ehdot",
         description: "Sinun täytyy hyväksyä kaikki ehdot jatkaaksesi tilausta.",
@@ -209,20 +209,14 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 <Label htmlFor="privacy" className="text-sm text-muted-foreground leading-relaxed">Lähettämällä tämän lomakkeen vakuutan, että antamani tiedot ovat oikein. Lisäksi hyväksyn henkilötietojeni käsittelyn OmaVerkkoturvan tietosuojaselosteen mukaisesti.</Label>
               </div>
               
-              <div className="flex items-start space-x-3">
-                <Checkbox id="dataAccuracy" checked={dataAccuracyConfirmed} onCheckedChange={checked => setDataAccuracyConfirmed(checked as boolean)} className="mt-1" />
-                <Label htmlFor="dataAccuracy" className="text-sm text-muted-foreground leading-relaxed">
-                  Olen tarkistanut syöttämäni tiedot ja niiden oikeellisuuden. Ymmärrän, että tilauksen 
-                  onnistuminen vaatii oikeat tiedot ja minulle voidaan soittaa tilauksen vahvistamiseksi.
-                </Label>
-              </div>
+
             </div>
             
             <Button 
               type="submit" 
               className="w-full" 
               style={{ background: 'var(--gradient-navy)' }}
-              disabled={!privacyAccepted || !dataAccuracyConfirmed || loading}
+              disabled={!privacyAccepted || loading}
             >
               {loading ? (
                 <>

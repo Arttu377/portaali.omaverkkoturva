@@ -46,9 +46,9 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-white w-full max-w-[100vw] overflow-x-hidden">
+    <div className="min-h-screen bg-transparent w-full max-w-[100vw] overflow-x-hidden">
       <Navbar />
-      {user && (
+      {user && location.pathname !== '/dashboard' && (
         <SecondaryNavbar 
           cartItems={cartItems}
           onCartClick={() => setShowCart(true)}
