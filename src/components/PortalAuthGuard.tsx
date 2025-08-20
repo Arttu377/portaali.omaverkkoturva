@@ -11,34 +11,30 @@ const PortalAuthGuard: React.FC<PortalAuthGuardProps> = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Portaalin julkinen sivu (kirjautumissivu)
-  const isPublicRoute = location.pathname === '/';
+  // HashRouter käyttää hash-reititystä, joten pathname on aina "/"
+  // Käytetään hash:ia tai location.pathname + location.hash
+  const currentPath = location.pathname === '/' && location.hash ? location.hash.slice(1) : location.pathname;
+  const isPublicRoute = currentPath === '' || currentPath === '/';
 
-  // Debug lokit
-  console.log('PortalAuthGuard - user:', user);
-  console.log('PortalAuthGuard - loading:', loading);
-  console.log('PortalAuthGuard - location:', location.pathname);
+  console.log('PortalAuthGuard - user:', user, 'loading:', loading);
+  console.log('PortalAuthGuard - location.pathname:', location.pathname);
+  console.log('PortalAuthGuard - location.hash:', location.hash);
+  console.log('PortalAuthGuard - currentPath:', currentPath);
   console.log('PortalAuthGuard - isPublicRoute:', isPublicRoute);
 
   useEffect(() => {
-    console.log('PortalAuthGuard useEffect - user:', user, 'loading:', loading, 'path:', location.pathname);
-    
     if (!loading) {
       if (!user && !isPublicRoute) {
-        console.log('PortalAuthGuard: Ei kirjautunut, ohjataan etusivulle');
-        // Jos ei ole kirjautunut ja sivu ei ole julkinen, ohjaa portaalin etusivulle
+        console.log('PortalAuthGuard: Ei käyttäjää, ohjataan etusivulle');
         navigate('/', { replace: true });
-      } else if (user && location.pathname.startsWith('/admin') && !isAdmin) {
+      } else if (user && currentPath.startsWith('/admin') && !isAdmin) {
         console.log('PortalAuthGuard: Ei admin-oikeuksia, ohjataan dashboardille');
-        // Estä pääsy admin-sivulle ilman admin-oikeuksia
         navigate('/dashboard', { replace: true });
       }
     }
-  }, [user, loading, navigate, location, isPublicRoute, isAdmin]);
+  }, [user, loading, navigate, currentPath, isPublicRoute, isAdmin]);
 
-  // Jos ladataan, näytä loading
   if (loading) {
-    console.log('PortalAuthGuard: Ladataan...');
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -49,14 +45,11 @@ const PortalAuthGuard: React.FC<PortalAuthGuardProps> = ({ children }) => {
     );
   }
 
-  // Jos julkinen sivu tai kirjautunut käyttäjä, näytä sisältö
   if (isPublicRoute || user) {
     console.log('PortalAuthGuard: Näytetään sisältö - isPublicRoute:', isPublicRoute, 'user:', !!user);
     return <>{children}</>;
   }
 
-  // Ei näytä mitään kun ohjataan kirjautumiseen
-  console.log('PortalAuthGuard: Ei näytetä mitään');
   return null;
 };
 

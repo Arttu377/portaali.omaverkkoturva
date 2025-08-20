@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ShoppingCart, Package, Shield, User, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -10,12 +9,16 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // HashRouter käyttää hash-reititystä
+  const currentPath = location.pathname === '/' && location.hash ? location.hash.slice(1) : location.pathname;
+
   // Debug lokit
-  console.log('Dashboard: Render - user:', user, 'location:', location.pathname);
+  console.log('Dashboard: Render - user:', user, 'currentPath:', currentPath);
+  console.log('Dashboard: location.pathname:', location.pathname, 'location.hash:', location.hash);
 
   useEffect(() => {
-    console.log('Dashboard: useEffect - user:', user, 'location:', location.pathname);
-  }, [user, location]);
+    console.log('Dashboard: useEffect - user:', user, 'currentPath:', currentPath);
+  }, [user, currentPath]);
 
   const handleSignOut = async () => {
     await signOut();
