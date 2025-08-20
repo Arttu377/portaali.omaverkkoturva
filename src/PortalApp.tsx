@@ -14,6 +14,7 @@ import OrderOverview from "./pages/OrderOverview";
 import UnconfirmedOrders from "./pages/UnconfirmedOrders";
 import ConfirmedOrders from "./pages/ConfirmedOrders";
 import OrderConfirmation from "./pages/OrderConfirmation";
+import Portaalinverkkokauppa from "./pages/Portaalinverkkokauppa";
 import NotFound from "./pages/NotFound";
 
 const PortalApp = () => {
@@ -32,9 +33,10 @@ const PortalApp = () => {
                   {/* Portaalin etusivu - kirjautumissivu */}
                   <Route path="/" element={<PortalLogin />} />
                   
-                  {/* Suojatut sivut (vaativat kirjautumisen) */}
+                  {/* Portaalin sivut */}
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/admin" element={<AdminPortal />} />
+                  <Route path="/verkkokauppa" element={<Portaalinverkkokauppa />} />
                   <Route path="/tilaukset" element={<OrderOverview />} />
                   <Route path="/tilaukset/vahvistamattomat" element={<UnconfirmedOrders />} />
                   <Route path="/tilaukset/vahvistetut" element={<ConfirmedOrders />} />

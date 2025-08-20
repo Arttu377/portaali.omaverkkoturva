@@ -35,7 +35,6 @@ import OrderOverview from "./pages/OrderOverview";
 import UnconfirmedOrders from "./pages/UnconfirmedOrders";
 import ConfirmedOrders from "./pages/ConfirmedOrders";
 import Login from "./pages/Login";
-import PortalLogin from "./pages/PortalLogin";
 import AuthCallback from "./pages/AuthCallback";
 import OrderConfirmation from "./pages/OrderConfirmation";
 
@@ -55,8 +54,6 @@ const App = () => {
                 {/* Julkiset sivut (eivät vaadi kirjautumista) */}
                 <Route path="/confirm-order/:token" element={<ConfirmOrder />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/portal" element={<PortalLogin />} />
-                <Route path="/portal/login" element={<PortalLogin />} />
                 <Route path="/auth/callback" element={<AuthCallback />} />
                 
                 {/* Suojatut sivut (vaativat kirjautumisen) */}
