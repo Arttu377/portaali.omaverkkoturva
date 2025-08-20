@@ -104,7 +104,7 @@ const Navbar = () => {
                       <ul className="grid gap-3 p-4 w-[300px] bg-white shadow-lg border rounded-md">
                         <li>
                           <Link to="/identiteettiturva" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                            <div className="font-medium text-gray-900">Identiteettiturva</div>
+                            <div className="font-medium text-gray-900">Henkilösuoja</div>
                             <p className="text-sm text-gray-500">Suojaa henkilöllisyytesi verkossa</p>
                           </Link>
                         </li>
@@ -137,11 +137,13 @@ const Navbar = () => {
                   </NavigationMenuItem>
                   
                   <NavigationMenuItem>
-                    <Link to="/kirjaudu">
-                      <button className="px-4 py-2 rounded-md transition-colors font-medium text-white hover:bg-blue-800 border border-white/20 hover:border-white/40" style={{backgroundColor: '#1e3a8a'}}>
-                        Kirjaudu
-                      </button>
-                    </Link>
+                    <button 
+                      onClick={() => window.open('https://tietosuoja.omaverkkoturva.fi/', '_blank', 'noopener,noreferrer')}
+                      className="px-4 py-2 rounded-md transition-colors font-medium text-white hover:bg-blue-800 border border-white/20 hover:border-white/40" 
+                      style={{backgroundColor: '#1e3a8a'}}
+                    >
+                      Kirjaudu
+                    </button>
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
@@ -188,7 +190,7 @@ const Navbar = () => {
                 setIsMenuOpen(false);
                 window.scrollTo(0, 0);
               }}>
-                Identiteettiturva
+                Henkilösuoja
               </Link>
               
               <Link to="/meista" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
@@ -212,12 +214,12 @@ const Navbar = () => {
                 Ota yhteyttä
               </Link>
               
-              <Link to="/kirjaudu" className="block px-3 py-1.5 rounded-md text-sm font-medium text-white hover:bg-blue-800 border border-white/20 hover:border-white/40" style={{backgroundColor: '#1e3a8a'}} onClick={() => {
+              <a href="https://tietosuoja.omaverkkoturva.fi/" target="_blank" rel="noopener noreferrer" className="block px-3 py-1.5 rounded-md text-sm font-medium text-white hover:bg-blue-800 border border-white/20 hover:border-white/40" style={{backgroundColor: '#1e3a8a'}} onClick={() => {
                 setIsMenuOpen(false);
                 window.scrollTo(0, 0);
               }}>
                 Kirjaudu
-              </Link>
+              </a>
             </>
           )}
         </div>

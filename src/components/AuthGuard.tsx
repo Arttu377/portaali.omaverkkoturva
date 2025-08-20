@@ -7,21 +7,41 @@ interface AuthGuardProps {
 }
 
 const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
-  const { user, loading } = useAuth();
+  const { user, loading, isAdmin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
   // Sivut jotka eivät vaadi autentikaatiota
   const publicRoutes = [
+    '/',
     '/confirm-order',
     '/login',
-    '/auth/callback'
+    '/auth/callback',
+    '/about',
+    '/meista',
+    '/careers',
+    '/privacy-policy',
+    '/blog',
+    '/identiteettiturva',
+    '/verkkokauppa',
+    '/ota-yhteytta',
+    '/logo-tool',
+    '/irtisanomislomake'
   ];
 
   // Tarkista onko nykyinen sivu julkinen
-  const isPublicRoute = publicRoutes.some(route => 
-    location.pathname.startsWith(route)
-  );
+  const isPublicRoute = publicRoutes.some(route => {
+    if (route === '/') {
+      return location.pathname === '/';
+    }
+    if (route === '/confirm-order') {
+      return location.pathname.startsWith('/confirm-order/');
+    }
+    if (route === '/blog') {
+      return location.pathname.startsWith('/blog');
+    }
+    return location.pathname === route || location.pathname.startsWith(route + '/');
+  });
 
   useEffect(() => {
     if (!loading) {
@@ -31,9 +51,12 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
           state: { from: location.pathname },
           replace: true 
         });
+      } else if (user && location.pathname.startsWith('/admin') && !isAdmin) {
+        // Estä pääsy admin-sivulle ilman admin-oikeuksia
+        navigate('/dashboard', { replace: true });
       }
     }
-  }, [user, loading, navigate, location, isPublicRoute]);
+  }, [user, loading, navigate, location, isPublicRoute, isAdmin]);
 
   // Jos ladataan, näytä loading
   if (loading) {

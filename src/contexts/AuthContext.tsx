@@ -176,6 +176,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           title: "Uloskirjautunut",
           description: "Olet kirjautunut ulos onnistuneesti.",
         });
+        // Ohjataan etusivulle uloskirjautumisen jälkeen
+        window.location.href = '/';
       }
     } catch (error) {
       console.error('Error signing out:', error);

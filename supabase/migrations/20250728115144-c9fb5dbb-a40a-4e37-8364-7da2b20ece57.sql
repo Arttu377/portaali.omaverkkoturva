@@ -45,6 +45,27 @@ ON public.orders
 FOR SELECT 
 USING (auth.uid() = user_id);
 
+-- Allow admins to view all orders (duplicate-safe if already applied later)
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies WHERE schemaname = 'public' AND tablename = 'orders' AND policyname = 'Admins can view all orders'
+  ) THEN
+    EXECUTE $$
+      CREATE POLICY "Admins can view all orders" 
+      ON public.orders 
+      FOR SELECT 
+      USING (
+        EXISTS (
+          SELECT 1 FROM public.user_roles 
+          WHERE user_id = auth.uid() 
+            AND role = 'admin'::public.app_role
+        )
+      );
+    $$;
+  END IF;
+END $$;
+
 CREATE POLICY "Users can create their own orders" 
 ON public.orders 
 FOR INSERT 
@@ -61,6 +82,27 @@ ON public.order_items
 FOR SELECT 
 USING (auth.uid() = (SELECT user_id FROM public.orders WHERE id = order_id));
 
+-- Allow admins to view all order items
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies WHERE schemaname = 'public' AND tablename = 'order_items' AND policyname = 'Admins can view all order items'
+  ) THEN
+    EXECUTE $$
+      CREATE POLICY "Admins can view all order items" 
+      ON public.order_items 
+      FOR SELECT 
+      USING (
+        EXISTS (
+          SELECT 1 FROM public.user_roles 
+          WHERE user_id = auth.uid() 
+            AND role = 'admin'::public.app_role
+        )
+      );
+    $$;
+  END IF;
+END $$;
+
 CREATE POLICY "Users can create order items for their orders" 
 ON public.order_items 
 FOR INSERT 
@@ -71,6 +113,27 @@ CREATE POLICY "Users can view confirmations for their orders"
 ON public.order_confirmations 
 FOR SELECT 
 USING (auth.uid() = (SELECT user_id FROM public.orders WHERE id = order_id));
+
+-- Allow admins to view all order confirmations
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies WHERE schemaname = 'public' AND tablename = 'order_confirmations' AND policyname = 'Admins can view all order confirmations'
+  ) THEN
+    EXECUTE $$
+      CREATE POLICY "Admins can view all order confirmations" 
+      ON public.order_confirmations 
+      FOR SELECT 
+      USING (
+        EXISTS (
+          SELECT 1 FROM public.user_roles 
+          WHERE user_id = auth.uid() 
+            AND role = 'admin'::public.app_role
+        )
+      );
+    $$;
+  END IF;
+END $$;
 
 CREATE POLICY "Anyone can create order confirmations" 
 ON public.order_confirmations 

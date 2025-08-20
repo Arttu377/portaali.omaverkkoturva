@@ -3,7 +3,29 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://wrlds.com/sitemap.xml
+Sitemap: https://omaverkkoturva.fi/sitemap.xml
 
 # Optimize crawling
-Crawl-delay: 10
+Crawl-delay: 5
+
+# Allow all important directories
+Allow: /identiteettiturva/
+Allow: /meista/
+Allow: /artikkelit/
+Allow: /blog/
+Allow: /ota-yhteytta/
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow search engines to index all content
+Allow: /lovable-uploads/
+Allow: /public/
+
+# Optimize for search engines
+Allow: /sitemap.xml
+Allow: /robots.txt

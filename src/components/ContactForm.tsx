@@ -142,37 +142,37 @@ ${emailData.message}`,
             <div>
               <h1 className="text-4xl font-bold text-gray-900 mb-6">Ota yhteyttä</h1>
               
-              <div className="mb-8">
-                <a 
-                  href="mailto:info@omaverkkoturva.fi" 
-                  className="text-xl text-black hover:underline font-medium"
-                >
-                  info@omaverkkoturva.fi
-                </a>
-              </div>
-              
-              <div className="flex items-center space-x-3 mb-8">
-                <Phone className="w-5 h-5 text-gray-600" />
-                <div>
-                  <a 
-                    href="tel:01012345" 
-                    className="text-xl font-medium text-gray-900 underline hover:no-underline"
-                  >
-                    01012345
-                  </a>
-                  <p className="text-sm text-gray-600">
-                    Asiakaspalvelumme palvelee puhelimitse jokaisena arkipäivänä klo. 10:00-16:00. Puhelun hinta: mpm/pvm
-                  </p>
-                </div>
-              </div>
-              
-              <div className="space-y-4 text-gray-700">
-                <p>
-                  Pyrimme aina vastaamaan 1-2 arkipäivän sisällä. Asiakkaanamme olet oikeutettu nopeaan sekä veloituksettomaan apuun ja tukeen.
-                </p>
-              </div>
-              
-              <div className="mt-12">
+                             <div className="mb-8">
+                 <a 
+                   href="mailto:tuki@omaverkkoturva.fi" 
+                   className="text-xl text-black hover:underline font-medium"
+                 >
+                   tuki@omaverkkoturva.fi
+                 </a>
+               </div>
+               
+               <div className="flex items-center space-x-3 mb-8">
+                 <Phone className="w-5 h-5 text-gray-600" />
+                 <div>
+                   <a 
+                     href="tel:0451211663" 
+                     className="text-xl font-medium text-gray-900 underline hover:no-underline"
+                   >
+                     0451211663
+                   </a>
+                   <p className="text-sm text-gray-600">
+                     Asiakaspalvelumme palvelee puhelimitse jokaisena arkipäivänä klo. 10:00-16:00. Puhelun hinta: mpm/pvm
+                   </p>
+                 </div>
+               </div>
+               
+               <div className="space-y-4 text-gray-700">
+                 <p>
+                   Pyrimme vastaamaan sähköpostiyhteydenottoihin 1-2 arkipäivän sisällä. Asiakkaanamme olet oikeutettu nopeaan sekä veloituksettomaan apuun ja tukeen.
+                 </p>
+               </div>
+               
+               <div className="mt-32">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Haluatko irtisanoa tuotteen?</h3>
                 <button 
                   onClick={() => navigate('/irtisanomislomake')}
@@ -187,8 +187,17 @@ ${emailData.message}`,
             </div>
           </div>
 
-          {/* Right side - Contact form */}
-          <div className="bg-blue-900 rounded-lg p-8 text-white">
+                     {/* Right side - Contact form */}
+                       <div className="rounded-lg p-8 text-white" style={{
+              background: `linear-gradient(
+                to bottom,
+                rgba(30, 58, 138, 1) 0%,
+                rgba(30, 58, 138, 0.95) 25%,
+                rgba(30, 58, 138, 0.9) 50%,
+                rgba(30, 58, 138, 0.85) 75%,
+                rgba(30, 58, 138, 0.8) 100%
+              )`
+            }}>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField 

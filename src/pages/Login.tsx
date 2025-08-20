@@ -12,7 +12,7 @@ const Login = () => {
   const handlePortalLogin = () => {
     // Ohjaa portaalin sisäänkirjautumiseen
     // Muuta tämä URL vastaamaan sinun portaalia
-    const portalUrl = 'https://omaverkkoturva.fi/login';
+    const portalUrl = 'https://portaali.omaverkkoturva.fi';
     
     // Tallennetaan nykyinen sivu sessionStorage:een
     sessionStorage.setItem('redirectAfterLogin', from);
@@ -23,7 +23,7 @@ const Login = () => {
 
   const handleReturnToPortal = () => {
     // Ohjaa takaisin portaaliin
-    const portalUrl = 'https://omaverkkoturva.fi';
+    const portalUrl = 'https://portaali.omaverkkoturva.fi';
     window.location.href = portalUrl;
   };
 

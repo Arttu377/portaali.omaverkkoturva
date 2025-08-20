@@ -27,12 +27,17 @@ import Irtisanomislomake from "./pages/Irtisanomislomake";
 import Contact from "./pages/Contact";
 import { LogoTool } from "./pages/LogoTool";
 import Verkkokauppa from "./pages/Verkkokauppa";
+import Portaalinverkkokauppa from "./pages/Portaalinverkkokauppa";
 import AdminPortal from "./pages/AdminPortal";
 import Dashboard from "./pages/Dashboard";
 import ConfirmOrder from "./pages/ConfirmOrder";
 import OrderOverview from "./pages/OrderOverview";
+import UnconfirmedOrders from "./pages/UnconfirmedOrders";
+import ConfirmedOrders from "./pages/ConfirmedOrders";
 import Login from "./pages/Login";
+import PortalLogin from "./pages/PortalLogin";
 import AuthCallback from "./pages/AuthCallback";
+import OrderConfirmation from "./pages/OrderConfirmation";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -50,6 +55,7 @@ const App = () => {
                 {/* Julkiset sivut (eivät vaadi kirjautumista) */}
                 <Route path="/confirm-order/:token" element={<ConfirmOrder />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/portal" element={<PortalLogin />} />
                 <Route path="/auth/callback" element={<AuthCallback />} />
                 
                 {/* Suojatut sivut (vaativat kirjautumisen) */}
@@ -69,12 +75,16 @@ const App = () => {
                 <Route path="/blog/:slug" element={<BlogPostDetail />} />
                 <Route path="/identiteettiturva" element={<Identiteettiturva />} />
                 <Route path="/verkkokauppa" element={<Verkkokauppa />} />
+                <Route path="/portaalin-verkkokauppa" element={<Portaalinverkkokauppa />} />
                 <Route path="/irtisanomislomake" element={<Irtisanomislomake />} />
                 <Route path="/ota-yhteytta" element={<Contact />} />
                 <Route path="/logo-tool" element={<LogoTool />} />
                 <Route path="/admin" element={<AdminPortal />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/tilaukset" element={<OrderOverview />} />
+                <Route path="/tilaukset/vahvistamattomat" element={<UnconfirmedOrders />} />
+                <Route path="/tilaukset/vahvistetut" element={<ConfirmedOrders />} />
+                <Route path="/vahvista-tilaus/:token" element={<OrderConfirmation />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </AuthGuard>

@@ -43,7 +43,7 @@ const About = () => {
                 <div className="lg:order-2">
                   <h2 className="text-2xl font-bold mb-4">Ketkä me olemme?</h2>
                   <p className="text-gray-600 text-lg">
-                    Olemme kaksi nuorta kaveria, Arttu Ruotsalainen ja Arttu Simanainen, ja olemme tehneet uraa tietoliikennepalveluiden parissa, jossa meille realisoitui kuinka paljon nettirikollisuutta oikeasti on. Näemme jatkuvasti, miten ihmiset joutuvat huijauksien ja identiteettivarkauksien uhreiksi, sekä halusimme tehdä asialle jotain konkreettista.
+                    Me olemme Arttu Ruotsalainen ja Arttu Simanainen. Olemme tehneet uraa tietoliikennepalveluiden parissa, ja työmme kautta olemme nähneet läheltä, kuinka laajaa nettirikollisuus on ja miten helposti tavalliset ihmiset voivat joutua huijausten ja identiteettivarkauksien kohteeksi. Usein olemme huomanneet, että tarjolla olevat ratkaisut jäävät pintapuolisiksi eivätkä auta ihmisiä riittävän konkreettisesti. Halusimme muuttaa tämän ja tuoda markkinoille turvan, jossa on oikeasti sisältöä ja joka tarjoaa myös käytännön apua.
                   </p>
                 </div>
               </motion.div>

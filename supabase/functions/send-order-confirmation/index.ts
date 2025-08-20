@@ -46,12 +46,12 @@ const handler = async (req: Request): Promise<Response> => {
     const emailResponse = await resend.emails.send({
       from: "tuki@omaverkkoturva.fi",
       to: [customerEmail],
-      subject: "Kiitos tilauksestasi - Vahvista tilaus",
+      subject: "Tervetuloa OmaVerkkoturva-palveluun!",
       html: `
-        <div style="font-family: Arial, Helvetica, sans-serif; max-width: 600px; margin: 0 auto; background-color: #222222; color: #EEEEEE; padding: 40px; border-radius: 12px;">
+        <div style="font-family: Arial, Helvetica, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff; color: #333333; padding: 40px; border-radius: 12px; border: 1px solid #e5e7eb;">
           <div style="text-align: center; margin-bottom: 32px;">
-            <h1 style="font-size: 28px; font-weight: bold; margin: 0; color: #EEEEEE;">
-              Tervetuloa Telendor Oy-palveluun!
+            <h1 style="font-size: 28px; font-weight: bold; margin: 0; color: #1e3a8a;">
+              Tervetuloa OmaVerkkoturva-palveluun!
             </h1>
           </div>
           
@@ -63,43 +63,54 @@ const handler = async (req: Request): Promise<Response> => {
               Kiitos tilauksestasi!
             </p>
             <p style="margin: 0 0 16px 0; font-size: 16px;">
-              OmaVerkkoturva on sovellus, joka valvoo, myydäänkö henkilötietojasi verkossa tai käytetäänkö niitä rikolliseen toimintaan. Sovellus ilmoittaa välittömästi, jos se havaitsee epäilyttävää toimintaa tiedoillasi (esim. Facebook-salasanasi tai luottokorttitietosi ovat vuotaneet).
+              Tämä tilausvahvistus toimii kuitteena tilauksestanne. Sopimusehdot, vakuutusehdot, tietosuojaseloste ja peruutusohjeet löytyvät osoitteesta omaverkkoturva.fi.
+            </p>
+            <p style="margin: 0 0 16px 0; font-size: 16px;">
+              OmaVerkkoturva huolehtii siitä, että henkilötietosi pysyvät turvassa. Palvelu valvoo jatkuvasti, myydäänkö tietojasi verkossa tai käytetäänkö niitä rikolliseen toimintaan, ja ilmoittaa sinulle heti, jos havaitsee epäilyttävää toimintaa (esimerkiksi jos Facebook-salasanasi tai luottokorttitietosi ovat vuotaneet).
             </p>
           </div>
           
           <div style="margin-bottom: 32px;">
-            <h2 style="font-size: 20px; font-weight: bold; margin: 0 0 16px 0; color: #EEEEEE;">
-              Tässä tilaamasi tuotteet:
+            <h2 style="font-size: 20px; font-weight: bold; margin: 0 0 16px 0; color: #1e3a8a;">
+              Tilaamasi tuote:
             </h2>
-            <div style="background-color: #333333; padding: 20px; border-radius: 8px; margin-bottom: 16px;">
+            <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 16px; border: 1px solid #e5e7eb;">
               ${packages.map(pkg => `
                 <p style="margin: 0 0 8px 0; font-size: 16px;">
-                  <strong>${pkg.title}</strong>, määrä: ${pkg.quantity || 1}
+                  <strong>${pkg.title}</strong>
+                </p>
+                <p style="margin: 0 0 8px 0; font-size: 16px;">
+                  Hinta: 1kk 0€, tämän jälkeen ${pkg.price}
+                </p>
+                <p style="margin: 0 0 8px 0; font-size: 16px;">
+                  Määrä: ${pkg.quantity || 1}
                 </p>
               `).join('')}
             </div>
-            <p style="margin: 0 0 8px 0; font-size: 16px;">
-              Sopimus on voimassa 24 kk määräaikaisena.
-            </p>
+            <ul style="margin: 0 0 16px 0; padding-left: 20px;">
+              <li style="margin: 0 0 8px 0; font-size: 16px;">Sopimus on määräaikainen ja kestää 24 kuukautta.</li>
+              <li style="margin: 0 0 8px 0; font-size: 16px;">Palvelulla on 14 päivän peruutusoikeus.</li>
+              <li style="margin: 0 0 8px 0; font-size: 16px;">Aktivointiohjeet lähetetään sinulle erillisessä sähköpostissa.</li>
+            </ul>
             <p style="margin: 0 0 16px 0; font-size: 16px;">
-              Tuotteilla on 14 päivän peruutusoikeus.
-            </p>
-            <p style="margin: 0 0 16px 0; font-size: 16px;">
-              Lähetämme aktivointiohjeet palveluun vielä erillisellä sähköpostilla. Ennen kuin pääset käyttämään palvelua, vahvistathan tilauksesi alla olevasta napista:
+              Ennen aktivointia, vahvistathan tilauksesi klikkaamalla alla olevaa painiketta:
             </p>
           </div>
           
           <div style="text-align: center; margin: 32px 0;">
             <a href="${confirmationUrl}" 
-               style="background-color: #4A00FF; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 16px;">
+               style="background-color: #1e3a8a; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 16px;">
               Vahvista tilaus
             </a>
           </div>
           
-          <div style="margin-top: 32px; text-align: left;">
+          <div style="margin-top: 32px; text-align: center; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+            <p style="margin: 0 0 16px 0; font-size: 16px; font-weight: 600;">
+              Kiitos, että valitsit OmaVerkkoturvan - pidämme huolen tietoturvastasi.
+            </p>
             <p style="margin: 0; font-size: 16px;">
-              Kiitos,<br>
-              OmaVerkkoturva-tiimi
+              Ystävällisin terveisin,<br>
+              <strong>OmaVerkkoturva-tiimi</strong>
             </p>
           </div>
         </div>

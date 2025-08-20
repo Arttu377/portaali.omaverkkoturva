@@ -17,21 +17,21 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'WRLDS',
-  description = 'WRLDS Technologies: Pioneering smart engineering solutions with textile sensors for sports, safety, and performance monitoring.',
+  title = 'OmaVerkkoturva',
+  description = 'OmaVerkkoturva: Suomalainen identiteettisuoja ja verkkoturvallisuuspalvelu. Suojaa henkilötietojasi ja estä identiteettivarkauksia.',
   type = 'website',
-  name = 'WRLDS Technologies',
-  imageUrl = '/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png',
+  name = 'OmaVerkkoturva',
+  imageUrl = '/lovable-uploads/logo123.png',
   publishDate,
   modifiedDate,
   author,
   category,
-  keywords = ['smart textiles', 'wearable technology', 'textile sensors', 'sports tech', 'safety monitoring', 'performance analytics'],
+  keywords = ['identiteettisuoja', 'verkkoturvallisuus', 'henkilötietojen suojaus', 'tietovuoto', 'identiteettivarkaus', 'verkkorikollisuus', 'tietoturva', 'suomalainen palvelu'],
   isBlogPost = false
 }) => {
   const location = useLocation();
-  const currentUrl = `https://wrlds.com${location.pathname}`;
-  const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://wrlds.com${imageUrl}`;
+  const currentUrl = `https://omaverkkoturva.fi${location.pathname}`;
+  const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://omaverkkoturva.fi${imageUrl}`;
 
   // Enhanced keywords for specific posts
   const enhancedKeywords = location.pathname.includes('smart-ppe-revolution') 
@@ -71,18 +71,18 @@ const SEO: React.FC<SEOProps> = ({
   const organizationStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'WRLDS Technologies',
-    url: 'https://wrlds.com',
-    logo: 'https://wrlds.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png',
-    description: 'Pioneering smart engineering solutions with textile sensors',
+    name: 'OmaVerkkoturva',
+    url: 'https://omaverkkoturva.fi',
+    logo: 'https://omaverkkoturva.fi/lovable-uploads/logo123.png',
+    description: 'Suomalainen identiteettisuoja ja verkkoturvallisuuspalvelu',
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'info@wrlds.com'
+      email: 'tuki@omaverkkoturva.fi'
     },
     sameAs: [
-      'https://www.linkedin.com/company/wrlds-technologies',
-      'https://twitter.com/wrldstechnologies'
+      'https://www.linkedin.com/company/omaverkkoturva',
+      'https://twitter.com/omaverkkoturva'
     ]
   };
 
@@ -105,24 +105,24 @@ const SEO: React.FC<SEOProps> = ({
     dateModified: modifiedDate || publishDate,
     author: {
       '@type': 'Organization',
-      name: author || 'WRLDS Technologies',
-      url: 'https://wrlds.com'
+      name: author || 'OmaVerkkoturva',
+      url: 'https://omaverkkoturva.fi'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'WRLDS Technologies',
+      name: 'OmaVerkkoturva',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://wrlds.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png',
+        url: 'https://omaverkkoturva.fi/lovable-uploads/logo123.png',
         width: 512,
         height: 512
       },
-      url: 'https://wrlds.com'
+      url: 'https://omaverkkoturva.fi'
     },
     description: description,
     keywords: enhancedKeywords.join(', '),
     articleSection: category,
-    inLanguage: 'en-US',
+    inLanguage: 'fi-FI',
     isAccessibleForFree: true
   } : null;
 

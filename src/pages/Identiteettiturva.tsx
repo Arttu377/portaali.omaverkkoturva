@@ -189,8 +189,8 @@ const Identiteettiturva = () => {
                    Verkkorikollisuus, tietovuodot ja identiteettivarkaudet ovat yleistyneet merkittävästi viime vuosina. Jo pelkän sähköpostiosoitteen ja salasanan avulla rikolliset voivat saada pääsyn henkilökohtaisiin tileihisi, tehdä ostoksia nimissäsi tai hakea lainaa luvattomasti. Digitaalinen identiteetti on nyky-yhteiskunnassa arvokas resurssi ja sen väärinkäyttö voi aiheuttaa vakavia taloudellisia sekä juridisia seurauksia. Siksi yksilön tunnistetietojen suojaaminen tulisi nähdä yhtä tärkeänä kuin pankkitunnusten turvaaminen.
                  </p>
                  
-                                                                       <div className="flex justify-center space-x-6">
-                     <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md">
+                                                                       <div className="flex flex-col lg:flex-row justify-center space-y-6 lg:space-y-0 lg:space-x-6">
+                     <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md mx-auto lg:mx-0">
                       <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
                         62,9M €
                       </div>
@@ -200,7 +200,7 @@ const Identiteettiturva = () => {
                         <p className="text-white/80 text-xs mt-2">* Finanssiala ry</p>
                      </div>
                      
-                     <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md">
+                     <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md mx-auto lg:mx-0">
                         <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
                           107,8M €
                         </div>
@@ -210,7 +210,7 @@ const Identiteettiturva = () => {
                         <p className="text-white/80 text-xs mt-2">* Finanssiala ry</p>
                      </div>
                      
-                     <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md">
+                     <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md mx-auto lg:mx-0">
                         <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
                           70%
                         </div>
@@ -231,7 +231,7 @@ const Identiteettiturva = () => {
              {/* Background image for this section only */}
              <div className="absolute inset-0 w-full h-full z-0">
                <img 
-                 src="/lovable-uploads/pexels-mikhail-nilov-6963045.jpg" 
+                 src="/lovable-uploads/iStock-1394172078.jpg" 
                  alt="Scam Cases Background" 
                  className="w-full h-full object-cover object-top"
                />
@@ -242,14 +242,16 @@ const Identiteettiturva = () => {
              <div className="relative z-20">
                                <div className="text-center mb-16">
                   <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
-                    Tapauksia, joissa rahaa menetettiin<br />huijauksessa
+                    Esimerkkitapauksia<br />identiteettivarkaudesta
                   </h2>
                 </div>
                
-               <div className="max-w-4xl mx-auto">
-                 <div className="grid grid-cols-1 gap-8 items-start">
+               <div className="max-w-6xl mx-auto">
+                 <div className="grid grid-cols-1 gap-10 items-start">
                <motion.div
-                 className="bg-transparent border border-white/20 p-6 rounded-2xl shadow-lg cursor-pointer"
+                 className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 ${
+                   openCards['tietojenkalastelu'] ? 'w-full max-w-4xl bg-transparent border border-white/20 shadow-lg' : 'w-full max-w-2xl'
+                 } justify-self-start mr-auto`}
                  initial={{ opacity: 0, y: 20 }}
                  animate={{ 
                    opacity: 1, 
@@ -267,9 +269,9 @@ const Identiteettiturva = () => {
                  onClick={() => toggleCard('tietojenkalastelu')}
                >
                                   <div className="text-center mb-4">
-                   <div className="w-10 h-10 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg mx-auto mb-2">
-                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                   <div className="w-12 h-12 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg mx-auto mb-2">
+                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
                      </svg>
                    </div>
                    <h3 className="text-xl font-bold text-white mb-2">Tietojenkalastelu</h3>
@@ -300,7 +302,9 @@ const Identiteettiturva = () => {
                </motion.div>
                
                <motion.div
-                 className="bg-transparent border border-white/20 p-6 rounded-2xl shadow-lg cursor-pointer"
+                 className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 -mt-16 ${
+                   openCards['verkkokauppahuijaus'] ? 'w-full max-w-4xl bg-transparent border border-white/20 shadow-lg' : 'w-full max-w-2xl'
+                 } justify-self-end ml-auto`}
                  initial={{ opacity: 0, y: 20 }}
                  animate={{ 
                    opacity: 1, 
@@ -318,8 +322,8 @@ const Identiteettiturva = () => {
                  onClick={() => toggleCard('verkkokauppahuijaus')}
                >
                  <div className="text-center mb-4">
-                   <div className="w-10 h-10 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg mx-auto mb-2">
-                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                   <div className="w-12 h-12 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg mx-auto mb-2">
+                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                      </svg>
                    </div>
@@ -351,7 +355,9 @@ const Identiteettiturva = () => {
                </motion.div>
                
                <motion.div
-                 className="bg-transparent border border-white/20 p-6 rounded-2xl shadow-lg cursor-pointer"
+                 className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 ${
+                   openCards['sovellushankinnat'] ? 'w-full max-w-4xl bg-transparent border border-white/20 shadow-lg' : 'w-full max-w-2xl'
+                 } justify-self-start mr-auto`}
                  initial={{ opacity: 0, y: 20 }}
                  animate={{ 
                    opacity: 1, 
@@ -369,8 +375,8 @@ const Identiteettiturva = () => {
                  onClick={() => toggleCard('sovellushankinnat')}
                >
                                   <div className="text-center mb-4">
-                   <div className="w-10 h-10 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg mx-auto mb-2">
-                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                   <div className="w-12 h-12 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg mx-auto mb-2">
+                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                      </svg>
                    </div>
@@ -402,7 +408,9 @@ const Identiteettiturva = () => {
                </motion.div>
                
                <motion.div
-                 className="bg-transparent border border-white/20 p-8 rounded-2xl shadow-lg cursor-pointer"
+                 className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 -mt-16 ${
+                   openCards['nettikiusaaminen'] ? 'w-full max-w-4xl bg-transparent border border-white/20 shadow-lg' : 'w-full max-w-2xl'
+                 } justify-self-end ml-auto`}
                  initial={{ opacity: 0, y: 20 }}
                  animate={{ 
                    opacity: 1, 
@@ -420,8 +428,8 @@ const Identiteettiturva = () => {
                  onClick={() => toggleCard('nettikiusaaminen')}
                >
                  <div className="text-center mb-4">
-                   <div className="w-10 h-10 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg mx-auto mb-2">
-                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                   <div className="w-12 h-12 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg mx-auto mb-2">
+                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
                      </svg>
                    </div>
@@ -446,7 +454,7 @@ const Identiteettiturva = () => {
                          exit={{ opacity: 0, height: 0 }}
                          transition={{ duration: 0.3 }}
                        >
-                      Emilia joutui nettikiusaaminen kohteeksi sen jälkeen, kun hänen TikTok-videonsa levisi yllättäen laajalle. Tuntemattomat ihmiset alkoivat kommentoida videoita loukkaavasti ja joku perusti tekaistun tilin hänen nimellään ja profiilikuvallaan. Väärennetyllä tilillä julkaistiin sisältöä, joka sai Emilian näyttämään nololta. Hän saa asiantuntijoilta neuvoja ja apuja (25 h) sisällön poistoon ja tilien palautukseen. Tarvittaessa hänen käytössä on myös oikeudellinen tuki ja psykologinen kriisiapu.
+                        Emilia joutui nettikiusaaminen kohteeksi sen jälkeen, kun hänen TikTok-videonsa levisi yllättäen laajalle. Tuntemattomat ihmiset alkoivat kommentoida videoita loukkaavasti ja joku perusti tekaistun tilin hänen nimellään ja profiilikuvallaan. Väärennetyllä tilillä julkaistiin sisältöä, joka sai Emilian näyttämään nololta. Hän saa asiantuntijoilta neuvoja ja apuja (25 h) sisällön poistoon ja tilien palautukseen. Tarvittaessa hänen käytössä on myös oikeudellinen tuki ja psykologinen kriisiapu.
                        </motion.p>
                    )}
                                     </div>
@@ -700,13 +708,27 @@ const Identiteettiturva = () => {
                   <li>• Vakuutus, joka turvaa sinut vahinkojen varalta</li>
                   <li>• Apu ja tuki</li>
                 </ul>
-                <a 
-                  href="/verkkokauppa" 
-                  className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
+                <button 
+                  onClick={() => {
+                    // Lisää tuote ostoskoriin (Henkilösuoja Yhdelle)
+                    const product = {
+                      id: 'henkilosuoja-yhdelle',
+                      name: 'Henkilösuoja Yhdelle',
+                      price: 21.99,
+                      type: 'subscription'
+                    };
+                    // Tallenna ostoskoriin localStorageen
+                    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                    cart.push(product);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    // Siirry verkkokauppa-sivulle
+                    window.location.href = '/verkkokauppa';
+                  }}
+                  className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
                   style={{ background: 'var(--gradient-navy)' }}
                 >
                   Suojaa laite
-                </a>
+                </button>
               </div>
                 
               {/* Plan 2 */}
@@ -718,13 +740,27 @@ const Identiteettiturva = () => {
                   <li>• Vakuutus, joka turvaa sinut ja läheisesi vahinkojen varalta</li>
                   <li>• Apu ja tuki</li>
                 </ul>
-                <a 
-                  href="/verkkokauppa" 
-                  className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
+                <button 
+                  onClick={() => {
+                    // Lisää tuote ostoskoriin (Henkilösuoja Tupla)
+                    const product = {
+                      id: 'henkilosuoja-tupla',
+                      name: 'Henkilösuoja Tupla',
+                      price: 28.99,
+                      type: 'subscription'
+                    };
+                    // Tallenna ostoskoriin localStorageen
+                    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                    cart.push(product);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    // Siirry verkkokauppa-sivulle
+                    window.location.href = '/verkkokauppa';
+                  }}
+                  className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
                   style={{ background: 'var(--gradient-navy)' }}
                 >
                   Suojaa laite
-                </a>
+                </button>
               </div>
               
               {/* Plan 3 */}
@@ -736,13 +772,27 @@ const Identiteettiturva = () => {
                   <li>• Vakuutus, joka turvaa sinut ja koko perheesi vahinkojen varalta</li>
                   <li>• Apu ja tuki</li>
                 </ul>
-                <a 
-                  href="/verkkokauppa" 
-                  className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
+                <button 
+                  onClick={() => {
+                    // Lisää tuote ostoskoriin (Henkilösuoja Perhe)
+                    const product = {
+                      id: 'henkilosuoja-perhe',
+                      name: 'Henkilösuoja Perhe',
+                      price: 32.99,
+                      type: 'subscription'
+                    };
+                    // Tallenna ostoskoriin localStorageen
+                    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                    cart.push(product);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    // Siirry verkkokauppa-sivulle
+                    window.location.href = '/verkkokauppa';
+                  }}
+                  className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
                   style={{ background: 'var(--gradient-navy)' }}
                 >
                   Suojaa laite
-                </a>
+                </button>
               </div>
             </div>
             </div>

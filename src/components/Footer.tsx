@@ -1,32 +1,12 @@
 
-import React, { useState } from "react";
-import { Mail, Phone, MapPin, LogOut, Shield } from "lucide-react";
+import React from "react";
+import { Mail, Phone, MapPin, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 
 const Footer = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const { signIn, signOut, user, loading, isAdmin } = useAuth();
-  const { toast } = useToast();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    const { error } = await signIn(email, password);
-    
-    if (!error) {
-      setIsDialogOpen(false);
-      setEmail('');
-      setPassword('');
-    }
-  };
+  const { signOut, user } = useAuth();
 
   const handleSignOut = async () => {
     await signOut();
@@ -113,18 +93,6 @@ const Footer = () => {
                   <span className="text-sm text-black">
                     Kirjautunut: {user.email}
                   </span>
-                  {isAdmin && (
-                    <Link to="/admin">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="text-black hover:text-blue-900"
-                      >
-                        <Shield className="w-4 h-4 mr-1" />
-                        Admin
-                      </Button>
-                    </Link>
-                  )}
                   <Button
                     variant="ghost"
                     size="sm"
@@ -136,70 +104,14 @@ const Footer = () => {
                   </Button>
                 </div>
               ) : (
-                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-                  <DialogTrigger asChild>
-                    <button className="text-sm text-black hover:text-blue-900 transition-colors">
-                      Portaali
-                    </button>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-[425px]">
-                    <DialogHeader>
-                      <DialogTitle>Kirjaudu sisään</DialogTitle>
-                      <DialogDescription>
-                        Syötä sähköpostiosoitteesi ja salasanasi portaaliin kirjautuaksesi
-                      </DialogDescription>
-                    </DialogHeader>
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Sähköposti</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          placeholder="Syötä sähköpostiosoitteesi"
-                          required
-                        />
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <Label htmlFor="password">Salasana</Label>
-                        <Input
-                          id="password"
-                          type="password"
-                          value={password}
-                          onChange={(e) => setPassword(e.target.value)}
-                          placeholder="Syötä salasanasi"
-                          required
-                        />
-                      </div>
-                      
-                      <Button 
-                        type="submit" 
-                        className="w-full"
-                        disabled={loading}
-                      >
-                        {loading ? 'Kirjaudutaan...' : 'Kirjaudu sisään'}
-                      </Button>
-                      
-                      <div className="text-center">
-                        <a 
-                          href="#" 
-                          className="text-sm text-primary hover:underline"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            toast({
-                              title: "Salasanan palautus",
-                              description: "Ota yhteyttä asiakaspalveluun salasanan palautusta varten.",
-                            });
-                          }}
-                        >
-                          Unohditko salasanasi?
-                        </a>
-                      </div>
-                    </form>
-                  </DialogContent>
-                </Dialog>
+                <a 
+                  href="https://portaali.omaverkkoturva.fi" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sm text-black hover:text-blue-900 transition-colors"
+                >
+                  Portaali
+                </a>
               )}
               <Link to="/privacy-policy" className="text-sm text-black hover:text-blue-900 transition-colors">
                 Tietosuojaseloste

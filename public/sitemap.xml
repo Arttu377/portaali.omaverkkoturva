@@ -1,112 +1,315 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Etusivu -->
   <url>
-    <loc>https://wrlds.com/</loc>
-    <lastmod>2025-06-05</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://omaverkkoturva.fi/</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  
+  <!-- Palvelut -->
   <url>
-    <loc>https://wrlds.com/projects/firecat</loc>
-    <lastmod>2025-05-02</lastmod>
+    <loc>https://omaverkkoturva.fi/identiteettiturva</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Meistä -->
+  <url>
+    <loc>https://omaverkkoturva.fi/meista</loc>
+    <lastmod>2025-01-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  
+  <!-- Artikkelit -->
   <url>
-    <loc>https://wrlds.com/projects/sport-retail</loc>
-    <lastmod>2025-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://wrlds.com/projects/workwear</loc>
-    <lastmod>2025-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://wrlds.com/projects/hockey</loc>
-    <lastmod>2025-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://wrlds.com/projects/pet-tracker</loc>
-    <lastmod>2025-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://wrlds.com/tech-details</loc>
-    <lastmod>2025-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://wrlds.com/development-process</loc>
-    <lastmod>2025-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://wrlds.com/about</loc>
-    <lastmod>2025-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://wrlds.com/careers</loc>
-    <lastmod>2025-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://wrlds.com/blog</loc>
-    <lastmod>2025-06-12</lastmod>
+    <loc>https://omaverkkoturva.fi/artikkelit</loc>
+    <lastmod>2025-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  
+  <!-- Ota yhteyttä -->
   <url>
-    <loc>https://wrlds.com/blog/wearable-safety-tech-protecting-workers-roi</loc>
-    <lastmod>2025-06-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://omaverkkoturva.fi/ota-yhteytta</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
+  
+  <!-- Blog postit -->
   <url>
-    <loc>https://wrlds.com/blog/smart-ppe-revolution-safety-technology</loc>
-    <lastmod>2025-06-05</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://wrlds.com/blog/leveraging-sensor-technology-product-development</loc>
-    <lastmod>2025-05-08</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://omaverkkoturva.fi/blog</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  
+  <!-- Blog post: Identiteettivarkauden estäminen -->
   <url>
-    <loc>https://wrlds.com/blog/from-idea-to-launch-development-process</loc>
-    <lastmod>2025-05-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://wrlds.com/blog/ai-powered-uniforms-emergency-alerts</loc>
-    <lastmod>2025-05-08</lastmod>
+    <loc>https://omaverkkoturva.fi/blog/identiteettivarkauden-estaminen</loc>
+    <lastmod>2025-01-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
+  
+  <!-- Blog post: Verkkoturvallisuus 2025 -->
   <url>
-    <loc>https://wrlds.com/blog/sensor-integrated-textiles-trend</loc>
-    <lastmod>2025-05-02</lastmod>
+    <loc>https://omaverkkoturva.fi/blog/verkkoturvallisuus-2025</loc>
+    <lastmod>2025-01-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
+  
+  <!-- Blog post: Tietovuotojen vaikutukset -->
   <url>
-    <loc>https://wrlds.com/privacy-policy</loc>
-    <lastmod>2025-05-02</lastmod>
+    <loc>https://omaverkkoturva.fi/blog/tietovuotojen-vaikutukset</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Salasanan suojaus -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/salasanan-suojaus</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Kaksivaiheinen tunnistus -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/kaksivaiheinen-tunnistus</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Tietojenkalastelun estäminen -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/tietojenkalastelun-estaminen</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Verkkokauppahuijaukset -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/verkkokauppahuijaukset</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Nettikiusaaminen -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/nettikiusaaminen</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Sovellushankinnat -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/sovellushankinnat</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Henkilötietojen suojaus -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/henkilotietojen-suojaus</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Verkkopankin turvallisuus -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/verkkopankin-turvallisuus</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Luottokortin suojaus -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/luottokortin-suojaus</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Henkilötunnuksen suojaus -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/henkilotunnuksen-suojaus</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Passin suojaus -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/passin-suojaus</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Ajokortin suojaus -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/ajokortin-suojaus</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Pankkikortin suojaus -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/pankkikortin-suojaus</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Henkilökohtaisten tietojen suojaus -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/henkilokohtaisten-tietojen-suojaus</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Tietoturvapalvelut -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/tietoturvapalvelut</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Suojauspalvelut -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/suojauspalvelut</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Verkkohuijauksen estäminen -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/verkkohuijauksen-estaminen</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Salasanan hallinta -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/salasanan-hallinta</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Salasanan generointi -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/salasanan-generointi</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Salasanan vahvistus -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/salasanan-vahvistus</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Salasanan tarkistus -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/salasanan-tarkistus</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Salasanan turvallisuus -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/salasanan-turvallisuus</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Salasanan hallinta -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/salasanan-hallinta-2</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Salasanan generointi 2 -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/salasanan-generointi-2</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Salasanan vahvistus 2 -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/salasanan-vahvistus-2</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Salasanan tarkistus 2 -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/salasanan-tarkistus-2</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Salasanan suojaus 2 -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/salasanan-suojaus-2</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Salasanan turvallisuus 2 -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/salasanan-turvallisuus-2</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Tietosuojaseloste -->
+  <url>
+    <loc>https://omaverkkoturva.fi/tietosuojaseloste</loc>
+    <lastmod>2025-01-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  
+  <!-- Irtisanomislomake -->
+  <url>
+    <loc>https://omaverkkoturva.fi/irtisanomislomake</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
 </urlset>
