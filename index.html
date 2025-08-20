@@ -21,6 +21,28 @@
     
     <!-- Robots and Indexing -->
     <meta name="robots" content="noindex, nofollow" />
+    
+    <!-- SPA Routing Fix for GitHub Pages -->
+    <script>
+      // Tämä korjaa SPA reitityksen GitHub Pages:ssa
+      // Kaikki reitit ohjataan portaalin etusivulle
+      (function(){
+        let redirect = function() {
+          var path = window.location.pathname;
+          if (path !== '/' && path !== '/index.html') {
+            window.location.href = '/';
+          }
+        };
+        
+        // Ohjaa heti jos ei ole etusivulla
+        if (window.location.pathname !== '/') {
+          redirect();
+        }
+        
+        // Ohjaa myös jos sivu ladataan uudelleen
+        window.addEventListener('load', redirect);
+      })();
+    </script>
     <script type="module" crossorigin src="/assets/main-DzE7QevD.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/main-XiwUv34M.css">
   </head>
