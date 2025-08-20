@@ -6,7 +6,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ShoppingCartProvider } from "@/contexts/ShoppingCartContext";
-import AuthGuard from "@/components/AuthGuard";
+import PortalAuthGuard from "@/components/PortalAuthGuard";
 import PortalLogin from "./pages/PortalLogin";
 import Dashboard from "./pages/Dashboard";
 import AdminPortal from "./pages/AdminPortal";
@@ -28,7 +28,7 @@ const PortalApp = () => {
             <Toaster />
             <Sonner />
             <HashRouter>
-              <AuthGuard>
+              <PortalAuthGuard>
                 <Routes>
                   {/* Portaalin etusivu - kirjautumissivu */}
                   <Route path="/" element={<PortalLogin />} />
@@ -45,7 +45,7 @@ const PortalApp = () => {
                   {/* 404 sivu */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
-              </AuthGuard>
+              </PortalAuthGuard>
             </HashRouter>
           </TooltipProvider>
         </ShoppingCartProvider>
