@@ -13,7 +13,15 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'index-portal.html'),
       },
+      output: {
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
+        // Nimeä index-portal.html index.html:ksi
+        manualChunks: undefined,
+      },
     },
+    outDir: 'dist',
   },
   resolve: {
     alias: {
