@@ -15,6 +15,7 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
   const publicRoutes = [
     '/',
     '/confirm-order',
+    '/vahvista-tilaus',
     '/login',
     '/auth/callback',
     '/about',

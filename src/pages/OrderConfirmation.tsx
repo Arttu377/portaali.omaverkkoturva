@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { supabase } from '@/integrations/supabase/client';
 import { CheckCircle, XCircle, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -33,20 +32,10 @@ const OrderConfirmation = () => {
 
   const confirmOrder = async () => {
     try {
-      // Get current session token
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        console.error('No active session');
-        setError('Ei aktiivista istuntoa');
-        setLoading(false);
-        return;
-      }
-
       const response = await fetch('https://fsirlcxhtyppecjjdqbp.supabase.co/functions/v1/confirm-order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${session.access_token}`
         },
         body: JSON.stringify({ confirmation_token: token }),
       });
