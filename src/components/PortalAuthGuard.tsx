@@ -14,6 +14,8 @@ const PortalAuthGuard: React.FC<PortalAuthGuardProps> = ({ children }) => {
   // HashRouter käyttää hash-reititystä, joten pathname on aina "/"
   // Käytetään hash:ia tai location.pathname + location.hash
   const currentPath = location.pathname === '/' && location.hash ? location.hash.slice(1) : location.pathname;
+  
+  // Julkiset reitit: vain etusivu (kirjautumissivu)
   const isPublicRoute = currentPath === '' || currentPath === '/';
 
   console.log('PortalAuthGuard - user:', user, 'loading:', loading);
@@ -24,11 +26,19 @@ const PortalAuthGuard: React.FC<PortalAuthGuardProps> = ({ children }) => {
 
   useEffect(() => {
     if (!loading) {
+      // Jos ei ole kirjautunut ja yrittää päästä suojattuun reittiin
       if (!user && !isPublicRoute) {
         console.log('PortalAuthGuard: Ei käyttäjää, ohjataan etusivulle');
         navigate('/', { replace: true });
-      } else if (user && currentPath.startsWith('/admin') && !isAdmin) {
+      } 
+      // Jos on kirjautunut ja yrittää päästä admin-reittiin ilman oikeuksia
+      else if (user && currentPath.startsWith('/admin') && !isAdmin) {
         console.log('PortalAuthGuard: Ei admin-oikeuksia, ohjataan dashboardille');
+        navigate('/dashboard', { replace: true });
+      }
+      // Jos on kirjautunut ja on kirjautumissivulla, ohjaa dashboardille
+      else if (user && isPublicRoute) {
+        console.log('PortalAuthGuard: Käyttäjä kirjautunut ja etusivulla, ohjaa dashboardille');
         navigate('/dashboard', { replace: true });
       }
     }
@@ -45,11 +55,16 @@ const PortalAuthGuard: React.FC<PortalAuthGuardProps> = ({ children }) => {
     );
   }
 
-  if (isPublicRoute || user) {
+  // Näytä sisältö jos:
+  // 1. Julkinen reitti (kirjautumissivu) JA ei käyttäjää
+  // 2. Suojattu reitti JA on käyttäjää
+  if ((isPublicRoute && !user) || (!isPublicRoute && user)) {
     console.log('PortalAuthGuard: Näytetään sisältö - isPublicRoute:', isPublicRoute, 'user:', !!user);
     return <>{children}</>;
   }
 
+  // Ei näytä mitään kun ohjataan
+  console.log('PortalAuthGuard: Ei näytetä mitään, ohjataan...');
   return null;
 };
 
