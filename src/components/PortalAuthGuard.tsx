@@ -20,12 +20,6 @@ const PortalAuthGuard: React.FC<PortalAuthGuardProps> = ({ children }) => {
   console.log('PortalAuthGuard - location:', location.pathname);
   console.log('PortalAuthGuard - isPublicRoute:', isPublicRoute);
 
-  // VÄLIAIKAINEN: Näytä kaikki sisältö ilman autentikaatiotarkistusta
-  console.log('PortalAuthGuard: Näytetään kaikki sisältö (väliaikainen)');
-  return <>{children}</>;
-
-  // ALKUPERÄINEN KOODI (kommentoitu pois):
-  /*
   useEffect(() => {
     console.log('PortalAuthGuard useEffect - user:', user, 'loading:', loading, 'path:', location.pathname);
     
@@ -64,7 +58,6 @@ const PortalAuthGuard: React.FC<PortalAuthGuardProps> = ({ children }) => {
   // Ei näytä mitään kun ohjataan kirjautumiseen
   console.log('PortalAuthGuard: Ei näytetä mitään');
   return null;
-  */
 };
 
 export default PortalAuthGuard;

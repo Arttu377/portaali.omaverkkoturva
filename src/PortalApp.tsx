@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ShoppingCartProvider } from "@/contexts/ShoppingCartContext";
@@ -27,7 +27,7 @@ const PortalApp = () => {
           <TooltipProvider>
             <Toaster />
             <Sonner />
-            <HashRouter>
+            <BrowserRouter>
               <PortalAuthGuard>
                 <Routes>
                   {/* Portaalin etusivu - kirjautumissivu */}
@@ -46,7 +46,7 @@ const PortalApp = () => {
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </PortalAuthGuard>
-            </HashRouter>
+            </BrowserRouter>
           </TooltipProvider>
         </ShoppingCartProvider>
       </AuthProvider>
