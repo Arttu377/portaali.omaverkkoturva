@@ -47,23 +47,34 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
     return location.pathname === route || location.pathname.startsWith(route + '/');
   });
 
+  // Debug lokit
+  console.log('AuthGuard - location.pathname:', location.pathname);
+  console.log('AuthGuard - isPublicRoute:', isPublicRoute);
+  console.log('AuthGuard - user:', user);
+  console.log('AuthGuard - loading:', loading);
+
   useEffect(() => {
     if (!loading) {
       if (!user && !isPublicRoute) {
+        console.log('AuthGuard: Ei käyttäjää ja ei julkinen reitti, ohjaa kirjautumiseen');
         // Jos ei ole kirjautunut ja sivu ei ole julkinen, ohjaa kirjautumiseen
         navigate('/login', { 
           state: { from: location.pathname },
           replace: true 
         });
       } else if (user && location.pathname.startsWith('/admin') && !isAdmin) {
+        console.log('AuthGuard: Ei admin-oikeuksia, ohjaa dashboardille');
         // Estä pääsy admin-sivulle ilman admin-oikeuksia
         navigate('/dashboard', { replace: true });
+      } else {
+        console.log('AuthGuard: Näytetään sisältö - julkinen reitti tai kirjautunut käyttäjä');
       }
     }
   }, [user, loading, navigate, location, isPublicRoute, isAdmin]);
 
   // Jos ladataan, näytä loading
   if (loading) {
+    console.log('AuthGuard: Ladataan...');
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -76,10 +87,12 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
 
   // Jos julkinen sivu tai kirjautunut käyttäjä, näytä sisältö
   if (isPublicRoute || user) {
+    console.log('AuthGuard: Näytetään sisältö - isPublicRoute:', isPublicRoute, 'user:', !!user);
     return <>{children}</>;
   }
 
   // Ei näytä mitään kun ohjataan kirjautumiseen
+  console.log('AuthGuard: Ei näytetä mitään, ohjataan...');
   return null;
 };
 
