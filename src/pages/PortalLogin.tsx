@@ -20,15 +20,23 @@ const PortalLogin = () => {
     e.preventDefault();
     setLoading(true);
     
+    console.log('PortalLogin: Yritetään kirjautua sisään...');
+    
     const { error } = await signIn(email, password);
     
     if (!error) {
+      console.log('PortalLogin: Kirjautuminen onnistui, ohjataan dashboardille...');
       // Kirjautuminen onnistui, ohjaa dashboardille
       navigate('/dashboard');
+      console.log('PortalLogin: navigate() kutsuttu');
+    } else {
+      console.log('PortalLogin: Kirjautuminen epäonnistui:', error);
     }
     
     setLoading(false);
   };
+
+  console.log('PortalLogin: Render - email:', email, 'loading:', loading);
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -69,11 +77,11 @@ const PortalLogin = () => {
               <div className="relative">
                 <Input
                   id="password"
-                  type={showPassword ? 'text' : 'password'}
+                  type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Kirjoita salasanasi"
-                  className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
                 <button

@@ -1,140 +1,121 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import { Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { Home, ShoppingCart, Package, LogOut, Shield } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
+import { ShoppingCart, Package, Shield, User, LogOut } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const Dashboard = () => {
-  const { user, loading, signOut, isAdmin } = useAuth();
+  const { user, signOut, isAdmin } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
-      </div>
-    );
-  }
+  // Debug lokit
+  console.log('Dashboard: Render - user:', user, 'location:', location.pathname);
 
-  if (!user) {
-    return <Navigate to="/" replace />;
-  }
+  useEffect(() => {
+    console.log('Dashboard: useEffect - user:', user, 'location:', location.pathname);
+  }, [user, location]);
 
   const handleSignOut = async () => {
     await signOut();
+    navigate('/');
   };
 
+  if (!user) {
+    console.log('Dashboard: Ei käyttäjää, ohjataan etusivulle');
+    navigate('/');
+    return null;
+  }
+
+  console.log('Dashboard: Näytetään dashboard sisältö');
+
   return (
-    <div className="min-h-screen bg-gray-50 flex">
-      {/* Left Sidebar */}
-      <div className="w-64 bg-white shadow-lg">
-        <div className="p-6">
-          <h2 className="text-xl font-bold text-gray-800 mb-8">OmaVerkkoturva</h2>
-          
-          {/* Navigation Items */}
-          <nav className="space-y-2">
-            {/* Etusivu */}
-            <button 
-              onClick={() => navigate('/dashboard')}
-              className="w-full flex items-center space-x-3 px-4 py-3 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
-            >
-              <Home className="w-5 h-5" />
-              <span className="font-medium">Hallintapaneeli</span>
-            </button>
-
-            {/* Verkkokauppa */}
-            <button 
-              onClick={() => navigate('/portaalin-verkkokauppa')}
-              className="w-full flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
-            >
-              <ShoppingCart className="w-5 h-5" />
-              <span className="font-medium">Verkkokauppa</span>
-            </button>
-
-            {/* Tilaukseni */}
-            <button 
-              onClick={() => navigate('/tilaukset')}
-              className="w-full flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
-            >
-              <Package className="w-5 h-5" />
-              <span className="font-medium">Tilaukseni</span>
-            </button>
-
-            {/* Ylläpito (vain admin) */}
-            {isAdmin && (
-              <button 
-                onClick={() => navigate('/admin')}
-                className="w-full flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <h1 className="text-2xl font-bold text-gray-900">Portaali</h1>
+            <div className="flex items-center space-x-4">
+              <span className="text-sm text-gray-600">
+                Kirjautunut: {user.email}
+              </span>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleSignOut}
+                className="flex items-center space-x-2"
               >
-                <Shield className="w-5 h-5" />
-                <span className="font-medium">Ylläpito</span>
-              </button>
-            )}
-
-            {/* Kirjaudu ulos */}
-            <button 
-              onClick={handleSignOut}
-              className="w-full flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors mt-8"
-            >
-              <LogOut className="w-5 h-5" />
-              <span className="font-medium">Kirjaudu ulos</span>
-            </button>
-          </nav>
-        </div>
-      </div>
-
-      {/* Main Content Area */}
-      <div className="flex-1 bg-white">
-        <div className="p-8">
-          {/* Main Heading */}
-          <h1 className="text-3xl font-bold text-gray-800 mb-8">Hallintapaneeli</h1>
-          
-          {/* Information Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Etusivu Card */}
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer" onClick={() => navigate('/dashboard')}>
-              <div className="flex items-center space-x-3">
-                <Home className="w-8 h-8 text-blue-600" />
-                <span className="font-medium text-gray-800">Hallintapaneeli</span>
-              </div>
+                <LogOut className="w-4 h-4" />
+                <span>Kirjaudu ulos</span>
+              </Button>
             </div>
-
-            {/* Verkkokauppa Card */}
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer" onClick={() => navigate('/portaalin-verkkokauppa')}>
-              <div className="flex items-center space-x-3">
-                <ShoppingCart className="w-8 h-8 text-green-600" />
-                <span className="font-medium text-gray-800">Verkkokauppa</span>
-              </div>
-            </div>
-
-            {/* Tilaukseni Card */}
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer" onClick={() => navigate('/tilaukset')}>
-              <div className="flex items-center space-x-3">
-                <Package className="w-8 h-8 text-purple-600" />
-                <span className="font-medium text-gray-800">Tilaukseni</span>
-              </div>
-            </div>
-
-            {/* Kirjaudu ulos Card */}
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer" onClick={handleSignOut}>
-              <div className="flex items-center space-x-3">
-                <LogOut className="w-8 h-8 text-red-600" />
-                <span className="font-medium text-gray-800">Kirjaudu ulos</span>
-              </div>
-            </div>
-
-            {/* Ylläpito Card (vain admin) */}
-            {isAdmin && (
-              <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer" onClick={() => navigate('/admin')}>
-                <div className="flex items-center space-x-3">
-                  <Shield className="w-8 h-8 text-indigo-600" />
-                  <span className="font-medium text-gray-800">Ylläpito</span>
-                </div>
-              </div>
-            )}
           </div>
         </div>
-      </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Dashboard Cards */}
+          <div className="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow">
+            <div className="flex items-center">
+              <div className="p-2 bg-blue-100 rounded-lg">
+                <ShoppingCart className="w-6 h-6 text-blue-600" />
+              </div>
+              <div className="ml-4">
+                <h3 className="text-lg font-medium text-gray-900">Verkkokauppa</h3>
+                <p className="text-sm text-gray-500">Tee uusi tilaus</p>
+              </div>
+            </div>
+            <Button 
+              className="w-full mt-4"
+              onClick={() => navigate('/verkkokauppa')}
+            >
+              Siirry verkkokauppaan
+            </Button>
+          </div>
+
+          <div className="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow">
+            <div className="flex items-center">
+              <div className="p-2 bg-green-100 rounded-lg">
+                <Package className="w-6 h-6 text-green-600" />
+              </div>
+              <div className="ml-4">
+                <h3 className="text-lg font-medium text-gray-900">Tilaukset</h3>
+                <p className="text-sm text-gray-500">Katso tilauksesi</p>
+              </div>
+            </div>
+            <Button 
+              className="w-full mt-4"
+              onClick={() => navigate('/tilaukset')}
+            >
+              Katso tilaukset
+            </Button>
+          </div>
+
+          {isAdmin && (
+            <div className="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow">
+              <div className="flex items-center">
+                <div className="p-2 bg-purple-100 rounded-lg">
+                  <Shield className="w-6 h-6 text-purple-600" />
+                </div>
+                <div className="ml-4">
+                  <h3 className="text-lg font-medium text-gray-900">Ylläpito</h3>
+                  <p className="text-sm text-gray-500">Hallitse käyttäjiä ja tilauksia</p>
+                </div>
+              </div>
+              <Button 
+                className="w-full mt-4"
+                onClick={() => navigate('/admin')}
+              >
+                Siirry ylläpitoon
+              </Button>
+            </div>
+          )}
+        </div>
+      </main>
     </div>
   );
 };
