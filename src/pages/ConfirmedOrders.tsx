@@ -170,7 +170,7 @@ const ConfirmedOrders = () => {
 
             {/* Verkkokauppa */}
             <button
-              onClick={() => navigate('/portaalin-verkkokauppa')}
+              onClick={() => navigate('/verkkokauppa')}
               className="w-full flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
             >
               <ShoppingCart className="w-5 h-5" />
@@ -256,7 +256,7 @@ const ConfirmedOrders = () => {
                 <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Ei vahvistettuja tilauksia</h3>
                 <p className="text-gray-600 mb-4">Kaikki tilaukset odottavat vielä vahvistusta tai ei ole tilauksia.</p>
-                <Button onClick={() => navigate('/portaalin-verkkokauppa')}>
+                <Button onClick={() => navigate('/verkkokauppa')}>
                   Siirry verkkokauppaan
                 </Button>
               </CardContent>

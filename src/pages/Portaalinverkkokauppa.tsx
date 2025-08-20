@@ -89,7 +89,7 @@ const Portaalinverkkokauppa = () => {
 
               {/* Verkkokauppa - aktiivinen */}
               <button 
-                onClick={() => navigate('/portaalin-verkkokauppa')}
+                onClick={() => navigate('/verkkokauppa')}
                 className="w-full flex items-center space-x-3 px-4 py-3 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
               >
                 <ShoppingCart className="w-5 h-5" />
