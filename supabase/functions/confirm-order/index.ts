@@ -7,60 +7,23 @@ const corsHeaders = {
 }
 
 serve(async (req) => {
-  // Handle CORS preflight requests
+  // CORS preflight
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
   }
 
   try {
-    // Check authorization header
-    const authHeader = req.headers.get('authorization')
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: 'Missing authorization header'
-        }),
-        {
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-          status: 401,
-        }
-      )
-    }
-
-    const token = authHeader.replace('Bearer ', '')
-    
-    // Verify token with Supabase
-    const supabaseUrl = Deno.env.get('SUPABASE_URL')!
-    const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY')!
-    const supabaseAuth = createClient(supabaseUrl, supabaseAnonKey)
-    
-    const { data: { user }, error: authError } = await supabaseAuth.auth.getUser(token)
-    
-    if (authError || !user) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: 'Invalid or expired token'
-        }),
-        {
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-          status: 401,
-        }
-      )
-    }
-
     const { confirmation_token } = await req.json()
-
     if (!confirmation_token) {
       throw new Error('Confirmation token is required')
     }
 
-    // Create Supabase client for database operations
+    // Use service role to allow public confirmation without auth
+    const supabaseUrl = Deno.env.get('SUPABASE_URL')!
     const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
     const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
-    // Find order by confirmation token
+    // Find order by token
     const { data: order, error: findError } = await supabase
       .from('orders')
       .select('*')
@@ -72,13 +35,10 @@ serve(async (req) => {
       throw new Error('Invalid or expired confirmation token')
     }
 
-    // Update order status to confirmed
+    // Confirm order
     const { data: updatedOrder, error: updateError } = await supabase
       .from('orders')
-      .update({
-        status: 'confirmed',
-        confirmed_at: new Date().toISOString()
-      })
+      .update({ status: 'confirmed', confirmed_at: new Date().toISOString() })
       .eq('id', order.id)
       .select()
       .single()
@@ -88,7 +48,6 @@ serve(async (req) => {
       throw new Error('Failed to confirm order')
     }
 
-    // Return success response
     return new Response(
       JSON.stringify({
         success: true,
@@ -97,24 +56,14 @@ serve(async (req) => {
         customer_name: `${updatedOrder.customer_first_name} ${updatedOrder.customer_last_name}`,
         customer_email: updatedOrder.customer_email
       }),
-      {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        status: 200,
-      }
+      { headers: { ...corsHeaders, 'Content-Type': 'application/json' }, status: 200 }
     )
 
   } catch (error) {
     console.error('Error in confirm-order function:', error)
-    
     return new Response(
-      JSON.stringify({
-        success: false,
-        error: error.message || 'Internal server error'
-      }),
-      {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        status: 400,
-      }
+      JSON.stringify({ success: false, error: (error as any).message || 'Internal server error' }),
+      { headers: { ...corsHeaders, 'Content-Type': 'application/json' }, status: 400 }
     )
   }
 })
