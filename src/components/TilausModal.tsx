@@ -100,7 +100,7 @@ const TilausModal = ({ isOpen, onClose }: TilausModalProps) => {
 
       if (result.success) {
         // Lähetetään vahvistusviesti asiakkaalle
-        const confirmationUrl = `${window.location.origin}/#/vahvista-tilaus/${result.confirmation_token}`;
+        const confirmationUrl = `https://omaverkkoturva.fi/vahvista-tilaus/${result.confirmation_token}`;
         
         const templateParams = {
           subject: 'Tervetuloa OmaVerkkoturva-palveluun!',

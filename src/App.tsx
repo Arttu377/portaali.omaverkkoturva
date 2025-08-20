@@ -55,6 +55,8 @@ const App = () => {
                 <Route path="/confirm-order/:token" element={<ConfirmOrder />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/auth/callback" element={<AuthCallback />} />
+                {/* Julkinen vahvistusreititys vanhalle ja uudelle polulle */}
+                <Route path="/vahvista-tilaus/:token" element={<OrderConfirmation />} />
                 
                 {/* Suojatut sivut (vaativat kirjautumisen) */}
                 <Route path="/" element={<Index />} />
@@ -82,7 +84,6 @@ const App = () => {
                 <Route path="/tilaukset" element={<OrderOverview />} />
                 <Route path="/tilaukset/vahvistamattomat" element={<UnconfirmedOrders />} />
                 <Route path="/tilaukset/vahvistetut" element={<ConfirmedOrders />} />
-                <Route path="/vahvista-tilaus/:token" element={<OrderConfirmation />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </AuthGuard>

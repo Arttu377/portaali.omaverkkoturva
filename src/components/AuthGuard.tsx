@@ -37,6 +37,9 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
     if (route === '/confirm-order') {
       return location.pathname.startsWith('/confirm-order/');
     }
+    if (route === '/vahvista-tilaus') {
+      return location.pathname.startsWith('/vahvista-tilaus/');
+    }
     if (route === '/blog') {
       return location.pathname.startsWith('/blog');
     }
