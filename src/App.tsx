@@ -56,6 +56,7 @@ const App = () => {
                 <Route path="/confirm-order/:token" element={<ConfirmOrder />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/portal" element={<PortalLogin />} />
+                <Route path="/portal/login" element={<PortalLogin />} />
                 <Route path="/auth/callback" element={<AuthCallback />} />
                 
                 {/* Suojatut sivut (vaativat kirjautumisen) */}
